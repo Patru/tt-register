@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tournament_id: 
+  licence: 
+  name: MyString
+  email: MyString
+  token: MyString
+
+two:
+  tournament_id: 
+  licence: 
+  name: MyString
+  email: MyString
+  token: MyString

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tournament_id: 1
+  day: 2010-02-20
+  max_inscriptions: 320
+
+two:
+  tournament_id: 1
+  day: 2010-02-21
+  max_inscriptions: 550

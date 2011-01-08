@@ -1,0 +1,24 @@
+<h1>Listing quarks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Price</th>
+  </tr>
+
+<% for quark in @quarks %>
+  <tr>
+    <td><%=h quark.name %></td>
+    <td><%=h quark.age %></td>
+    <td><%=h quark.price %></td>
+    <td><%= link_to 'Show', quark %></td>
+    <td><%= link_to 'Edit', edit_quark_path(quark) %></td>
+    <td><%= link_to 'Destroy', quark, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New quark', new_quark_path %>

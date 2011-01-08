@@ -1,0 +1,18 @@
+Hallo <%=@new_admin.name%>
+
+<%if @admin%>
+<%=@admin.name%> hat für dich ein Administrationskonto für die Turnierapplikation erstellt
+<%else%>
+Für dich wurde ein Administrationskonto für die Turnierapplikation erstellt
+<%end%>
+Bitte klicke auf den folgenden Link
+
+<%= url_for(:host=>@host, :controller => "admins", :action=>"login")%>/<%= @new_admin.token %>
+
+um dich einzuloggen.
+
+Das benötige Login-Passwort erhältst du mit einer separaten Email.
+
+Herzliche Grüsse
+
+das YSZ-Competition Team

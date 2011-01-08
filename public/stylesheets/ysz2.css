@@ -1,0 +1,157 @@
+body
+{
+    background-color:#fff020;
+    font-family:sans-serif;
+    font-size:12pt;
+}
+a
+{
+    text-decoration:none;
+    color:#0000cc;
+}
+a:link
+{
+    text-decoration:none;
+    color:#0000cc;
+}
+a:active
+{
+    text-decoration:underline;
+    color:#0000cc;
+}
+a:hover
+{
+    text-decoration:underline;
+}
+a:visited
+{
+    text-decoration:none;
+    color:#0000cc;
+}
+ul
+{
+    list-style-type:none;
+    margin-left:0px;
+    font-size:11pt;
+    padding-left:0px;
+}
+ul li ul li
+{
+    padding-left:10px;
+    border-bottom-style:dotted;
+    border-width:1px;
+    padding-top:1px;
+}
+ul li ul li:nth-of-type(odd)
+{
+    background-color:#fff020;
+}
+ul li ul li:hover
+{
+    /*background-color:#ffdf44;*/
+    background-color:#bbbbff;
+}
+#tournament_header 
+{
+    height:102px;
+    padding-left:20px;
+}
+#header_logo
+{
+    float:left;
+}
+#header_text
+{
+    text-align:center;
+}
+#header_text p
+{
+    text-align:right;
+}
+#heading
+{
+    text-align:center;
+}
+#heading h1
+{
+    margin:0px;
+    font-size:14pt;
+}
+#navigation
+{
+    float: right;
+    width: 135px;
+    padding:5px;
+    clear: right;
+    background-color:#ffffa0;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+}
+#maincontent
+{
+    background-color:#ffffff;
+    margin: 0px 150px 0px 20px;
+    clear: left;
+    height:100%;
+    padding: 10px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+}
+.notice
+{   
+    border-width:1px;
+    border-style:dashed;
+    border-radius:2px;
+    -o-border-radius:2px;
+    -webkit-border-radius:2px;
+    margin-left:20px;
+    background-color:#ffffff;
+}
+#menu
+{
+    margin-left:20px;
+    position:relative;
+    top:10px;
+}
+.context
+{
+    float:left;
+}
+.context a:hover
+{
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    background-color:#aaaaff;
+}
+.standard
+{
+    float:right;
+}
+.standard a:hover
+{
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    background-color:#aaaaff;
+}
+.standard li
+{
+    float:left;
+}
+input
+{
+    margin-left:10px;
+    margin-right:5px;
+}
+.forbidden_series
+{
+    color:#aaaaaa;
+}
+.footer
+{
+    font-size:10pt;
+    text-align:right;
+}

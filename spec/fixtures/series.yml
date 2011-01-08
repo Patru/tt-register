@@ -1,0 +1,49 @@
+# sample series
+wa20:
+  series_name: WA20
+  long_name: Damen A20
+  min_ranking: 1
+  max_ranking: 20
+  category:
+  sex: W
+
+wb12:
+  series_name: WB12
+  long_name: Damen B12
+  min_ranking: 1
+  max_ranking: 12
+  category:
+  sex: W
+
+md5:
+  series_name: MD5
+  long_name: Herren D5
+  min_ranking: 1
+  max_ranking: 5
+  category:
+  sex: 
+  
+mb12:
+  series_name: MB12
+  long_name: Herren B12
+  min_ranking: 1
+  max_ranking: 12
+  category:
+  sex: 
+  
+ma20:
+  series_name: MA20
+  long_name: Herren A20
+  min_ranking: 1
+  max_ranking: 20
+  category:
+  sex: M
+  
+u13:
+  series_name: U13
+  long_name: U 13
+  min_ranking: 1
+  max_ranking: 20
+  category: U13
+  sex: 
+ 

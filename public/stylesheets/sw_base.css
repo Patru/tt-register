@@ -1,0 +1,181 @@
+body {
+  font-family: sans-serif;
+}
+h1 {
+  text-align:center;
+  color:black;
+  font-size:18pt;
+}
+p.footer {
+  padding-top: 20px;
+  text-align:right;
+  font-size:80%;
+}
+
+div.commercial {
+    float: left;
+    width: 50%;
+}
+a {
+    text-decoration:none;
+    color:#0000cc;
+}
+a:link {
+    text-decoration:none;
+    color:#0000cc;
+}
+a:active {
+    text-decoration:underline;
+    color:#0000cc;
+}
+a:hover {
+    text-decoration:underline;
+}
+a:visited {
+    text-decoration:none;
+    color:#0000cc;
+}
+
+*.series {
+	padding-left:10px;
+	color: #0000ff
+}
+
+*.forbidden_series {
+	padding-left:10px;
+	color: #aaaaaa
+}
+
+*.label {
+  text-align:right;
+  font-weight:bold;
+}
+
+*.select_item:hover {
+	background: #ddeeff
+}
+
+div#maincontent {
+    margin: 0px 150px 0px 0px;
+    padding-top: 1em;
+    clear: left;
+}
+div#heading {
+    clear: both;
+    background-color: #f5f5f5;
+    margin: -21px 0px 0px 0px;
+}
+div#menu {
+    background-color: #f0f8f8;
+    margin-top: -21px;
+}
+div#menu ul.context {
+    text-align: left;
+    float: left;
+    margin-top: 0px;
+    padding-left: 0.5em;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+div#menu ul.standard {
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+div#menu li {
+    display: inline;
+    list-style-type: none;
+    line-height: 24px;
+    margin-right: 0.7em;
+}
+div#menu li:hover {
+    display: inline;
+    list-style-type: none;
+    background-color: #a0f8f8;
+}
+
+div#menu a {
+    text-decoration:none;
+    vertical-align:top;
+    padding-left: 2px
+}
+div#menu a:hover {
+    background-color: #a0f8f8;
+    color: #0000f8;
+    vertical-align:top;
+}
+div#menu a:active {
+    color: #00c800;
+    vertical-align:top;
+}
+
+div#menu span.menu_text {
+    color:red;
+    padding-top:5px;
+    margin-top:5px;
+}
+div#menu img.menu_icon {
+    vertical-align: middle;
+}
+div.notice {
+    background: #f0f838;
+    color: #108f10;
+    margin: 0px 145px 0px 0px;
+}
+
+div.errorExplanation {
+    background: #f0f838;
+    color: #8f1010;
+    margin: 0px 145px 0px 0px;
+}
+
+.fieldWithErrors {
+  padding: 1px;
+  background-color: red;
+  display: table;
+}
+
+div#navigation {
+    clear: right;
+    float: right;
+    width: 135px;
+    padding: 5px;
+    background: #ffffa0;
+}
+
+div#navigation ul {
+	list-style-type: none;
+}
+	
+div#navigation ul li {
+	display: block;
+	border-width: thin;
+	border-top: thin;
+	margin: 1px 1px 2px -30px;
+}
+div#navigation ul li ul li a {
+	display: block;
+	border-bottom: dotted;
+	border-width: thin;
+	border-top: thin;
+	color:#2020e0;
+	text-decoration:none
+}
+div#navigation ul li ul li a:hover {
+	display: block;
+	border-bottom: solid;
+	border-width: thin;
+	border-top: thin;
+	background:#ffff20;
+}
+div#navigation ul li ul li a:visited {
+	display: block;
+	color: #6060ff
+}
+div#navigation ul li ul li a:active {
+    display: block;
+    color: #202000;
+    background:#ffe020;
+}
+	

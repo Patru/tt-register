@@ -1,0 +1,3 @@
+class Views::Player
+  
+end

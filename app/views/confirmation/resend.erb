@@ -1,0 +1,13 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Dein Link fürs Login ist
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+Mit einem Klick kannst du deine Anmeldungen verwalten, Spieler abmelden oder weitere erfassen.
+
+Bitte behalte diese Email bis zum Turnier, der Link bleibt so lange aktiv.
+
+Herzliche Grüsse
+
+das YSZ-Competition Team

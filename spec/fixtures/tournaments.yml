@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tour_id: ZhOpen
+  name: Zürich Open
+  info_link: http://www.ttvz.ch
+  organiser: TTVZ
+#
+two:
+  tour_id: YSZC
+  name: Young Stars Zürich Competition
+  info_link: http://www.ysz.ch
+  organiser: YSZ

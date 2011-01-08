@@ -1,0 +1,3 @@
+class Views::Tournament
+  
+end

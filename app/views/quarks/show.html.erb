@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @quark.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @quark.age %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @quark.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_quark_path(@quark) %> |
+<%= link_to 'Back', quarks_path %>

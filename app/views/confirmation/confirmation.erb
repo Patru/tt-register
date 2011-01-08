@@ -1,0 +1,19 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Herzlichen Dank für die Benutzung der Anmelde-Applikation. Bitte klicke auf den folgenden Link
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+um deine Email-Adresse zu bestätigen und deine sowie weitere Anmeldungen zu erfassen.
+
+Bitte behalte diese Email bis zum Turnier, denn damit kannst du rasch zusätzliche An- oder Abmeldungen erfassen, der Link bleibt so lange aktiv.
+
+Herzliche Grüsse
+
+das YSZ-Competition Team
+
+P.S.: Leider wird die Altersklasse U21 von der ZR des STT nicht geführt,
+die Teilnahme kann deshalb nur U18 und jüngeren Spielern automatisch angeboten
+werden. Falls du zwischen 18 und 21 bist oder einen entsprechenden Spieler
+anmelden möchtest, so schicke bitte eine Antwort auf diese Email mit dem
+Namen des Spielers, wir können dann seine Alterskategorie ändern.

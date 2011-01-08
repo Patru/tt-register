@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  inscription_player_id: 1
+  series_id: 1
+
+two:
+  inscription_player_id: 1
+  series_id: 1

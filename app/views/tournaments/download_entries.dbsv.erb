@@ -1,0 +1,6 @@
+TABLE Play_Series
+TournamentID, Licence, Series, setNumber, Partner
+<%  @play_series.each do |play_ser| -%>
+<%=   "'"+[@tournament.tour_id, play_ser.inscription_player.player.licence, play_ser.series.series_name, play_ser.series_rank, nil].join("', '")+"'" %>
+<%  end -%>
+<%- # no ticks in any of these fields, therefore no escaping necessary -%>

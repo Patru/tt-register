@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  licence: 1
+  name: MyString
+  first_name: MyString
+  club: MyString
+  ranking: 1
+  woman_ranking: 1
+
+two:
+  licence: 1
+  name: MyString
+  first_name: MyString
+  club: MyString
+  ranking: 1
+  woman_ranking: 1

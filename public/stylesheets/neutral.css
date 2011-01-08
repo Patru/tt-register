@@ -1,0 +1,55 @@
+div#tournament_header {
+  background: #ffff00;
+  margin: 0px 0px -10px 0px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:bold;
+  font-size:48px;
+}
+h1 { 
+  background: #ffffff;
+}
+
+div#navigation {
+	float: right;
+	width: 135px;
+	padding: 5px;
+	background: #aaaaaa;
+}
+
+div#navigation ul {
+	list-style-type: none;
+}
+	
+div#navigation ul li {
+	display: block;
+	border-width: thin;
+	border-top: thin;
+	margin: 1px 1px 2px -30px;
+}
+div#navigation ul li ul {
+	background: #dddddd;
+}
+div#navigation ul li ul li a.link {
+	display: block;
+	border-bottom: dotted;
+	border-width: thin;
+	border-top: thin;
+	color:#2020e0;
+	text-decoration:none
+}
+div#navigation ul li ul li a:visited {
+	display: block;
+	color: #6060ff
+}
+div#navigation ul li ul li a:hover {
+	display: block;
+	border-bottom: solid;
+	border-width: thin;
+	border-top: thin;
+	background:#eeeeee;
+}
+	div#navigation ul li ul li a:active {
+	display: block;
+	color: #202000;
+	background:#eeeeee;
+}

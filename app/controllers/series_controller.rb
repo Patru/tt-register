@@ -1,0 +1,99 @@
+class SeriesController < ApplicationController
+  before_filter :admin_required, :except => [:players]
+  layout=nil
+  # GET /series
+  # GET /series.xml
+  def index
+    @series = Series.find(:all, :order => "long_name", :include => [{:tournament_day => :tournament}])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @series }
+    end
+  end
+
+  # GET /series/1
+  # GET /series/1.xml
+  def show
+    @series = Series.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @series }
+    end
+  end
+
+  def players
+    @series = Series.find(params[:id], :include => {:inscription_players => :player})
+#    @inscription_players = @series.inscription_players.sort_by{|insc_player| -insc_player.send(@series.relevant_ranking)}
+    @play_series = @series.play_series.sort
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @series }
+    end
+  end
+
+  # GET /series/new
+  # GET /series/new.xml
+  def new
+    @series = Series.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @series }
+    end
+  end
+
+  # GET /series/1/edit
+  def edit
+    @series = Series.find(params[:id])
+  end
+
+  # POST /series
+  # POST /series.xml
+  def create
+    @series = Series.new(params[:series])
+    @series.normalize_start_time
+
+    respond_to do |format|
+      if @series.save
+        flash[:notice] = 'Serie erfolgreich erzeugt.'
+        format.html { redirect_to(@series) }
+        format.xml  { render :xml => @series, :status => :created, :location => @series }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @series.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /series/1
+  # PUT /series/1.xml
+  def update
+    @series = Series.find(params[:id])
+    
+    respond_to do |format|
+      if @series.update_attributes(params[:series])
+        flash[:notice] = 'Serie erfolgreich gespeichert.'
+        format.html { redirect_to(@series) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @series.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /series/1
+  # DELETE /series/1.xml
+  def destroy
+    @series = Series.find(params[:id])
+    @series.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(series_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

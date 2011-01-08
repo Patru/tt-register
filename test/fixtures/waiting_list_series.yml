@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  waiting_list_entry_id: 1
+  series_id: 1
+
+two:
+  waiting_list_entry_id: 1
+  series_id: 1

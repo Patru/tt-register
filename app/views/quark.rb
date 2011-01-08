@@ -1,0 +1,3 @@
+class Views::Quark
+  
+end

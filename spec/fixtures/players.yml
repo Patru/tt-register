@@ -1,0 +1,60 @@
+# sample players
+paul:
+  licence: 701726
+  name: Trunz
+  first_name: Paul
+  club: Young Stars ZH
+  ranking: 3
+  category: O40
+
+sandra:
+  licence: 700273
+  name: Busin
+  first_name: Sandra
+  club: Young Stars ZH
+  ranking: 13
+  woman_ranking: 16
+  category: O40
+
+pascal:
+  licence: 708113
+  name: Lichtin
+  first_name: Pascal
+  club: Young Stars ZH
+  ranking: 1
+  category: U15
+
+four:
+  licence: 908142
+  name: Pelz
+  first_name: Pekka
+  club: Neuhausen
+  ranking: 1
+  category: U11
+  
+otto:
+  licence: 702523
+  name: Trstenjak
+  first_name: Otto
+  club: Neuhausen
+  ranking: 10
+  category: O60
+
+anke:
+  licence: 709105
+  name: Pelz
+  first_name: Anke
+  club: Neuhausen
+  ranking: 8
+  woman_ranking: 13
+  category: 
+  
+tobias:
+  licence: 704093
+  name: Klee
+  first_name: Tobias
+  club: Neuhausen
+  ranking: 15
+  woman_ranking: 
+  category: 
+  

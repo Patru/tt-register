@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  series_name: MyString
+  tournament_id: 1
+  long_name: MyString
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 1
+  category: MyString
+  sex: MyString
+
+two:
+  series_name: MyString
+  tournament_id: 1
+  long_name: MyString
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 1
+  category: MyString
+  sex: MyString
