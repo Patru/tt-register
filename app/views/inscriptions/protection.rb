@@ -31,7 +31,7 @@ class Views::Inscriptions::Protection < Views::Inscriptions::Inscription
       text " von "
       link_to "STT", "http://www.sttv.ch"
       text " sie gelten deshalb als öffentlich. Auf dieser Seite sind sie nur für die Erfasser einer Einschreibung uneingeschränkt sichtbar. "
-      text "Öffentlich zugänglich ist lediglich die Liste der Teilnehmer aller Serien (Links auf der rechten Seite)."
+      text "Öffentlich zugänglich ist lediglich die Liste der Teilnehmer aller Serien (über die Links auf der rechten Seite)."
     end
   end
 end

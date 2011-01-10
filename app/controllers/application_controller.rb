@@ -53,6 +53,11 @@ protected
     flash[:error] = 'Admin-Login nicht möglich oder abgelaufen, bitte mit dem Link neu anmelden'
     redirect_to :controller => 'inscriptions', :action => 'new'
   end
+
+  def self.rand_str(len)
+    ary = Array.new(len) { rand(256) }
+    Base64.encode64(ary.pack('C*')).tr('+/','-_').chomp
+  end
 end
 
 class Hash
@@ -65,7 +70,6 @@ end
 
 class ActiveRecord::Base
   def rand_str(len)
-    ary = Array.new(len) { rand(256) }
-    Base64.encode64(ary.pack('C*')).tr('+/','-_').chomp
+    ApplicationController.rand_str(len)
   end
 end

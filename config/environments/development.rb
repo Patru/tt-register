@@ -14,7 +14,7 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 
 # make the HTML look pretty during development
 Erector::Widget.prettyprint_default = true
@@ -25,8 +25,9 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address => "mail.soft-werker.ch",
   :domain => "soft-werker.ch",
-  :user_name => "info@soft-werker.ch",
-  :password => "fdHAvSWm1lPgw",
-  :authentication => :login,
+  :port => 26,
+  :user_name => "info+soft-werker.ch",
+  :password => "dIadSWh1lPmvB",
+  :authentication => :plain,
 }
 

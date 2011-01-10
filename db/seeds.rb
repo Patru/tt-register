@@ -6,4 +6,4 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 tournaments = Tournament.create([{:name => 'Young Stars Zuerich Competition', :tour_id => 'YSZC'}])
-tournament_days = TournamentDay.crate([{:tournament_id => 1, :date => Date.civil(2010, 8, 28), :max_inscirptions => 320}])
+tournament_days = TournamentDay.create([{:tournament_id => 1, :date => Date.civil(2010, 8, 28), :max_inscirptions => 320}])

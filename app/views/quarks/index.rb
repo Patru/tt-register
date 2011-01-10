@@ -1,5 +1,5 @@
 class Views::Quarks::Index < Erector::Widget
-  def render
+  def content
     h1 do
       text 'Listing quarks'
     end

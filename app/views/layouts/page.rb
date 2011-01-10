@@ -100,7 +100,7 @@ class Views::Layouts::Page < Erector::Widget
   end
 
   # rename this to 'content' once you move to Rails >2.3 and erector >0.6
-  def render
+  def content
     rawtext doctype
     html(html_attributes) do
       head do

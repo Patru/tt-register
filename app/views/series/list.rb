@@ -6,8 +6,8 @@ class Views::Series::List < Erector::Widget
   
   @@columns = [:tournament_day_id, :series_name, :long_name, :start_time, :min_ranking, :max_ranking, :category, :sex]
 
-  def initialize(helpers=nil, assigns={}, output = "", &block)
-    super(helpers, assigns, output)
+  def initialize(assigns={}, &block)
+    super(assigns)
   end
 
   def self.default_url_options
@@ -25,7 +25,10 @@ class Views::Series::List < Erector::Widget
       td do
         text series.start_time_text
       end
-      data_fields(series, [:min_ranking, :max_ranking, :category, :sex])
+      td :align => "right" do
+        text series.min_ranking
+      end
+      data_fields(series, [:max_ranking, :category, :sex])
       td do
         link_to(eye_image, series, :title => "Details anzeigen")
       end
@@ -38,7 +41,7 @@ class Views::Series::List < Erector::Widget
     end
   end
   
-  def render
+  def content
     table do
       headers @@columns
       for series in @series do

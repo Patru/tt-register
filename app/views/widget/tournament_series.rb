@@ -75,7 +75,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
     end
   end
 
-  def render
+  def content
     determine_max_series
     selected_series_map
     h2 "#{@player.long_name}, #{@player.player_info}"

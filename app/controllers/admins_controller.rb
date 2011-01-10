@@ -63,7 +63,7 @@ class AdminsController < ApplicationController
         return
       end
     else
-      @admin = Admin.new(:token => rand_str(12))
+      @admin = Admin.new(:token => ApplicationController.rand_str(12))
     end
 
     respond_to do |format|

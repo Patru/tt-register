@@ -11,15 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100626015234) do
 
-  create_table "administrations", :force => true do |t|
-    t.string   "name"
-    t.string   "token"
-    t.string   "password"
-    t.integer  "tournament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "admins", :force => true do |t|
     t.string   "name"
     t.string   "salt"

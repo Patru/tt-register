@@ -6,10 +6,6 @@ class Views::Series::Index < Views::Series::Series
     'Liste der Serien'
   end
 
-  def page_menu
-    menu_list
-  end
-
   def menu_items
     menu_item new_series_path, "Neue Serie erfassen", new_image, "Neue Serie"
   end

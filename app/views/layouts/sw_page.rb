@@ -156,7 +156,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     end
     div :class => "copyright" do
       p :class => 'footer' do
-        text '© Patru, '+copy_year
+        text '© Soft-Werker, '+copy_year
       end
     end
   end
