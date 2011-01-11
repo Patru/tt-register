@@ -17,10 +17,10 @@ test:
 
 production:
   adapter: mysql
-  database: web35-tt-prod
-  username: web35-tt-prod
-  password: dPid1diimPv
-  host: patru.ch
+  database: p35548r0_ttregiste
+  username: p35548r0_ttregpr
+  password: 9G7Jsk0JmhXawO
+  host: soft-werker.ch
   pool: 5
   timeout: 5000
 
