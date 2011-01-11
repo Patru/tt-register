@@ -1,26 +1,32 @@
-set :application, "tt_tournament_register"
-set :repository,  "git@git.assembla.com:soft-werker-ttt.git"
-set :domain, "patru.ch/ttt"                           # The URL for your app
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+ssh_options[:username]="p35548r0"
+ssh_options[:forward_agent] = true
+set :application, "tt_register"
+set :repository,  "git@git.assembla.com:soft-werker-tt-register.git"
+set :domain, "tt.soft-werker.ch"                           # The URL for your app
 
 set :scm, 'git'
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-set :deploy_to, "/home/sites/patru.ch/ttt.dep"
+set :deploy_via, :remote_cache
+set :deploy_to, "/home/p35548r0/app/tt"
 set :rails_env, :production
 
-role :web, "patru.ch"                          # Your HTTP server, Apache/etc
-role :app, "patru.ch"                          # This may be the same as your `Web` server
-role :db,  "patru.ch", :primary => true # This is where Rails migrations will run
+role :web, "soft-werker.ch"                          # Your HTTP server, Apache/etc
+role :app, "soft-werker.ch"                          # This may be the same as your `Web` server
+role :db,  "soft-werker.ch", :primary => true        # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 set :user, "patru.ch"
-set :scm_username, "Patru"
-set :scm_password, Proc.new { Capistrano::CLI.password_prompt("git password for #{scm_username}, please: ") }
 set :use_sudo, false
-set :deploy_via, :copy
-set :copy_strategy, :export
-set :copy_cache, true
-set :copy_cache, "/tmp/caches/ttt"
-set :copy_exclude, [".git/*", ".svn/*"]
-set :copy_compression, :gzip
+
+desc "Set the proper permissions for directories and files on HostingRails accounts"
+set :chmod755, %w(app config db lib public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
+task :after_deploy do
+  run(chmod755.collect do |item|
+    "chmod 755 #{current_path}/#{item}"
+  end.join(" && "))
+end
+
+
 set :group_writable, false
 
 # If you are using Passenger mod_rails uncomment this:
@@ -35,5 +41,5 @@ set :group_writable, false
 #   end
 # end
 task :after_update_code, :roles => :app do
-    run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/tt-register/config/environment.rb"
+    run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/tt/config/environment.rb"
 end

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :quarks
 
   map.resources :inscription_players
+  map.logout 'inscriptions/logout', :controller => 'inscriptions', :action => 'logout'
   map.resources :inscriptions
   map.connect 'inscriptions/own_inscription/:id', :controller => 'inscriptions', :action => 'own_inscription' # do I need this?
   map.login 'inscriptions/:id/:token', :controller => 'inscriptions', :action => 'login'

@@ -250,6 +250,11 @@ class InscriptionsController < ApplicationController
     flash[:notice] = "Einschreibung Nummer #{params[:id]} nicht gefunden, bitte neu anmelden."
     redirect_to(new_inscription_url)
   end
+
+  def logout
+    session[:id] = nil
+    redirect_to(new_inscription_url, :notice => "Herzlichen Dank für den Besuch.")
+  end
   
   def own_inscription
     @inscription_player = InscriptionPlayer.find params[:id], :include => [:player, {:inscription => :tournament}]

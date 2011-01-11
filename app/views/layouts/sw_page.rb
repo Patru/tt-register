@@ -37,7 +37,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   
   def head_content
     super
-    link :rel => "shortcut icon", :type => "image/x-icon", :href => "/images/ysz.ico"
+    link :rel => "shortcut icon", :type => "image/x-icon", :href => "/ttvz.ico"
   end
   
   def tournament
@@ -432,7 +432,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     ul :class => "standard" do
       menu_item protection_path, "Datenschutzbestimmungen", lock_image, "Datenschutz"
       menu_item email_form_path, "Email ans Turnierteam", message_image, "Email"
-      menu_item email_form_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang"
+      menu_item logout_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang"
     end
   end
 
