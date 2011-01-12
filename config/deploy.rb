@@ -20,7 +20,7 @@ role :db,  "soft-werker.ch", :primary => true        # This is where Rails migra
 #role :db,  "your slave db-server here"
 
 desc "Set the proper permissions for directories and files on the HostingRails accounts"
-set :chmod755, %w(app config db public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
+set :chmod755, %w(app config db public script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
 task :after_deploy do
   run(chmod755.collect do |item|
     "chmod 755 #{current_path}/#{item}"
