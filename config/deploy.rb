@@ -19,7 +19,7 @@ role :app, "soft-werker.ch"                          # This may be the same as y
 role :db,  "soft-werker.ch", :primary => true        # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
-desc "Set the proper permissions for directories and files on HostingRails accounts"
+desc "Set the proper permissions for directories and files on the HostingRails accounts"
 set :chmod755, %w(app config db lib public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
 task :after_deploy do
   run(chmod755.collect do |item|
@@ -42,4 +42,16 @@ set :group_writable, false
 # end
 task :after_update_code, :roles => :app do
     run "sed -e \"s/^# ENV/ENV/\" -i #{release_path}/config/environment.rb"
+end
+
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
 end
