@@ -19,6 +19,6 @@ production:
   adapter: mysql
   encoding: utf8
   database: p35548r0_ttregiste
-  username: p35548r0_ttregpr
-  password: 9G7Jsk0JmhXawO
+  username: p35548r0_ttrepro
+  password: 51OyGZ4o70kW7l
 

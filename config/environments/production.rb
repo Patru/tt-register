@@ -23,9 +23,10 @@ config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 
 config.action_mailer.smtp_settings = {
-  :address => "mail.soft-werker.ch",
-  :domain => "soft-werker.ch",
-  :user_name => "info@soft-werker.ch",
-  :password => "fdHAvSWm1lPgw",
-  :authentication => :login,
+    :address => "mail.soft-werker.ch",
+    :domain => "soft-werker.ch",
+    :port => 26,
+    :user_name => "info+soft-werker.ch",
+    :password => "dIadSWh1lPmvB",
+    :authentication => :plain,
 }
