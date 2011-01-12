@@ -8,7 +8,8 @@ class Views::Series::Series < Views::Layouts::SWPage
             rawtext f.label(Views::Labels.label(:tournament_day_id))
           end
           td do
-            rawtext f.collection_select :tournament_day_id, TournamentDay.find(:all, :order => "day"), :id, :display_name
+            rawtext f.collection_select(:tournament_day_id,
+                                        TournamentDay.find(:all, :order => "day"), :id, :display_name)
           end
         end
         form_text_field f, :series_name

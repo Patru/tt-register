@@ -9,7 +9,8 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
   
   def sw_content
     form_tag(:controller => 'inscription_players', :action => 'enroll') do
-      rawtext error_messages_for :inscription_player, :header_message => "Fehler beim speichern", :message => "Folgende Probleme sind aufgetreten:"
+      rawtext error_messages_for(:inscription_player,
+                                 :header_message => "Fehler beim speichern", :message => "Folgende Probleme sind aufgetreten:")
       if @sel_series then
         sel_series = @sel_series
       else

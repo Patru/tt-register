@@ -8,7 +8,7 @@ class Views::Admins::Login < Views::Layouts::SWPage
       rawtext f.error_messages
       table do
         show_data_item @admin, :name
-        rawtext f.hidden_field :token
+        rawtext f.hidden_field(:token)
         form_password_field f, :password
       end
       p do

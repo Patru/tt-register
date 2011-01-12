@@ -24,7 +24,7 @@ class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
             rawtext f.label(Views::Labels.label(:tournament_id))
           end
           td do
-            rawtext f.collection_select :tournament_id, @tournaments, :id, :name
+            rawtext f.collection_select(:tournament_id, @tournaments, :id, :name)
           end
         end
         form_text_field f, :email

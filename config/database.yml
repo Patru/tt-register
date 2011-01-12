@@ -17,10 +17,8 @@ test:
 
 production:
   adapter: mysql
+  encoding: utf8
   database: p35548r0_ttregiste
   username: p35548r0_ttregpr
   password: 9G7Jsk0JmhXawO
-  host: soft-werker.ch
-  pool: 5
-  timeout: 5000
 

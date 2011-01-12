@@ -34,18 +34,18 @@ class Views::Players::Index < Views::Layouts::SWPage
     form_for(:filter_cond, @filter_cond, :url => url_for(:controller => "players", :action => "filtered", :only_path => true)) do |f|
       tr do
         td do
-          rawtext f.text_field :name, :size => 12
+          rawtext f.text_field(:name, :size => 12)
         end
         td do
-          rawtext f.text_field :first_name, :size => 12
+          rawtext f.text_field(:first_name, :size => 12)
         end
         td do
-          rawtext f.text_field :club, :size => 12
+          rawtext f.text_field(:club, :size => 12)
         end
         td :colspan=>4 do
         end
         td :colspan=>3 do
-          rawtext f.submit "filtern"
+          rawtext f.submit("filtern")
         end
       end
     end

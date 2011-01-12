@@ -49,11 +49,11 @@ class Series < ActiveRecord::Base
   end
   
   def female?
-    return sex.eql? "W"
+    return sex.eql?("W")
   end
   
   def male?
-    return sex.eql? "M"
+    return sex.eql?("M")
   end
   
   def <=>(other)

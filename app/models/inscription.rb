@@ -64,7 +64,7 @@ class Inscription < ActiveRecord::Base
     if salt.nil? then
       return token.eql?(login_str)
     else
-      return self.secret.eql?Digest::SHA2.hexdigest(self.salt + login_str)
+      return self.secret.eql?(Digest::SHA2.hexdigest(self.salt + login_str))
     end
   end
 
