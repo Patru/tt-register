@@ -136,8 +136,8 @@ class TournamentsController < ApplicationController
   end
 
   def delete_all_inscriptions
-    @tournament = Tournament.find(params[:id])
-    Inscription.all(:conditions => {:tournament_id => 1}).each do |inscription|
+    tournament = Tournament.find(params[:id])
+    Inscription.all(:conditions => {:tournament_id => tournament.id).each do |inscription|
       inscription.destroy
     end
     redirect_to :controller => "inscriptions", :action => "new"
