@@ -28,6 +28,8 @@ task :after_deploy do
   end.join(" && "))
 end
 
+after "deploy", "deploy:migrate"
+
 set :group_writable, false
 
 # If you are using Passenger mod_rails uncomment this:
