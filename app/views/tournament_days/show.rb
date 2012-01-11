@@ -21,7 +21,7 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
       h2 "Serien für diesen Tag"
       widget Views::Series::List, :series => @series
       hr
-      form_tag :action => url_for(:controller => 'tournament_days', :action => 'copy_series', :only_path=>true), :method => "post" do
+      form_tag copy_day_path, :method => "post" do
         label "Kopiere Serienstruktur nach "
 #        input :type => "hidden", :name => 'authenticity_token', :value => form_authenticity_token
         input :type => "hidden", :name => 'source_id', :value => @tournament_day.id

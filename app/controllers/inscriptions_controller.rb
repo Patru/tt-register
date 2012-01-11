@@ -240,7 +240,8 @@ class InscriptionsController < ApplicationController
     if @inscription.matches?(params[:token]) then
       flash[:notice] = "#{@inscription.name} eingeloggt!"
       session[:id] = @inscription.id
-      session[:expires_at]=Time.now+7.days
+      session[:expires]=[Time.now+7.days,
+                         (@inscription.tournament.tournament_days.maximum(:day)+1.day).to_time].min
       redirect_to @inscription
     else
       flash[:error] = "Link nicht korrekt (#{params[:token]} nicht aktuell), bitte neu anfordern falls nicht mehr vorhanden!"

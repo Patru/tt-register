@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.14' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -33,7 +33,7 @@ Rails::Initializer.run do |config|
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Add additional load paths for your own custom dirs
-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
@@ -49,8 +49,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_tt-register_session',
-    :secret      => 'a3f8c4ad1256b6ab8e33a5d1d72cf151420b8e81f35dcc2e270fb5cf4df732e99432abc7dd9813520d1bbca7967e8912ebacc2b721bb71d2c24e50d771b1a555'
+    :key => '_tt-register_session',
+    :secret      => 'a3f8c4ad1256b6ab8e33a5d1d72cf151420b8e81f35dcc2e270fb5cf4df732e99432abc7dd9813520d1bbca7967e8912ebacc2b721bb71d2c24e50d771b1a556'
   }
 
   # Use the database for sessions instead of the cookie-based default,

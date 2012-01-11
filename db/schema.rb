@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100626015234) do
+ActiveRecord::Schema.define(:version => 20120109154240) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(:version => 20100626015234) do
     t.datetime "updated_at"
     t.string   "logo"
     t.string   "stylesheet"
+    t.string   "sender_email"
+    t.string   "bcc_email"
+    t.string   "facebook_link"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

@@ -7,7 +7,14 @@ Herzlichen Dank für die Benutzung der Anmelde-Applikation. Bitte klicke auf den
 um deine Email-Adresse zu bestätigen und deine sowie weitere Anmeldungen zu erfassen.
 
 Bitte behalte diese Email bis zum Turnier, denn damit kannst du rasch zusätzliche An- oder Abmeldungen erfassen, der Link bleibt so lange aktiv.
+<% unless @inscription.tournament.facebook_link.blank? %>
+Um dich über den Stand der Anmeldungen auf dem laufenden zu halten betreiben
+wir auch die Facebook-Seite
 
+<%=@inscription.tournament.facebook_link%>
+
+Bitte teile diese Seite auch mit deinen Freunden die Tischtennis spielen.
+<% end %>
 Herzliche Grüsse
 
 das YSZ-Competition Team

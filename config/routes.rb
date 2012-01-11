@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins
   map.connect 'inscription_players/enroll', :controller => 'inscription_players', :action => 'enroll', :conditions => { :method => :post }
   map.resources :tournament_days
+  map.copy_day 'tournament_days/copy_series', :controller => 'tournament_days', :action => 'copy_series'
   map.resources :tournaments
   map.resources :series
   map.resources :players

@@ -271,10 +271,12 @@ class InscriptionPlayersController < ApplicationController
       total_series = total_series + sers.size
       if day.entries_remaining? then
         @inscription_player.replace_day_ser_ids day.id, sers
+        Confirmation.deliver_inscription_player_update(@inscription_player)
       else
         day_sers = @inscription_player.day_series(day.id)
         if day_sers.size >= sers.size then
           @inscription_player.replace_day_ser_ids day.id, sers
+          Confirmation.deliver_inscription_player_update(@inscription_player)
         else
           @inscription_player.errors.add_to_base "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
         end

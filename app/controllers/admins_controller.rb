@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
     db_admin = Admin.first(:conditions => {:token => admin.token})
     if db_admin and db_admin.matches?(admin) then
       session[:admin_id]=db_admin.id
-      session[:expires_at]=Time.now+2.hours
+      session[:expires]=Time.now+2.hours
       flash[:notice] = "#{admin.name} eingeloggt"
       redirect_to :controller => 'inscriptions', :action => 'index'
     elsif db_admin.nil? then

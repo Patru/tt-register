@@ -16,7 +16,11 @@ class Views::Series::List < Erector::Widget
   def row(series)
     tr do
       td do
-        text series.tournament_day.short_display
+        unless series.tournament_day.nil?
+          text series.tournament_day.short_display
+        else
+          text "deleted"
+        end
       end
       data_fields(series, [:series_name])
       td do

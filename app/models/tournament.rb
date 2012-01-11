@@ -2,7 +2,11 @@ class Tournament < ActiveRecord::Base
   has_many :tournament_days
   has_many :inscriptions
   has_many :admins
-  
+
+  validates_presence_of :tour_id
+  validates_presence_of :sender_email
+  validates_presence_of :name
+
   def build_series_map
     tournament_days.each do |day|
       day.build_series_map

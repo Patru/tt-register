@@ -7,7 +7,14 @@ Deine Anmeldung zum <%=@inscription.tournament.name%> wurde von <%=  @original.n
 um deine Anmeldung zu überprüfen und zu verwalten.
 
 Bitte behalte diese Email bis zum Turnier, denn damit kannst du rasch zusätzliche An- oder Abmeldungen erfassen, der Link bleibt so lange aktiv.
+<% unless @inscription.tournament.facebook_link.blank? %>
+Um dich über den Stand der Anmeldungen auf dem laufenden zu halten betreiben
+wir auch die Facebook-Seite
 
+<%=@inscription.tournament.facebook_link%>
+
+Bitte teile diese Seite auch mit deinen Freunden die Tischtennis spielen.
+<% end %>
 Herzliche Grüsse
 
 das <%=@inscription.tournament.name%> Team

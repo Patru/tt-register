@@ -38,7 +38,7 @@ class TournamentDay < ActiveRecord::Base
   end
   
   def count_entries
-    @count_entries ||= TournamentDay.count(:conditions => {:id => id}, :joins => {:series => :play_series})
+    TournamentDay.count(:conditions => {:id => id}, :joins => {:series => :play_series})
   end
   
   def entries_remaining?
@@ -48,9 +48,6 @@ class TournamentDay < ActiveRecord::Base
   def check_waiting_list
     while entries_remaining? and waiting_list_entries.count > 0 do
       WaitingListEntry.first(:order => :created_at).accept_for_tournament
-      @count_entries = nil
     end
   end
-
-  NONE = "keine"
 end

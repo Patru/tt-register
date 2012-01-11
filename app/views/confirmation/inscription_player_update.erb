@@ -1,0 +1,17 @@
+<%=@inscription_player.inscription.anrede%> <%=@inscription_player.inscription.name%>
+
+Vielen Dank für die Anpassung. Auf deiner Einschreibung wurde der Eintrag für
+
+<%=@inscription_player.player.long_name%> folgendermassen abgeändert:
+
+<%=@inscription_player.inscribed_for%>.
+<% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+Die letzten Neuigkeiten zum Turnier findest du auf der Facebook-Seite
+
+<%=@inscription_player.inscription.tournament.facebook_link%>
+
+Vielleicht gibt es unter deinen Facebook-Freunden weitere Tischtennisspieler denen du die Seite mitteilen willst.
+<% end %>
+Herzliche Grüsse
+
+das <%=@inscription_player.inscription.tournament.name> Team

@@ -34,6 +34,9 @@ class Views::Columns
     :tournament => "Turnier",
     :tournament_day_id => "Turniertag",
     :series => "Serien",
-    :inscribed_for => "Eingeschrieben für"
+    :inscribed_for => "Eingeschrieben für",
+    :sender_email => "Email versenden von",
+    :bcc_email => "unsichtbare Kopie an",
+    :facebook_link => "Facebook Link"
   }
 end

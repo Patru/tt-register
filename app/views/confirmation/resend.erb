@@ -7,7 +7,13 @@ Dein Link fürs Login ist
 Mit einem Klick kannst du deine Anmeldungen verwalten, Spieler abmelden oder weitere erfassen.
 
 Bitte behalte diese Email bis zum Turnier, der Link bleibt so lange aktiv.
+<% unless @inscription.tournament.facebook_link.blank? %>
+Du kannst auch unsere Facebook-Seite
 
+<%=@inscription.tournament.facebook_link%>
+
+benutzen um dich auf dem laufenden zu halten.
+<% end %>
 Herzliche Grüsse
 
 das YSZ-Competition Team

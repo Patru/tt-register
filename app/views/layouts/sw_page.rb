@@ -97,9 +97,9 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   def span_title(tour_day)
     title = tour_day.day_name + ": "
     title << tour_day.count_entries.to_s
-    title << " von "
+    title << " von maximal "
     title << tour_day.max_inscriptions.to_s
-    title << " ausgenutzt, "
+    title << " Serienplätzen sind belegt, "
     if tour_day.entries_remaining? then
       title << "Anmeldungen sind weiterhin möglich."
     else
