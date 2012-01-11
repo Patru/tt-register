@@ -4,12 +4,13 @@ ssh_options[:forward_agent] = true
 set :application, "tt_register"
 set :repository,  "git@git.assembla.com:soft-werker-tt-register.git"
 set :domain, "tt.soft-werker.ch"                           # The URL for your app
+set :scm_verbose, true
 
 set :scm, 'git'
 set :scm_username, "patru"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :branch, "master"
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
 set :deploy_to, "/home/p35548r0/app/tt"
 set :rails_env, :production
 set :use_sudo, false
