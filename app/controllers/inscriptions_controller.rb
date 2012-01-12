@@ -1,7 +1,9 @@
 require 'base64'
 
 class InscriptionsController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :show, :login, :resend, :resend_link, :protection, :email_form]
+  before_filter :login_required,
+                :except => [:new, :create, :show, :login, :resend,
+                            :resend_link, :protection, :email_form, :mail_team]
   layout nil
   # GET /inscriptions
   # GET /inscriptions.xml
