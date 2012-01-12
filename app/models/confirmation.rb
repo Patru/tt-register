@@ -42,8 +42,8 @@ class Confirmation < ActionMailer::Base
      body       :inscription => inscription, :host => host
   end
 
-  def mail_team(email)
-     recipients @tournament.sender_email
+  def mail_team(email, recipient)
+     recipients recipient
      from       email.from
      subject    email.subject
      body       :body => email.text

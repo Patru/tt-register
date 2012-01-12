@@ -54,8 +54,9 @@ class InscriptionsController < ApplicationController
   end
 
   def mail_team
+    tournament=Tournament.find(params[:tournament_id]) unless params[:tournament_id].blank?
     email = Email.new(params[:email][:from], params[:email][:subject], params[:email][:text])
-    Confirmation.deliver_mail_team(email)
+    Confirmation.deliver_mail_team(email, tournament.sender_email)
     flash[:notice] = "Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden."
     redirect_to :controller => "inscriptions", :action => "new"
   end

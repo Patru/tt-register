@@ -8,9 +8,11 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
   end
   
   def sw_content
-    p "Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach nur Lob zustellen."
+    p "Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen."
     form_for @email, :url => mail_team_path do |f|
       rawtext f.error_messages
+      hidden_field_tag( "tournament_id", tournament.id)
+      #rawtext f.hidden_field(:tournament_id, tournament.id)
       table do
         form_text_field f, :from
         form_text_field f, :subject
