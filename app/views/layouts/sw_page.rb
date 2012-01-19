@@ -330,7 +330,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
         else
           text builder.object.send(symbol)
         end
-        input :type=>'hidden', :name => "#{builder.object_name}[#{symbol}]", :value => builder.object.send(symbol)
+        input :type=>'hidden', :name => "#{builder.parent.object_name}[#{symbol}]", :value => builder.object.send(symbol)
       end
     end
   end

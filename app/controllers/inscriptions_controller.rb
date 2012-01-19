@@ -163,16 +163,17 @@ class InscriptionsController < ApplicationController
   # PUT /inscriptions/1
   # PUT /inscriptions/1.xml
   def update
-    if session[:id] != params[:id] and @admin.nil? then
-      flash[:error] = "Nur eigene Einschreibungen können geändert werden!"
+    if session[:id] != params[:id].to_i and @admin.nil? then
+      flash[:error] = "Nur die eigene Einschreibung kann geändert werden!"
       redirect_to inscriptions_url
       return
     end
     @inscription = Inscription.find(params[:id])
-    add_name_if_missing params[:inscription]
+    add_name_if_missing @inscription
 
     respond_to do |format|
-      if @inscription.update_attributes(params[:inscription])
+      @inscription.name=params[:inscription][:name]
+      if @inscription.save
         flash[:notice] = 'Einschreibung erfolgreich geändert.'
         format.html { redirect_to(@inscription) }
         format.xml  { head :ok }
