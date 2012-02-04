@@ -61,4 +61,16 @@ class Player < ActiveRecord::Base
       return "Sie"
     end
   end
+
+  def description
+    "#{name} #{first_name}, #{club} (#{both_rankings})"
+  end
+
+  def both_rankings
+    if woman_ranking.nil?
+      ranking.to_s
+    else
+      "#{ranking}/#{woman_ranking}"
+    end
+  end
 end

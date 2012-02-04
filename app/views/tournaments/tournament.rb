@@ -7,6 +7,7 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :sender_email
   @@fields << :bcc_email
   @@fields << :facebook_link
+  @@fields << :layout_parser
   def fields
     @@fields
   end

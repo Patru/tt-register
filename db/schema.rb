@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109154240) do
+ActiveRecord::Schema.define(:version => 20120126110817) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120109154240) do
     t.integer  "series_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "partner_id"
   end
 
   create_table "players", :force => true do |t|
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120109154240) do
     t.datetime "updated_at"
     t.integer  "tournament_day_id", :default => 1
     t.integer  "use_rank"
+    t.string   "type"
   end
 
   create_table "tournament_days", :force => true do |t|
@@ -91,6 +93,9 @@ ActiveRecord::Schema.define(:version => 20120109154240) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "series_per_day"
+    t.integer  "max_single_series"
+    t.integer  "max_double_series"
+    t.integer  "max_age_series"
   end
 
   create_table "tournaments", :force => true do |t|
@@ -106,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120109154240) do
     t.string   "sender_email"
     t.string   "bcc_email"
     t.string   "facebook_link"
+    t.string   "layout_parser"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

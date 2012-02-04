@@ -4,7 +4,7 @@ class InscriptionPlayer < ActiveRecord::Base
   has_many :play_series, :dependent => :destroy
   has_many :series, :through => :play_series
   has_many :waiting_list_entries, :dependent => :destroy
-  validate :series_per_day
+  validate :series_ok_for_tournament
 
   def set_series(days)
     ser_ids = []
@@ -85,6 +85,10 @@ class InscriptionPlayer < ActiveRecord::Base
         :conditions => ["player_id = ? AND inscriptions.tournament_id = ?",  player.id, tournament_id])
   end
 
+  def series_in_tour_day
+    t_days=series.reduce(Hash.new([])) do |days, ser| days[ser.tournament_day] << ser end
+  end
+
   def series_per_day
     day_series = {}
     series.each do |seri|
@@ -99,6 +103,15 @@ class InscriptionPlayer < ActiveRecord::Base
     day_series.each do |tour_day, val|
       errors.add_to_base("Am #{tour_day.day_name} dürfen maximal #{tour_day.series_per_day} Serien belegt werden") if tour_day.series_per_day < val
     end
+  end
+
+  def series_ok_for_tournament
+    series.each do |seri|
+      if not seri.may_be_played_by? self.player
+        errors.add_to_base("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!")
+      end
+    end
+    inscription.tournament.verify_series self
   end
 
   def no_series_selected?

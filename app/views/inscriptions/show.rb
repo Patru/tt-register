@@ -53,8 +53,8 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     end
     form_params = {:player => @inscription.own_player, :inscription => @inscription, :selected_series => selected_series}
     form_params[:inscription_player] = @inscription.own_inscription if @inscription.own_inscription
-    form_tag(:controller => "inscription_players", :action => form_action) do 
-      widget(Views::Widget::TournamentSeries, form_params)
+    form_tag(:controller => "inscription_players", :action => form_action) do
+      widget(tournament.layouter_parser.layouter, form_params)
       input :type => "submit", :value => method_name
     end
     if @inscription.own_inscription then

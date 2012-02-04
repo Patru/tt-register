@@ -24,7 +24,8 @@ class Views::Series::List < Erector::Widget
       end
       data_fields(series, [:series_name])
       td do
-        link_to(series.long_name, series)
+        link_to(series.long_name, series_path(series))
+          # do not use variable in link_to to avoid polymorphism problemx
       end
       td do
         text series.start_time_text
@@ -34,13 +35,13 @@ class Views::Series::List < Erector::Widget
       end
       data_fields(series, [:max_ranking, :category, :sex])
       td do
-        link_to(eye_image, series, :title => "Details anzeigen")
+        link_to(eye_image, series_path(series), :title => "Details anzeigen")
       end
       td do
         link_to stylo_image, edit_series_path(series), :title => 'ändern'
       end
       td do
-        link_to(lightning_image, series, :confirm => 'Wirklich?', :method => :delete, :title => 'löschen')
+        link_to(lightning_image, series_path(series), :confirm => 'Wirklich?', :method => :delete, :title => 'löschen')
       end
     end
   end

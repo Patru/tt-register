@@ -19,6 +19,9 @@ class Views::TournamentDays::TournamentDay < Views::Layouts::SWPage
         form_date_select f, :day
         form_text_field f, :max_inscriptions
         form_text_field f, :series_per_day
+        form_text_field f, :max_single_series
+        form_text_field f, :max_double_series
+        form_text_field f, :max_age_series
       end
       p do
         rawtext f.submit(button_text)

@@ -11,7 +11,10 @@ end
 #class Views::Layouts::SWPage < Erector::Widgets::Page  return to this in rails 2.3.4
 class Views::Layouts::SWPage < Views::Layouts::Page
   external :css, "/stylesheets/sw_base.css"
-  external :js, "/javascripts/sw.js"
+  external :js, "/javascripts/jquery-1.7.1.min.js"
+  external :js, "/javascripts/jquery-ui-1.8.17.custom.min.js"
+  external :js, "/javascripts/application.js"
+  external :css, "/stylesheets/jquery-ui-1.8.17.custom.css"
 #  external :script, "function sel_item(theUrl) {document.location.href = theUrl;}"
   def self.default_url_options
     {}
@@ -41,9 +44,9 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   
   def tournament
-    if @series.kind_of?(Models::Series) then
+    if @series.respond_to?(:tournament_day) then
       series = @series
-    elsif @series.kind_of?(Array) and @series.length > 0 and @series[0].kind_of?(Models::Series) then
+    elsif @series.kind_of?(Array) and @series.length > 0 and respond_to?(:tournament_day) then
       series = @series[0]
     else
       series = nil

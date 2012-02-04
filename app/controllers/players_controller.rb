@@ -2,7 +2,7 @@ require "csv"
 require 'csv.rb'
 
 class PlayersController < ApplicationController
-  before_filter :admin_required
+  before_filter :admin_required, :except => :auto
    layout nil
   # GET /players
   # GET /players.xml
@@ -18,6 +18,38 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html # index.rb
       format.xml  { render :xml => @players }
+    end
+  end
+
+  def auto
+    if (lic=digits_as_int(params[:term])) > 0
+      if lic > 10000
+        players=Player.find(:all, :conditions => ["Licence like ?", "#{lic}%"])
+      else
+        players=[]
+      end
+    else
+      (name, first_name, club) = params[:term].split(" ")
+      if first_name.blank?
+        conds = ['name like ?', "%#{name}%"]
+      elsif club.blank?
+        conds=['name like ? and first_name like ?', "%#{name}%", "%#{first_name}%"]
+      else
+        conds=['name like ? and first_name like ? and club like ?', "%#{name}%", "%#{first_name}%", "%#{club}%"]
+      end
+      players=Player.find(:all, :conditions => conds,
+              :limit => 10, :select => "id, ranking, woman_ranking, name, first_name, club").to_json
+    end
+    respond_to do |format|
+      format.js {render :json => players}
+    end
+  end
+
+  def digits_as_int str
+    begin
+      Integer(str)
+    rescue
+      return -1
     end
   end
 

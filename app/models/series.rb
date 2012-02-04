@@ -99,6 +99,14 @@ class Series < ActiveRecord::Base
     return :woman_rank if female?
     :rank
   end
+
+  def double_series?
+    self.class != Series
+  end
+
+  def age_series?
+    not category.blank?
+  end
 end
 
 class Models::Series < Series

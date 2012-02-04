@@ -76,10 +76,12 @@ class InscriptionPlayersController < ApplicationController
       if @inscription_player.save
         flash[:notice] = 'InscriptionPlayer was successfully created.'
         format.html { redirect_to(@inscription_player) }
-        format.xml  { render :xml => @inscription_player, :status => :created, :location => @inscription_player }
+        format.xml  { render :xml => @inscription_player, :status => :created,
+                             :location => @inscription_player }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @inscription_player.errors,
+                             :status => :unprocessable_entity }
       end
     end
   end
@@ -227,34 +229,18 @@ class InscriptionPlayersController < ApplicationController
   
   def new_ins_player(player, param_days)
     inscription_player = InscriptionPlayer.new(:player_id => player.id, :inscription_id => @inscription.id)
-    param_days.each do |day_id, start|
-      ids = []
-      start.each_value do |id|
-        ids << id unless id.eql? "keine"
-      end
+    day_ids=@inscription.tournament.parse_series(param_days)
+    day_ids.each do |day_id, ser_ids|
       td = TournamentDay.find(day_id)
       if td.entries_remaining? then
-        inscription_player.replace_day_ser_ids td.id, ids
-      elsif ids.size > 0 then
-        inscription_player.create_waiting_list_entry td.id, ids
+        inscription_player.replace_day_ser_ids td.id, ser_ids
+      elsif ser_ids.size > 0 then
+        inscription_player.create_waiting_list_entry td.id, ser_ids
       end
     end
     return inscription_player
   end
 
-  def selected_series(param_days)
-    sel_days = {}
-    param_days.each do |day_id, starts|
-      sers = []
-      starts.each do |time, ser|
-        sers << ser unless ser.eql? 'keine'
-      end
-      sel_days[day_id] = sers
-    end
-    sel_days
-  end
-
-  
   # PUT /inscription_players/1
   # PUT /inscription_players/1.xml
   def update_series
@@ -266,26 +252,32 @@ class InscriptionPlayersController < ApplicationController
     end
     total_series = 0
     success_notice = "Anmeldung erfolgreich geändert."
-    selected_series(params[:start]).each do |day_id, sers|
+    days, partner_ids=@inscription_player.inscription.tournament.parse_series(params[:start])
+    days.each do |day_id, sers|
       day = TournamentDay.find(day_id)
       total_series = total_series + sers.size
       if day.entries_remaining? then
         @inscription_player.replace_day_ser_ids day.id, sers
-        Confirmation.deliver_inscription_player_update(@inscription_player)
       else
         day_sers = @inscription_player.day_series(day.id)
         if day_sers.size >= sers.size then
           @inscription_player.replace_day_ser_ids day.id, sers
-          Confirmation.deliver_inscription_player_update(@inscription_player)
         else
           @inscription_player.errors.add_to_base "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
         end
       end
     end
-    success_notice = "Keine Serien übrig, #{@inscription_player.player.long_name} sollte abgemeldet werden." if total_series == 0
+    if @inscription_player.play_series.empty?
+      success_notice = "Keine Serien übrig, #{@inscription_player.player.long_name} sollte abgemeldet werden."
+    elsif not partner_ids.empty?
+      @inscription_player.play_series.each do |play_ser|
+        play_ser.partner_id=partner_ids[play_ser.series_id]
+      end
+    end
 
     respond_to do |format|
-      if @inscription_player.errors.size == 0 and @inscription_player.save
+      if @inscription_player.errors.size == 0 and save_with_series(@inscription_player)
+        Confirmation.deliver_inscription_player_update(@inscription_player)
         check_waiting_list @inscription_player.inscription
         flash[:notice] = success_notice
         format.html { redirect_to(@inscription_player) }
@@ -294,6 +286,17 @@ class InscriptionPlayersController < ApplicationController
         @inscription_player.inscription.tournament.build_series_map
         format.html { render :action => "edit" }
         format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def save_with_series(ins_player)
+    unless ins_player.save
+      return false
+    end
+    ins_player.play_series.each do |pl_ser|
+      unless pl_ser.save
+        return false
       end
     end
   end

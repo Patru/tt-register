@@ -23,6 +23,11 @@ class Views::Labels
     :woman_rank => "Damen-Ranking",
     :disp_ranking => "Klassierung",
     :disp_woman_ranking => "Damenklassierung",
-    :use_rank => "Ranking bis"
+    :use_rank => "Ranking bis",
+    :type => "Typ",
+    :max_single_series => "Anzahl Einzelserien",
+    :max_double_series => "Anzahl Doppelserien",
+    :max_age_series => "Anzahl Altersserien",
+    :layout_parser => "Layout/Parsing für Serien"
   }
 end

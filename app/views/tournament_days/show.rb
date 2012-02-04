@@ -13,7 +13,8 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
   def sw_content
     table do 
       labeled_data(:tournament_id, @tournament_day.tournament.name)
-      [:day, :max_inscriptions, :series_per_day].each do |field|
+      [:day, :max_inscriptions, :series_per_day, :max_single_series, :max_double_series,
+       :max_age_series].each do |field|
         show_data_item(@tournament_day, field)
       end
     end

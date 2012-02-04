@@ -55,6 +55,10 @@ class Views::Widget::TournamentSeries < Erector::Widget
   def self.default_url_options
     {}
   end
+
+  def format_row(tday, day_name, time, sers)
+    radio_row(tday, day_name, time, sers)
+  end
   
   def day_display(tday)
     tday.series_map.sort.each_with_index do |(time, sers), index|
@@ -63,7 +67,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
       else
         day_name = ""
       end
-      radio_row(tday, day_name, time, sers)
+      format_row(tday, day_name, time, sers)
     end
   end
 
@@ -78,6 +82,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
   def content
     determine_max_series
     selected_series_map
+    partner_map
     h2 "#{@player.long_name}, #{@player.player_info}"
     if not @inscription.licence or @inscription.licence != @player.licence then
       p do
@@ -105,6 +110,17 @@ class Views::Widget::TournamentSeries < Erector::Widget
     @selected_map = {}
     @selected_series.each do |ser|
       @selected_map[ser] = "selected"
+    end
+  end
+
+  def partner_map
+    unless @inscription_player.nil?
+      @partner_map={}
+      @inscription_player.play_series.each do |play_ser|
+        unless play_ser.partner_id.nil?
+          @partner_map[play_ser.series_id]=Player.find(play_ser.partner_id)
+        end
+      end
     end
   end
 end

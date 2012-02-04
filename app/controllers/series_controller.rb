@@ -55,6 +55,7 @@ class SeriesController < ApplicationController
   def create
     @series = Series.new(params[:series])
     @series.normalize_start_time
+    @series.type=determine_series_type(params[:series][:type])
 
     respond_to do |format|
       if @series.save
@@ -68,15 +69,27 @@ class SeriesController < ApplicationController
     end
   end
 
+  def determine_series_type(ser_type)
+    unless ser_type.blank?
+      if /double/i.match ser_type
+        return DoubleSeries.name
+      elsif /mixed/i.match ser_type
+        return MixedSeries.name
+      end
+    end
+    nil
+  end
+
   # PUT /series/1
   # PUT /series/1.xml
   def update
     @series = Series.find(params[:id])
     
     respond_to do |format|
+      @series.type=determine_series_type(params[:series][:type])
       if @series.update_attributes(params[:series])
         flash[:notice] = 'Serie erfolgreich gespeichert.'
-        format.html { redirect_to(@series) }
+        format.html { redirect_to(series_url(@series)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

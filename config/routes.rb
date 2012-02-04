@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tournaments
   map.resources :series
   map.resources :players
+  map.auto 'auto.:format', :controller => 'players', :action => 'auto'
   map.tournament_entries 'tournaments/entries/:id.:format', :controller => 'tournaments', :action => 'download_entries'
   map.delete_all_inscriptions 'tournaments/delete_inscriptions/:id', :controller => 'tournaments', :action => 'delete_all_inscriptions'
   

@@ -1,6 +1,8 @@
 class Views::Series::Series < Views::Layouts::SWPage
   def series_form(button_text)
-    form_for @series, :url => @series.new_record? ? {:action => 'create'}:{:action => 'update', :id=>@series } do |f|
+    form_for :series,
+             :url => @series.new_record? ? {:action => 'create'}:{:action => 'update', :id=>@series },
+             :html => @series.new_record? ? {}:{:method => :put} do |f|
       rawtext f.error_messages
       table do
         tr do
@@ -20,6 +22,7 @@ class Views::Series::Series < Views::Layouts::SWPage
         form_text_field f, :category
         form_text_field f, :sex
         form_text_field f, :use_rank
+        form_text_field f, :type
       end
       p do
         rawtext f.submit(button_text)

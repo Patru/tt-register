@@ -16,7 +16,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
       else
         sel_series = []
       end
-      widget Views::Widget::TournamentSeries, {:player => @player, :inscription => @inscription, :selected_series => sel_series}
+      widget tournament.layouter, {:player => @player, :inscription => @inscription, :selected_series => sel_series}
       input :type => "submit", :value => "Anmelden"
     end
   end
