@@ -28,7 +28,7 @@ class Tournament < ActiveRecord::Base
   end
 
   def parse_series(param_days)
-    layouter_parser.parse param_days
+    layouter_parser.parse param_days, self
   end
 
   def verify_series(inscription_player)

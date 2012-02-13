@@ -1,17 +1,74 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  licence: 1
-  name: MyString
-  first_name: MyString
-  club: MyString
+  id: 1
+  licence: 700010
+  name: Urgel
+  first_name: Zwurgel
+  club: keiner
   ranking: 1
-  woman_ranking: 1
 
 two:
-  licence: 1
-  name: MyString
-  first_name: MyString
-  club: MyString
+  id: 2
+  licence: 700020
+  name: Margel
+  first_name: Zwargel
+  club: heiner
   ranking: 1
-  woman_ranking: 1
+  woman_ranking: 3
+
+three:
+  id: 3
+  licence: 700011
+  name: Orgel
+  first_name: Zworgel
+  club: meiner
+  ranking: 6
+
+four:
+  id: 4
+  licence: 700021
+  name: Mirgel
+  first_name: Zwirgel
+  club: keiner
+  ranking: 3
+  woman_ranking: 9
+
+five:
+  id: 5
+  licence: 700013
+  name: Strong
+  first_name: Rick
+  club: keiner
+  ranking: 18
+  rank: 50
+
+six:
+  id: 6
+  licence: 700023
+  name: Strong
+  first_name: Ricarda
+  club: keiner
+  ranking: 10
+  woman_ranking: 17
+  woman_rank: 20
+
+seven:
+  id: 7
+  licence: 700024
+  name: Dead-Strong
+  first_name: Raisa
+  club: keiner
+  ranking: 18
+  woman_ranking: 20
+  rank: 51
+  woman_rank: 2
+
+eight:
+  id: 8
+  licence: 700014
+  name: Raiser
+  first_name: Ron
+  club: keiner
+  ranking: 15
+  rank: 48

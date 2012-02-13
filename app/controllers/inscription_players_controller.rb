@@ -229,7 +229,7 @@ class InscriptionPlayersController < ApplicationController
   
   def new_ins_player(player, param_days)
     inscription_player = InscriptionPlayer.new(:player_id => player.id, :inscription_id => @inscription.id)
-    day_ids=@inscription.tournament.parse_series(param_days)
+    day_ids, partner_ids=@inscription.tournament.parse_series(param_days)
     day_ids.each do |day_id, ser_ids|
       td = TournamentDay.find(day_id)
       if td.entries_remaining? then
@@ -237,6 +237,10 @@ class InscriptionPlayersController < ApplicationController
       elsif ser_ids.size > 0 then
         inscription_player.create_waiting_list_entry td.id, ser_ids
       end
+    end
+    # usually this would happen automagically upon save, but we cannot wait until then and have to add the partners now
+    inscription_player.series.each do |ser|
+      play_ser=inscription_player.play_series.build(:series => ser, :partner_id => partner_ids[ser.id])
     end
     return inscription_player
   end
@@ -250,12 +254,10 @@ class InscriptionPlayersController < ApplicationController
       redirect_to @inscription_player
       return
     end
-    total_series = 0
     success_notice = "Anmeldung erfolgreich geändert."
     days, partner_ids=@inscription_player.inscription.tournament.parse_series(params[:start])
     days.each do |day_id, sers|
       day = TournamentDay.find(day_id)
-      total_series = total_series + sers.size
       if day.entries_remaining? then
         @inscription_player.replace_day_ser_ids day.id, sers
       else
@@ -268,7 +270,7 @@ class InscriptionPlayersController < ApplicationController
       end
     end
     if @inscription_player.play_series.empty?
-      success_notice = "Keine Serien übrig, #{@inscription_player.player.long_name} sollte abgemeldet werden."
+      success_notice = "Keine Serien übrig, bitte #{@inscription_player.player.long_name} abmelden."
     elsif not partner_ids.empty?
       @inscription_player.play_series.each do |play_ser|
         play_ser.partner_id=partner_ids[play_ser.series_id]

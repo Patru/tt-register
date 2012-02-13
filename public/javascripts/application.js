@@ -8,6 +8,7 @@
     })
     .each(function() {
         $(this).data( "autocomplete" )._renderItem = player_formatter;
+        handle_default_blur(this);
     });
   });
 })(jQuery);
@@ -33,6 +34,28 @@ function player_desc(player) {
         ranking = " (" + player.ranking + ")"
     }
     return player.name + " " + player.first_name + "; " + player.club + ranking
+}
+
+function handle_default_focus(text_field) {
+    if (text_field.value==text_field.getAttribute("data-default")) {
+        text_field.value=''
+        text_field.style.color='black'
+    }
+}
+
+function partner_blur(text_field) {
+    if (text_field.value=='') {
+        ser_id=text_field.id+"_id";
+        $("#"+ser_id).val('');
+    }
+    handle_default_blur(text_field);
+}
+
+function handle_default_blur(text_field) {
+    if (text_field.value=='') {
+        text_field.value=text_field.getAttribute("data-default")
+        text_field.style.color='gray'
+    }
 }
 
 function sel_item(theUrl) {document.location.href = theUrl;}

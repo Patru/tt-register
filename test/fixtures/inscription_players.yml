@@ -1,0 +1,29 @@
+one:
+  id: 1
+  inscription_id: 1
+  player_id: 1
+
+two:
+  id: 2
+  inscription_id: 2
+  player_id: 2
+
+three:
+  id: 3
+  inscription_id: 2
+  player_id: 5
+
+four:
+  id: 4
+  inscription_id: 2
+  player_id: 6
+
+five:
+  id: 5
+  inscription_id: 2
+  player_id: 7
+
+six:
+  id: 6
+  inscription_id: 5
+  player_id: 8

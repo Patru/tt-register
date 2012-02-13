@@ -100,12 +100,30 @@ class Series < ActiveRecord::Base
     :rank
   end
 
+  def ranking_of(player)
+    player.send(relevant_ranking)
+  end
+
+  def rank_of(player)
+    rank = player.send(relevant_rank)
+    return rank if rank and use_rank and rank <= use_rank
+    return nil
+  end
+
   def double_series?
     self.class != Series
   end
 
   def age_series?
     not category.blank?
+  end
+
+  # verify if partner matches series criteria
+  # we also have to pass the inscription player as the association is created anew upon request
+  def verify_partners(inscription_player, play_ser)
+    if play_ser.partner
+      inscription_player.errors.add_to_base("Kein Partner für #{long_name} erlaubt!")
+    end
   end
 end
 

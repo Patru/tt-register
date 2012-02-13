@@ -1,0 +1,11 @@
+one:
+  id: 1
+  tournament_id: 1
+  name: My name
+  email: a@b.cd
+
+two:
+  id: 2
+  tournament_id: 1
+  name: thy name
+  email: emil@detektive.de

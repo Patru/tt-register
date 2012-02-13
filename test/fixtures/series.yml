@@ -1,21 +1,102 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  series_name: MyString
-  tournament_id: 1
-  long_name: MyString
+menD:
+  id: 1
+  series_name: MD
+  tournament_day_id: 1
+  long_name: Herren D
   start_time: 2009-12-28 22:32:37
   min_ranking: 1
-  max_ranking: 1
-  category: MyString
-  sex: MyString
+  max_ranking: 5
 
-two:
-  series_name: MyString
-  tournament_id: 1
-  long_name: MyString
+womenD:
+   id: 2
+   series_name: WD
+   tournament_day_id: 1
+   long_name: Damen D
+   start_time: 2009-12-28 22:32:37
+   min_ranking: 1
+   max_ranking: 5
+   sex: W
+
+menDouble:
+  id: 3
+  series_name: MDoC
+  tournament_day_id: 1
+  long_name: Herren Doppel C/D
   start_time: 2009-12-28 22:32:37
   min_ranking: 1
-  max_ranking: 1
-  category: MyString
-  sex: MyString
+  max_ranking: 10
+  type: DoubleSeries
+
+womenDouble:
+  id: 4
+  series_name: WDoC
+  tournament_day_id: 1
+  long_name: Damen Doppel C/D
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 10
+  sex: W
+  type: DoubleSeries
+
+mixedDouble:
+  id: 5
+  series_name: XDoC
+  tournament_day_id: 1
+  long_name: Mixed Doppel C/D
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 10
+  type: MixedSeries
+
+menA:
+  id: 6
+  series_name: MA
+  tournament_day_id: 1
+  long_name: Herren A
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 10
+  max_ranking: 20
+  use_rank: 100
+
+womenA:
+  id: 7
+  series_name: WA
+  tournament_day_id: 1
+  long_name: Damen A
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 10
+  max_ranking: 20
+  sex: W
+  use_rank: 50
+
+mixedDoubleA:
+  id: 8
+  series_name: XDoA
+  tournament_day_id: 1
+  long_name: Mixed Doppel A/B
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 11
+  max_ranking: 20
+  type: MixedSeries
+
+womenDoubleA:
+  id: 9
+  series_name: WDoA
+  tournament_day_id: 1
+  long_name: Damen Doppel A/B
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 11
+  max_ranking: 20
+  sex: W
+  type: DoubleSeries
+
+elite:
+  id: 10
+  series_name: Elite
+  tournament_day_id: 1
+  long_name: Elite
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 20

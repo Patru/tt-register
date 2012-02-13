@@ -6,7 +6,9 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
   end
 
   def cb_options(serie)
-    input = {:type => "checkbox", :name => "start[#{serie.tournament_day_id}][#{serie.id}]", :id => "cb_#{serie.id}", :value=> 1}
+    input = {:type => "checkbox",
+             :name => "start[#{serie.tournament_day_id}][#{serie.id}]",
+             :id => "cb_#{serie.id}", :value=> 1}
     td = {:class => 'series'}
     if serie.may_be_played_by? @player
       if @selected_map.key? serie then
@@ -44,11 +46,16 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
     ser_id="partner_#{doubl.id}"
     opts = {:type => "text", :name => name,
             :id => ser_id, :size => 30, :class => "partner",
-            :title => "Bitte Lizenznummer eingeben oder mit Namen auswählen."}
+            :title => "Name Vorname oder Lizemnzummer eingeben um den Partner auszuwählen."}
     if disabled
       opts.merge!({:disabled => "disabled"})
+    else
+      opts.merge!(
+            :onFocus => "handle_default_focus(this)",
+            :onBlur => "partner_blur(this)",
+            "data-default" => "Name Vorname oder Lizenz für Auswahl")
     end
-    unless @partner_map[doubl.id].nil?
+    if (not @partner_map.nil?) and (not @partner_map[doubl.id].nil?)
       opts[:value]=@partner_map[doubl.id].description
     end
     input(opts)
@@ -56,7 +63,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
     unless disabled
       id_name="start[#{doubl.tournament_day_id}][partner_ids][#{doubl.id}]"
       hidden_opts={:type => 'hidden', :name=> id_name, :id => ser_id+"_id"}
-      unless @partner_map[doubl.id].nil?
+      if not @partner_map.nil? and not @partner_map[doubl.id].nil?
         hidden_opts[:value]=@partner_map[doubl.id].id
       end
       input(hidden_opts)

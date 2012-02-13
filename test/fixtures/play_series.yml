@@ -1,0 +1,85 @@
+singleMen:
+  id: 1
+  inscription_player_id: 1
+  series_id: 1
+
+singleMenForWoman:
+  id: 3
+  inscription_player_id: 2
+  series_id: 1
+
+singleWomen:
+  id: 2
+  inscription_player_id: 2
+  series_id: 2
+
+doubleMen:
+  id: 4
+  inscription_player_id: 1
+  series_id: 3
+  partner_id: 3
+
+doubleWomen:
+  id: 5
+  inscription_player_id: 2
+  series_id: 4
+  partner_id: 4
+
+doubleMixed:
+  id: 6
+  inscription_player_id: 1
+  series_id: 5
+  partner_id: 4
+
+doubleMixedA:
+  id: 7
+  inscription_player_id: 3
+  series_id: 8
+  partner_id: 7
+
+menA:
+  id: 8
+  inscription_player_id: 3
+  series_id: 6
+
+womenA:
+  id: 9
+  inscription_player_id: 4
+  series_id: 7
+
+womanInMenA:
+  id: 10
+  inscription_player_id: 4
+  series_id: 6
+
+strongWomanInMenA:
+  id: 11
+  inscription_player_id: 5
+  series_id: 6
+
+doubleWomenA:
+  id: 12
+  inscription_player_id: 4
+  series_id: 9
+  partner_id: 7
+
+strongWomanInWomenA:
+  id: 13
+  inscription_player_id: 5
+  series_id: 7
+
+raiserMenA:
+  id: 14
+  inscription_player_id: 6
+  series_id: 6
+
+elite:
+  id: 15
+  inscription_player_id: 3
+  series_id: 10
+
+eliteRaiser:
+  id: 16
+  inscription_player_id: 6
+  series_id: 10
+

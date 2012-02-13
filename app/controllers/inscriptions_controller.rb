@@ -42,8 +42,10 @@ class InscriptionsController < ApplicationController
   end
 
   def email_form
-    from = @inscription.email if @inscription
-    @email = Email.new(from)
+    if @email.nil?
+      from = @inscription.email if @inscription
+      @email = Email.new(from)
+    end
     respond_to do |format|
       format.html # email_form.rb
     end
@@ -57,10 +59,15 @@ class InscriptionsController < ApplicationController
 
   def mail_team
     tournament=Tournament.find(params[:tournament_id]) unless params[:tournament_id].blank?
-    email = Email.new(params[:email][:from], params[:email][:subject], params[:email][:text])
-    Confirmation.deliver_mail_team(email, tournament.sender_email)
-    flash[:notice] = "Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden."
-    redirect_to :controller => "inscriptions", :action => "new"
+    @email = Email.new(params[:email][:from], params[:email][:subject], params[:email][:text])
+    if @email.valid?
+      Confirmation.deliver_mail_team(@email, tournament.sender_email)
+      flash[:notice] = "Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden."
+      redirect_to :controller => "inscriptions", :action => "new"
+    else
+      render :action => "email_form"
+    end
+
   end
 
   def resend_link

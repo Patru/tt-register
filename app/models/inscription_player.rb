@@ -60,7 +60,7 @@ class InscriptionPlayer < ActiveRecord::Base
   end
   
   def inscribed_series
-    series.collect{|ser| ser.long_name}.join(", ")
+    play_series.collect{|pl_ser| pl_ser.series_string}.join(", ")
   end
   
   def waiting_lists
@@ -126,12 +126,5 @@ class InscriptionPlayer < ActiveRecord::Base
     rank = player.send(series.relevant_rank)
     return rank if rank and series.use_rank and rank <= series.use_rank
     return nil
-  end
-
-  def display_ranking(series)
-    display = self.series_ranking(series).to_s
-    rank = series_rank(series)
-    display << " (#{rank})" if rank
-    return display
   end
 end
