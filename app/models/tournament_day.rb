@@ -46,7 +46,7 @@ class TournamentDay < ActiveRecord::Base
   end
 
   def check_waiting_list
-    while entries_remaining? and waiting_list_entries.count > 0 do
+    while entries_remaining? and waiting_list_entries.size > 0 do
       WaitingListEntry.first(:order => :created_at).accept_for_tournament
     end
   end

@@ -109,7 +109,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
         singles << serie
       end
     end
-    doubles_box_partners(day_name, time, doubles) unless doubles.count == 0
-    single_boxes(day_name, time, singles) unless singles.count == 0
+    doubles_box_partners(day_name, time, doubles) unless doubles.empty?
+    single_boxes(day_name, time, singles) unless singles.empty?
   end
 end
