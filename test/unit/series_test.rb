@@ -43,4 +43,19 @@ class SeriesTest < ActiveSupport::TestCase
     assert_equal 17, women_double_a.ranking_of(players(:six))
     assert_equal 20, women_double_a.ranking_of(players(:seven))
   end
+
+  test "play_series returns all the players" do
+    assert_equal 2, series(:menD).play_series.size
+    assert_equal 3, series(:menDouble).play_series.size
+  end
+
+  test "playing returns every playing entity only once" do
+    assert_equal 2, series(:menD).playing.size
+    assert_equal 1, series(:menDouble).playing.size
+  end
+
+  test "open returns all open players who will build full entities" do
+    assert_equal 0, series(:menD).open.size
+    assert_equal 1, series(:menDouble).open.size
+  end
 end

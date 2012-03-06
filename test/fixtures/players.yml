@@ -72,3 +72,11 @@ eight:
   club: keiner
   ranking: 15
   rank: 48
+
+nine:
+  id: 9
+  licence: 700015
+  name: Nodoubler
+  first_name: Singl
+  club: keiner
+  ranking: 5

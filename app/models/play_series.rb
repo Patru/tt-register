@@ -29,20 +29,24 @@ class PlaySeries < ActiveRecord::Base
 
   def list_name
     if partner_id.nil?
-      inscription_player.player.long_name
+      player().long_name
     else
-      "#{inscription_player.player.long_name}/#{partner.long_name}"
+      "#{player.long_name}/#{partner.long_name}"
     end
+  end
+
+  def player
+    inscription_player.player
   end
 
   def list_club
     if partner_id.nil?
-      inscription_player.player.club
+      player.club
     else
-      if inscription_player.player.club == partner.club
-        parnter.club
+      if player.club == partner.club
+        partner.club
       else
-        "#{inscription_player.player.club}/#{partner.club}"
+        "#{player.club}/#{partner.club}"
       end
     end
   end
@@ -53,7 +57,7 @@ class PlaySeries < ActiveRecord::Base
       if other.series_rank then
         return 1   # no rank is worse than any rank
       else
-        return -(series_ranking <=> other.series_ranking)  # smaller ranking is worse
+        return -(ranking <=> other.ranking)  # smaller ranking is worse
       end
     else
       o_rank = other.series_rank
@@ -66,13 +70,13 @@ class PlaySeries < ActiveRecord::Base
   end
 
   def ranking
-    rk=series.ranking_of inscription_player.player
+    rk=series.ranking_of player
     rk=rk + series.ranking_of(partner) unless partner_id.nil?
     rk
   end
 
   # rank according to the target series, all doubles will have no rank at all
   def rank
-    series.rank_of inscription_player.player
+    series.rank_of player
   end
 end

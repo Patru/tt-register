@@ -1,4 +1,4 @@
-class MixedSeries < Series
+class MixedSeries < DoubleSeries
   include Verifiers::DoublesPartnerVerifier
 
   def verify_partners(inscription_player, play_ser)
@@ -18,5 +18,16 @@ class MixedSeries < Series
     else
       player.woman_ranking
     end
+  end
+
+  def open
+    open_pls = super
+    return open_pls if open_pls.empty?
+    pls=open_pls[0]
+    res=[]
+    females=pls.play_sers.select{|pl_ser| pl_ser.player.female?}.sort
+    res << PlayerList.new("Offen gemeldete Damen", females) unless females.empty?
+    males=pls.play_sers.select{|pl_ser| pl_ser.player.male?}.sort
+    res << PlayerList.new("Offen gemeldete Herren", males) unless males.empty?
   end
 end

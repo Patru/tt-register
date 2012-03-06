@@ -27,3 +27,13 @@ six:
   id: 6
   inscription_id: 5
   player_id: 8
+
+seven:
+   id: 7
+   inscription_id: 2
+   player_id: 3
+
+eight:
+  id: 8
+  inscription_id: 2
+  player_id: 9

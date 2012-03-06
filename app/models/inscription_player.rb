@@ -5,6 +5,11 @@ class InscriptionPlayer < ActiveRecord::Base
   has_many :series, :through => :play_series
   has_many :waiting_list_entries, :dependent => :destroy
   validate :series_ok_for_tournament
+  attr_accessor :notices
+
+  def after_initialize
+    self.notices ||= []
+  end
 
   def set_series(days)
     ser_ids = []
@@ -54,8 +59,8 @@ class InscriptionPlayer < ActiveRecord::Base
   
   def inscribed_for
     texts = []
-    texts << inscribed_series if series.count > 0
-    texts << waiting_lists if waiting_list_entries.count > 0
+    texts << inscribed_series if series.size > 0
+    texts << waiting_lists if waiting_list_entries.size > 0
     texts.join "; "
   end
   
@@ -115,7 +120,7 @@ class InscriptionPlayer < ActiveRecord::Base
   end
 
   def no_series_selected?
-    series.size == 0 and waiting_list_entries.size == 0
+    series.empty? and waiting_list_entries.empty? and play_series.empty?
   end
 
   def series_ranking(series)

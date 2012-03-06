@@ -83,3 +83,14 @@ eliteRaiser:
   inscription_player_id: 6
   series_id: 10
 
+doubleMen2:
+  id: 17
+  inscription_player_id: 7
+  series_id: 3
+  partner_id: 3
+
+doubleMenNoPartner:
+  id: 18
+  inscription_player_id: 8
+  series_id: 3
+

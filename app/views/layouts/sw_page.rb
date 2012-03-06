@@ -40,7 +40,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   
   def head_content
     super
-    link :rel => "shortcut icon", :type => "image/x-icon", :href => "/ttvz.ico"
+    link :rel => "shortcut icon", :type => "image/x-icon", :href => "/images/ttvkz.ico"
   end
   
   def tournament

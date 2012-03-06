@@ -21,7 +21,7 @@ class InscriptionPlayersController < ApplicationController
     @inscription = @inscription_player.inscription
     @inscription.tournament.build_series_map
     @go_back_to_list = true if params[:go_back_to_list]
-    if @inscription_player.waiting_list_entries.count > 0 then
+    if @inscription_player.waiting_list_entries.size > 0 then
       @inscription_player.waiting_list_entries.map{|entry| entry.number_in_list}
     end
     respond_to do |format|
@@ -230,6 +230,7 @@ class InscriptionPlayersController < ApplicationController
   def new_ins_player(player, param_days)
     inscription_player = InscriptionPlayer.new(:player_id => player.id, :inscription_id => @inscription.id)
     day_ids, partner_ids=@inscription.tournament.parse_series(param_days)
+    #TODO use a decent transaction here ...
     day_ids.each do |day_id, ser_ids|
       td = TournamentDay.find(day_id)
       if td.entries_remaining? then
@@ -242,6 +243,7 @@ class InscriptionPlayersController < ApplicationController
     inscription_player.series.each do |ser|
       play_ser=inscription_player.play_series.build(:series => ser, :partner_id => partner_ids[ser.id])
     end
+    inscription_player.series.replace([])   # avoid automatic doubling of series?
     return inscription_player
   end
 
@@ -256,14 +258,15 @@ class InscriptionPlayersController < ApplicationController
     end
     success_notice = "Anmeldung erfolgreich geändert."
     days, partner_ids=@inscription_player.inscription.tournament.parse_series(params[:start])
+    all_series = []
     days.each do |day_id, sers|
       day = TournamentDay.find(day_id)
       if day.entries_remaining? then
-        @inscription_player.replace_day_ser_ids day.id, sers
+        all_series.concat(Series.all(:conditions => {:id => sers}))
       else
         day_sers = @inscription_player.day_series(day.id)
         if day_sers.size >= sers.size then
-          @inscription_player.replace_day_ser_ids day.id, sers
+          all_series.concat(Series.all(:conditions => {:id => sers}))
         else
           @inscription_player.errors.add_to_base "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
         end
@@ -271,20 +274,24 @@ class InscriptionPlayersController < ApplicationController
     end
     if @inscription_player.play_series.empty?
       success_notice = "Keine Serien übrig, bitte #{@inscription_player.player.long_name} abmelden."
-    elsif not partner_ids.empty?
-      @inscription_player.play_series.each do |play_ser|
-        play_ser.partner_id=partner_ids[play_ser.series_id]
-      end
     end
 
     respond_to do |format|
-      if @inscription_player.errors.size == 0 and save_with_series(@inscription_player)
+      begin
+        if @inscription_player.errors.size > 0
+          throws ActiveRecord::RecordInvalid.new(@inscription_player)
+        end
+        save_with_series!(@inscription_player, all_series, partner_ids)
         Confirmation.deliver_inscription_player_update(@inscription_player)
         check_waiting_list @inscription_player.inscription
-        flash[:notice] = success_notice
+        if @inscription_player.notices.empty?
+          flash[:notice] = success_notice
+        else
+          flash[:notice] = @inscription_player.notices.join("; ")
+        end
         format.html { redirect_to(@inscription_player) }
         format.xml  { head :ok }
-      else
+      rescue
         @inscription_player.inscription.tournament.build_series_map
         format.html { render :action => "edit" }
         format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
@@ -292,13 +299,23 @@ class InscriptionPlayersController < ApplicationController
     end
   end
 
-  def save_with_series(ins_player)
-    unless ins_player.save
-      return false
-    end
-    ins_player.play_series.each do |pl_ser|
-      unless pl_ser.save
-        return false
+  def replace_day_ser_ids(day_id, ser_ids)
+    seris = Series.all(:conditions => {:id => ser_ids})
+    replace_day_series day_id, seris
+  end
+
+  def save_with_series!(ins_player, sers, partner_ids)
+    InscriptionPlayer.transaction do
+      ins_player.series.replace(sers)
+      unless partner_ids.empty?
+        @inscription_player.play_series.each do |play_ser|
+          play_ser.partner_id=partner_ids[play_ser.series_id]
+        end
+      end
+      ins_player.save!
+
+      ins_player.play_series.each do |pl_ser|
+        pl_ser.save!
       end
     end
   end

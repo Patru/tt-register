@@ -125,6 +125,14 @@ class Series < ActiveRecord::Base
       inscription_player.errors.add_to_base("Kein Partner für #{long_name} erlaubt!")
     end
   end
+
+  def playing
+    return play_series
+  end
+
+  def open
+    return []
+  end
 end
 
 class Models::Series < Series
