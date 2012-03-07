@@ -59,7 +59,7 @@ class InscriptionPlayer < ActiveRecord::Base
   
   def inscribed_for
     texts = []
-    texts << inscribed_series if series.size > 0
+    texts << inscribed_series if play_series.size > 0
     texts << waiting_lists if waiting_list_entries.size > 0
     texts.join "; "
   end

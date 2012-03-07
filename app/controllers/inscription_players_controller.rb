@@ -226,25 +226,24 @@ class InscriptionPlayersController < ApplicationController
     @inscription.tournament.build_series_map
     @sel_series = inscription_player.series
   end
-  
+
   def new_ins_player(player, param_days)
     inscription_player = InscriptionPlayer.new(:player_id => player.id, :inscription_id => @inscription.id)
     day_ids, partner_ids=@inscription.tournament.parse_series(param_days)
-    #TODO use a decent transaction here ...
+    all_series=[]
     day_ids.each do |day_id, ser_ids|
       td = TournamentDay.find(day_id)
       if td.entries_remaining? then
-        inscription_player.replace_day_ser_ids td.id, ser_ids
+        all_series.concat Series.all(:conditions => {:tournament_day_id => td.id, :id => ser_ids})
       elsif ser_ids.size > 0 then
         inscription_player.create_waiting_list_entry td.id, ser_ids
       end
     end
-    # usually this would happen automagically upon save, but we cannot wait until then and have to add the partners now
-    inscription_player.series.each do |ser|
+
+    all_series.each do |ser|
       play_ser=inscription_player.play_series.build(:series => ser, :partner_id => partner_ids[ser.id])
     end
-    inscription_player.series.replace([])   # avoid automatic doubling of series?
-    return inscription_player
+    inscription_player
   end
 
   # PUT /inscription_players/1
@@ -279,7 +278,7 @@ class InscriptionPlayersController < ApplicationController
     respond_to do |format|
       begin
         if @inscription_player.errors.size > 0
-          throws ActiveRecord::RecordInvalid.new(@inscription_player)
+          throw ActiveRecord::RecordInvalid.new(@inscription_player)
         end
         save_with_series!(@inscription_player, all_series, partner_ids)
         Confirmation.deliver_inscription_player_update(@inscription_player)
