@@ -9,12 +9,11 @@ module Verifiers::DoublesPartnerVerifier
                                                     "darf in der Serie #{play_ser.series.long_name} nicht teilnehmen!")
       return false
     else
-      return partner_does_not_play_series_otherwise?(play_ser, inscription_player)
+      return partner_not_in_series_otherwise?(play_ser, inscription_player)
     end
-    return true
   end
 
-  def partner_does_not_play_series_otherwise?(play_ser, inscription_player)
+  def partner_not_in_series_otherwise?(play_ser, inscription_player)
     as_player = PlaySeries.first(:joins => :inscription_player,
                     :conditions => {:inscription_players => {:player_id => play_ser.partner_id},
                                     :series_id => play_ser.series_id})
@@ -23,7 +22,7 @@ module Verifiers::DoublesPartnerVerifier
     elsif as_player.partner_id == nil
       inscription_player.notices << "Dein Partner #{play_ser.partner.long_name} ist im " +
               "#{play_ser.series.long_name} bisher offen angemeldet, bitte informiere ihn."
-    elsif as_player.partner_id !=  play_ser.player.id
+    elsif as_player.partner_id !=  inscription_player.player_id
       inscription_player.errors.add_to_base("#{play_ser.partner.long_name}" +
               " spielt in der Serie #{play_ser.series.long_name}" +
               " schon mit #{as_player.partner.long_name}, bitte wähle einen anderen Partner")
@@ -31,7 +30,7 @@ module Verifiers::DoublesPartnerVerifier
     end
 
     as_partner = PlaySeries.first(:conditions => {:partner_id => play_ser.partner_id, :series_id => play_ser.series_id})
-    if not as_partner.nil? and as_partner.player.id != play_ser.player.id
+    if not as_partner.nil? and as_partner.player.id != inscription_player.player_id
       inscription_player.errors.add_to_base("#{play_ser.partner.long_name}" +
                     " spielt in der Serie #{play_ser.series.long_name}" +
                     " schon mit #{as_partner.player.long_name}, bitte wähle einen anderen Partner")
