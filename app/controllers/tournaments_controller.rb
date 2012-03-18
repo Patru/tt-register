@@ -123,8 +123,8 @@ class TournamentsController < ApplicationController
   def download_entries
     @tournament = Tournament.find(params[:id])
     @play_series = PlaySeries.all(
-        :include => [{:series => :tournament_day}, {:inscription_player => :player}],
-        :conditions => ["tournament_days.tournament_id", 1])
+        :include => [{:series => :tournament_day}, {:inscription_player => :player}, :partner],
+        :conditions => ["tournament_days.tournament_id = ?", @tournament.id])
     respond_to do |format|
       format.dbsv do
         render_dbsv "entries-"+Time.now.strftime("%d-%m-%Y")
