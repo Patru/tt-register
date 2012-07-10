@@ -241,7 +241,8 @@ class InscriptionPlayersController < ApplicationController
     end
 
     all_series.each do |ser|
-      play_ser=inscription_player.play_series.build(:series => ser, :partner_id => partner_ids[ser.id])
+      this_partner = partner_ids[ser.id] if partner_ids
+      play_ser=inscription_player.play_series.build(:series => ser, :partner_id => this_partner)
     end
     inscription_player
   end
