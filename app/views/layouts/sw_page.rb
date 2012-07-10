@@ -40,7 +40,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   
   def head_content
     super
-    link :rel => "shortcut icon", :type => "image/x-icon", :href => "/images/ysz.ico"
+    link :rel => "shortcut icon", :type => "image/x-icon", :href => favicon
   end
   
   def tournament
@@ -70,6 +70,14 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     end
   end
     
+  def favicon
+    if tournament and tournament.favicon then
+      return tournament.favicon
+    else
+      return "/favicon.ico"
+    end
+  end
+
   def show_flash
     flash_type :notice, "notice"
     flash_type :message, "message"
