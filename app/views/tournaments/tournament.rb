@@ -4,6 +4,7 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :info_link
   @@fields << :logo
   @@fields << :stylesheet
+  @@fields << :favicon
   @@fields << :sender_email
   @@fields << :bcc_email
   @@fields << :facebook_link

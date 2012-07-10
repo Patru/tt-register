@@ -28,6 +28,7 @@ class Views::Labels
     :max_single_series => "Anzahl Einzelserien",
     :max_double_series => "Anzahl Doppelserien",
     :max_age_series => "Anzahl Altersserien",
-    :layout_parser => "Layout/Parsing für Serien"
+    :layout_parser => "Layout/Parsing für Serien",
+    :favicon => "Icon für Link"
   }
 end
