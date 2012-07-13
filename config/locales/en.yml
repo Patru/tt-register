@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      full_messages:
+        format: "%{attribute} %{message}"
+        template:
+          header:
+            one: "1 Fehler verhindert, dass %{model} gespeichert werden kann."
+            other: "%{count} verhindern, dass %{model} gespeichert werden kann."
+# I do not really use I18n in Tournament, but rails magic somehow busts it here.
