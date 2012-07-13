@@ -307,13 +307,13 @@ class InscriptionPlayersController < ApplicationController
   def save_with_series!(ins_player, sers, partner_ids)
     InscriptionPlayer.transaction do
       ins_player.series.replace(sers)
-      unless partner_ids.empty?
-        @inscription_player.play_series.each do |play_ser|
+      ins_player.save!
+      ins_player.play_series.reset        # for a random reason it taes this call to synch series and play_series
+      if partner_ids and not partner_ids.empty?
+        ins_player.play_series.each do |play_ser|
           play_ser.partner_id=partner_ids[play_ser.series_id]
         end
       end
-      ins_player.save!
-
       ins_player.play_series.each do |pl_ser|
         pl_ser.save!
       end
