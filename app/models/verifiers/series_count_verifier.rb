@@ -1,7 +1,7 @@
 module Verifiers::SeriesCountVerifier
   # verifies the number of selected series in the context of the tournament days
   def verify_series_count inscription_player
-    day_series = Hash.new([])
+    day_series = Hash.new{|hash,key| hash[key] = [] }
     inscription_player.play_series.each do |play_ser|
       t_day = play_ser.series.tournament_day
       day_series[t_day]=day_series[t_day] << play_ser.series
