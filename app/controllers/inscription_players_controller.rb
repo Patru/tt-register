@@ -224,7 +224,8 @@ class InscriptionPlayersController < ApplicationController
     @player = inscription_player.player
     @inscription = inscription_player.inscription
     @inscription.tournament.build_series_map
-    @sel_series = inscription_player.series
+    @sel_series = inscription_player.play_series.collect{|pls| pls.series}
+        # we collect the series here since the may not have been saved yet
   end
 
   def new_ins_player(player, param_days)
@@ -308,7 +309,7 @@ class InscriptionPlayersController < ApplicationController
     InscriptionPlayer.transaction do
       ins_player.series.replace(sers)
       ins_player.save!
-      ins_player.play_series.reset        # for a random reason it taes this call to synch series and play_series
+      ins_player.play_series.reset        # for a random reason it takes this call to synch series and play_series
       if partner_ids and not partner_ids.empty?
         ins_player.play_series.each do |play_ser|
           play_ser.partner_id=partner_ids[play_ser.series_id]
