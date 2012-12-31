@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tag  %>
+  <% # add an 's' for rails 3.1 %>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Admins: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<%= yield  %>
+
+</body>
+</html>
