@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Admins::New < Views::Layouts::SWPage
   def page_title
     'Neuer Administrator'

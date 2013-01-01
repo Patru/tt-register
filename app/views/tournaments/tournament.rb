@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@table_fields=[:tour_id, :name, :date, :organiser]
   @@fields = @@table_fields.clone

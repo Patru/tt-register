@@ -1,4 +1,8 @@
+# encoding: UTF-8
+
 class Email
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
   attr_accessor :from, :subject, :text, :errors
   PATTERN=/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
@@ -6,18 +10,23 @@ class Email
     self.from=from
     self.subject = subject
     self.text = text
-    self.errors = ActiveRecord::Errors.new(nil)
+    self.errors = ActiveModel::Errors.new(nil)
   end
 
   def valid?
     if from.blank?
-      errors.add_to_base "Wir benötigen deine Email-Adresse um dich kontaktieren zu können!"
+      errors.add :base, "Wir benötigen deine Email-Adresse um dich kontaktieren zu können!"
+      # maybe this needs to go to :base if the form does not work otherwise
     elsif not from =~ PATTERN
-      errors.add_to_base "Das Format deiner Email-Adresse ist nicht korrekt"
+      errors.add :base, "Das Format deiner Email-Adresse ist nicht korrekt"
     end
     if text.blank?
-      errors.add_to_base "Der Text deiner Meldung ist leer"
+      errors.add :base, "Der Text deiner Meldung ist leer"
     end
     errors.size == 0
+  end
+
+  def persisted?
+    false
   end
 end

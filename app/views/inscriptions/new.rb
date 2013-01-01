@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::New < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title
@@ -34,7 +36,7 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
       link_to "Datenschutz", protection_path
       text " machen. "
       text "Falls du weitere Fragen oder Anregungen hast, so kannst du dem "
-      link_to "Turnier-Team eine Email schicken", email_form_path
+      link_to "Turnier-Team eine E-Mail schicken", email_form_path
       text "."
     end
     h2 "Neue Einschreibung erstellen"

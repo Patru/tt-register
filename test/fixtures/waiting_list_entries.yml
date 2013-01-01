@@ -1,9 +1,2 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  tournament_day_id: 1
-  inscription_player_id: 1
-
-two:
-  tournament_day_id: 1
-  inscription_player_id: 1

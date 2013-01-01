@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::OwnInscription < Views::Inscriptions::Inscription
   def page_title
     "Einschreibung an Spieler übertragen"

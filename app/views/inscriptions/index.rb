@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::Index < Views::Inscriptions::Inscription
   def self.default_url_options
     {}

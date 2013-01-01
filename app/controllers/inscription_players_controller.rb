@@ -1,10 +1,12 @@
+# encoding: UTF-8
+
 class InscriptionPlayersController < ApplicationController
   before_filter :login_required, :except => [:show]
   layout nil
   # GET /inscription_players
   # GET /inscription_players.xml
   def index
-    @inscription_players = InscriptionPlayer.find :all, :include => :inscription
+    @inscription_players = InscriptionPlayer.includes(:inscription).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,20 +52,16 @@ class InscriptionPlayersController < ApplicationController
   # GET /inscription_players/1/edit
   def edit
     @inscription_player = InscriptionPlayer.find(params[:id], :include => [{:inscription => :tournament}, :player, :series])
-    if (@inscription.nil? or @inscription_player.inscription_id != @inscription.id) and @admin.nil? then
+    if (@inscription.nil? or @inscription_player.inscription_id != @inscription.id) and
+            (@admin.nil? and @inscription_player.inscription.id != session[:id])
       flash[:error] = "#{@inscription_player.player.long_name} wurde von #{@inscription_player.inscription.name} angemeldet, die Anmeldung kann deshalb nicht geändert werden."
       redirect_to @inscription_player
       return
     end
     @inscription_player.inscription.tournament.build_series_map
     respond_to do |format|
-      if @inscription_player.inscription.id == session[:id] then
-        format.html # edit.rb
-        format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
-      else
-        format.html { render :action => "show" }
-        format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
-      end
+      format.html # edit.rb
+      format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
     end
   end
 
@@ -97,7 +95,7 @@ class InscriptionPlayersController < ApplicationController
     end
     inscription = @inscription_player.inscription
     flash[:notice] = "#{@inscription_player.player.long_name} wurde abgemeldet"
-    Confirmation.deliver_deregistration(@inscription_player)
+    Confirmation.deregistration(@inscription_player).deliver
     @inscription_player.destroy
     check_waiting_list inscription
 
@@ -197,7 +195,7 @@ class InscriptionPlayersController < ApplicationController
 
         respond_to do |format|
           if @inscription_player.save then
-            Confirmation.deliver_inscription_player_confirmation(@inscription_player)
+            Confirmation.inscription_player_confirmation(@inscription_player).deliver
             if player.eql?(@inscription.own_player) then
               flash[:notice] = "Deine Anmeldung wurde gespeichert."
               format.html { redirect_to(@inscription_player.inscription) }
@@ -252,7 +250,7 @@ class InscriptionPlayersController < ApplicationController
   # PUT /inscription_players/1.xml
   def update_series
     @inscription_player = InscriptionPlayer.find(params[:id])
-    if @inscription_player.inscription_id != @inscription.id then
+    if (not is_admin?) and (@inscription_player.inscription_id != @inscription.id)  then
       flash[:error] = "Falsche Einschreibung, #{@inscription_player.player.long_name} kann nicht geändert werden."
       redirect_to @inscription_player
       return
@@ -269,7 +267,7 @@ class InscriptionPlayersController < ApplicationController
         if day_sers.size >= sers.size then
           all_series.concat(Series.all(:conditions => {:id => sers}))
         else
-          @inscription_player.errors.add_to_base "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
+          @inscription_player.errors.add :base, "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
         end
       end
     end
@@ -283,7 +281,7 @@ class InscriptionPlayersController < ApplicationController
           throw ActiveRecord::RecordInvalid.new(@inscription_player)
         end
         save_with_series!(@inscription_player, all_series, partner_ids)
-        Confirmation.deliver_inscription_player_update(@inscription_player)
+        Confirmation.inscription_player_update(@inscription_player).deliver
         check_waiting_list @inscription_player.inscription
         if @inscription_player.notices.empty?
           flash[:notice] = success_notice

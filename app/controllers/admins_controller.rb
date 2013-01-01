@@ -1,6 +1,8 @@
+# encoding: UTF-8
+
 class AdminsController < ApplicationController
   before_filter :admin_required, :except => [:login, :verify_login]
-  layout nil
+  layout :resolve_layout
 
   def login
     @admin = Admin.first(:conditions => {:token => params[:token]})
@@ -56,7 +58,7 @@ class AdminsController < ApplicationController
     admin = Admin.first
     if admin then
       if @admin then
-        @admin = Admin.new(:token => rand_str(12))
+        @admin = Admin.new(:token => ApplicationController::rand_str(12))
       else
         flash[:notice] = "Sie müssen Administrator sein um einen Administrator zu erzeugen"
         redirect_to :controller=>"inscriptions", :action => "new"
@@ -86,10 +88,10 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @new_admin.save
-        Confirmation.deliver_admin_confirmation(@new_admin, sender_admin, request.host_with_port)
+        Confirmation.admin_confirmation(@new_admin, sender_admin, request.host_with_port).deliver
         flash[:notice] = 'Admin gespeichert, Login Link per Email zugestellt.'
         @admins = Admin.all
-        format.html { render :action => :index }
+        format.html { redirect_to :action => :index }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else
         format.html { render :action => "new" }
@@ -130,5 +132,16 @@ class AdminsController < ApplicationController
   def logoff
     session[:admin_id] = nil
     redirect_to :controller => 'inscriptions', :action => 'new'
+  end
+
+private
+  def resolve_layout
+    case action_name
+    when "new", "index", "new", "update"
+      "admins_layout"
+    else
+      nil
+    end
+
   end
 end

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # Erector Page base class.
 #
 # Allows for accumulation of script and style tags (see example below) with either
@@ -95,11 +97,9 @@ class Views::Layouts::Page < Erector::Widget
   # Emit the Transitional doctype.
   # TODO: allow selection from among different standard doctypes
   def doctype
-    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+    '<!DOCTYPE html>'
   end
 
-  # rename this to 'content' once you move to Rails >2.3 and erector >0.6
   def content
     rawtext doctype
     html(html_attributes) do

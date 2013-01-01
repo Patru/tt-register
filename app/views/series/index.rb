@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Series::Index < Views::Series::Series
   def self.default_url_options
     {}

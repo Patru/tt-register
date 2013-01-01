@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 ssh_options[:username]="p35548r0"
 ssh_options[:forward_agent] = true

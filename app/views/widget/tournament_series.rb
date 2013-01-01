@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Widget::TournamentSeries < Erector::Widget
 #  needs :player, :inscription, :selected_series => [], :inscription_player => nil
   

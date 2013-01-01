@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Series < ActiveRecord::Base
   belongs_to :tournament_day
   has_many :play_series
@@ -122,7 +124,7 @@ class Series < ActiveRecord::Base
   # we also have to pass the inscription player as the association is created anew upon request
   def verify_partners(inscription_player, play_ser)
     if play_ser.partner
-      inscription_player.errors.add_to_base("Kein Partner für #{long_name} erlaubt!")
+      inscription_player.errors.add :base, "Kein Partner für #{long_name} erlaubt!"
     end
   end
 
@@ -135,6 +137,3 @@ class Series < ActiveRecord::Base
   end
 end
 
-class Models::Series < Series
-  
-end

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Admins::Login < Views::Layouts::SWPage
   def page_title
     'Login für Administratoren'

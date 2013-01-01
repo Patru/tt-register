@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/widget/tournament_series.rb'
 
 class Views::Widget::SeriesBox < Views::Widget::TournamentSeries

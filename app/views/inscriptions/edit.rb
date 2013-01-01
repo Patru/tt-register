@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::Edit < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title

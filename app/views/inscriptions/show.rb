@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   def page_title
     'Einschreibung anzeigen'
@@ -72,7 +74,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       text "Wenn du die Lizenznummer eines Spielers kennst, so kannst du sie hier "
       text "eingeben. Du brauchst dann nur noch die Serien auszuwählen."
     end
-    form_tag :controller => 'inscription_players', :action => 'add_player' do
+    form_tag({:controller => 'inscription_players', :action => 'add_player'}, {id: 'licence'}) do
       label "Lizenznummer"
       input :type => "text", :name => "licence", :size => 7
       input :type => "submit", :value => "Hinzufügen"
@@ -87,7 +89,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     end
     club_options = {:type => "text", :name => "crit[club]", :size => 20}
     club_options[:value]=@inscription.own_player.club if @inscription.own_player
-    form_tag :controller => 'inscriptions', :action => 'select_player' do
+    form_tag({:controller => 'inscriptions', :action => 'select_player'}, {id: 'sel_player'}) do
       input :type => "hidden", :name => 'id', :value => @inscription.id
       label "Club"
       input club_options
@@ -103,8 +105,8 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     if inscription_players.size > 0
       hr
       h2 title
-      table do
-        tr do
+      table id: 'my_inscriptions' do
+        thead do
           th "Name"
           th "Club"
           th "Eingeschrieben für"
@@ -136,7 +138,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
               :method => :delete, :title => 'abmelden')
         end
         td do
-          link_to(right_arrow_image, url_for(:controller => :inscriptions, :id => ins_player.id, :action => :own_inscription, :only_path => true),
+          link_to(right_arrow_image, url_for(:controller => :inscriptions, :id => ins_player.id, :only_path => true),
               :confirm =>  "Neue Einschreibung für #{ins_player.player.long_name} erzeugen?",
               :method => :post, :title => "Anmeldung an #{ins_player.player.long_name} übertragen")
         end

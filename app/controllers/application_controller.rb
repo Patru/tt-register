@@ -1,10 +1,8 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
+# encoding: UTF-8
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  filter_parameter_logging :password
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -31,6 +29,12 @@ protected
         session[:id]=nil
       end
     end
+  end
+
+  helper_method :is_admin?
+
+  def is_admin?
+    @admin != nil
   end
 
   def admin_required

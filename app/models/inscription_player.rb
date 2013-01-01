@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class InscriptionPlayer < ActiveRecord::Base
   belongs_to :inscription
   belongs_to :player
@@ -6,8 +8,9 @@ class InscriptionPlayer < ActiveRecord::Base
   has_many :waiting_list_entries, :dependent => :destroy
   validate :series_ok_for_tournament
   attr_accessor :notices
+  after_initialize :do_after_initialize
 
-  def after_initialize
+  def do_after_initialize
     self.notices ||= []
   end
 
@@ -103,17 +106,17 @@ class InscriptionPlayer < ActiveRecord::Base
       else
         day_series[t_day] = 1
       end
-      errors.add_to_base("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!") if not seri.may_be_played_by? self.player
+      errors.add :base, ("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!") if not seri.may_be_played_by? self.player
     end
     day_series.each do |tour_day, val|
-      errors.add_to_base("Am #{tour_day.day_name} dürfen maximal #{tour_day.series_per_day} Serien belegt werden") if tour_day.series_per_day < val
+      errors.add :base, ("Am #{tour_day.day_name} dürfen maximal #{tour_day.series_per_day} Serien belegt werden") if tour_day.series_per_day < val
     end
   end
 
   def series_ok_for_tournament
     series.each do |seri|
       if not seri.may_be_played_by? self.player
-        errors.add_to_base("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!")
+        errors.add :base, ("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!")
       end
     end
     inscription.tournament.verify_series self

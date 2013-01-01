@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class TournamentDay < ActiveRecord::Base
   @@weekdays = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
   belongs_to :tournament
@@ -47,26 +49,30 @@ class TournamentDay < ActiveRecord::Base
 
   def check_waiting_list
     while entries_remaining? and waiting_list_entries.size > 0 do
-      WaitingListEntry.first(:order => :created_at).accept_for_tournament
+      accepted = WaitingListEntry.first(:order => :created_at).accept_for_tournament
+      if not accepted.nil?
+        WaitingListAccept.accept(accepted).deliver
+        # TODO: think about an acceptable reaction if accept did not work
+      end
     end
   end
 
   def permits? inscription_player, series_count
     if not series_per_day.blank? and series_count[:total] > series_per_day
-      inscription_player.errors.add_to_base("Am #{day_name} dürfen maximal \
-           #{series_per_day} Serien belegt werden")
+      inscription_player.errors.add :base, "Am #{day_name} dürfen maximal \
+           #{series_per_day} Serien belegt werden"
     end
     if not max_single_series.blank? and series_count[:single] > max_single_series
-      inscription_player.errors.add_to_base("Am #{day_name} dürfen maximal \
-           #{max_single_series} Einzelserien belegt werden")
+      inscription_player.errors.add :base, "Am #{day_name} dürfen maximal \
+           #{max_single_series} Einzelserien belegt werden"
     end
     if not max_double_series.blank? and series_count[:double] > max_double_series
-      inscription_player.errors.add_to_base("Am #{day_name} dürfen maximal \
-           #{max_double_series} Doppelserien belegt werden")
+      inscription_player.errors.add :base, "Am #{day_name} dürfen maximal \
+           #{max_double_series} Doppelserien belegt werden"
     end
     if not max_age_series.blank? and series_count[:age] > max_age_series
-      inscription_player.errors.add_to_base("Am #{day_name} darf maximal \
-           #{max_age_series} Altersserie belegt werden")
+      inscription_player.errors.add :base, "Am #{day_name} darf maximal \
+           #{max_age_series} Altersserie belegt werden"
     end
   end
 end

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/labels.rb'
 require 'views/columns.rb'
 
@@ -14,6 +16,8 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   external :js, "/javascripts/jquery-1.7.1.min.js"
   external :js, "/javascripts/jquery-ui-1.8.17.custom.min.js"
   external :js, "/javascripts/application.js"
+  external :js, "/javascripts/jquery_ujs.js"
+  external :js, "/javascripts/rails.js"
   external :css, "/stylesheets/jquery-ui-1.8.17.custom.css"
 #  external :script, "function sel_item(theUrl) {document.location.href = theUrl;}"
   def self.default_url_options
@@ -34,8 +38,10 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   
   def included_stylesheets
+    self.class.depends_on :css, stylesheet
     super
     link :rel => "stylesheet", :href => stylesheet, :type => "text/css", :media => "all"
+#    p "hello"
   end
   
   def head_content
@@ -53,12 +59,14 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     end
     if @inscription and @inscription.tournament then
       return @inscription.tournament
+    elsif @inscription_player and @inscription_player.inscription and @inscription_player.inscription.tournament
+      return @inscription_player.inscription.tournament
     elsif series and series.tournament_day and series.tournament_day.tournament then
       return series.tournament_day.tournament
     elsif @tournament then
       return @tournament
     else
-      return Models::Tournament.next
+      return ::Tournament.next
     end
   end
   
@@ -163,7 +171,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     this_year = Time.now.year
     copy_year = app_start_year.to_s
     if this_year > app_start_year then
-      copy_year = copy_year+"-"+this_year.to_s
+      copy_year = copy_year+"—"+this_year.to_s
     end
     div :class => "copyright" do
       p :class => 'footer' do
@@ -297,13 +305,13 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       end
     end
   end
-  def form_text_field form, symbol
+  def form_text_field form, symbol, options={}
     tr do
       td :class => 'label' do
          rawtext form.label(symbol, Views::Labels.label(symbol))
       end
       td do
-        rawtext form.text_field(symbol)
+        rawtext form.text_field(symbol, options)
       end
     end
   end
@@ -443,7 +451,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     ul :class => "standard" do
       menu_item protection_path, "Datenschutzbestimmungen", lock_image, "Datenschutz"
       menu_item email_form_path, "Email ans Turnierteam", message_image, "Email"
-      menu_item logout_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang"
+      menu_item logout_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang" unless is_admin?
     end
   end
 

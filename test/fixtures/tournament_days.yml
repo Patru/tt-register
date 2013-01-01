@@ -1,14 +1,14 @@
 one:
   id: 1
   tournament_id: 1
-  day: 2012-12-29
-  max_inscriptions: 5
+  day: <%=Date.parse('Saturday').to_s%>
+  max_inscriptions: 19
   series_per_day: 2
 
 two:
   id: 2
   tournament_id: 1
-  day: 2012-12-30
+  day: <%=(Date.parse('Saturday')+1).to_s%>
   max_inscriptions: 7
   series_per_day: 3
 

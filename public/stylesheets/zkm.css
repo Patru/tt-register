@@ -47,9 +47,12 @@ div#header_text p span.closed {
 	background: #aaccf5;
 }
 
+div#maincontent {
+    margin: 0px 200px 0px 0px;
+}
 div#navigation {
 	float: right;
-	width: 135px;
+	width: 185px;
 	padding: 5px;
 	background: #cbdaf9;
 }
@@ -62,7 +65,7 @@ div#navigation ul li {
 	display: block;
 	border-width: thin;
 	border-top: thin;
-	margin: 1px 1px 2px -30px;
+	margin: 1px 1px 2px 3px;
 }
 div#navigation ul li ul {
 	background: #ddeafb;

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/tables.rb'
 
 class Views::Series::List < Erector::Widget

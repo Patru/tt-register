@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Tournaments::Index < Views::Tournaments::Tournament
   def self.default_url_options
     {}

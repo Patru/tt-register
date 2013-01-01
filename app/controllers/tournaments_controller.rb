@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class TournamentsController < ApplicationController
   before_filter :admin_required
   layout nil

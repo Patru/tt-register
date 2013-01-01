@@ -1,15 +1,20 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  tour_id: 1
+  id: 1
+  tour_id: "ZhOpen"
   name: Zürich Open
   date: 2012-02-18
   info_link: MyString
   organiser: TTVZ
+  layout_parser: Verifiers::RadioButtonTimeBox
+  sender_email: team@tournament.mail
 
 two:
-  tour_id: 2
-  name: ZKM
+  id: 2
+  tour_id: ZKM
+  name: Zürcher Kantonalmeisterschaften
   date: 2012-03-25
   info_link: MyString
   organiser: TTVKZ
+  layout_parser: Verifiers::SeriesCountVerifier

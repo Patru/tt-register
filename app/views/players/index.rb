@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'action_view/helpers/form_tag_helper'
 class Views::Players::Index < Views::Layouts::SWPage
   def self.default_url_options
@@ -31,7 +33,7 @@ class Views::Players::Index < Views::Layouts::SWPage
   end
   
   def filter_row
-    form_for(:filter_cond, @filter_cond, :url => url_for(:controller => "players", :action => "filtered", :only_path => true)) do |f|
+    form_for(@filter_cond, :as =>:filter_cond,  :url => url_for(:controller => "players", :action => "filtered", :only_path => true)) do |f|
       tr do
         td do
           rawtext f.text_field(:name, :size => 12)

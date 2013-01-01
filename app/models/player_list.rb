@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class PlayerList
   attr_accessor :title, :play_sers
 

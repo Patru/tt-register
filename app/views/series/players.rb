@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Series::Players < Views::Layouts::SWPage
   def page_title
     "#{@play_series.size} Anmeldungen für #{@series.long_name}"

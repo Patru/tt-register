@@ -1,10 +1,12 @@
+# encoding: UTF-8
+
 class SeriesController < ApplicationController
   before_filter :admin_required, :except => [:players]
   layout=nil
   # GET /series
   # GET /series.xml
   def index
-    @series = Series.find(:all, :order => "long_name", :include => [{:tournament_day => :tournament}])
+    @series = Series.all(:order => "long_name", :include => [{:tournament_day => :tournament}])
 
     respond_to do |format|
       format.html # index.html.erb

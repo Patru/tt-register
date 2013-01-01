@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::TournamentDays::Edit < Views::TournamentDays::TournamentDay
   def page_title
     'Turniertag ändern'

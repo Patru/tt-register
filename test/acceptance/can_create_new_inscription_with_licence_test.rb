@@ -28,8 +28,6 @@ describe "CanCreateNewInscriptionWithLicence Acceptance Test" do
     choose('Herren Doppel C/D')
     click_button 'Anmelden'
     page.must_have_content "Deine Anmeldung wurde gespeichert."
-
-#    save_and_open_page
   end
 
   it "must not be able to create an inscription without a valid email" do
@@ -43,12 +41,3 @@ describe "CanCreateNewInscriptionWithLicence Acceptance Test" do
   end
 end
 
-=begin
-Lieber Zwurgel Urgel  Herzlichen Dank für die Benutzung der Anmelde-Applikation.
-        Bitte klicke auf den folgenden Link
-http://www.example.com/inscriptions/3/f2yspMgn0Gy1P7Hc
-um deine Email-Adresse zu bestätigen und deine sowie weitere Anmeldungen zu erfassen.
-         Bitte behalte diese Email bis zum Turnier, denn damit kannst du rasch zusätzliche
-An- oder Abmeldungen erfassen, der Link bleibt so lange aktiv. Herzliche Grüsse
-das Zürich Open Team
-=end

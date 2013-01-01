@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
 
   def self.default_url_options
@@ -25,7 +27,7 @@ class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
     p do
       text "Bitte einen Spieler für die Anmeldung auswählen, anschliessend die Serien auswählen und die Anmeldung bestätigen."
     end
-    table do
+    table class: 'players' do
       headers :name, :club, :licence, :ranking, :woman_ranking, :category
 
       for player in @players do

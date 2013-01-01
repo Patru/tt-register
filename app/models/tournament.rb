@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Tournament < ActiveRecord::Base
   has_many :tournament_days
   has_many :inscriptions
@@ -40,8 +42,4 @@ class Tournament < ActiveRecord::Base
     layouter_class=layout_parser.split('::').inject(Kernel) {|scope, const_name| scope.const_get(const_name)}
     @layout_parser ||= layouter_class.new
   end
-end
-
-class Models::Tournament < Tournament
-
 end

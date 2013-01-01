@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  hashed_password: MyString
-  tournament_id: 1
-
-two:
-  name: MyString
-  hashed_password: MyString
-  tournament_id: 1
+#one:
+#  name: MyString
+#  hashed_password: MyString
+#  tournament_id: 1
+#
+#two:
+#  name: MyString
+#  hashed_password: MyString
+#  tournament_id: 1

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/widget/series_box.rb'
 
 class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPlayer

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Columns
   def self.header(symbol)
     if @@headers.has_key?(symbol)

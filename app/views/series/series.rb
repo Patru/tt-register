@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Series::Series < Views::Layouts::SWPage
   def series_form(button_text)
     form_for :series,

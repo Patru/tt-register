@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Players::Edit < Views::Players::Player
   def page_title
     'Spielerdaten ändern'

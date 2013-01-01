@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::InscriptionPlayers::Index < Views::InscriptionPlayers::InscriptionPlayer
   def self.default_url_options
     {}

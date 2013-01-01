@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Tournaments::Show < Views::Tournaments::Tournament
   def page_title
     "Details für #{@tournament.name} anzeigen"

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class PlaySeries < ActiveRecord::Base
   include Comparable
   belongs_to :inscription_player

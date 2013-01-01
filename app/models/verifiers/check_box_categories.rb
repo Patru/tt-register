@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Verifiers::CheckBoxCategories <Verifiers::RadioButtonTimeBox
   include Verifiers::SeriesCountVerifier
 

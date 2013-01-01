@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require "csv"
 require 'csv.rb'
 
@@ -24,21 +26,17 @@ class PlayersController < ApplicationController
   def auto
     if (lic=digits_as_int(params[:term])) > 0
       if lic > 10000
-        players=Player.find(:all, :conditions => ["Licence like ?", "#{lic}%"])
+        players=Player.where(["Licence like ?", "#{lic}%"]).all
       else
         players=[]
       end
     else
       (name, first_name, club) = params[:term].split(" ")
-      if first_name.blank?
-        conds = ['name like ?', "%#{name}%"]
-      elsif club.blank?
-        conds=['name like ? and first_name like ?', "%#{name}%", "%#{first_name}%"]
-      else
-        conds=['name like ? and first_name like ? and club like ?', "%#{name}%", "%#{first_name}%", "%#{club}%"]
-      end
-      players=Player.find(:all, :conditions => conds,
-              :limit => 10, :select => "id, ranking, woman_ranking, name, first_name, club").to_json
+      restrictedPlayers=Player.where(['name like ?', "%#{name}%"])
+      restrictedPlayers=restrictedPlayers.where(['first_name like ?', "%#{first_name}%"]) unless first_name.blank?
+      restrictedPlayers=restrictedPlayers.where(['club like ?', "%#{club}%"]) unless club.blank?
+      players=restrictedPlayers.limit(10).
+              select("id, ranking, woman_ranking, name, first_name, club").all
     end
     respond_to do |format|
       format.js {render :json => players}
@@ -128,7 +126,7 @@ class PlayersController < ApplicationController
   
   def upload
     if not params[:players].nil? then
-      player_importer = PlayerImporter.new(params[:players])
+      player_importer = PlayerImporter.new(params[:players].tempfile)
       player_importer.import
       flash[:notice] = "Total: #{player_importer.rows}, geladen: #{player_importer.imported}, \
           neu: #{player_importer.added.size}, gelöscht: #{player_importer.deleted.size}"
@@ -151,6 +149,7 @@ class PlayersController < ApplicationController
   end
   
   def filtered_players
+    # TODO: redesign would be in order here
     conditions = {}
     [:name, :first_name, :club].each do |criteria|
       conditions[criteria] = @filter_cond.send(criteria) unless @filter_cond.send(criteria).blank?
@@ -179,7 +178,7 @@ class PlayerImporter
   end
   def import
     build_existing_players_map
-    CSV::Reader.parse(@file, "\t") do |row|
+    CSV.foreach(@file, col_sep:"\t") do |row|
       @rows = @rows+1
       import_player_row row 
     end    
@@ -190,7 +189,7 @@ class PlayerImporter
   end
   
   def build_existing_players_map
-    Player.find(:all, :conditions => {:licence => 100000..999999}).each do |player|
+    Player.where(licence: 100000..999999).all.each do |player|
       @existing_players_map[player.licence] = player
     end
   end

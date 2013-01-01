@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require File.dirname(__FILE__) + '/columns.rb'
 class Views::Labels
   def self.label(symbol)

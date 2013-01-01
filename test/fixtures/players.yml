@@ -80,3 +80,19 @@ nine:
   first_name: Singl
   club: keiner
   ranking: 5
+
+ten:
+  id: 10
+  licence: 700032
+  name: Angemeldet
+  first_name: Noch Nicht
+  club: keiner
+  ranking: 1
+
+eleven:
+  id: 11
+  licence: 700033
+  name: Zuviel
+  first_name: Einer
+  club: keiner
+  ranking: 1

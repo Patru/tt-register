@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Players::Show < Views::Layouts::SWPage
   def page_title
     'Spieler anzeigen'

@@ -8,16 +8,18 @@ menD:
   start_time: 2009-12-28 22:32:37
   min_ranking: 1
   max_ranking: 5
+  category: ""
 
 womenD:
-   id: 2
-   series_name: WD
-   tournament_day_id: 1
-   long_name: Damen D
-   start_time: 2009-12-28 22:32:37
-   min_ranking: 1
-   max_ranking: 5
-   sex: W
+  id: 2
+  series_name: WD
+  tournament_day_id: 1
+  long_name: Damen D
+  start_time: 2009-12-28 22:32:37
+  min_ranking: 1
+  max_ranking: 5
+  sex: W
+  category: ""
 
 menDouble:
   id: 3
@@ -28,6 +30,7 @@ menDouble:
   min_ranking: 1
   max_ranking: 10
   type: DoubleSeries
+  category: ""
 
 womenDouble:
   id: 4
@@ -39,6 +42,7 @@ womenDouble:
   max_ranking: 10
   sex: W
   type: DoubleSeries
+  category: ""
 
 mixedDouble:
   id: 5
@@ -49,6 +53,7 @@ mixedDouble:
   min_ranking: 1
   max_ranking: 10
   type: MixedSeries
+  category: ""
 
 menA:
   id: 6
@@ -59,6 +64,7 @@ menA:
   min_ranking: 10
   max_ranking: 20
   use_rank: 100
+  category: ""
 
 womenA:
   id: 7
@@ -70,6 +76,7 @@ womenA:
   max_ranking: 20
   sex: W
   use_rank: 50
+  category: ""
 
 mixedDoubleA:
   id: 8
@@ -80,6 +87,7 @@ mixedDoubleA:
   min_ranking: 11
   max_ranking: 20
   type: MixedSeries
+  category: ""
 
 womenDoubleA:
   id: 9
@@ -91,6 +99,7 @@ womenDoubleA:
   max_ranking: 20
   sex: W
   type: DoubleSeries
+  category: ""
 
 elite:
   id: 10
@@ -100,3 +109,4 @@ elite:
   start_time: 2009-12-28 22:32:37
   min_ranking: 1
   max_ranking: 20
+  category: ""

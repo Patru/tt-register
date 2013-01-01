@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Players::New < Views::Players::Player
   def page_title
     'Neuer Spieler'

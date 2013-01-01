@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Inscription < ActiveRecord::Base
   belongs_to :tournament
   has_many :inscription_players, :dependent => :destroy
@@ -9,7 +10,7 @@ class Inscription < ActiveRecord::Base
 
   def must_have_name_or_licence
     if (name == nil or name.length == 0) and (licence == nil or licence.to_s.length == 0) then
-      errors.add_to_base "Name oder Lizenznummer müssen ausgefüllt werden"
+      errors.add :base, "Name oder Lizenznummer müssen ausgefüllt werden"
     elsif licence != nil and not licence.is_a? Fixnum then
       errors.add :licence, "muss eine ganze Zahl sein"
     elsif licence != nil and not (100000..999999).include? licence then

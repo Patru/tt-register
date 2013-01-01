@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Series::Show < Views::Layouts::SWPage
   def page_title
     'Serie anzeigen'

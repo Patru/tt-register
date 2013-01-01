@@ -3,14 +3,14 @@ require 'test_helper'
 class SeriesTest < ActiveSupport::TestCase
   test "ranking of players in men series" do
     men_single=series(:menD)
-    assert 1, men_single.ranking_of(players(:one))
-    assert 1, men_single.ranking_of(players(:two))
+    assert_equal 1, men_single.ranking_of(players(:one))
+    assert_equal 1, men_single.ranking_of(players(:two))
   end
 
   test "ranking of players in women series" do
     women_double=series(:womenDouble)
     assert_nil women_double.ranking_of(players(:one))
-    assert 3, women_double.ranking_of(players(:two))
+    assert_equal 3, women_double.ranking_of(players(:two))
   end
 
   test "ranking of players in mixed series" do

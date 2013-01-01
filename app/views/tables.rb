@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/columns.rb'
 
 module Views::Tables

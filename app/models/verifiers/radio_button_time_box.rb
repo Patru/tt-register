@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # Initial verifier demonstrating the use of the layouter, series_parser and verifier factory methods
 class Verifiers::RadioButtonTimeBox
   include Verifiers::SeriesCountVerifier

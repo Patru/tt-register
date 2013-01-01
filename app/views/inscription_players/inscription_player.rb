@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::InscriptionPlayers::InscriptionPlayer < Views::Layouts::SWPage
   
   def inscription_form(button_text)

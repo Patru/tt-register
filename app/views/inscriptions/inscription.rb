@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Inscriptions::Inscription < Views::Layouts::SWPage
   @@fields=[:licence, :name]
   def fields
@@ -22,10 +24,10 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
             rawtext f.collection_select(:tournament_id, @tournaments, :id, :name)
           end
         end
-        form_text_field f, :licence
-        form_text_field f, :name
+        form_text_field f, :licence, {placeholder: 'Lizenznummer', type: 'number'}
+        form_text_field f, :name, {placeholder: 'Vorname Name'}
         if @inscription.new_record? then
-          form_text_field f, :email
+          form_text_field f, :email, {placeholder: 'me@my.host', type: 'email'}
         else
           if @admin or @inscription.id.eql? session[:id] then
             form_hidden_field f, :email

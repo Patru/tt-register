@@ -7,7 +7,7 @@ Für dich wurde ein Administrationskonto für die Turnierapplikation erstellt
 <%end%>
 Bitte klicke auf den folgenden Link
 
-<%= url_for(:host=>@host, :controller => "admins", :action=>"login")%>/<%= @new_admin.token %>
+<%= url_for(:host=>@host, :controller => "admins", :action=>"login", token:@new_admin.token) %>
 
 um dich einzuloggen.
 

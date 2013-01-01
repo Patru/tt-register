@@ -1,3 +1,0 @@
-class Views::Inscription
-  
-end

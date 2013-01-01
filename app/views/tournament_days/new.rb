@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::TournamentDays::New < Views::TournamentDays::TournamentDay
 #  needs :tournaments, :tournament_day
   def page_title

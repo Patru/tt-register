@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Tournaments::Edit < Views::Tournaments::Tournament
   def page_title
     'Turnierdaten ändern'

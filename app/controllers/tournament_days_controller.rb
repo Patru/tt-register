@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class TournamentDaysController < ApplicationController
   before_filter :admin_required
   layout nil
@@ -17,7 +19,7 @@ class TournamentDaysController < ApplicationController
   def show
     @tournament_day = TournamentDay.find(params[:id], :include => :tournament)
     @series = Series.find_all_by_tournament_day_id(@tournament_day.id, :include => [{:tournament_day => :tournament}], :order => "long_name")
-    @tournament_days = TournamentDay.find :all#, :conditions => ["day >= ?", Time.now]
+    @tournament_days = TournamentDay.all#, :conditions => ["day >= ?", Time.now]
 
     respond_to do |format|
       format.html # show.erb

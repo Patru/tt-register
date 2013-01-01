@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'base64'
 
 class InscriptionsController < ApplicationController
@@ -8,7 +9,7 @@ class InscriptionsController < ApplicationController
   # GET /inscriptions
   # GET /inscriptions.xml
   def index
-    @inscriptions = Inscription.find :all, :include => :tournament
+    @inscriptions = Inscription.includes(:tournament).all
 
     respond_to do |format|
       format.html # index.rb
@@ -19,7 +20,8 @@ class InscriptionsController < ApplicationController
   # GET /inscriptions/1
   # GET /inscriptions/1.xml
   def show
-    @inscription = Inscription.find(params[:id], :include => [:tournament, {:inscription_players => [:player, :series]}])
+    @inscription = Inscription.where(id:params[:id]).
+            includes(:tournament,  :inscription_players => [:player, :series]).first
     @inscription.tournament.build_series_map
 
     respond_to do |format|
@@ -61,7 +63,7 @@ class InscriptionsController < ApplicationController
     tournament=Tournament.find(params[:tournament_id]) unless params[:tournament_id].blank?
     @email = Email.new(params[:email][:from], params[:email][:subject], params[:email][:text])
     if @email.valid?
-      Confirmation.deliver_mail_team(@email, tournament.sender_email)
+      Confirmation.mail_team(@email, tournament.sender_email).deliver
       flash[:notice] = "Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden."
       redirect_to :controller => "inscriptions", :action => "new"
     else
@@ -95,7 +97,7 @@ class InscriptionsController < ApplicationController
         return
       else
         inscription.create_secret
-        Confirmation.deliver_resend(inscription, host)
+        Confirmation.resend(inscription, host).deliver
         inscription.save
         flash[:notice] = "Link neu zugestellt, die Email sollte in wenigen Minuten ankommen."
       end
@@ -155,7 +157,7 @@ class InscriptionsController < ApplicationController
     
     respond_to do |format|
       if @inscription.save
-        Confirmation.deliver_confirmation(@inscription, host)
+        Confirmation.confirmation(@inscription, host).deliver
         flash[:notice] = 'Die Einschreibung wurde erfolgreich erzeugt, bitte den Link in der Bestätigungs-Email verwenden.'
         format.html { redirect_to(@inscription) }
         format.xml  { render :xml => @inscription, :status => :created, :location => @inscription }
@@ -292,7 +294,7 @@ class InscriptionsController < ApplicationController
         if @inscription.save
           @inscription_player.inscription = @inscription
           if @inscription_player.save then
-            TransferInscription.deliver_transfer_inscription(@inscription, @inscription_player, former_inscription)
+            TransferInscription.transfer_inscription(@inscription, @inscription_player, former_inscription).deliver
             flash[:notice] = 'Die Einschreibung wurde erfolgreich übertragen und kann jetzt vom Spieler verwaltet werden.'
             format.html { redirect_to(former_inscription) }
             format.xml  { render :xml => former_inscription, :status => :created, :location => former_inscription }

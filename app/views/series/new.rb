@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::Series::New < Views::Series::Series
   def page_title
     'Neue Serie'

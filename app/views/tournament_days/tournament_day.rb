@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::TournamentDays::TournamentDay < Views::Layouts::SWPage
   @@fields=[:tournament_id, :day, :max_inscriptions]
   def fields

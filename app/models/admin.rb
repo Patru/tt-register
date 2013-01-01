@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Admin < ActiveRecord::Base
   belongs_to :tournament
   attr_accessor :password

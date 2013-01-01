@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module Verifiers::SeriesCountVerifier
   # verifies the number of selected series in the context of the tournament days
   def verify_series_count inscription_player

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Player < ActiveRecord::Base
   has_many :inscription_players
   validates_length_of :name, :maximum => 100, :message => "darf nicht länger als 100 Zeichen sein"

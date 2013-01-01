@@ -1,5 +1,7 @@
-log/
 .DS_STORE
 .rvmrc
 .idea/
-*.sqlite3
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/

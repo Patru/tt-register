@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'views/series/list'
 
 class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay

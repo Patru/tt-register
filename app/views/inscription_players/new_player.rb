@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::InscriptionPlayer
 #  needs :player, :inscription, :inscription_player => nil
   
