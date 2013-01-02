@@ -38,7 +38,6 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   
   def included_stylesheets
-#    self.class.depends_on :css, stylesheet
     super
     link :rel => "stylesheet", :href => stylesheet, :type => "text/css", :media => "all"
 #    TODO: verify it one of these is not enough
