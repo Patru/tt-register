@@ -52,13 +52,14 @@ div#maincontent {
 }
 div#navigation {
 	float: right;
-	width: 185px;
+	width: 160px;
 	padding: 5px;
 	background: #cbdaf9;
 }
 
 div#navigation ul {
 	list-style-type: none;
+    padding-left: 0px;
 }
 	
 div#navigation ul li {
@@ -69,6 +70,8 @@ div#navigation ul li {
 }
 div#navigation ul li ul {
 	background: #ddeafb;
+    padding-left: 8px;
+    padding-right: 5px;
 }
 div#navigation ul li ul li a.link {
 	display: block;
@@ -77,6 +80,8 @@ div#navigation ul li ul li a.link {
 	border-top: thin;
 	color:#2020e0;
 	text-decoration:none;
+}
+div#navigation ul li ul li {
 }
 div#navigation ul li ul li a:visited {
 	display: block;

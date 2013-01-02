@@ -1,12 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.0.17'
+gem 'rails', '3.1.8'
 
-gem 'erector', '0.8.3'
+gem 'erector', '0.9.0'
 gem 'sqlite3-ruby'
 gem 'capistrano'
-gem 'jquery-rails', '~> 2.1'
+gem 'jquery-rails'
 gem 'dynamic_form'
+gem 'json'
+gem 'sass'
+gem 'coffee-script'
+gem 'uglifier'
 
 group :test, :development do
   gem 'minitest-rails'
@@ -20,4 +24,6 @@ end
 
 group :production do
   gem 'pg'
+  gem 'libv8'
+  gem 'therubyracer'
 end

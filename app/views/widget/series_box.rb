@@ -48,14 +48,11 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
     ser_id="partner_#{doubl.id}"
     opts = {:type => "text", :name => name,
             :id => ser_id, :size => 30, :class => "partner",
-            :title => "Name Vorname oder Lizemnzummer eingeben um den Partner auszuwählen."}
+            :title => "Name Vorname oder Lizenzummer eingeben um den Partner auszuwählen."}
     if disabled
       opts.merge!({:disabled => "disabled"})
     else
-      opts.merge!(
-            :onFocus => "handle_default_focus(this)",
-            :onBlur => "partner_blur(this)",
-            "data-default" => "Name Vorname oder Lizenz für Auswahl")
+      opts.merge!(placeholder: "Name Vorname oder Lizenz für Auswahl")
     end
     if (not @partner_map.nil?) and (not @partner_map[doubl.id].nil?)
       opts[:value]=@partner_map[doubl.id].description

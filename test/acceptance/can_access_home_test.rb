@@ -8,7 +8,7 @@ describe "can access home Acceptance Test" do
     page.must_have_content "Lieber Tischtennisfreund"
     within "div#maincontent" do
       page.must_have_content "Neue Einschreibung erstellen"
-      page.must_have_selector "input#inscription_submit"
+      page.must_have_button "Einschreibung erstellen"
       within "form#new_inscription" do
         page.find_field("Vorname Name")['name'].must_equal 'inscription[name]'
         page.find_field("Lizenznummer")['name'].must_equal 'inscription[licence]'

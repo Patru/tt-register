@@ -26,17 +26,20 @@ class MiniTest::Rails::ActionDispatch::IntegrationTest
     post :create, :admin => {name:"Test", password:"blank", email:test_email, token:"blabla" }
   end
 
+  def email_link_path(email)
+    email.body.match(/http:\/\/[^\/]+(\S+)/)[1]
+  end
+
   def new_inscription_with_licence(licence, email=DUMMY_EMAIL)
     visit "/"
     clear_emails
     within "form#new_inscription" do
       fill_in "inscription_licence", with: licence
       fill_in "inscription[email]", with: email
-      click_button 'inscription_submit'
+      click_button 'Einschreibung erstellen'
     end
     open_email email
-    link=URI(current_email.find_link("http://").text)
-    visit link.path
+    visit email_link_path(current_email)
     @inscription = Inscription.where(licence: licence).first
     page.must_have_content "#{@inscription.name} eingeloggt!"
   end
@@ -47,11 +50,11 @@ class MiniTest::Rails::ActionDispatch::IntegrationTest
     within "form#new_inscription" do
       fill_in "Name", with: name
       fill_in "E-mail", with: email
-      click_button 'Einschreibung erstellen und Email-Adresse bestätigen'
+      click_button 'Einschreibung erstellen und Email-Adresse best'
+      # TODO:put 'ätigen' back in?
     end
     open_email email
-    link=URI(current_email.find_link("inscription").text)
-    visit link.path
+    visit email_link_path(current_email)
     @inscription = Inscription.where(name: name).first
     page.must_have_content "#{@inscription.name} eingeloggt!"
   end

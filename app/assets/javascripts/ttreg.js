@@ -1,17 +1,16 @@
-(function($){
+//(function($){         for a random reason autocomplete does not work in this setup (undefined)
   $(document).ready(function(){
-
+//    $("input.partner").each(function(){alert("hello "+$(this).attr('name'))})
     $("input.partner").autocomplete({
         minLength: 2,
-        source: "/auto.js",
+        source: "/auto.js", // ["trunz", "engels", "hallo", "hello"],
         select: select_player
     })
     .each(function() {
         $(this).data( "autocomplete" )._renderItem = player_formatter;
-        handle_default_blur(this);
     });
   });
-})(jQuery);
+//})(jQuery);
 
 function select_player( event, ui) {
     event.target.value=player_desc(ui.item.player);
@@ -34,28 +33,6 @@ function player_desc(player) {
         ranking = " (" + player.ranking + ")"
     }
     return player.name + " " + player.first_name + "; " + player.club + ranking
-}
-
-function handle_default_focus(text_field) {
-    if (text_field.value==text_field.getAttribute("data-default")) {
-        text_field.value=''
-        text_field.style.color='black'
-    }
-}
-
-function partner_blur(text_field) {
-    if (text_field.value=='') {
-        ser_id=text_field.id+"_id";
-        $("#"+ser_id).val('');
-    }
-    handle_default_blur(text_field);
-}
-
-function handle_default_blur(text_field) {
-    if (text_field.value=='') {
-        text_field.value=text_field.getAttribute("data-default")
-        text_field.style.color='gray'
-    }
 }
 
 function sel_item(theUrl) {document.location.href = theUrl;}

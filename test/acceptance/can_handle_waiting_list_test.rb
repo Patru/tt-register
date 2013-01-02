@@ -25,6 +25,7 @@ describe "CanHandleWaitingList Acceptance Test" do
     waiting_list_text = 'Warteliste Sa: 1'
     current_email.must_have_content "#{player.name} wurde auf deiner Einschreibung " +
                                     "folgendermassen angemeldet: #{waiting_list_text}"
+        # this expectation seems to fail spuriously?
     within 'table#my_inscriptions' do
       page.must_have_link(player.name)
       page.must_have_content waiting_list_text

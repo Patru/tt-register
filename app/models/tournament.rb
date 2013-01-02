@@ -21,7 +21,7 @@ class Tournament < ActiveRecord::Base
     if day then
       Tournament.find(day.tournament_id, :include => {:tournament_days => :series})
     else
-      Tournament.new(:name => "keines", :stylesheet => "/stylesheets/neutral.css")
+      Tournament.new(:name => "kein aktives Turnier", :stylesheet => "/assets/neutral.css")
     end
   end
 

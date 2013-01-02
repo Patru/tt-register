@@ -20,8 +20,7 @@ describe "CanRequestAResendLink Acceptance Test" do
     end
     all_emails.count.must_equal 1
     open_email(@inscription.email)
-    link=URI(current_email.find_link("inscription").text)
-    visit link.path
+    visit email_link_path(current_email)
     page.must_have_content "#{@inscription.name} eingeloggt"
   end
 end

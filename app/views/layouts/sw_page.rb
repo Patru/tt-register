@@ -12,13 +12,13 @@ end
 
 #class Views::Layouts::SWPage < Erector::Widgets::Page  return to this in rails 2.3.4
 class Views::Layouts::SWPage < Views::Layouts::Page
-  external :css, "/stylesheets/sw_base.css"
-  external :js, "/javascripts/jquery-1.7.1.min.js"
-  external :js, "/javascripts/jquery-ui-1.8.17.custom.min.js"
-  external :js, "/javascripts/application.js"
-  external :js, "/javascripts/jquery_ujs.js"
-  external :js, "/javascripts/rails.js"
-  external :css, "/stylesheets/jquery-ui-1.8.17.custom.css"
+#  external :css, "/stylesheets/sw_base.css"
+  external :js, "/assets/application.js"
+#  external :js, "/javascripts/jquery-ui-1.8.17.custom.min.js"
+#  external :js, "/javascripts/ttreg.js"
+#  external :js, "/javascripts/jquery_ujs.js"
+#  external :js, "/javascripts/rails.js"
+#  external :css, "/stylesheets/jquery-ui-1.8.17.custom.css"
 #  external :script, "function sel_item(theUrl) {document.location.href = theUrl;}"
   def self.default_url_options
     {}
@@ -38,10 +38,10 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   
   def included_stylesheets
-    self.class.depends_on :css, stylesheet
+#    self.class.depends_on :css, stylesheet
     super
     link :rel => "stylesheet", :href => stylesheet, :type => "text/css", :media => "all"
-#    p "hello"
+#    TODO: verify it one of these is not enough
   end
   
   def head_content
