@@ -49,8 +49,8 @@ describe "CanHandleWaitingList Acceptance Test" do
     first_mail.to.count.must_equal 1
     first_mail.to[0].must_equal @inscription.email
     first_mail.subject.must_equal "Abmeldung von #{@player.long_name}"
-    first_mail.must_have_content "#{@player.long_name} wurde aus deiner Einschreibung gel"
-    #TODO: add "öscht" once you are on a rails version that matches properly (ca. 3.1.5 that is)
+    first_mail.must_have_content "#{@player.long_name} wurde aus deiner Einschreibung gel=C3=B6scht"
+        # all emails will HEX escape UTF-8 characters
     second_mail = all_emails[1]
     second_mail.to.count.must_equal 1
     second_mail.to[0].must_equal @inscription.email

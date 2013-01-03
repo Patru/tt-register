@@ -23,7 +23,7 @@ class MiniTest::Rails::ActionDispatch::IntegrationTest
   DUMMY_EMAIL = "nobody@nowhere.net"
 
   def create_admin_user
-    post :create, :admin => {name:"Test", password:"blank", email:test_email, token:"blabla" }
+    post :create, :admin => {name:"Test", password:"blank", email: "test_email", token:"blabla" }
   end
 
   def email_link_path(email)
@@ -50,8 +50,7 @@ class MiniTest::Rails::ActionDispatch::IntegrationTest
     within "form#new_inscription" do
       fill_in "Name", with: name
       fill_in "E-mail", with: email
-      click_button 'Einschreibung erstellen und Email-Adresse best'
-      # TODO:put 'ätigen' back in?
+      click_button 'Einschreibung erstellen und Email-Adresse bestätigen'
     end
     open_email email
     visit email_link_path(current_email)
@@ -64,7 +63,7 @@ class MiniTest::Rails::ActionDispatch::IntegrationTest
       fill_in "licence", with: player.licence
       click_button "Hinzufügen"
     end
-    choose('rb_1')
+    choose(series)
     click_button 'Anmelden'
     click_link @inscription.name
   end
