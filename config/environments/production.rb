@@ -52,15 +52,7 @@ TtRegister::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  #TODO: Read mailer settings from shared config on server
+  smtp=YAML.load(File.read Rails.root.join("config", "smtp_settings.yml"))
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:             "smtp.some.where",
-    port:                 587,
-    domain:               'some.where',
-    user_name:            '<username>',
-    password:             '<password>',
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.smtp_settings = smtp['production']
 end

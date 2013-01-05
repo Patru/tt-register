@@ -1,4 +1,6 @@
 # encoding: UTF-8
+require "bundler/capistrano"
+require File.dirname(__FILE__) + "/password_yml_files"
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 ssh_options[:username]="p35548r0"
