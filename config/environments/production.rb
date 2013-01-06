@@ -45,6 +45,7 @@ TtRegister::Application.configure do
   # Compress both stylesheets and JavaScripts
   config.assets.js_compressor  = :uglifier
   config.assets.css_compressor = :scss
+  config.assets.digest = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
@@ -55,7 +56,7 @@ TtRegister::Application.configure do
   smtp_config = {}
   smtp_file = Rails.root.join("config", "smtp_settings.yml")
   if File.file? smtp_file
-    smtp_config=YAML.load(File.read )['production']
+    smtp_config=YAML.load(File.read smtp_file)['production']
   end
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = smtp_config

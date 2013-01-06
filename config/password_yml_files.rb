@@ -153,6 +153,7 @@ Capistrano::Configuration.instance.load do
       DESC
       task :symlink, :except => { :no_release => true } do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+        run "ln -nfs #{shared_path}/config/smtp_settings.yml #{release_path}/config/smtp_settings.yml"
       end
 
     end

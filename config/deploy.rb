@@ -12,7 +12,6 @@ set :scm, 'git'
 set :scm_username, "patru"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :branch, "master"
-set :deploy_via, :copy
 set :deploy_to, "/home/soft-werker/app/tt"
 set :use_sudo, false
 
