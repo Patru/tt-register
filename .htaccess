@@ -1,2 +1,0 @@
-SetEnv RAILS_ENV production
-SetEnv GEM_PATH /home/soft-werker/app/tt/shared/bundle/ruby/1.9.1/gems:/home/soft-werker/gems
