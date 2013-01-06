@@ -5,6 +5,7 @@ class TournamentDay < ActiveRecord::Base
   belongs_to :tournament
   has_many :series, :order => "sex ASC, max_ranking DESC, category ASC"
   attr_accessor :series_map
+  attr_accessible :tournament_id, :max_inscriptions, :day
   has_many :waiting_list_entries
   
   def day_name

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.10'
 
 gem 'erector', '0.9.0'
-gem 'sqlite3-ruby'
+gem 'sqlite3'
 gem 'capistrano'
 gem 'jquery-rails'
 gem 'dynamic_form'
