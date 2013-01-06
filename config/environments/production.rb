@@ -52,7 +52,11 @@ TtRegister::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  smtp=YAML.load(File.read Rails.root.join("config", "smtp_settings.yml"))
+  smtp_config = {}
+  smtp_file = Rails.root.join("config", "smtp_settings.yml")
+  if File.file? smtp_file
+    smtp_config=YAML.load(File.read )['production']
+  end
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = smtp['production']
+  config.action_mailer.smtp_settings = smtp_config
 end
