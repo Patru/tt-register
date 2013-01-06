@@ -57,7 +57,8 @@ TtRegister::Application.configure do
   smtp_file = Rails.root.join("config", "smtp_settings.yml")
   if File.file? smtp_file
     smtp_config=YAML.load(File.read smtp_file)['production']
+    smtp_indiff=smtp_config.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
   end
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = smtp_config
+  config.action_mailer.smtp_settings = smtp_indiff
 end
