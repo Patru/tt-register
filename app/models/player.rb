@@ -6,6 +6,15 @@ class Player < ActiveRecord::Base
   validates_length_of :first_name, :maximum => 100, :message => "darf nicht länger als 100 Zeichen sein"
   validates_length_of :club, :maximum => 100, :message => "darf nicht länger als 100 Zeichen sein"
 
+  def self.like_relation(criteria)
+    relation = self
+    arel_table = relation.arel_table
+    criteria.each do |key, like|
+      relation=relation.where(arel_table[key].matches "%#{like}%")
+    end
+    relation
+  end
+
   def male?
     return woman_ranking.nil?
   end
@@ -76,3 +85,4 @@ class Player < ActiveRecord::Base
     end
   end
 end
+

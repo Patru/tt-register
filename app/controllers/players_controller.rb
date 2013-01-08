@@ -154,14 +154,16 @@ class PlayersController < ApplicationController
     [:name, :first_name, :club].each do |criteria|
       conditions[criteria] = @filter_cond.send(criteria) unless @filter_cond.send(criteria).blank?
     end
-    @player_count = Player.count(:conditions => conditions)
+    relation = Player.where(conditions)
+    @player_count = relation.count
     if @player_count > 0 then
-      Player.all(:conditions => conditions, :order => "club, name, first_name", :limit => 100)
+      relation=relation.limit(100)
     else
-      like_conditions = conditions.to_like_conditions
-      @player_count = Player.count(:conditions => like_conditions)
-      Player.all(:conditions => like_conditions, :order => "club, name, first_name", :limit => 30)
+      relation = Player.like_relation(criteria)
+      @player_count = relation.count
+      relation=relation.limit(30)
     end
+    relation.order("club, name, first_name").all
   end
 end
 

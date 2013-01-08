@@ -12,10 +12,19 @@ class SeriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create series" do
+  test "should not create incomparable series" do
+    assert_no_difference('Series.count') do
+      post :create, :series => {"start_time(1i)" => "2012", "start_time(2i)" => "12", "start_time(3i)" => "28",
+                                "start_time(4i)" => "12", "start_time(5i)" => "00"}
+    end
+    assert_template :new
+  end
+
+  test "should create comparable series" do
     assert_difference('Series.count') do
-    post :create, :series => {"start_time(1i)" => "2012", "start_time(2i)" => "12", "start_time(3i)" => "28",
-                              "start_time(4i)" => "12", "start_time(5i)" => "00"}
+      post :create, :series => {"start_time(1i)" => "2012", "start_time(2i)" => "12", "start_time(3i)" => "28",
+                                "start_time(4i)" => "12", "start_time(5i)" => "00", "max_ranking" => "20",
+                                "min_ranking" => "1", "category" => ""}
     end
     assert_redirected_to series_path(assigns(:series))
   end

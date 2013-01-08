@@ -238,16 +238,18 @@ class InscriptionsController < ApplicationController
       criteria[crit] = crits.send(crit) unless crits.send(crit).blank?
     end
     flash[:notice]="Keine Selektionskriterien angegeben, erste 30 Spieler angezeigt" unless criteria.size > 0
-    @player_count = Player.count(:conditions => criteria)
+    relation = Player.where(criteria)
+    @player_count = relation.count
     if @player_count > 0 then
-      Player.all(:conditions => criteria, :order => "club, name, first_name", :limit => 100)
+      relation=relation.limit(100)
     else
-      like_criteria = criteria.to_like_conditions
-      @player_count = Player.count(:conditions => like_criteria)
-      Player.all(:conditions => like_criteria, :order => "club, name, first_name", :limit => 30)
+      relation = Player.like_relation(criteria)
+      @player_count = relation.count
+      relation=relation.limit(30)
     end
+    relation.order("club, name, first_name").all
   end
-  
+
   def login
     @inscription = Inscription.find(params[:id])
     if @inscription.matches?(params[:token]) then
