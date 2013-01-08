@@ -5,6 +5,12 @@ class Series < ActiveRecord::Base
   has_many :play_series
   has_many :inscription_players, :through => :play_series
   has_many :waiting_list_series
+  validates_numericality_of :min_ranking, :max_ranking
+  validate :category_is_valid
+
+  def category_is_valid
+    self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?
+  end
   
   def normalize_start_time
     hour=start_time.hour

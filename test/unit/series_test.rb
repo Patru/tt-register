@@ -30,7 +30,7 @@ class SeriesTest < ActiveSupport::TestCase
     assert_equal 51, men_a.rank_of(players(:seven))
   end
 
-  test "rank of playrs in women series" do
+  test "rank of players in women series" do
     women_a=series(:womenA)
     assert_nil women_a.rank_of(players(:five))
     assert_equal 20, women_a.rank_of(players(:six))
@@ -57,5 +57,18 @@ class SeriesTest < ActiveSupport::TestCase
   test "open returns all open players who will build full entities" do
     assert_equal 0, series(:menD).open.size
     assert_equal 1, series(:menDouble).open.size
+  end
+
+  test "validates presence of min and max rankings" do
+    s=Series.new
+    refute s.valid?
+    refute Series.new(min_ranking: 1, max_ranking: 15).valid?
+    assert Series.new(min_ranking: 1, max_ranking: 15, category:"").valid?
+  end
+
+  test "valid Series must be comparable" do
+    s0=Series.new(min_ranking: 1, max_ranking: 15, category:"")
+    s1=Series.new(min_ranking: 1, max_ranking: 20, category:"")
+    assert -1, s0<=>s1
   end
 end
