@@ -159,7 +159,7 @@ class PlayersController < ApplicationController
     if @player_count > 0 then
       relation=relation.limit(100)
     else
-      relation = Player.like_relation(criteria)
+      relation = Player.like_relation(conditions)
       @player_count = relation.count
       relation=relation.limit(30)
     end
