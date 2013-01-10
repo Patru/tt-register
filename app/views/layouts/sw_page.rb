@@ -10,7 +10,7 @@ class String
   end
 end
 
-#class Views::Layouts::SWPage < Erector::Widgets::Page  return to this in rails 2.3.4
+#class Views::Layouts::SWPage < Erector::Widgets::Page
 class Views::Layouts::SWPage < Views::Layouts::Page
   external :js, "/assets/application.js"
 
@@ -39,6 +39,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   def head_content
     super
     link :rel => "shortcut icon", :type => "image/x-icon", :href => favicon
+    csrf_meta_tag
   end
   
   def tournament
