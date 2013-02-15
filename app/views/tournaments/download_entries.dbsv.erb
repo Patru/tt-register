@@ -6,7 +6,7 @@ TournamentID, Licence, Series, setNumber, Partner
 <%  else -%>
 <%    partner_licence=play_ser.partner.licence -%>
 <%  end -%>
-<%=   "'"+[@tournament.tour_id, play_ser.inscription_player.player.licence, play_ser.series.series_name, play_ser.series_rank, partner_licence].join("', '")+"'" %>
+<%=   raw "'"+[@tournament.tour_id, play_ser.inscription_player.player.licence, play_ser.series.series_name, play_ser.series_rank, partner_licence].join("', '")+"'" %>
 <%  end -%>
 <%- # no ticks in any of these fields, therefore no escaping necessary -%>
 <%- # do not omit the trailing newline! (havoc wreak it will) %>
