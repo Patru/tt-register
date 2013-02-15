@@ -27,7 +27,6 @@ class SeriesController < ApplicationController
 
   def players
     @series = Series.find(params[:id], :include => {:inscription_players => :player})
-#    @inscription_players = @series.inscription_players.sort_by{|insc_player| -insc_player.send(@series.relevant_ranking)}
     @play_series = @series.playing.sort
     @open=@series.open
 
@@ -108,7 +107,7 @@ class SeriesController < ApplicationController
     @series.destroy
 
     respond_to do |format|
-      format.html { redirect_to(series_url) }
+      format.html { redirect_to(series_index_path) }
       format.xml  { head :ok }
     end
   end
