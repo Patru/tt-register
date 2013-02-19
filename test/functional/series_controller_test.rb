@@ -49,6 +49,7 @@ class SeriesControllerTest < ActionController::TestCase
       delete :destroy, :id => series(:menD).to_param
     end
 
-    assert_redirected_to series_path
+    puts series_path
+    assert_redirected_to "/series"
   end
 end
