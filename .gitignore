@@ -1,6 +1,7 @@
 .DS_STORE
 .rvmrc
-.idea/
+.idea/*
+.idea/*.iml
 .bundle
 db/*.sqlite3
 log/*.log
