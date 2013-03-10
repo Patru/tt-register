@@ -32,11 +32,11 @@ class PlayersController < ApplicationController
       end
     else
       (name, first_name, club) = params[:term].split(" ")
-      restrictedPlayers=Player.where(['name like ?', "%#{name}%"])
-      restrictedPlayers=restrictedPlayers.where(['first_name like ?', "%#{first_name}%"]) unless first_name.blank?
-      restrictedPlayers=restrictedPlayers.where(['club like ?', "%#{club}%"]) unless club.blank?
-      players=restrictedPlayers.limit(10).
-              select("id, ranking, woman_ranking, name, first_name, club").all
+      like_crit = {name: name}
+      like_crit[:first_name] = first_name unless first_name.blank?
+      like_crit[:club] = club unless club.blank?
+      restrictedPlayers=Player.like_relation(like_crit)
+      players=restrictedPlayers.limit(10).select("id, ranking, woman_ranking, name, first_name, club").all
     end
     respond_to do |format|
       format.js {render :json => players}

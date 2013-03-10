@@ -1,7 +1,5 @@
 .DS_STORE
 .rvmrc
-.idea/*
-.idea/*.iml
 .bundle
 db/*.sqlite3
 log/*.log
@@ -11,3 +9,5 @@ config/smtp_settings.yml
 
 # RubyMine
 .idea
+.idea/*
+.idea/*.iml
