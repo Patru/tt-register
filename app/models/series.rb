@@ -119,7 +119,7 @@ class Series < ActiveRecord::Base
   end
 
   def double_series?
-    self.class != Series
+    false
   end
 
   def age_series?

@@ -33,4 +33,9 @@ class MixedSeries < DoubleSeries
     res << PlayerList.new("Offen gemeldete Herren", males) unless males.empty?
     res
   end
+
+  def double_series?
+    false   # for the sake of counting we are not (at the moment)
+  end
+
 end

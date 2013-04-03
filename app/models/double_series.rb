@@ -27,4 +27,9 @@ class DoubleSeries < Series
       []
     end
   end
+
+  def double_series?
+    true
+  end
+
 end
