@@ -18,7 +18,7 @@ module Verifiers::SeriesCountVerifier
     counts=Hash.new(0)
     seris.each do |seri|
       counts[:total] += 1
-      if seri.double_series?
+      if seri.single_sex_double_series?
         counts[:double] += 1
       elsif seri.age_series?
         counts[:age] += 1

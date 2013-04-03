@@ -32,4 +32,8 @@ class DoubleSeries < Series
     true
   end
 
+  def single_sex_double_series?
+    double_series?
+  end
+
 end

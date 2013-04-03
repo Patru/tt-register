@@ -122,6 +122,10 @@ class Series < ActiveRecord::Base
     false
   end
 
+  def single_sex_double_series?
+    double_series?
+  end
+
   def age_series?
     not category.blank?
   end

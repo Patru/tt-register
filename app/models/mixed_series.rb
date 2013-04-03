@@ -34,8 +34,8 @@ class MixedSeries < DoubleSeries
     res
   end
 
-  def double_series?
-    false   # for the sake of counting we are not (at the moment)
+  def single_sex_double_series?
+    false   # for the sake of counting we shall not be a double series
   end
 
 end
