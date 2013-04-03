@@ -31,5 +31,6 @@ class MixedSeries < DoubleSeries
     res << PlayerList.new("Offen gemeldete Damen", females) unless females.empty?
     males=pls.play_sers.select{|pl_ser| pl_ser.player.male?}.sort
     res << PlayerList.new("Offen gemeldete Herren", males) unless males.empty?
+    res
   end
 end
