@@ -22,7 +22,7 @@ module Verifiers::SeriesCountVerifier
         counts[:double] += 1
       elsif seri.age_series?
         counts[:age] += 1
-      else
+      elsif seri.single_series?
         counts[:single] += 1
       end
     end
