@@ -1,12 +1,12 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 require "uri"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanCreateNewInscriptionWithLicence Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanCreateNewInscriptionWithLicence Integration Test" do
 #  fixtures :players
   it "must be able to create an inscription with an existing user" do
-    visit "/"
+    visit root_path
     clear_emails
     my_email = "nobody@nowhere.net"
     within "form#new_inscription" do

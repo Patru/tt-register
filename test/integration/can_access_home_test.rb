@@ -1,10 +1,10 @@
 #encoding: UTF-8
 
-require File.join(File.dirname(__FILE__), "..", "minitest_helper")
+require File.join(File.dirname(__FILE__), "..", "test_helper")
 
-describe "can access home Acceptance Test" do
+describe "can access home Integration Test" do
   it "can access the root path" do
-    visit "/"
+    visit root_path
     page.must_have_content "Lieber Tischtennisfreund"
     within "div#maincontent" do
       page.must_have_content "Neue Einschreibung erstellen"

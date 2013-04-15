@@ -17,11 +17,13 @@ end
 group :test, :development do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
+  gem 'capybara', "~>2.0.0"
   gem 'minitest-spec-rails'
   gem 'minitest-reporters'
   gem 'capybara-email'
   gem 'launchy'
   gem 'rdoc'
+  gem 'ruby-prof'
 end
 
 group :production do

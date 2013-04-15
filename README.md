@@ -13,15 +13,15 @@ it started out with Rails 2.3.8 the little JavaScript there was moved over
 easily to Rails 3.0.
 ### Test framework(s)
 Even this small application was generated over several years, so there is a
-little of a mix in testing technonlogies that are used. Actually there are to
+little of a mix in testing technologies that are used. Actually there are to
 few tests to start with as I first started to hack the application away (and I
 lacked sufficient proficiency with Rails when I started).
 
 Eventually I ended up with some Unit tests in traditional Test::Unit style.
 These are useful to test some core special functions of the models. When I
 started to move to Rails 3.0 (too late, only in the late 2012) it became all
-too obvious that I lacked acceptance tests. As I had grown to like
-MiniTest::Spec in the meantime I used that style for the acceptance test which
+too obvious that I lacked integration tests. As I had grown to like
+MiniTest::Spec in the meantime I used that style for the integration tests which
 now work pretty well, I hope they will be useful to quickly migrate to
 Rails 3.2 now.
 ### View framework

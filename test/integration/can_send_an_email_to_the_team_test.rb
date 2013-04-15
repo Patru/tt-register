@@ -1,8 +1,8 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanSendAnEmailToTheTeam Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanSendAnEmailToTheTeam Integration Test" do
   it "can submit an email form without login" do
     visit "/"
     click_link "Turnier-Team eine E-Mail schicken"

@@ -1,8 +1,8 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanHandleWaitingList Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanHandleWaitingList Integration Test" do
   NICK_NAME = "this is a nickname"
   self.use_transactional_fixtures = false
   before do

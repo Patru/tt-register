@@ -1,8 +1,8 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanSubmitOtherInscription Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanSubmitOtherInscription Integration Test" do
   NICK_NAME = "this is a nickname"
   before do
     @player = players :ten

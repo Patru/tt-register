@@ -1,8 +1,8 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanSubmitOwnInscription Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanSubmitOwnInscription Integration Test" do
   before do
     @player = Player.where(licence:700032).first
     new_inscription_with_licence(@player.licence)

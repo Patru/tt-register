@@ -69,6 +69,6 @@ class SeriesTest < ActiveSupport::TestCase
   test "valid Series must be comparable" do
     s0=Series.new(min_ranking: 1, max_ranking: 15, category:"")
     s1=Series.new(min_ranking: 1, max_ranking: 20, category:"")
-    assert -1, s0<=>s1
+    assert_equal 1, s0<=>s1
   end
 end

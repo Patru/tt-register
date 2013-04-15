@@ -1,8 +1,8 @@
 #encoding: UTF-8
-require "minitest_helper"
+require "test_helper"
 
-# To be handled correctly this spec must end with "Acceptance Test"
-describe "CanCreateInscriptionWithName Acceptance Test" do
+# To be handled correctly this spec must end with "Integration Test"
+describe "CanCreateInscriptionWithName Integration Test" do
   DUMMY_NAME = "my name is nobody"
   it "won't be possible without an email" do
     visit "/"
