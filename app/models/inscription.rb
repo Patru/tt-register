@@ -2,7 +2,8 @@
 class Inscription < ActiveRecord::Base
   belongs_to :tournament
   has_many :inscription_players, :dependent => :destroy
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "hat ein ungültiges Format"
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
+                      :message => I18n.t(:invalid_format, scope:[:errors, :messages])
   validate :must_have_name_or_licence
   validates_length_of :name, :maximum => 100, :message => "darf nicht länger als 100 Zeichen sein"
   validates_length_of :email, :maximum => 120, :message => "darf nicht länger als 120 Zeichen sein"
@@ -10,11 +11,11 @@ class Inscription < ActiveRecord::Base
 
   def must_have_name_or_licence
     if (name == nil or name.length == 0) and (licence == nil or licence.to_s.length == 0) then
-      errors.add :base, "Name oder Lizenznummer müssen ausgefüllt werden"
+      errors.add :base, I18n.t(:name_or_licence_filled, scope:[:errors, :messages])
     elsif licence != nil and not licence.is_a? Fixnum then
-      errors.add :licence, "muss eine ganze Zahl sein"
+      errors.add :licence, I18n.t(:not_an_integer, scope:[:errors, :messages])
     elsif licence != nil and not (100000..999999).include? licence then
-      errors.add :licence, "ist nicht zwischen 100000 und 999999"
+      errors.add :licence, I18n.t(:must_be_in_licence_range, scope:[:errors, :messages])
     end
   end
   

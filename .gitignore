@@ -1,6 +1,7 @@
 .DS_STORE
 .rvmrc
 .bundle
+.sass-cache
 db/*.sqlite3
 log/*.log
 tmp/

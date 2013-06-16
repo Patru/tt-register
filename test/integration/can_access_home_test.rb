@@ -18,4 +18,16 @@ describe "can access home Integration Test" do
       end
     end
   end
+
+  it "delivers English text to a properly configured browser" do
+    page.driver.header 'ACCEPT_LANGUAGE', 'en-GB'
+    visit root_path
+    page.must_have_content "Dear table tennis chap"
+  end
+
+  it "delivers French text to a properly configured browser" do
+    page.driver.header 'ACCEPT_LANGUAGE', 'fr-FR'
+    visit root_path
+    page.must_have_content "Cher ami pongiste"
+  end
 end

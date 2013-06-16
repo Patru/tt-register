@@ -2,6 +2,7 @@
 
 class Email
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Conversion
   attr_accessor :from, :subject, :text, :errors
   PATTERN=/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

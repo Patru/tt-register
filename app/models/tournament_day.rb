@@ -9,7 +9,7 @@ class TournamentDay < ActiveRecord::Base
   has_many :waiting_list_entries
   
   def day_name
-    @@weekdays[day.strftime("%w").to_i]
+    I18n.t('date.day_names')[day.strftime("%w").to_i]
   end
   
   def display_name

@@ -1,3 +1,19 @@
+@mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
+  background: linear-gradient($orientation, $col1, $col2, $col3);
+  background: -webkit-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -moz-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -o-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -ms-linear-gradient($orientation, $col1, $col2, $col3);
+}
+@mixin radial-fade-background($col1, $col2) {
+  background: -webkit-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: -moz-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: -o-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: radial-gradient(ellipse at center, $col1 0%, $col1 70%, $col2 100%);
+}
+$link_color:#0000bb;
+$ysz-yellow:#ffff20;
+
 body {
   font-family: sans-serif;
 }
@@ -7,14 +23,16 @@ h1 {
   font-size:18pt;
 }
 p.footer {
-  padding-top: 20px;
+  clear:both;
   text-align:right;
   font-size:80%;
 }
 
 div.commercial {
-    float: left;
-    width: 50%;
+  clear:both;
+  padding-top: 20px;
+  float: left;
+  width: 50%;
 }
 a {
     text-decoration:none;
@@ -181,4 +199,45 @@ div#navigation ul li ul li a:active {
 	
 .open_inscriptions {
     color:#007000
+}
+form#new_inscription {
+  float:left;
+  padding:15px 20px 0px 20px;
+  @include radial-fade-background(white, $ysz-yellow);
+  border: {
+    color:blue;
+    width:2px;
+    style:solid;
+    radius:8px;
+  }
+}
+ul#help_links{
+  padding: 1em 1.5em;
+  float:right;
+  list-style: none;
+  border: {
+    radius:8px;
+  }
+  @include linear-gradient-background(30deg, #ffffc0, #ffff90, #ffffd0);
+  li {
+    margin-left:0px;
+    padding-left:0px;
+    a {
+      display: block;
+      text-decoration: none;
+      &:hover {
+        background-color: yellow;
+        &:before {
+          color:$link_color;
+        }
+      }
+      &:before {
+        content: "\2192\0020";
+        color: lighten($link_color, 50%);
+      }
+    }
+  }
+}
+.newline {
+  clear:both;
 }

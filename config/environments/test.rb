@@ -19,6 +19,10 @@ TtRegister::Application.configure do
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
 
+  config.i18n.fallbacks = true
+  config.i18n.default_locale = :de
+  config.i18n.available_locales = %w(de en fr)
+
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false
 

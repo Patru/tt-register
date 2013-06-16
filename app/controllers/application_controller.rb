@@ -3,10 +3,12 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  include HttpAcceptLanguage
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   before_filter :set_admin_inscription, :except => [:login]
+  before_filter :set_locale
 
 protected
   def set_admin_inscription
@@ -62,6 +64,26 @@ protected
   def self.rand_str(len)
     ary = Array.new(len) { rand(256) }
     Base64.encode64(ary.pack('C*')).tr('+/','-_').chomp
+  end
+
+  def set_locale
+
+    puts "prefering #{env["HTTP_ACCEPT_LANGUAGE"]} as interaction languages"
+    preferred_locale = preferred_language_from I18n.available_locales
+    compatible_locale = compatible_language_from I18n.available_locales
+    puts "I18n.locale was #{I18n.locale}"
+    I18n.locale = session[:locale] || compatible_locale || preferred_locale || I18n.default_locale
+    print "now set to #{I18n.locale} "
+    if session[:locale]
+      puts "using session #{session[:locale]}"
+    elsif compatible_locale
+      puts "using compatible #{compatible_locale}"
+    elsif preferred_locale
+      puts "using preferred #{preferred_locale}"
+    else
+      puts "using default"
+    end
+
   end
 end
 

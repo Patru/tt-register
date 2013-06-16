@@ -7,4 +7,80 @@ en:
           header:
             one: "1 Fehler verhindert, dass %{model} gespeichert werden kann."
             other: "%{count} verhindern, dass %{model} gespeichert werden kann."
-# I do not really use I18n in tt-register, but rails magic somehow busts it here.
+  errors:
+    messages:
+      name_or_licence_filled: Either the name or the licence number must be filled
+      must_be_an_integer: must be an integer number
+      must_be_in_licence_range: is not between 100000 and 999999
+  attributes:
+    name: Name
+    max_ranking: "Classing to"
+    max_inscriptions: "Maximum of inscription"
+    logo: "Logo"
+    stylesheet: "Stylesheet"
+    series_per_day: "Series per day"
+    password: "Password"
+    token: "Token"
+    from: "From"
+    subject: "Subject"
+    text: "Text"
+    rank: "Ranking"
+    woman_rank: "Women-ranking"
+    disp_ranking: "Classing"
+    disp_woman_ranking: "Women classing"
+    use_rank: "Ranking to"
+    type: "Type"
+    max_single_series: "Number of single series"
+    max_double_series: "Number of double series"
+    max_age_series: "Number of age series"
+    layout_parser: "Layout/Parsing for Series"
+    favicon: "Icon for Link"
+    first_name: "First name"
+    nickname: "Login"
+    email: "E-mail"
+    date_of_birth: "Date of birth"
+    club: "Club"
+    licence: "Licence"
+    ranking: "Classing"
+    woman_ranking: "Women classing"
+    series_name: "Abbreviation"
+    long_name: "Name"
+    start_time: "Start"
+    start_time_text: "Start"
+    min_ranking: "Classment from"
+    max_ranking: "to"
+    category: "Age category"
+    sex: "Sex"
+    tour_id: "Tournament-ID"
+    date: "Date"
+    organiser: "Organiser"
+    info_link: "Link for additional information"
+    day: "Day"
+    max_inscriptions: "Max. inscriptions"
+    tournament_id: "Tournament"
+    tournament: "Tournament"
+    tournament_day_id: "Tournament day"
+    series: "Series"
+    inscribed_for: "Inscribed for"
+    sender_email: "Send e-mail from"
+    bcc_email: "Blind copy to"
+    facebook_link: "Facebook link"
+  dear_chap: "Dear table tennis chap"
+  privacy: privacy
+  email: e-mail
+  new_inscription: "New inscription"
+  inscriptions: "Inscriptions"
+  thanks_and_purpose: |
+    Thanks for your interest in the %{tour_name}.
+    Here you are right to enroll yourself or other players for the tournament. To do this you must provide an e-mail
+    address, but you may also create an inscription form by merely providing a name.
+  create_new_incription: "Create a new inscription form"
+  create_and_confirm: "Create inscription form and confirm e-mail address"
+  licence: licence number
+  first_name_name: first name and name
+  select: Select
+  error_during_creation_of_inscription: Error during the creation of your inscription
+  the_following_fields_must_be_corrected: "The following fields must be corrected:"
+  series_plural: series
+  help: aide
+  lost_login_link: "I have lost the inscription link"

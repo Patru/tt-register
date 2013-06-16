@@ -92,7 +92,7 @@ class InscriptionsController < ApplicationController
     else
       inscription = Inscription.find_by_tournament_id_and_email(@inscription.tournament_id, @inscription.email)
       if inscription.nil? then
-        flash[:error] = "Keine Einschreibung für #{inscription.email}, bitte neue Einschreibung erzeugen"
+        flash[:error] = "Keine Einschreibung für #{@inscription.email}, bitte neue Einschreibung erzeugen"
         redirect_to :controller => "inscriptions", :action => "new"
         return
       else

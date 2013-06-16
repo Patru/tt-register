@@ -18,7 +18,7 @@ class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
       link_to "Email an das Turnier-Team", email_form_path
       text "."
     end
-    form_for @inscription, :url => resend_path do |f|
+    form_for @inscription, :url => resend_path, id:'resend_link', class:'resend_link' do |f|
       rawtext f.error_messages
       table do
         tr do

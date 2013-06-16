@@ -130,7 +130,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       div :id => "header_text" do
         h1 tournament.name
         p do
-          text "Anmeldungen: "
+          text t(:inscriptions) + ": "
           tournament.tournament_days.each do |tour_day|
             if tour_day.entries_remaining? then
               day_class = "open"
@@ -189,8 +189,20 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   def navigation
     ul do
+      language_selection
       admin_menu
       series_menu
+    end
+  end
+
+  def language_selection
+    li do
+      widget(Form.new(action: set_language_path, method: "post") do
+        input name: "authenticity_token", type: "hidden", value: form_authenticity_token
+        select_tag('language', options_for_select(
+                      [['Deutsch', 'de'], ['English', 'en'], ['Français', 'fr']], I18n.locale),
+                   {onchange: "this.form.submit()".html_safe})
+        end)
     end
   end
 
@@ -223,7 +235,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   def series_menu
     seris = tournament.tournament_days.collect{|tour_day| tour_day.series}.flatten.sort
     li do
-      text "Serien"
+      text t(:series_plural)
       ul do
         seris.each do |seri|
           li do
@@ -298,10 +310,23 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       end
     end
   end
+
+  def attribute_label(symbol)
+    I18n.t('attributes.'+symbol.to_s)
+  end
+
+  def label_text(form, symbol)
+    translated_text = form.object.class.human_attribute_name(symbol)+":"
+    if translated_text =~ /missing/
+      translated_text = Views::Labels.label(symbol)
+    end
+    translated_text
+  end
   def form_text_field form, symbol, options={}
     tr do
       td :class => 'label' do
-         rawtext form.label(symbol, Views::Labels.label(symbol))
+
+        rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
         rawtext form.text_field(symbol, options)
@@ -442,8 +467,8 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def standard_menu
     ul :class => "standard" do
-      menu_item protection_path, "Datenschutzbestimmungen", lock_image, "Datenschutz"
-      menu_item email_form_path, "Email ans Turnierteam", message_image, "Email"
+      menu_item protection_path, "Datenschutzbestimmungen", lock_image, t('privacy')
+      menu_item email_form_path, "Email ans Turnierteam", message_image, t('email')
       menu_item logout_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang" unless is_admin?
     end
   end

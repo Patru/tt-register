@@ -3,16 +3,30 @@
 class Views::Inscriptions::New < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title
-    'Neue Einschreibung'
+    t :new_inscription
   end
   
   def page_menu
   end
+
+  def help_links
+    ul id:'help_links' do
+      li  do
+        link_to t(:help), static_path(:help)
+      end
+      li do
+        link_to t(:lost_login_link), resend_link_path
+      end
+    end
+  end
   
   def sw_content
-    p "Lieber Tischtennisfreund"
-    p "Vielen Dank für dein Interesse am #{tournament.name}. Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden."
-    p do
+    p t :dear_chap
+    p t :thanks_and_purpose, tour_name: tournament.name
+    h2 t :create_new_incription
+    inscription_form t :create_and_confirm
+    help_links
+    p class:'newline' do
       text "Um bei Problemen mit einer Anmeldung Rückfragen stellen zu können, möchten wir zu allen Einschreibungen eine Email-Adresse "
       text "speichern. Bitte erstelle deshalb im untenstehenden Formular eine Einschreibung. Die Eingabe der Lizenznummer ist am "
       text "einfachsten, dann findet das Programm deinen Namen selber (falls du keinen Spitznamen auswählen möchtest). "
@@ -39,7 +53,5 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
       link_to "Turnier-Team eine E-Mail schicken", email_form_path
       text "."
     end
-    h2 "Neue Einschreibung erstellen"
-    inscription_form "Einschreibung erstellen und Email-Adresse bestätigen"
   end
 end

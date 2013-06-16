@@ -48,6 +48,9 @@ GEM
     capybara-email (2.0.2)
       capybara (~> 2.0.0)
       mail
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (3.2.2)
@@ -67,6 +70,7 @@ GEM
     hashie (2.0.3)
     highline (1.6.17)
     hike (1.2.2)
+    http_accept_language (1.0.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -186,9 +190,11 @@ DEPENDENCIES
   capistrano
   capybara (~> 2.0.0)
   capybara-email
+  capybara-webkit
   coffee-rails (~> 3.2.1)
   dynamic_form
   erector (= 0.9.0)
+  http_accept_language
   jquery-rails
   json
   launchy

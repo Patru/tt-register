@@ -1,6 +1,8 @@
 # encoding: UTF-8
 
 TtRegister::Application.routes.draw do
+  post 'set_language' => "language#set_language"
+
   root to: 'inscriptions#new'
   resources :inscription_players
   match 'inscription_players/add_player' => "inscription_players#add_player"
@@ -33,6 +35,7 @@ TtRegister::Application.routes.draw do
   match 'inscriptions/new' => 'inscritions#new', as:'new_inscription'
   match 'admins/login/:token' => 'admins#login', via: :get
   match 'series/:id/players' => 'series#players', :as => :series_players
+  get 'static/:page_id' => 'static#show', as: :static
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

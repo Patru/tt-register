@@ -13,19 +13,19 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
 
   def inscription_form(button_text)
     form_for(@inscription) do |f|
-      rawtext f.error_messages(:header_message => "Fehler beim Anlegen der Einschreibung",
-                               :message => "Folgende Felder müssen korrigiert werden:")
+      rawtext f.error_messages(:header_message => t(:error_during_creation_of_inscription),
+                               :message => t(:the_following_fields_must_be_corrected))
       table do
         tr do
           td :class => 'label' do
-            rawtext f.label(Views::Labels.label(:tournament_id))
+            rawtext label_text(f,:tournament_id)
           end
           td do
             rawtext f.collection_select(:tournament_id, @tournaments, :id, :name)
           end
         end
-        form_text_field f, :licence, {placeholder: 'Lizenznummer', type: 'number'}
-        form_text_field f, :name, {placeholder: 'Vorname Name'}
+        form_text_field f, :licence, {placeholder: t(:licence), type: 'number'}
+        form_text_field f, :name, {placeholder: t(:first_name_name)}
         if @inscription.new_record? then
           form_text_field f, :email, {placeholder: 'me@my.host', type: 'email'}
         else

@@ -48,7 +48,7 @@ div#navigation ul li ul li a:hover {
 	border-top: thin;
 	background:#eeeeee;
 }
-	div#navigation ul li ul li a:active {
+div#navigation ul li ul li a:active {
 	display: block;
 	color: #202000;
 	background:#eeeeee;

@@ -15,6 +15,10 @@ TtRegister::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.i18n.fallbacks = true
+  config.i18n.default_locale = :de
+  config.i18n.available_locales = %w(de en fr)
+
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 

@@ -91,13 +91,13 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     club_options[:value]=@inscription.own_player.club if @inscription.own_player
     form_tag({:controller => 'inscriptions', :action => 'select_player'}, {id: 'sel_player'}) do
       input :type => "hidden", :name => 'id', :value => @inscription.id
-      label "Club"
+      label attribute_label(:club)
       input club_options
-      label "Name"
+      label attribute_label(:name)
       input :type => "text", :name => "crit[name]", :size => 20
-      label "Vorname"
+      label attribute_label(:first_name)
       input :type => "text", :name => "crit[first_name]", :size => 20
-      input :type => "submit", :value => "Auswählen"
+      input :type => "submit", :value => t(:select)
     end
   end
   

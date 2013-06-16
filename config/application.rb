@@ -3,6 +3,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'http_accept_language'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -45,5 +46,9 @@ module TtRegister
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.generators do |g|
+      g.test_framework :mini_test, :spec => true, :fixture => false
+    end
   end
 end

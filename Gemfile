@@ -8,6 +8,7 @@ gem 'capistrano'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'json'
+gem 'http_accept_language'
 group :assets do
   gem 'sass-rails', "~>3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
@@ -24,6 +25,7 @@ group :test, :development do
   gem 'launchy'
   gem 'rdoc'
   gem 'ruby-prof'
+  gem "capybara-webkit"
 end
 
 group :production do
