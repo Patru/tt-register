@@ -8,9 +8,9 @@ class Views::InscriptionPlayers::Show < Views::InscriptionPlayers::InscriptionPl
   end
 
   def menu_items
-    menu_item edit_inscription_player_path(@inscription_player), 'Anmeldung ändern', stylo_image, "ändern"
+    edit_menu
   end
-  
+
   def sw_content
     widget tournament.layouter, {:player => @player, :inscription => @inscription,
                                  :selected_series => @inscription_player.series,

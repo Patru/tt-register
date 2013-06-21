@@ -9,7 +9,7 @@ class Views::Series::Index < Views::Series::Series
   end
 
   def menu_items
-    menu_item new_series_path, "Neue Serie erfassen", new_image, "Neue Serie"
+    new_menu
   end
 
   def sw_content

@@ -9,7 +9,7 @@ class Views::TournamentDays::Index < Views::TournamentDays::TournamentDay
   end
 
   def menu_items
-    menu_item new_tournament_day_path, "Neuer Turniertag", new_image, "Neuer Turniertag"
+    new_menu
   end
 
   def tournament_day_row(tournament_day)

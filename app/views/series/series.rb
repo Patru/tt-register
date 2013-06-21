@@ -2,7 +2,7 @@
 
 class Views::Series::Series < Views::Layouts::SWPage
   def series_form(button_text)
-    form_for :series,
+    form_for @series,
              :url => @series.new_record? ? {:action => 'create'}:{:action => 'update', :id=>@series },
              :html => @series.new_record? ? {}:{:method => :put} do |f|
       rawtext f.error_messages
@@ -41,5 +41,22 @@ class Views::Series::Series < Views::Layouts::SWPage
   
   def text_fields
     @@text_fields
+  end
+
+  def show_menu
+    menu_item series_path(@series), t('links.show_series.title'), eye_image, t('links.show_series.text')
+  end
+
+  def edit_menu
+    menu_item edit_series_path(@series), t('links.edit_series.title'), stylo_image, t('links.edit_series.text')
+  end
+
+  def list_menu
+    menu_item url_for(:controller=>"series", :action=>"index", :only_path=>true), # no plural, must do it explicitly
+              t('links.list_series.title'), list_image, t('links.list_series.text')
+  end
+
+  def new_menu
+    menu_item new_series_path, t('links.new_series.title'), new_image, t('links.new_series.text')
   end
 end

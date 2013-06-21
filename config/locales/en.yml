@@ -82,5 +82,56 @@ en:
   error_during_creation_of_inscription: Error during the creation of your inscription
   the_following_fields_must_be_corrected: "The following fields must be corrected:"
   series_plural: series
-  help: aide
+  help: help
   lost_login_link: "I have lost the inscription link"
+  root_page: homepage
+  send_email: send e-mail
+  help_para1: |
+    In order to inscribe yourself to the %{tournament_name} you first have to create an inscription form.
+    This is a simple process during which we can verify your e-mail address such that we can contact you
+    if questions arise concerning your inscriptions.
+    Please create an inscription using the form on the %{start_html} either with your licence number
+    (in which case the program can look up your name) or by providing a name.
+  help_para2: |
+    If you do have a licence by Swiss Table Tennis it is most simple to provide your licence number which
+    allows the program to look up your name and club in the database. If you like to use a nickname you
+    may still provide it in the name field. If you do not have a licence or do not want to provide it it
+    is also possible (though a little less convenient) to just use your name in the inscription form.
+  new_login_link: new login-Link
+  help_para3: |
+    After your inscription has been saved we will send you an e-mail with a confirmation-link. It will contain
+    a random number which serves as your login for this inscription so you do not have to remember a password.
+    Please keep your confirmation e-mail because it allows you to easily manage and edit your inscriptions.
+    Since the link will only be valid until up to the end of the tournament you may also pass it to someone
+    else, e.g. if you leave for the holiday. Of course we will provide a %{new_login_link} if you
+    accidentially lost your confirmation-link. Note however that any old links immediately become invalid
+    as soon as you askt for a new one, therefore it is pointless to ask for more than one in succession.
+  help_para4: |
+    Using your confirmation-link you you can easily check all your inscriptions, but we will also send you
+    an e-mail about any changes made to your inscription. So if you add a player or change his series we
+    will send you an e-mail about each edit. Usually you are responsible for these edits, but it will also
+    permit you to react quickly in case of fraud.
+  help_para5: |
+    If you have further questions or comments you may %{email_link}.
+  mail_team: send an e-mail to the tournament-team
+  help_create_inscription: |
+    Having said all that it is now your turn to %{create_inscription_link}.
+  create_inscription_form: create your inscription form
+  feedback_form: With this form you may provide your your comments, problems, critics or even your commendations.
+  resend_login_link: Send me a new login link
+  links:
+    exit:
+      text: exit
+      title: "... enough of this, i am leaving for today"
+    show:
+      text: show
+      title: show details
+    edit_inscription:
+      text: edit
+      title: edit this inscription
+    privacy:
+      text: privacy
+      title: elaborate conditions on privacy
+    email:
+      text: e-mail
+      title: e-mail to the tournament team

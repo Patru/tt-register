@@ -1,12 +1,12 @@
 # encoding: UTF-8
 
-class Views::Series::Show < Views::Layouts::SWPage
+class Views::Series::Show < Views::Series::Series
   def page_title
     'Serie anzeigen'
   end
 
   def menu_items
-    menu_item edit_series_path(@series), "Seriendaten ändern", stylo_image, "ändern"
+    edit_menu
   end
   
   def sw_content

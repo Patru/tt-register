@@ -25,7 +25,7 @@ class Views::InscriptionPlayers::Index < Views::InscriptionPlayers::InscriptionP
         link_to(eye_image, inscription_player, :title => "Details anzeigen")
       end
       td do
-        link_to stylo_image, edit_inscription_player_path(inscription_player), :title => 'ändern'
+        link_to stylo_image, edit_inscription_player_path(inscription_player), :title => t(:change)
       end
       td do
         link_to(lightning_image, inscription_player, :confirm => 'Wirklich?', :method => :delete, :title => 'abmelden')

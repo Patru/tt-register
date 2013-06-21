@@ -26,10 +26,10 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
         end
         form_text_field f, :licence, {placeholder: t(:licence), type: 'number'}
         form_text_field f, :name, {placeholder: t(:first_name_name)}
-        if @inscription.new_record? then
+        if @inscription.new_record? or @admin then
           form_text_field f, :email, {placeholder: 'me@my.host', type: 'email'}
         else
-          if @admin or @inscription.id.eql? session[:id] then
+          if @inscription.id.eql? session[:id] then
             form_hidden_field f, :email
           end
         end
@@ -46,5 +46,21 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
 
   def own_inscription?
     @inscription and @inscription.id == session[:id]
+  end
+
+  def list_menu
+    menu_item inscriptions_path, t('links.show_inscription.text'), eye_image, t('links.show_inscription.text') if @admin
+  end
+
+  def show_menu
+    menu_item inscription_path(@inscription), t('links.list_inscriptions.text'), list_image, t('links.list_inscriptions.text')
+  end
+
+  def new_inscription_menu
+    menu_item inscription_path(@inscription), t('links.new_inscription.text'), new_image, t('links.new_inscription.text')
+  end
+
+  def edit_menu
+    menu_item edit_inscription_path(@inscription), t('links.edit_inscription.title'), stylo_image, t('links.edit_inscription.text')
   end
 end

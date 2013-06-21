@@ -30,4 +30,20 @@ class Views::TournamentDays::TournamentDay < Views::Layouts::SWPage
       end
     end
   end
+
+  def show_menu
+    menu_item tournament_day_path(@tournament_day), t('links.show_tournament_day.title'), eye_image, t('links.show_tournament_day.text')
+  end
+
+  def edit_menu
+    menu_item edit_tournament_day_path(@tournament_day), t('links.edit_tournament_day.title'), stylo_image, t('links.edit_tournament_day.text')
+  end
+
+  def list_menu
+    menu_item tournament_days_path, t('links.list_tournament_days.title'), list_image, t('links.list_tournament_days.text')
+  end
+
+  def new_menu
+    menu_item new_tournament_day_path, t('links.new_tournament_day.title'), new_image, t('links.new_tournament_day.text')
+  end
 end

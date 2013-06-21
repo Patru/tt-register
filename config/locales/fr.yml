@@ -281,3 +281,72 @@ fr:
   series_plural: séries
   help: aide
   lost_login_link: "j'ai perdu le lien d'inscription"
+  root_page: "page d'accueil"
+  send_email: envoyer le courriel
+  help_para1: |
+    Pour t'inscrire pour le %{tournament_name} tu dois d'abord créer un formulaire d'inscription.
+    C'est un proccess très simple qui nous permet de verifier ton address e-mail ce qui va faciliter
+    de te contacter en cas de problèmes. Pour cette raison nous avons besoin d'une addresse e-mail
+    pour chaque inscription. S'il te plaît rempli le formulaire sur le %{start_html} ou bien avec ton
+    numéro de licence (ce qui permettra le programme de trouver ton nom) ou bien avec ton nom.
+  help_para2: |
+    L'entré directe de ton numéro de licence est la possibilité la plus simple comme le programm peut
+    déterminer ton nom et ton club par la base des données. Tu peux quand même donner ton surnom dans
+    le champ 'nom' si tu veux. Si tu ne possède pas d'une licence ou tu ne veux pas l'entrer c'est aussi
+    possible (même si c'est un peux moins comfortable) de créer une inscription juste avec ton nom.
+  new_login_link: "nouveau lien d'inscirption"
+  help_para3: |
+    Après que ton inscription est enregistré nous t'enverrons un e-mail avec le lien d'inscription. Il
+    contient un numéro accidentiel qui servira comme login pour cet inscription, comme ça tu ne devra pas
+    te rapeller d'un nouveau mot de passe. Si tu garde ton lien d'inscription ça sera facile de changer
+    tes inscriptions et de les administrer. Comme l'inscription n'est valable que jusqu'au tournement
+    tu peux simplement le passer à ton remplacement si tu vas en vaccences. Naturellement nous t'enverrons
+    %{new_login_link} si tu l'as effacé par hasard. Note que l'ancien lien va expirer le moment out tu
+    demande le nouveau lien, alors ça ne sert a rien d'en demander plusieurs, c'est seulement
+    le dernier qui sera valable.
+  help_para4: |
+    Nous te tiendrons au courrant de tous les modification sur ton insciription. Si tu inscrits ou désinscrits
+    des joueurs nous t'enverrons un e-mail pour chaque joueur. Normalement tu as fait ces modifications toi même,
+    mais comme ça tu pourrais réagir rapidement en cas d'abus.
+  help_para5: |
+    Si tu as d'autres questions ou des suggestions tu peux %{email_link}.
+  mail_team: envoyer un e-mail au team du tournoi
+  help_create_inscription: |
+    Alors, après tant d'explication la balle est dans ton camp pour
+    So, nach so vielen Erklärungen bist du jetzt am Zug um %{create_inscription_link}.
+  create_inscription_form: créer ton inscription
+  feedback_form: Avec ce formulaire tu peux nous envoyer tes suggestions, problèmes, critiques ou juste des compliments.
+  resend_login_link: "M'envoye un nouveau lien d'inscription"
+  change: 'change'
+  must_be_logged_in: Veuillez utiliser le lien d'inscription pour l'utilisation de cette fonction.
+  add_players:
+    title: Inscrire des autres joueurs
+    explanation: |
+      Avec ce formulaire tu peux afficher une liste des joureurs dont tu peux choisir pour l'inscription.
+      Tu peux restreindre ou le club, le nom ou le prénom des joueurs et tu peux remplir ces champs partiellement.
+      Pour chaque joureur que tu choisi tu dois fournir la liste des séries qu'il va jouer.
+  add_player_with_licence: |
+    Si tu connais le numéro de licence d'un joueur tu peux l'entre directement.
+    Comme ça tu ne devras que chosir ces séries.
+  links:
+    exit:
+      text: "Sortie"
+      title: "Au revoir, c'est assez pour aujourd'hui"
+    privacy:
+      text: Protection des données
+      title: Conditions de la protection des données
+    email:
+      text: e-mail
+      title: "e-mail au team d'organisation"
+    show_inscription:
+      text: afficher
+      title: "Afficher les détail de l'inscription"
+    edit_inscription:
+      text: modifier
+      title: modifier cette inscription
+    list_inscriptions:
+      text: liste
+      title: à la liste des inscription
+    new_inscription:
+      text: Nouvelle inscription
+      title: Enregister une nouvelle inscription

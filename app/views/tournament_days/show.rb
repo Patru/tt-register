@@ -9,7 +9,7 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
   end
 
   def menu_items
-    menu_item edit_tournament_day_path(@tournament_day), "Diesen Tag ändern", stylo_image, "ändern"
+    edit_menu
   end
 
   def sw_content

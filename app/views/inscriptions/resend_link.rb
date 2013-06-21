@@ -3,7 +3,7 @@
 class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title
-    'Login Link erneut zustellen'
+    t :resend_login_link
   end
   
   def page_menu

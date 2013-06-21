@@ -10,7 +10,7 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
   end
   
   def sw_content
-    p "Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen."
+    p t(:feedback_form)
     form_for @email, :url => mail_team_path do |f|
       rawtext f.error_messages
       hidden_field_tag( "tournament_id", tournament.id)
@@ -21,7 +21,7 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
         form_text_area  f, :text
       end
       p do
-        rawtext f.submit("Email abschicken")
+        rawtext f.submit(t :send_email)
       end
     end
   end

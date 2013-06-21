@@ -9,7 +9,7 @@ class Views::Tournaments::Index < Views::Tournaments::Tournament
   end
 
   def menu_items
-    menu_item new_tournament_path, "Neues Turnier erfassen", new_image, "Neues Turnier"
+    new_menu
   end
 
   def tournament_row(tournament)

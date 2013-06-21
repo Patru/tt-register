@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 require 'action_view/helpers/form_tag_helper'
-class Views::Players::Index < Views::Layouts::SWPage
+class Views::Players::Index < Views::Players::Player
   def self.default_url_options
     {}
   end
@@ -10,8 +10,9 @@ class Views::Players::Index < Views::Layouts::SWPage
   end
 
   def menu_items
-    menu_item new_player_path, "Neuen Spieler erfassen", new_image, "Neuer Spieler"
+    new_menu
   end
+
   def player_row(player, *fields)
     tr do
       data_fields(player, *fields)

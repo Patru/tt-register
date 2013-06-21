@@ -6,7 +6,7 @@ class Views::Series::New < Views::Series::Series
   end
 
   def menu_items
-    menu_item url_for(:controller=>"series", :action=>"index", :only_path=>true), "Liste der Serien", new_image, "Liste"
+    list_menu
   end
 
   def sw_content

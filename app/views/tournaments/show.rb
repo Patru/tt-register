@@ -6,7 +6,7 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
   end
 
   def menu_items
-    menu_item edit_tournament_path(@tournament), "Turnier ändern", stylo_image, "ändern"
+    edit_menu
   end
   
   def sw_content

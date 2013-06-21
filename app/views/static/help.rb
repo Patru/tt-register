@@ -16,7 +16,7 @@ class Views::Static::Help < Views::Layouts::SWPage
       text t(:help_para2)
     end
     login_link=capture_content do
-      link_to t(:new_login_link), root_path
+      link_to t(:new_login_link), resend_link_path
     end
     p do
       rawtext t(:help_para3, new_login_link: login_link)
@@ -29,6 +29,12 @@ class Views::Static::Help < Views::Layouts::SWPage
     end
     p do
       rawtext t(:help_para5, email_link: mail_team_link)
+    end
+    create_link=capture_content do
+      link_to t(:create_inscription_form), root_path
+    end
+    p do
+      rawtext t(:help_create_inscription, create_inscription_link:create_link)
     end
   end
 end

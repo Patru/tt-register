@@ -2,16 +2,16 @@
 
 class Views::Players::Edit < Views::Players::Player
   def page_title
-    'Spielerdaten ändern'
+    t(:change_player_data)
   end
 
   def menu_items
-    menu_item player_path(@player), "Stammdaten anzeigen", eye_image, "anzeigen"
-    menu_item players_path, "Liste der Spieler", list_image, "Liste"
+    show_menu
+    list_menu
   end
 
   def sw_content
-    player_form "Ändern"
+    player_form t(:change)
   end
 
 end

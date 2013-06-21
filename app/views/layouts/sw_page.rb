@@ -56,7 +56,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       return @inscription_player.inscription.tournament
     elsif series and series.tournament_day and series.tournament_day.tournament then
       return series.tournament_day.tournament
-    elsif @tournament then
+    elsif @tournament and not @tournament.new_record? then
       return @tournament
     else
       return ::Tournament.next
@@ -467,9 +467,9 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def standard_menu
     ul :class => "standard" do
-      menu_item protection_path, "Datenschutzbestimmungen", lock_image, t('privacy')
-      menu_item email_form_path, "Email ans Turnierteam", message_image, t('email')
-      menu_item logout_path, "... und Tschüss, genug angemeldet für heute", exit_image, "Ausgang" unless is_admin?
+      menu_item protection_path, t('links.privacy.title'), lock_image, t('links.privacy.text')
+      menu_item email_form_path, t('links.email.title'), message_image, t('links.email.text')
+      menu_item logout_path, t('links.exit.title'), exit_image, t('links.exit.text') unless is_admin?
     end
   end
 

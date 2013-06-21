@@ -9,9 +9,9 @@ class Views::Inscriptions::Index < Views::Inscriptions::Inscription
   end
 
   def menu_items
-    menu_item new_inscription_path, "Neue Einschreibung erfassen", new_image, "Neue Einschreibung"
+    new_inscription
   end
-  
+
   def inscription_row(inscription, *fields)
     tr do
       td do
@@ -30,7 +30,7 @@ class Views::Inscriptions::Index < Views::Inscriptions::Inscription
       end
       if @admin or inscription.id == session[:id] then
         td do
-          link_to stylo_image, edit_inscription_path(inscription), :title => 'ändern'
+          link_to stylo_image, edit_inscription_path(inscription), :title => t(:change)
         end
         td do
           link_to(lightning_image, inscription, :confirm => 'Ganze Einschreibung löschen?', :method => :delete, :title => 'löschen')

@@ -7,6 +7,8 @@ class Series < ActiveRecord::Base
   has_many :waiting_list_series
   validates_numericality_of :min_ranking, :max_ranking
   validate :category_is_valid
+  attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
+                  :category, :sex, :use_rank, :start_time
 
   def category_is_valid
     self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?

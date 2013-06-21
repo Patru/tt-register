@@ -21,4 +21,20 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   def tournament_form(button_text)
     labeled_table_form @tournament, fields, button_text
   end
+
+  def show_menu
+    menu_item tournament_path(@tournament), t('links.show_tournament.title'), eye_image, t('links.show_tournament.text')
+  end
+
+  def edit_menu
+    menu_item edit_tournament_path(@tournament), t('links.edit_tournament.title'), stylo_image, t('links.edit_tournament.text')
+  end
+
+  def list_menu
+    menu_item tournaments_path, t('links.list_tournaments.title'), list_image, t('links.list_tournaments.text')
+  end
+
+  def new_menu
+    menu_item new_tournament_path, t('links.new_tournament.title'), new_image, t('links.new_tournament.text')
+  end
 end

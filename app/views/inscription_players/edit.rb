@@ -8,8 +8,9 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
   end
 
   def menu_items
-    menu_item inscription_player_path(@inscription_player), "Details anzeigen", eye_image, "anzeigen" unless @inscription_player.new_record?
+    show_menu
   end
+
   def sw_content
     form_tag :controller => 'inscription_players', :action => 'update_series' do
       rawtext error_messages_for(:inscription_player, :header_message => "Fehler beim speichern",

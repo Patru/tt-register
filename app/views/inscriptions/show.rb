@@ -6,9 +6,9 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   end
 
   def menu_items
-    menu_item edit_inscription_path(@inscription), 'Diese Einschreibung ändern', stylo_image, "ändern"
+    edit_menu
   end
-  
+
   def protect_against_forgery?
     true
   end
@@ -28,8 +28,10 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     end
     if @inscription.id == session[:id] or @admin then
       hr
-      h2 "Neue Spieler anmelden"
+      h2 t('add_players.title')
+      p t('add_players.explanation')
       select_players_from_list
+      p t('add_player_with_licence')
       add_player_with_licence
     end
   end
@@ -70,23 +72,14 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   private :render_own_inscription
 
   def add_player_with_licence
-    p do
-      text "Wenn du die Lizenznummer eines Spielers kennst, so kannst du sie hier "
-      text "eingeben. Du brauchst dann nur noch die Serien auszuwählen."
-    end
     form_tag({:controller => 'inscription_players', :action => 'add_player'}, {id: 'licence'}) do
-      label "Lizenznummer"
+      label t(:licence_number)
       input :type => "text", :name => "licence", :size => 7
       input :type => "submit", :value => "Hinzufügen"
     end
   end
   
   def select_players_from_list
-    p do
-      text "In diesem Formular kannst du eine Liste mit Spielern anzeigen lassen aus denen du Spieler für die Einschreibung auswählen kannst. "
-      text "Dabei kann der Club, der Name und/oder der Vorname eingeschränkt werden, wobei auch Teile von Namen verwendet werden können. "
-      text "Für jeden eingeschriebenen Spieler müssen dann die Serien ausgewählt werden."
-    end
     club_options = {:type => "text", :name => "crit[club]", :size => 20}
     club_options[:value]=@inscription.own_player.club if @inscription.own_player
     form_tag({:controller => 'inscriptions', :action => 'select_player'}, {id: 'sel_player'}) do

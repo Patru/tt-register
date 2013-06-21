@@ -287,6 +287,7 @@ de:
   help: Hilfe
   lost_login_link: Ich habe den Login-Link verloren
   root_page: Startseite
+  send_email: E-mail abschicken
   help_para1: |
     Um dich für das %{tournament_name} anzumelden musst du zuerst eine Einschreibung erstellen.
     Um bei Problemen mit einer Anmeldung Rückfragen stellen zu können benötigen wir
@@ -313,6 +314,110 @@ de:
     Wenn also Spieler an- oder abgemeldet werden, so verschicken wir dafür jedes mal eine Email.
     Normalerweise hast du diese Anpassungen zwar selber vorgenommen, im Zweifelsfall kannst
     du so aber auch Missbräuche rasch erkennen.
-  mail_team: dem Turnier-Team eine E-Mail schicken
   help_para5: |
     Falls du weitere Fragen oder Anregungen hast, so kannst du %{email_link}.
+  help_create_inscription: |
+    So, nach so vielen Erklärungen bist du jetzt am Zug um %{create_inscription_link}.
+  create_inscription_form: deine Einschreibung zu erstellen
+  mail_team: dem Turnier-Team eine E-Mail schicken
+  feedback_form: Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen.
+  resend_login_link: Sende mir einen neuen Login Link
+  change: Ändern
+  must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der Email verwenden.
+  change_player_data: Spielerdaten ändern
+  add_players:
+    title: Weitere Spieler anmelden
+    explanation: |
+      Mit diesem Formular kannst du eine Liste mit Spielern
+      anzeigen lassen aus denen du Spieler für die Einschreibung auswählen kannst.
+      Dabei kann der Club, der Name und/oder der Vorname eingeschränkt werden,
+      wobei auch Teile von Namen verwendet werden können.
+      Für jeden eingeschriebenen Spieler musst du dann die Serien auswählen die er spielen möchte.
+  add_player_with_licence: |
+    Wenn du die Lizenznummer eines Spielers kennst, so kannst du sie hier direkt
+    eingeben, du musst dann nur noch seine Serien auswählen.
+  links:
+    exit:
+      text: "Ausgang"
+      title: "... und Tschüss, genug angemeldet für heute"
+    show:
+      text: anzeigen
+      title: Details anzeigen
+    privacy:
+      text: Datenschutz
+      title: Datenschutzbestimmungen
+    email:
+      text: E-Mail
+      title: E-Mail ans Turnierteam
+    show_inscription:
+      text: anzeigen
+      title: Details für Einschreibung anzeigen
+    edit_inscription:
+      text: ändern
+      title: Diese Einschreibung ändern
+    list_inscriptions:
+      text: Liste
+      title: Zur Liste der Einschreibungen
+    new_inscription:
+      text: Neue Einschreibung
+      title: Eine neue Einschreibung erfassen
+    show_player:
+      text: anzeigen
+      title: Spielerdaten anzeigen
+    list_players:
+      text: Liste
+      title: Liste der Spieler
+    new_player:
+      text: Neuer Spieler
+      title: Neuen Spieler erfassen
+    edit_player:
+      text: Ändern
+      title: Diesen Spieler ändern
+    show_series:
+      text: anzeigen
+      title: Details zur Serie anzeigen
+    list_series:
+      text: Liste
+      title: Liste der Serien
+    new_series:
+      text: Neue Serie
+      title: Neue Serie erfassen
+    edit_series:
+      text: Ändern
+      title: Details der Serie ändern
+    show_tournament_day:
+      text: anzeigen
+      title: Details für Turniertag anzeigen
+    list_tournament_days:
+      text: Liste
+      title: Liste der Turniertage
+    new_tournament_day:
+      text: Neuer Tag für Turnier
+      title: Neuen Tag für Turnier erfassen
+    edit_tournament_day:
+      text: ändern
+      title: Details für diesen Turniertag ändern
+    show_tournament:
+      text: anzeigen
+      title: Turnierdaten anzeigen
+    list_tournaments:
+      text: Liste
+      title: Liste der Turniere
+    new_tournament:
+      text: Neues Turnier
+      title: Neues Turnier erfassen
+    edit_tournament:
+      text: ändern
+      title: Dieses Turnier ändern
+    show_inscription_player:
+      text: anzeigen
+      title: Details für Anmeldung anzeigen
+    list_inscription_players:
+      text: Liste
+      title: Zur Liste der Anmeldungen
+    new_inscription_player:
+      text: Neue Anmeldung
+      title: Neue Anmeldung erfassen
+    edit_inscription_player:
+      text: ändern
+      title: Diese Anmeldung ändern

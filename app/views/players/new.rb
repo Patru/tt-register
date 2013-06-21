@@ -6,8 +6,9 @@ class Views::Players::New < Views::Players::Player
   end
 
   def menu_items
-    menu_item players_path, "Zur Liste der Spieler", list_image, "Liste"
+    list_menu
   end
+
   def sw_content
     player_form "Erzeugen"
   end

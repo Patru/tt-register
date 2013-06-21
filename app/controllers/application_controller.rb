@@ -52,7 +52,7 @@ protected
   end
 
   def access_denied
-    flash[:error] = 'Zur Benutzung dieser Funktion bitte den Anmelde-Link in der Email verwenden.'
+    flash[:error] = t(:must_be_logged_in)
     redirect_to :controller => 'inscriptions', :action => 'new'
   end
 
