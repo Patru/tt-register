@@ -319,6 +319,7 @@ fr:
   resend_login_link: "M'envoye un nouveau lien d'inscription"
   change: 'change'
   must_be_logged_in: Veuillez utiliser le lien d'inscription pour l'utilisation de cette fonction.
+  show_inscription: Afficher l'inscription
   add_players:
     title: Inscrire des autres joueurs
     explanation: |

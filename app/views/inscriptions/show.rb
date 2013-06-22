@@ -2,7 +2,7 @@
 
 class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   def page_title
-    'Einschreibung anzeigen'
+    t(:show_inscription)
   end
 
   def menu_items
@@ -14,7 +14,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   end
   
   def sw_content
-    table do 
+    table do
       labeled_data(:tournament_id, @inscription.tournament.name)
       fields.each do |field|
         show_data_item(@inscription, field)

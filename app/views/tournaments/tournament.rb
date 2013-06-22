@@ -23,18 +23,18 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   end
 
   def show_menu
-    menu_item tournament_path(@tournament), t('links.show_tournament.title'), eye_image, t('links.show_tournament.text')
+    menu_item tournament_path(@tournament), :show_tournament, eye_image
   end
 
   def edit_menu
-    menu_item edit_tournament_path(@tournament), t('links.edit_tournament.title'), stylo_image, t('links.edit_tournament.text')
+    menu_item edit_tournament_path(@tournament), :edit_tournament, stylo_image
   end
 
   def list_menu
-    menu_item tournaments_path, t('links.list_tournaments.title'), list_image, t('links.list_tournaments.text')
+    menu_item tournaments_path, :list_tournaments, list_image
   end
 
   def new_menu
-    menu_item new_tournament_path, t('links.new_tournament.title'), new_image, t('links.new_tournament.text')
+    menu_item new_tournament_path, :new_tournament, new_image
   end
 end

@@ -268,7 +268,8 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   def labeled_data label_symbol, data
     tr do
       td :class => 'label' do
-        text Views::Labels.label(label_symbol)
+        text attribute_label(label_symbol) #Views::Labels.label(label_symbol)
+        text ":"
       end
       td do 
         text data
@@ -312,20 +313,23 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
 
   def attribute_label(symbol)
-    I18n.t('attributes.'+symbol.to_s)
+    I18n.t("attributes.#{symbol}")
+  end
+
+  def translated_text(clazz, symbol)
+    trans_text=clazz.human_attribute_name(symbol)+":"
+    if trans_text =~ /missing/
+      trans_text = Views::Labels.label(symbol)
+    end
+    trans_text
   end
 
   def label_text(form, symbol)
-    translated_text = form.object.class.human_attribute_name(symbol)+":"
-    if translated_text =~ /missing/
-      translated_text = Views::Labels.label(symbol)
-    end
-    translated_text
+    translated_text form.object.class, symbol
   end
   def form_text_field form, symbol, options={}
     tr do
       td :class => 'label' do
-
         rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
@@ -467,9 +471,9 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def standard_menu
     ul :class => "standard" do
-      menu_item protection_path, t('links.privacy.title'), lock_image, t('links.privacy.text')
-      menu_item email_form_path, t('links.email.title'), message_image, t('links.email.text')
-      menu_item logout_path, t('links.exit.title'), exit_image, t('links.exit.text') unless is_admin?
+      menu_item protection_path, :privacy, lock_image
+      menu_item email_form_path, :email, message_image
+      menu_item logout_path, :exit, exit_image unless is_admin?
     end
   end
 
@@ -477,12 +481,16 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   end
 
-  def menu_item(url, title, image, txt)
+  def menu_item(url, tag, image)
+    menu_item_base(url, t("links.#{tag}.title"), image, t("links.#{tag}.text"))
+  end
+
+  def menu_item_base(url, title, image, txt)
     li do
       a(:href => url, :title => title) do
-      rawtext image if image
-      text " "
-      text txt 
+        rawtext image if image
+        text " "
+        text txt
       end
     end
   end

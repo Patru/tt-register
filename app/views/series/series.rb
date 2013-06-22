@@ -44,19 +44,19 @@ class Views::Series::Series < Views::Layouts::SWPage
   end
 
   def show_menu
-    menu_item series_path(@series), t('links.show_series.title'), eye_image, t('links.show_series.text')
+    menu_item series_path(@series), :show_series, eye_image
   end
 
   def edit_menu
-    menu_item edit_series_path(@series), t('links.edit_series.title'), stylo_image, t('links.edit_series.text')
+    menu_item edit_series_path(@series), :edit_series, stylo_image
   end
 
   def list_menu
     menu_item url_for(:controller=>"series", :action=>"index", :only_path=>true), # no plural, must do it explicitly
-              t('links.list_series.title'), list_image, t('links.list_series.text')
+              :list_series, list_image
   end
 
   def new_menu
-    menu_item new_series_path, t('links.new_series.title'), new_image, t('links.new_series.text')
+    menu_item new_series_path, :new_series, new_image
   end
 end

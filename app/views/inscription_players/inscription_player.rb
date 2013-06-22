@@ -32,18 +32,18 @@ class Views::InscriptionPlayers::InscriptionPlayer < Views::Layouts::SWPage
   end
 
   def show_menu
-    menu_item inscription_player_path(@inscription_player), t('links.show_inscription_player.title'), eye_image, t('links.show_inscription_player.text') unless @inscription_player.new_record?
+    menu_item inscription_player_path(@inscription_player), :show_inscription_player, eye_image
   end
 
   def edit_menu
-    menu_item edit_inscription_player_path(@inscription_player), t('links.edit_inscription_player.title'), stylo_image, t('links.edit_inscription_player.text')
+    menu_item edit_inscription_player_path(@inscription_player), :edit_inscription_player, stylo_image
   end
 
   def list_menu
-    menu_item inscription_players_path, t('links.list_inscription_players.title'), list_image, t('links.list_inscription_players.text')
+    menu_item inscription_players_path, :list_inscription_players, list_image
   end
 
   def new_menu
-    menu_item new_tournament_path, t('links.new_inscription_player.title'), new_image, t('links.new_inscription_player.text')
+    menu_item new_tournament_path, :new_inscription_player, new_image
   end
 end

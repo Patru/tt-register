@@ -119,11 +119,12 @@ en:
   create_inscription_form: create your inscription form
   feedback_form: With this form you may provide your your comments, problems, critics or even your commendations.
   resend_login_link: Send me a new login link
+  show_inscription: Show inscription
   links:
     exit:
       text: exit
       title: "... enough of this, i am leaving for today"
-    show:
+    show_inscription:
       text: show
       title: show details
     edit_inscription:

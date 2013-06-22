@@ -8,7 +8,7 @@ class Views::Inscriptions::Edit < Views::Inscriptions::Inscription
   
   def menu_items
     show_menu
-    list_menu
+    list_menu  if @admin
   end
 
   def sw_content

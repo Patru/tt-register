@@ -6,18 +6,18 @@ class Views::Players::Player < Views::Players::Player
   end
 
   def show_menu
-    menu_item player_path(@player), t('links.show_player.title'), eye_image, t('links.show_player.text') unless is_admin?
+    menu_item player_path(@player), :show_player, eye_image unless is_admin?
   end
 
   def list_menu
-    menu_item players_path, t('links.list_players.title'), list_image, t('links.list_players.text')
+    menu_item players_path, :list_players, list_image
   end
 
   def new_menu
-    menu_item new_player_path, t('links.new_player.title'), new_image, t('links.new_player.text')
+    menu_item new_player_path, :new_player, new_image
   end
 
   def edit_menu
-    menu_item edit_player_path(@player), t('links.edit_player.title'), stylo_image, t('links.edit_player.text')
+    menu_item edit_player_path(@player), :edit_player, stylo_image
   end
 end

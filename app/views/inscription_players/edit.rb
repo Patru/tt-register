@@ -8,7 +8,7 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
   end
 
   def menu_items
-    show_menu
+    show_menu  unless @inscription_player.new_record?
   end
 
   def sw_content

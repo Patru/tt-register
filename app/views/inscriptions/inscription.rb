@@ -49,18 +49,18 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
   end
 
   def list_menu
-    menu_item inscriptions_path, t('links.show_inscription.text'), eye_image, t('links.show_inscription.text') if @admin
+    menu_item inscriptions_path, :list_inscriptions, list_image
   end
 
   def show_menu
-    menu_item inscription_path(@inscription), t('links.list_inscriptions.text'), list_image, t('links.list_inscriptions.text')
+    menu_item inscription_path(@inscription), :show_inscription, eye_image
   end
 
   def new_inscription_menu
-    menu_item inscription_path(@inscription), t('links.new_inscription.text'), new_image, t('links.new_inscription.text')
+    menu_item inscription_path(@inscription), :new_inscription, new_image
   end
 
   def edit_menu
-    menu_item edit_inscription_path(@inscription), t('links.edit_inscription.title'), stylo_image, t('links.edit_inscription.text')
+    menu_item edit_inscription_path(@inscription), :edit_inscription, stylo_image
   end
 end

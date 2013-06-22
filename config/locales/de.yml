@@ -325,6 +325,7 @@ de:
   change: Ändern
   must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der Email verwenden.
   change_player_data: Spielerdaten ändern
+  show_inscription: Einschreibung anzeigen
   add_players:
     title: Weitere Spieler anmelden
     explanation: |
