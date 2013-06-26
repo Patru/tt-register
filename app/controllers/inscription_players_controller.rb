@@ -94,7 +94,7 @@ class InscriptionPlayersController < ApplicationController
       return
     end
     inscription = @inscription_player.inscription
-    flash[:notice] = "#{@inscription_player.player.long_name} wurde abgemeldet"
+    flash[:notice] = t(:sign_off_player, player: @inscription_player.player.long_name)
     Confirmation.deregistration(@inscription_player).deliver
     @inscription_player.destroy
     check_waiting_list inscription
@@ -200,7 +200,7 @@ class InscriptionPlayersController < ApplicationController
               flash[:notice] = "Deine Anmeldung wurde gespeichert."
               format.html { redirect_to(@inscription_player.inscription) }
             else
-              flash[:notice] = "Anmeldung von #{@inscription_player.player.long_name} wurde gespeichert."
+              flash[:notice] = t(:inscription_for_saved, player: @inscription_player.player.long_name)
               format.html { redirect_to(:action => :show, :id => @inscription_player.id, :go_back_to_list => true) }
               format.xml  { head :ok }
             end

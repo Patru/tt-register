@@ -10,12 +10,10 @@ class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
   end
   
   def sw_content
-    p "Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine Email-Adresse."
+    p t 'resend_link.intro'
     p do
-      text "Bitte trage diese Informationen im untenstehenden Formular ein und schicke es ab. "
-      text "Der Login-Link sollte dann innerhalb weniger Minuten zugestellt werden. "
-      text "Falls dies nicht funktioniert, so schicke bitte eine "
-      link_to "Email an das Turnier-Team", email_form_path
+      text t('resend_link.instruction')
+      link_to t('resend_link.email_team'), email_form_path
       text "."
     end
     form_for @inscription, :url => resend_path, id:'resend_link', class:'resend_link' do |f|
@@ -23,7 +21,7 @@ class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
       table do
         tr do
           td :class => 'label' do
-            rawtext f.label(Views::Labels.label(:tournament_id))
+            rawtext f.label(attribute_label :tournament_id)
           end
           td do
             rawtext f.collection_select(:tournament_id, @tournaments, :id, :name)
@@ -32,7 +30,7 @@ class Views::Inscriptions::ResendLink < Views::Inscriptions::Inscription
         form_text_field f, :email
       end
       p do
-        rawtext f.submit("Link zustellen")
+        rawtext f.submit(t 'button.send_new_link')
       end
     end
   end

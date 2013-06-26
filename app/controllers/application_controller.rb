@@ -46,7 +46,7 @@ protected
   end
 
   def login_required
-    return true if @inscription or @admin
+    return true if view_context.logged_in?
     access_denied
     return false
   end

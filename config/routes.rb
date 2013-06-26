@@ -11,7 +11,6 @@ TtRegister::Application.routes.draw do
   match 'inscriptions/logout', :controller => 'inscriptions', :action => 'logout', :as => :logout
   resources :inscriptions
   match 'inscriptions/select_player/:id' => 'inscriptions#select_player'
-  match 'inscriptions/:id/:token' => 'inscriptions#login', :as => 'login'
   match 'resend_link' => 'inscriptions#resend_link', :as => 'resend_link'
   match 'resend' => 'inscriptions#resend', :as => 'resend'
   match 'email_form' => 'inscriptions#email_form' , :as => 'email_form'
@@ -36,6 +35,9 @@ TtRegister::Application.routes.draw do
   match 'admins/login/:token' => 'admins#login', via: :get
   match 'series/:id/players' => 'series#players', :as => :series_players
   get 'static/:page_id' => 'static#show', as: :static
+  post 'inscriptions/own_inscription/:id' => 'inscriptions#own_inscription', as: :own_inscription
+  match 'inscriptions/:id/:token' => 'inscriptions#login', :as => 'login'
+  match 'inscriptions/transfer_player/:inscription_player_id' => 'inscriptions#transfer_player', as: :transfer_player
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

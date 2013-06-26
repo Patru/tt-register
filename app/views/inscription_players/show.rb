@@ -16,7 +16,7 @@ class Views::InscriptionPlayers::Show < Views::InscriptionPlayers::InscriptionPl
                                  :selected_series => @inscription_player.series,
                                  :inscription_player => @inscription_player}
     inscribed = @inscription_player.inscribed_series
-    p "angemeldet für: #{inscribed}" if inscribed and inscribed.length > 0
+    p "#{t('attributes.inscribed_for')}: #{inscribed}" if inscribed and inscribed.length > 0
     waiting_list
     input :type => "button", :value => "Zurück zur Liste", :onClick =>  "history.go(-2)" if @go_back_to_list
   end

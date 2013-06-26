@@ -64,7 +64,7 @@ class InscriptionsController < ApplicationController
     @email = Email.new(params[:email][:from], params[:email][:subject], params[:email][:text])
     if @email.valid?
       Confirmation.mail_team(@email, tournament.sender_email).deliver
-      flash[:notice] = "Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden."
+      flash[:notice] = t 'flash.thanks_we_will_get_back_to_you'
       redirect_to :controller => "inscriptions", :action => "new"
     else
       render :action => "email_form"
@@ -88,23 +88,23 @@ class InscriptionsController < ApplicationController
     @inscription = Inscription.new(params[:inscription])
 
     if @inscription.email.blank? then
-      flash[:error] = "Bitte Email-Adresse erfassen um Link zuzustellen!"
+      flash[:error] = t 'flash.please_provide_email'
     else
       inscription = Inscription.find_by_tournament_id_and_email(@inscription.tournament_id, @inscription.email)
       if inscription.nil? then
-        flash[:error] = "Keine Einschreibung für #{@inscription.email}, bitte neue Einschreibung erzeugen"
+        flash[:error] = t('flash.no_inscription_for', address:@inscription.email)
         redirect_to :controller => "inscriptions", :action => "new"
         return
       else
         inscription.create_secret
         Confirmation.resend(inscription, host).deliver
         inscription.save
-        flash[:notice] = "Link neu zugestellt, die Email sollte in wenigen Minuten ankommen."
+        flash[:notice] = t 'flash.new_link_has_been_created'
       end
     end
 
     respond_to do |format|
-      format.html { render :action => "resend_link" }
+      format.html { redirect_to :action => "email_form" }
       format.xml  { render :xml => @inscription }
     end
   end
@@ -114,7 +114,7 @@ class InscriptionsController < ApplicationController
     @tournaments = Tournament.all
     @inscription = Inscription.find(params[:id])
     if @inscription.id != session[:id] and @admin.nil? then
-      flash[:error] = "Die Einschreibung kann von dir nicht geändert werden."
+      flash[:error] = t 'flash.must_not_edit_inscription'
       redirect_to @inscription
       return
     end

@@ -7,7 +7,7 @@ class Views::Inscriptions::OwnInscription < Views::Inscriptions::Inscription
   def page_menu
   end
   def sw_content
-    form_for(:inscription, @inscription, :url => {:action => :transfer_player}) do |f|
+    form_for(@inscription, :url => transfer_player_path(@inscription_player.id)) do |f|
       f.error_messages
       table do
         form_hidden_field f, :tournament_id, @inscription.tournament.name

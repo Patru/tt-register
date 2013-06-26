@@ -266,6 +266,7 @@ fr:
   privacy_long: "Conditions de la protection des données"
   email: e-mail
   new_inscription: "Nouvelle inscription"
+  new_inscription_to: Nouvelle inscription pour le %{tournament_name}
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
     Merci pour ton intérêt au %{tour_name}.
@@ -329,6 +330,42 @@ fr:
   add_player_with_licence: |
     Si tu connais le numéro de licence d'un joueur tu peux l'entre directement.
     Comme ça tu ne devras que chosir ces séries.
+  inscribed_by: inscrit par
+  actions: actions
+  licence_number: numéro de licence
+  players_for_selection: Joueurs pour la sélection
+  inscribe: inscrire
+  choose_player_and_select_series: |
+    Choisi un joueur pour l'inscrire, ensuite tu peux sélectionner ses séries et confirmer son inscription sur
+    l'écran suivant.
+  shown_total_players: Les %{shown} premiers joueurs de la sélection courant de %{total} sont affiché.
+  all_players_shown: Tous les %{count} joueurs de la sélection courant sont affiché.
+  inscription_for_saved: L'inscription de %{player} a été enregistré
+  sign_off: désinscrire
+  sign_off_player: ! '%{player} a été désinscrit'
+  really_sign_off: Vraiment désinscrire  %{player}?
+  flash:
+    thanks_we_will_get_back_to_you: |
+      Merci beaucoup, votre e-mail a été evoyé au team d'organisation, il va vous contacter si necessaire.
+    please_provide_email: "Remplis l'adresse e-mail s'il te plaît, autrement nous ne pouvons pas t'envoyer le lien d'inscription"
+    no_inscription_for: L'inscription pour %{address} n'a pas été trouvé, nous te prions d'en créer une nouvelle.
+    new_link_has_been_created: J'ai generé un nouveau lien d'inscription et un e-mail t'a été envoyé, il va arriver dans quelques minutes.
+  button:
+    send_new_link: Envoyer le nouveau lien d'inscription
+  resend_link:
+    intro: Pour t'envoyer un nouveau lien d'inscription nous avons besoin du tournoi concerné et de ton adresse e-mail.
+    instruction: |
+      Entre ces informations dans le formulaire ci-dessous et envoye le formulaire.
+      Le lien d'inscription sera delivré quelques minutes plus tard.
+      Si ça ne marche pa, envoye un
+    email_team: e-mail au team d'organisation
+  header:
+    day: jour
+    time: temps
+    series: séries
+  confirm:
+    transfer_inscription: Transferer cet inscription à %{long_name}
+    create_new_inscription: Est-ce que tu veux créer une nouvelle inscription pour %{long_name} et transferer cet inscription à lui?
   links:
     exit:
       text: "Sortie"
@@ -341,13 +378,25 @@ fr:
       title: "e-mail au team d'organisation"
     show_inscription:
       text: afficher
-      title: "Afficher les détail de l'inscription"
+      title: "Afficher les détails de l'inscription"
     edit_inscription:
       text: modifier
       title: modifier cette inscription
     list_inscriptions:
       text: liste
-      title: à la liste des inscription
+      title: à la liste des inscriptions
     new_inscription:
       text: Nouvelle inscription
       title: Enregister une nouvelle inscription
+    show_inscription_player:
+      text: afficher
+      title: "Afficher les détails de l'inscription"
+    list_inscription_players:
+      text: liste
+      title: à la liste des inscriptions
+    new_inscription_player:
+      text: nouvelle inscription
+      title: ajouter une nouvelle inscription
+    edit_inscription_player:
+      text: modifier
+      title: modifier cette inscription

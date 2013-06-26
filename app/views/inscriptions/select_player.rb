@@ -8,7 +8,7 @@ class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
   def page_menu
   end
   def page_title
-    'Spieler für Auswahl'
+    t :players_for_selection
   end
 
   def player_row(player, *fields)
@@ -24,9 +24,7 @@ class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
   end
       
   def sw_content
-    p do
-      text "Bitte einen Spieler für die Anmeldung auswählen, anschliessend die Serien auswählen und die Anmeldung bestätigen."
-    end
+    p t :choose_player_and_select_series
     table class: 'players' do
       headers :name, :club, :licence, :ranking, :woman_ranking, :category
 
@@ -35,9 +33,9 @@ class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
       end
     end
     if @players.size < @player_count then
-      p "#{@players.size} angezeigt, #{@player_count} Spieler in aktueller Selektion ."
+      p t(:shown_total_players, shown:@players.size, total:@player_count)
     else
-      p "#{@players.size} Spieler angezeigt"
+      p t(:all_players_shown, count:@players.size)
     end
   end
 end

@@ -180,7 +180,7 @@ class PlayerImporter
   end
   def import
     build_existing_players_map
-    CSV.foreach(@file, col_sep:"\t") do |row|
+    CSV.foreach(@file, col_sep:"\t", encoding: 'UTF-8') do |row|
       @rows = @rows+1
       import_player_row row 
     end    

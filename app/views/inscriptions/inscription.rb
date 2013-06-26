@@ -57,7 +57,7 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
   end
 
   def new_inscription_menu
-    menu_item inscription_path(@inscription), :new_inscription, new_image
+    menu_item new_inscription_path, :new_inscription, new_image
   end
 
   def edit_menu

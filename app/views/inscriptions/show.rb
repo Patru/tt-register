@@ -6,7 +6,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   end
 
   def menu_items
-    edit_menu
+    edit_menu if logged_in?
   end
 
   def protect_against_forgery?
@@ -24,7 +24,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     if @inscription.attribute_present?(:licence) and own_inscription? then
       render_own_inscription
     else
-      render_players("Anmeldungen", @inscription.inscription_players)
+      render_players(t(:inscriptions), @inscription.inscription_players)
     end
     if @inscription.id == session[:id] or @admin then
       hr
@@ -74,7 +74,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   def add_player_with_licence
     form_tag({:controller => 'inscription_players', :action => 'add_player'}, {id: 'licence'}) do
       label t(:licence_number)
-      input :type => "text", :name => "licence", :size => 7
+      input type: 'number', name: 'licence', size: 7, placeholder: t(:licence)
       input :type => "submit", :value => "Hinzufügen"
     end
   end
@@ -100,11 +100,11 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       h2 title
       table id: 'my_inscriptions' do
         thead do
-          th "Name"
-          th "Club"
-          th "Eingeschrieben für"
+          th t('attributes.name')
+          th t('attributes.club')
+          th t('attributes.inscribed_for')
           th :colspan=>2 do
-            text "Aktionen"
+            text t(:actions)
           end
         end
         inscription_players.each do |ins_player|
@@ -127,13 +127,13 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       td ins_player.inscribed_for
       if @inscription.id == session[:id] or @admin then
         td do
-          link_to(lightning_image, ins_player, :confirm => "Soll #{ins_player.player.long_name} wirklich abgemeldet werden?",
-              :method => :delete, :title => 'abmelden')
+          link_to(lightning_image, ins_player, :confirm => t(:really_sign_off, player: ins_player.player.long_name),
+              :method => :delete, :title => t(:sign_off))
         end
         td do
-          link_to(right_arrow_image, url_for(:controller => :inscriptions, :id => ins_player.id, :only_path => true),
-              :confirm =>  "Neue Einschreibung für #{ins_player.player.long_name} erzeugen?",
-              :method => :post, :title => "Anmeldung an #{ins_player.player.long_name} übertragen")
+          link_to(right_arrow_image, own_inscription_path(:id => ins_player.id),
+              :confirm =>  t('confirm.create_new_inscription', long_name:ins_player.player.long_name),
+              method: :post, title: t('confirm.transfer_inscription', long_name:ins_player.player.long_name))
         end
       end
     end

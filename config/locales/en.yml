@@ -120,6 +120,37 @@ en:
   feedback_form: With this form you may provide your your comments, problems, critics or even your commendations.
   resend_login_link: Send me a new login link
   show_inscription: Show inscription
+  inscribed_by: Inscribed by
+  actions: actions
+  players_for_selection: Players for selection
+  choose_player_and_select_series: |
+    Please choose the player to be inscribed,
+    then choose his series and confirm the inscription on the following screen.
+  inscribe: inscribe
+  shown_total_players: showing the first %{shown} players from %{total} in the current selection.
+  all_players_shown: showing all %{count} players in the current selection.
+  inscription_for_saved: The inscription of %{player} has been saved
+  sign_off: sign off
+  sign_off_player: ! '%{player} has been signed off'
+  really_sign_off: Do you really want to sign off %{player}?
+  flash:
+    thanks_we_will_get_back_to_you: |
+      Thank you very much, your e-mail has been sent to the tournament team, it will get back to you if necessary.
+    please_provide_email: Please provide your e-mail address, otherwise we cannot send your new inscription link.
+    no_inscription_for: We could not find an inscription form for %{address}, please create a new one.
+    new_link_has_been_created: The link has been generated anew and an e-mail has been sent to you, it will arrive in a few minutes.
+  button:
+    send_new_link: Send me a new login link
+  resend_link:
+    intro: In order to send you a new login link we need the tournament concerned and your e-mail address.
+    instruction: |
+      Please provide this information in the form below and send it.
+      Yourn new login-link will be sent to you in a few minutes.
+      If this does not work please send an
+    email_team: e-mail to the tournament team
+  confirm:
+    transfer_inscription: Transfer inscription to %{long_name}
+    create_new_inscription: Do you want to create a new inscription form for %{long_name} and transfer this inscription to him?
   links:
     exit:
       text: exit
@@ -136,3 +167,15 @@ en:
     email:
       text: e-mail
       title: e-mail to the tournament team
+    show_inscription_player:
+      text: show
+      title: show details of inscription
+    list_inscription_players:
+      text: list
+      title: To the list of inscriptions
+    new_inscription_player:
+      text: new inscription
+      title: create a new inscription
+    edit_inscription_player:
+      text: edit
+      title: edit this inscription

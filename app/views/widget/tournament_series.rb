@@ -75,9 +75,9 @@ class Views::Widget::TournamentSeries < Erector::Widget
 
   def headers
     tr do
-      th "Tag"
-      th "Zeit"
-      th "Serien"
+      th t('header.day')
+      th t('header.time')
+      th t('header.series')
     end
   end
 
@@ -88,7 +88,8 @@ class Views::Widget::TournamentSeries < Erector::Widget
     h2 "#{@player.long_name}, #{@player.player_info}"
     if not @inscription.licence or @inscription.licence != @player.licence then
       p do
-        text "angemeldet durch "
+        text t(:inscribed_by)
+        text ' '
         link_to @inscription.name, @inscription
       end
     end

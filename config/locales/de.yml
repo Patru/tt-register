@@ -271,6 +271,7 @@ de:
   privacy_long: Datenschutzbestimmungen
   email: E-mail
   new_inscription: "Neue Einschreibung"
+  new_inscription_to: Neue Anmeldung zum %{tournament_name}
   inscriptions: "Einschreibungen"
   thanks_and_purpose: |
     Vielen Dank für dein Interesse am %{tour_name}.
@@ -337,6 +338,42 @@ de:
   add_player_with_licence: |
     Wenn du die Lizenznummer eines Spielers kennst, so kannst du sie hier direkt
     eingeben, du musst dann nur noch seine Serien auswählen.
+  inscribed_by: angemeldet durch
+  actions: Aktionen
+  licence_number: Lizenznummer
+  players_for_selection: Spieler für Auswahl
+  choose_player_and_select_series: |
+    Bitte einen Spieler für die Anmeldung auswählen, anschliessend die Serien auswählen und die Anmeldung bestätigen.
+  inscribe: Anmelden
+  shown_total_players: Die ersten %{shown} Spieler aus der aktuellen Auswahl mit %{total} werden angezeigt.
+  all_players_shown: Alle %{count} Spieler aus der aktuellen Auswahl werden angezeigt.
+  inscription_for_saved: Die Anmeldung von %{player} wurde gespeichert
+  sign_off: Abmelden
+  sign_off_player: ! '%{player} wurde abgemeldet'
+  really_sign_off: Soll %{player} wirklich abgemeldet werden?
+  flash:
+    thanks_we_will_get_back_to_you: |
+      Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
+    please_provide_email: Bitte fülle die Email-Adresse aus, sonst können wir dir keinen neuen Link zustellen!
+    no_inscription_for: Keine Einschreibung für %{address} vorhanden, bitte erzeuge eine neue Einschreibung.
+    new_link_has_been_created: Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.
+    must_not_edit_inscription: Diese Einschreibung kann von dir nicht geändert werden.
+  button:
+    send_new_link: Neuen Login-Link schicken
+  resend_link:
+    intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine Email-Adresse.
+    instruction: |
+      Bitte trage diese Informationen im untenstehenden Formular ein und schicke es ab.
+      Der Login-Link sollte dann innerhalb weniger Minuten zugestellt werden.
+      Falls dies nicht funktioniert, so schicke bitte eine
+    email_team: E-Mail an das Turnier-Team
+  header:
+    day: Tag
+    time: Zeit
+    series: Serien
+  confirm:
+    transfer_inscription: Anmeldung an %{long_name} übertragen
+    create_new_inscription: Willst du eine neue Einschreibung für %{long_name} erzeugen und die Anmeldung übertragen?
   links:
     exit:
       text: "Ausgang"

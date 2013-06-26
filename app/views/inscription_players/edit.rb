@@ -26,8 +26,8 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
         end
       end
     end
-    button_to("Abmelden",  @inscription_player, :method => :delete,
-        :confirm => "Soll #{@inscription_player.player.long_name} wirklich abgemeldet werden?") unless @inscription_player.new_record?
+    button_to(t(:sign_off),  @inscription_player, :method => :delete,
+        :confirm => t(:really_sign_off, player: @inscription_player.player.long_name)) unless @inscription_player.new_record?
     waiting_list
   end
 end

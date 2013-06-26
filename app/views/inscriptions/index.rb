@@ -9,7 +9,7 @@ class Views::Inscriptions::Index < Views::Inscriptions::Inscription
   end
 
   def menu_items
-    new_inscription
+    new_inscription_menu
   end
 
   def inscription_row(inscription, *fields)

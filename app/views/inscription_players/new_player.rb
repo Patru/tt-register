@@ -4,7 +4,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
 #  needs :player, :inscription, :inscription_player => nil
   
   def page_title
-    "Neue Anmeldung zum #{tournament.name}"
+    t(:new_inscription_to, tournament_name: tournament.name)
   end
   def page_menu
   end
@@ -19,7 +19,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
         sel_series = []
       end
       widget tournament.layouter, {:player => @player, :inscription => @inscription, :selected_series => sel_series}
-      input :type => "submit", :value => "Anmelden"
+      input :type => "submit", :value => t(:inscribe)
     end
   end
 end
