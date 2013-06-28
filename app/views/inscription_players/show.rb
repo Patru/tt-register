@@ -18,6 +18,6 @@ class Views::InscriptionPlayers::Show < Views::InscriptionPlayers::InscriptionPl
     inscribed = @inscription_player.inscribed_series
     p "#{t('attributes.inscribed_for')}: #{inscribed}" if inscribed and inscribed.length > 0
     waiting_list
-    input :type => "button", :value => "Zurück zur Liste", :onClick =>  "history.go(-2)" if @go_back_to_list
+    input :type => "button", :value => t('button.back_to_list'), :onClick =>  "history.go(-2)" if @go_back_to_list
   end
 end

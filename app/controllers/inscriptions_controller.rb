@@ -114,7 +114,7 @@ class InscriptionsController < ApplicationController
     @tournaments = Tournament.all
     @inscription = Inscription.find(params[:id])
     if @inscription.id != session[:id] and @admin.nil? then
-      flash[:error] = t 'flash.must_not_edit_inscription'
+      flash[:error] = t 'error.may_only_edit_own_inscription'
       redirect_to @inscription
       return
     end
@@ -124,6 +124,7 @@ class InscriptionsController < ApplicationController
   # POST /inscriptions.xml
   def create
     @inscription = Inscription.new(params[:inscription])
+    @inscription.email.strip!
     if not @inscription.valid? then
       @tournaments = Tournament.all
       render :action => :new
@@ -131,13 +132,13 @@ class InscriptionsController < ApplicationController
     end
     if @inscription.licence then
       if Inscription.find_by_licence_and_tournament_id @inscription.licence, @inscription.tournament_id then
-        flash[:error] = "Eine Einschreibung für die Lizenznummer #{@inscription.licence} existiert bereits, bitte Login-Link neu anfordern"
+        flash[:error] = t('flash.inscription_exists', licence: @inscription.licence)
         @tournaments = Tournament.all
         redirect_to :action => "new"
         return
       else
         if Player.find_by_licence(@inscription.licence).nil? then
-          flash[:error] = "Kein Spieler für Lizenznummer #{@inscription.licence}, bitte eine gültige Lizenznummer verwenden"
+          flash[:error] = t 'flash.no_player_for_licence', licence: @inscription.licence
           @tournaments = Tournament.all
           redirect_to :action => "new"
           return
@@ -146,7 +147,7 @@ class InscriptionsController < ApplicationController
     end
     if @inscription.email then
       if Inscription.find_by_email_and_tournament_id @inscription.email, @inscription.tournament_id then
-        flash[:error] = "Eine Einschreibung für die Email-Adresse #{@inscription.email} existiert bereits, bitte Login-Link neu anfordern"
+        flash[:error] = t 'flash.inscription_for_email_exists', address: @inscription.email
         @tournaments = Tournament.all
         redirect_to :action => "new"
         return
@@ -158,7 +159,7 @@ class InscriptionsController < ApplicationController
     respond_to do |format|
       if @inscription.save
         Confirmation.confirmation(@inscription, host).deliver
-        flash[:notice] = 'Die Einschreibung wurde erfolgreich erzeugt, bitte den Link in der Bestätigungs-Email verwenden.'
+        flash[:notice] = t 'flash.inscription_form_created_successfully'
         format.html { redirect_to(@inscription) }
         format.xml  { render :xml => @inscription, :status => :created, :location => @inscription }
       else
@@ -173,7 +174,7 @@ class InscriptionsController < ApplicationController
   # PUT /inscriptions/1.xml
   def update
     if session[:id] != params[:id].to_i and @admin.nil? then
-      flash[:error] = "Nur die eigene Einschreibung kann geändert werden!"
+      flash[:error] = t 'error.may_only_edit_own_inscription'
       redirect_to inscriptions_url
       return
     end
@@ -183,7 +184,7 @@ class InscriptionsController < ApplicationController
     respond_to do |format|
       @inscription.name=params[:inscription][:name]
       if @inscription.save
-        flash[:notice] = 'Einschreibung erfolgreich geändert.'
+        flash[:notice] = t 'notice.inscription_edited_success'
         format.html { redirect_to(@inscription) }
         format.xml  { head :ok }
       else
@@ -198,7 +199,7 @@ class InscriptionsController < ApplicationController
   # DELETE /inscriptions/1.xml
   def destroy
     if session[:id] != params[:id] and @admin.nil? then
-      flash[:error] = "Nur die eigene Einschreibung kann gelöscht werden!"
+      flash[:error] = t 'error.may_only_delete_own_inscription'
       redirect_to inscriptions_url
       return
     end
@@ -237,11 +238,12 @@ class InscriptionsController < ApplicationController
     [:name, :first_name, :club].each do |crit|
       criteria[crit] = crits.send(crit) unless crits.send(crit).blank?
     end
-    flash[:notice]="Keine Selektionskriterien angegeben, erste 30 Spieler angezeigt" unless criteria.size > 0
+    max_players=100
+    flash[:notice]= t('flash.no_selection_criteria', max: max_players) unless criteria.size > 0
     relation = Player.where(criteria)
     @player_count = relation.count
     if @player_count > 0 then
-      relation=relation.limit(100)
+      relation=relation.limit(max_players)
     else
       relation = Player.like_relation(criteria)
       @player_count = relation.count
@@ -253,23 +255,23 @@ class InscriptionsController < ApplicationController
   def login
     @inscription = Inscription.find(params[:id])
     if @inscription.matches?(params[:token]) then
-      flash[:notice] = "#{@inscription.name} eingeloggt!"
+      flash[:notice] = t('flash.logged_in', name:@inscription.name)
       session[:id] = @inscription.id
       session[:expires]=[Time.now+7.days,
                          (@inscription.tournament.tournament_days.maximum(:day)+1.day).to_time].min
       redirect_to @inscription
     else
-      flash[:error] = "Link nicht korrekt (#{params[:token]} nicht aktuell), bitte neu anfordern falls nicht mehr vorhanden!"
+      flash[:error] = t 'flash.login_link_incorrect', token: params[:token]
       redirect_to(new_inscription_url)
     end
   rescue
-    flash[:notice] = "Einschreibung Nummer #{params[:id]} nicht gefunden, bitte neu anmelden."
+    flash[:notice] = t 'flash.inscription_not_found', id: params[:id]
     redirect_to(new_inscription_url)
   end
 
   def logout
     session[:id] = nil
-    redirect_to(new_inscription_url, :notice => "Herzlichen Dank für den Besuch.")
+    redirect_to(new_inscription_url, notice: t('notice.thanks_for_your_visit'))
   end
   
   def own_inscription
@@ -296,14 +298,14 @@ class InscriptionsController < ApplicationController
         if @inscription.save
           @inscription_player.inscription = @inscription
           if @inscription_player.save then
-            TransferInscription.transfer_inscription(@inscription, @inscription_player, former_inscription).deliver
-            flash[:notice] = 'Die Einschreibung wurde erfolgreich übertragen und kann jetzt vom Spieler verwaltet werden.'
+            TransferInscription.transfer_inscription(@inscription, @inscription_player, former_inscription, host).deliver
+            flash[:notice] = t 'notice.transfer_successful'
             format.html { redirect_to(former_inscription) }
             format.xml  { render :xml => former_inscription, :status => :created, :location => former_inscription }
           end
         else
           @tournaments = Tournament.all
-          flash[:error] = "Fehler beim Übertragen der Einschreibung"
+          flash[:error] = t 'error.while_transfering_inscription'
             format.html { redirect_to(former_inscription) }
           format.xml  { render :xml => @inscription.errors, :status => :unprocessable_entity }
         end
@@ -312,6 +314,6 @@ class InscriptionsController < ApplicationController
   end
 
   def host
-    "#{request.host_with_port}"
+    request.host_with_port
   end
 end

@@ -67,9 +67,9 @@ class Player < ActiveRecord::Base
 
   def third_person
     if male? then
-      return "Er"
+      return I18n.t 'pronoun.he'
     else
-      return "Sie"
+      return I18n.t 'pronoun.she'
     end
   end
 

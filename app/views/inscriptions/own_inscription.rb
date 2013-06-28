@@ -2,7 +2,7 @@
 
 class Views::Inscriptions::OwnInscription < Views::Inscriptions::Inscription
   def page_title
-    "Einschreibung an Spieler übertragen"
+    t 'title.transfer_inscription_to_player'
   end
   def page_menu
   end

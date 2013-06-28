@@ -54,7 +54,8 @@ class InscriptionPlayersController < ApplicationController
     @inscription_player = InscriptionPlayer.find(params[:id], :include => [{:inscription => :tournament}, :player, :series])
     if (@inscription.nil? or @inscription_player.inscription_id != @inscription.id) and
             (@admin.nil? and @inscription_player.inscription.id != session[:id])
-      flash[:error] = "#{@inscription_player.player.long_name} wurde von #{@inscription_player.inscription.name} angemeldet, die Anmeldung kann deshalb nicht geändert werden."
+      flash[:error] = t('flash.other_inscription', player_name: @inscription_player.player.long_name,
+                        inscription_name: @inscription_player.inscription.name)
       redirect_to @inscription_player
       return
     end
@@ -89,7 +90,7 @@ class InscriptionPlayersController < ApplicationController
   def destroy
     @inscription_player = InscriptionPlayer.find(params[:id])
     if @inscription_player.inscription_id != @inscription.id then
-      flash[:error] = "Falsche Einschreibung, #{@inscription_player.player.long_name} kann nicht abgemeldet werden."
+      flash[:error] = t 'error.wrong_inscription_for_sign_off', long_name: @inscription_player.player.long_name
       redirect_to @inscription_player
       return
     end
@@ -111,7 +112,7 @@ class InscriptionPlayersController < ApplicationController
 
   def player_ok?
     if @player.nil?
-      flash[:error] = "Kein Spieler mit Lizenz #{params[:licence]} gefunden"
+      flash[:error] = t 'flash.no_player_for_licence', licence: params[:licence]
       redirect_to @inscription
     end
     return @player
@@ -128,8 +129,9 @@ class InscriptionPlayersController < ApplicationController
   end
 
   def licence_too_long?(licence)
-    if licence.length > 10 then
-      flash[:error] = "Lizenz darf höchstens 10 Zeichen lang sein!"
+    max_length=6
+    if licence.length > max_length then
+      flash[:error] = t 'error.licence_max', max:max_length
       redirect_to @inscription
       return true
     end
@@ -139,7 +141,9 @@ class InscriptionPlayersController < ApplicationController
   def fetch_inscription_player(player, tournament_id)
     @inscription_player = InscriptionPlayer.find_with_player_and_tournament_id(player, tournament_id)
     if @inscription_player then
-      flash[:error] = "#{@inscription_player.player.long_name} wurde bereits von #{@inscription_player.inscription.name} angemeldet! #{@inscription_player.player.third_person} kann nicht noch einmal angemeldet werden."
+      flash[:error] = t 'error.player_already_enrolled', player_name: @inscription_player.player.long_name,
+                        inscription_name: @inscription_player.inscription.name,
+                        pronoun: @inscription_player.player.third_person.capitalize
       redirect_to @inscription_player
     end
     return @inscription_player
@@ -153,7 +157,7 @@ class InscriptionPlayersController < ApplicationController
     @inscription.tournament.build_series_map
     respond_to do |format|
       if @player then
-        flash[:notice] = "Bitte Serien auswählen um die Anmeldung abzuschliessen."
+        flash[:notice] = t 'notice.select_series_to_complete'
         format.html { render(:action => "new_player") }
         format.xml  { head :ok }
       else
@@ -181,13 +185,13 @@ class InscriptionPlayersController < ApplicationController
       player = Player.find(params[:player_id])
       if (@inscription.tournament_id == tournament.id) then
         if InscriptionPlayer.find_with_player_and_tournament_id(player, tournament.id) then
-          flash[:error] = "#{player.long_name} ist bereits angemeldet, neue Anmeldung ignoriert."
+          flash[:error] = t 'error.already_enrolled_ignored', long_name: player.long_name
           redirect_to @inscription
           return
         end
         @inscription_player = new_ins_player player, params[:start]
         if @inscription_player.no_series_selected? then
-          flash[:error] = "Keine Serie selektiert, nicht gespeichert"
+          flash[:error] = t 'error.no_series_selected'
           prepare_new_player @inscription_player
           render :action => :new_player
           return
@@ -197,7 +201,7 @@ class InscriptionPlayersController < ApplicationController
           if @inscription_player.save then
             Confirmation.inscription_player_confirmation(@inscription_player).deliver
             if player.eql?(@inscription.own_player) then
-              flash[:notice] = "Deine Anmeldung wurde gespeichert."
+              flash[:notice] = t 'notice.inscription_saved'
               format.html { redirect_to(@inscription_player.inscription) }
             else
               flash[:notice] = t(:inscription_for_saved, player: @inscription_player.player.long_name)
@@ -213,7 +217,7 @@ class InscriptionPlayersController < ApplicationController
           end
         end
       else
-        flash[:error]="Keine Einschreibung für dieses Turnier"
+        flash[:error]= t 'error.not_this_tournament'
       end
     end
   end
@@ -251,11 +255,11 @@ class InscriptionPlayersController < ApplicationController
   def update_series
     @inscription_player = InscriptionPlayer.find(params[:id])
     if (not is_admin?) and (@inscription_player.inscription_id != @inscription.id)  then
-      flash[:error] = "Falsche Einschreibung, #{@inscription_player.player.long_name} kann nicht geändert werden."
+      flash[:error] = t 'error.wrong_inscription_for_edit', long_name: @inscription_player.player.long_name
       redirect_to @inscription_player
       return
     end
-    success_notice = "Anmeldung erfolgreich geändert."
+    success_notice = t 'notice.enrollment_edited_success'
     days, partner_ids=@inscription_player.inscription.tournament.parse_series(params[:start])
     all_series = []
     days.each do |day_id, sers|
@@ -267,12 +271,12 @@ class InscriptionPlayersController < ApplicationController
         if day_sers.size >= sers.size then
           all_series.concat(Series.all(:conditions => {:id => sers}))
         else
-          @inscription_player.errors.add :base, "Für den #{day.day_name} sind keine Meldungen mehr frei, maximal #{day_sers.size} Serien wählen."
+          @inscription_player.errors.add :base, t('error.no_inscriptions_left_max', day: day.day_name, max: day_sers.size)
         end
       end
     end
     if @inscription_player.play_series.empty?
-      success_notice = "Keine Serien übrig, bitte #{@inscription_player.player.long_name} abmelden."
+      success_notice = t 'notice.no_series_left', long_name: @inscription_player.player.long_name
     end
 
     respond_to do |format|

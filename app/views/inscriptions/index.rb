@@ -33,7 +33,7 @@ class Views::Inscriptions::Index < Views::Inscriptions::Inscription
           link_to stylo_image, edit_inscription_path(inscription), :title => t(:change)
         end
         td do
-          link_to(lightning_image, inscription, :confirm => 'Ganze Einschreibung löschen?', :method => :delete, :title => 'löschen')
+          link_to(lightning_image, inscription, confirm: t('confirm.delete_inscription'), :method => :delete, :title => 'löschen')
         end
       end
     end

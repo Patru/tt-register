@@ -4,7 +4,7 @@ require 'views/widget/series_box.rb'
 
 class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPlayer
   def page_title
-    "Änderung der Anmeldung von #{@inscription_player.player.long_name}"
+    t 'title.edit_inscription_of', long_name: @inscription_player.player.long_name
   end
 
   def menu_items
@@ -22,7 +22,7 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
       tr do
         td {}
         td do
-          input :type => "submit", :value => "Ändern"
+          input type: "submit", value: t('button.edit')
         end
       end
     end

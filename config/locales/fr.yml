@@ -344,21 +344,62 @@ fr:
   sign_off: désinscrire
   sign_off_player: ! '%{player} a été désinscrit'
   really_sign_off: Vraiment désinscrire  %{player}?
+  title:
+    transfer_inscription_to_player: transferer cette inscription au joueur
+    edit_inscription_of: Modification de l'inscription de %{long_name}
   flash:
     thanks_we_will_get_back_to_you: |
       Merci beaucoup, votre e-mail a été evoyé au team d'organisation, il va vous contacter si necessaire.
     please_provide_email: "Remplis l'adresse e-mail s'il te plaît, autrement nous ne pouvons pas t'envoyer le lien d'inscription"
     no_inscription_for: L'inscription pour %{address} n'a pas été trouvé, nous te prions d'en créer une nouvelle.
     new_link_has_been_created: J'ai generé un nouveau lien d'inscription et un e-mail t'a été envoyé, il va arriver dans quelques minutes.
+    inscription_exists: |
+      Une inscription pour le numéro de licence  %{licence} est déjà présent,
+      s'il te plaît demande un nouveau lien d'inscription
+    other_inscription: |
+      %{player_name} a été inscrit par %{inscription_name}, comme ça tu ne pourras pas changer son inscription.
+    logged_in: ! '%{name} a été connecté!'
+    no_selection_criteria: Aucun critère de séléction fourni, montrant les premier %{max} joueurs
+    login_link_incorrect: Ton lien de login n'est plus en courrant (%{token} est fausse), demande un nouveau si tu l'as perdu!
+    inscription_not_found: L'inscription numéro %{id} n'as pas été trouvé, nous te prions de créer un nouveau formulaire d'inscription.
+    no_player_for_licence: Je ne trouve pas de joueur avec la licence %{licence}, s'il te plâit utilise un numéro valable
+    inscription_for_email_exists: Un formulaire d'iscription pour l'adresse e-mail %{address} est déjà présent, tu peux demander un nouveau lien d'inscription.
+    inscription_form_created_successfully: Ton inscription a été créé avec succès, tu peux maintenant utiliser le lien d'inscription qui a été envoyé per e-mail.
+  error:
+    may_only_edit_own_inscription: Tu ne peux que changer ton propre inscription!
+    may_only_delete_own_inscription: Tu ne peux que effacer ton propre inscription!
+    while_transfering_inscription: Un erreur est apparu pendent la transmission de ton formulaire d'inscription.
+    player_already_enrolled: |
+      %{player_name} a déjà été inscrit par %{inscription_name}! %{pronoun} ne peut pas être inscrit encore une fois.
+    already_enrolled_ignored: ! "%{long_name} est déjà inscrit, j'ignore cette inscription."
+    no_series_selected: Aucune série sélectionné, l'inscription n'as pas été enregistré.
+    not_this_tournament: Cette inscription n'appartient pas au tournoi courrant.
+    no_inscriptions_left_max: Il n'y a plus d'inscription pour le %{day} choisi un maximum de %{max} séries.
+    wrong_inscription_for_sign_off: Mauvaise inscription, %{long_name} ne peut pas être désinscrit.
+    wrong_inscription_for_edit: Mauvaise inscription, %{long_name} ne peut pas être modifié.
+    licence_max: Le numéro de licence ne peut avoir que %{max} charactères au maximum!
+  notice:
+    inscription_edited_success: Ton formulaire d'inscription a été modifié avec succès.
+    enrollment_edited_success: Ton inscription a été modifié avec succès.
+    transfer_successful: L'inscription a été transféré avec succès, maintenant le joueur peut la maintenir lui même.
+    thanks_for_your_visit: Merci beaucoup pour ta visite.
+    select_series_to_complete: Choisi les séries pour completer l'inscription s'il te plaît.
+    inscription_saved: Ton inscription a été enregistré.
+    no_series_left: Plus de séries dans l'inscription, désinscrits %{long_name} completement s'il te plaît.
   button:
     send_new_link: Envoyer le nouveau lien d'inscription
+    back_to_list: retour à la liste
+    edit: modifier
   resend_link:
     intro: Pour t'envoyer un nouveau lien d'inscription nous avons besoin du tournoi concerné et de ton adresse e-mail.
     instruction: |
       Entre ces informations dans le formulaire ci-dessous et envoye le formulaire.
       Le lien d'inscription sera delivré quelques minutes plus tard.
       Si ça ne marche pa, envoye un
-    email_team: e-mail au team d'organisation
+    email_team: envoyer un e-mail au team d'organisation
+  pronoun:
+    he: il
+    she: elle
   header:
     day: jour
     time: temps
@@ -366,6 +407,9 @@ fr:
   confirm:
     transfer_inscription: Transferer cet inscription à %{long_name}
     create_new_inscription: Est-ce que tu veux créer une nouvelle inscription pour %{long_name} et transferer cet inscription à lui?
+    delete_inscription: Effacer l'inscription?
+  series:
+    none: aucune participation
   links:
     exit:
       text: "Sortie"

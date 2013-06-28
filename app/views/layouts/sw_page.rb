@@ -306,10 +306,14 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     tr do 
       fields.each do |field|
         th :align => 'left' do 
-          text Views::Columns.header(field)
+          text column_header(field)
         end
       end
     end
+  end
+
+  def column_header(symbol)
+    attribute_label symbol
   end
 
   def attribute_label(symbol)

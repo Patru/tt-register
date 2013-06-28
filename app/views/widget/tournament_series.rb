@@ -48,7 +48,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
       td :class => 'series' do
         input(options) 
         label :for => button_id do
-          text "keine Teilnahme"
+          text t 'series.none'
         end
       end
     end

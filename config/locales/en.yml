@@ -87,7 +87,7 @@ en:
   root_page: homepage
   send_email: send e-mail
   help_para1: |
-    In order to inscribe yourself to the %{tournament_name} you first have to create an inscription form.
+    In order to enroll yourself to the %{tournament_name} you first have to create an inscription form.
     This is a simple process during which we can verify your e-mail address such that we can contact you
     if questions arise concerning your inscriptions.
     Please create an inscription using the form on the %{start_html} either with your licence number
@@ -120,27 +120,61 @@ en:
   feedback_form: With this form you may provide your your comments, problems, critics or even your commendations.
   resend_login_link: Send me a new login link
   show_inscription: Show inscription
-  inscribed_by: Inscribed by
+  inscribed_by: Enrolled by
   actions: actions
   players_for_selection: Players for selection
   choose_player_and_select_series: |
-    Please choose the player to be inscribed,
+    Please choose the player to be enrolled,
     then choose his series and confirm the inscription on the following screen.
-  inscribe: inscribe
+  inscribe: enroll
   shown_total_players: showing the first %{shown} players from %{total} in the current selection.
   all_players_shown: showing all %{count} players in the current selection.
   inscription_for_saved: The inscription of %{player} has been saved
   sign_off: sign off
   sign_off_player: ! '%{player} has been signed off'
   really_sign_off: Do you really want to sign off %{player}?
+  title:
+    transfer_inscription_to_player: Transfer inscription to player
+    edit_inscription_of: Edit the inscription of %{long_name}
   flash:
     thanks_we_will_get_back_to_you: |
       Thank you very much, your e-mail has been sent to the tournament team, it will get back to you if necessary.
     please_provide_email: Please provide your e-mail address, otherwise we cannot send your new inscription link.
     no_inscription_for: We could not find an inscription form for %{address}, please create a new one.
     new_link_has_been_created: The link has been generated anew and an e-mail has been sent to you, it will arrive in a few minutes.
+    inscription_exists: An inscription for the licence number %{licence} exists already, please request a new login link
+    other_inscription: |
+      %{player_name} has been enrolled by %{inscription_name}, so you cannot change his inscription.
+    logged_in: ! '%{name} has been logged in!'
+    no_selection_criteria: No selection criteria have been provided, showing the first %{max} players
+    login_link_incorrect: Your login-link is no longer current (%{token} is wrong), please request a new one if you lost yours!
+    inscription_not_found: The inscription with number %{id} could not be found, please apply for a new one.
+    no_player_for_licence: I cannot find a player with licence %{licence}, please use a valid number
+    inscription_for_email_exists: An inscription form for the e-mail address %{address} already exists, please request a new login-link.
+  error:
+    may_only_edit_own_inscription: You may only edit your own inscription!
+    may_only_delete_own_inscription: You may only delete your own inscription!
+    while_transfering_inscription: An error occured while transferring your inscription.
+    player_already_enrolled: |
+      %{player_name} has already been enrolled by %{inscription_name}! %{pronoun} must not be enrolled once more.
+    already_enrolled_ignored: ! "%{long_name} is enrolled already, this inscription will therefore be ignored."
+    not_this_tournament: This inscripition does not belong to the current tournament.
+    no_inscriptions_left_max: There are no inscriptions left for %{day}, please choose a maximum of %{max} series.
+    wrong_inscription_for_sign_off: Wrong inscription, %{long_name} cannot be signed off.
+    wrong_inscription_for_edit: Wrong inscription, %{long_name} cannot be edited.
+    licence_max: The licence number may have no more than %{max} characters!
+  notice:
+    inscription_edited_success: Your inscription form has been changed successfully.
+    enrollment_edited_success: Your inscription has been changed successfully.
+    transfer_successful: The inscription has successfully been transfered, not the player can maintain it himself.
+    thanks_for_your_visit: Thank you for your visit.
+    select_series_to_complete: Please select the series to complete the inscription.
+    inscription_saved: Your inscription has been saved.
+    no_series_left: No series left in the inscription , please sign off %{long_name} completely.
   button:
     send_new_link: Send me a new login link
+    back_to_list: Back to the list
+    edit: edit
   resend_link:
     intro: In order to send you a new login link we need the tournament concerned and your e-mail address.
     instruction: |
@@ -148,9 +182,15 @@ en:
       Yourn new login-link will be sent to you in a few minutes.
       If this does not work please send an
     email_team: e-mail to the tournament team
+  pronoun:
+    he: he
+    she: she
   confirm:
     transfer_inscription: Transfer inscription to %{long_name}
     create_new_inscription: Do you want to create a new inscription form for %{long_name} and transfer this inscription to him?
+    delete_inscription: Delete this inscription?
+  series:
+    none: won't participate
   links:
     exit:
       text: exit
