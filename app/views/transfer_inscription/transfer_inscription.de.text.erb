@@ -1,6 +1,6 @@
 <%=@inscription.anrede%> <%=@inscription.name%>
 
-Deine Anmeldung zum <%=@inscription.tournament.name%> wurde von <%=  @original.name%> erfasst, sie wurde jetzt auf deine Email-Adresse übertragen. Bitte klicke auf den folgenden Link
+Deine Anmeldung zum <%=@inscription.tournament.name%> wurde von <%=  @original.name%> erfasst, sie wurde jetzt auf deine E-Mail Adresse übertragen. Bitte klicke auf den folgenden Link
 
 <%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 

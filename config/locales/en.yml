@@ -85,7 +85,6 @@ en:
   help: help
   lost_login_link: "I have lost the inscription link"
   root_page: homepage
-  send_email: send e-mail
   help_para1: |
     In order to enroll yourself to the %{tournament_name} you first have to create an inscription form.
     This is a simple process during which we can verify your e-mail address such that we can contact you
@@ -175,6 +174,7 @@ en:
     send_new_link: Send me a new login link
     back_to_list: Back to the list
     edit: edit
+    send_email: send e-mail
   resend_link:
     intro: In order to send you a new login link we need the tournament concerned and your e-mail address.
     instruction: |

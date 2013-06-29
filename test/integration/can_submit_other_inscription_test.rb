@@ -39,7 +39,7 @@ describe "CanSubmitOtherInscription Integration Test" do
     click_link @player.long_name
     choose('rb_1')
     click_button 'Anmelden'
-    page.must_have_content 'Anmeldung von Noch Nicht Angemeldet wurde gespeichert.'
+    page.must_have_content 'Die Anmeldung von Noch Nicht Angemeldet wurde gespeichert.'
     click_link NICK_NAME
     within 'table#my_inscriptions' do
       page.must_have_link @player.long_name

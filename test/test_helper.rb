@@ -44,7 +44,7 @@ class ActionDispatch::IntegrationTest
     open_email email
     visit email_link_path(current_email)
     @inscription = Inscription.where(licence: licence).first
-    page.must_have_content "#{@inscription.name} eingeloggt!"
+    page.must_have_content "#{@inscription.name} ist jetzt eingeloggt!"
   end
 
   def new_inscription_with_name(name, email=DUMMY_EMAIL)
@@ -52,13 +52,13 @@ class ActionDispatch::IntegrationTest
     clear_emails
     within "form#new_inscription" do
       fill_in "Name", with: name
-      fill_in "E-mail", with: email
-      click_button 'Einschreibung erstellen und Email-Adresse bestätigen'
+      fill_in "E-Mail", with: email
+      click_button 'Einschreibung erstellen und E-Mail Adresse bestätigen'
     end
     open_email email
     visit email_link_path(current_email)
     @inscription = Inscription.where(name: name).first
-    page.must_have_content "#{@inscription.name} eingeloggt!"
+    page.must_have_content "#{@inscription.name} ist jetzt eingeloggt!"
   end
 
   def add_player_to_inscription(player, series = 'rb_1')

@@ -36,7 +36,7 @@ describe "CanHandleWaitingList Integration Test" do
     surplus_player = players :eleven
     add_player_to_inscription surplus_player
     clear_emails
-    all(:link, 'abmelden').first.click
+    all(:link, 'Abmelden').first.click
     accept_js_alert
     page.must_have_content "#{@player.name} wurde abgemeldet"
     within 'table#my_inscriptions' do

@@ -16,10 +16,10 @@ class Email
 
   def valid?
     if from.blank?
-      errors.add :base, "Wir benötigen deine Email-Adresse um dich kontaktieren zu können!"
+      errors.add :base, "Wir benötigen deine E-Mail Adresse um dich kontaktieren zu können!"
       # maybe this needs to go to :base if the form does not work otherwise
     elsif not from =~ PATTERN
-      errors.add :base, "Das Format deiner Email-Adresse ist nicht korrekt"
+      errors.add :base, "Das Format deiner E-Mail Adresse ist nicht korrekt"
     end
     if text.blank?
       errors.add :base, "Der Text deiner Meldung ist leer"

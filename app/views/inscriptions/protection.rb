@@ -22,12 +22,12 @@ class Views::Inscriptions::Protection < Views::Inscriptions::Inscription
       text "Darüber hinaus speichern wir nur so wenige Personendaten wie möglich, nämlich"
     end
     ul do
-      li "Eine Email-Adresse zu jeder erstellten Einschreibungen (um die Verantwortlichen kontaktieren zu können)"
+      li "Eine E-Mail Adresse zu jeder erstellten Einschreibungen (um die Verantwortlichen kontaktieren zu können)"
       li "Alle Emails die von diesem Programm verschickt werden (zur Nachprüfung bei Störungen)"
     end
     p do
-      text "Deine Email-Adresse wird auf der Seite nicht publiziert, sie bleibt lediglich für dich und das Turnier-Team sichtbar. "
-      text "Die Email-Adresse wird nur zur Organisation des Turniers verwendet und nicht weiter gegeben, es besteht also keine Spam-Gefahr. "
+      text "Deine E-Mail Adresse wird auf der Seite nicht publiziert, sie bleibt lediglich für dich und das Turnier-Team sichtbar. "
+      text "Die E-Mail Adresse wird nur zur Organisation des Turniers verwendet und nicht weiter gegeben, es besteht also keine Spam-Gefahr. "
       text "Die Stammdaten aller Tischtennisspieler der Schweiz stammen aus der "
       link_to "Zentralregistratur", "http://www.swisstabletennis.ch/component/option,com_wrapper/Itemid,200/lang,de/"
       text " von "

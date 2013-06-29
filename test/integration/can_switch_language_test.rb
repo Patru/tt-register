@@ -24,9 +24,7 @@ describe 'Language behavior Integration Test' do
     visit root_path
     page.wont_have_content "Dear table tennis chap"
     page.must_have_selector "#language"
-    save_and_open_page
     page.select('Français', from: 'language')
-    save_and_open_page
     page.must_have_content "Cher ami pongiste"
   end
 end

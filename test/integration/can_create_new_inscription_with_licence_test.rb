@@ -14,14 +14,14 @@ describe "CanCreateNewInscriptionWithLicence Integration Test" do
       fill_in "inscription[email]", with: my_email
       click_button 'Einschreibung erstellen'
     end
-    page.must_have_content "Die Einschreibung wurde erfolgreich erzeugt, bitte den Link in der Bestätigungs-Email verwenden."
+    page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-Email."
     open_email my_email
     current_email.subject.must_equal "Bestätigung der Einschreibung"
     current_email.to.count.must_equal 1
     current_email.to[0].must_equal my_email
     current_email.must_have_content "http://"
     visit email_link_path(current_email)
-    page.must_have_content "Noch Nicht Angemeldet eingeloggt!"
+    page.must_have_content "Noch Nicht Angemeldet ist jetzt eingeloggt!"
     page.find('#rb_7')['disabled'].must_equal "disabled"
     page.find('#rb_1')['disabled'].must_be_nil
     choose('Herren Doppel C/D')
@@ -36,7 +36,7 @@ describe "CanCreateNewInscriptionWithLicence Integration Test" do
       click_button 'Einschreibung erstellen'
     end
     page.must_have_content "Fehler beim Anlegen der Einschreibung"
-    page.must_have_content "Email hat ein ungültiges Format"
+    page.must_have_content "E-Mail hat ein ungültiges Format"
   end
 end
 

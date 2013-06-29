@@ -7,8 +7,8 @@ describe "can access home Integration Test" do
     visit root_path
     page.must_have_content "Lieber Tischtennisfreund"
     within "div#maincontent" do
-      page.must_have_content "Neue Einschreibung erstellen"
-      page.must_have_button "Einschreibung erstellen"
+      page.must_have_content "Eine neue Einschreibung erstellen"
+      page.must_have_button "Einschreibung erstellen und E-Mail Adresse bestätigen"
       within "form#new_inscription" do
         page.find_field("Vorname Name")['name'].must_equal 'inscription[name]'
         page.find_field("Lizenznummer")['name'].must_equal 'inscription[licence]'

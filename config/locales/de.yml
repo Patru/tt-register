@@ -238,7 +238,7 @@ de:
     favicon: "Icon für Link"
     first_name: "Vorname"
     nickname: "Login"
-    email: "E-mail"
+    email: "E-Mail"
     date_of_birth: "Geburtsdatum"
     club: "Club"
     licence: "Lizenz"
@@ -278,7 +278,7 @@ de:
     Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden. Dafür benötigen wir in jedem Fall
     eine E-Mail Adresse, aber man kann auch nur mit einem Namen eine Einschreibung erstellen.
   create_new_incription: "Eine neue Einschreibung erstellen"
-  create_and_confirm: Einschreibung erstellen und Email-Adresse bestätigen
+  create_and_confirm: Einschreibung erstellen und E-Mail Adresse bestätigen
   licence: Lizenznummer
   first_name_name: Vorname Name
   select: "Auswählen"
@@ -288,11 +288,10 @@ de:
   help: Hilfe
   lost_login_link: Ich habe den Login-Link verloren
   root_page: Startseite
-  send_email: E-mail abschicken
   help_para1: |
     Um dich für das %{tournament_name} anzumelden musst du zuerst eine Einschreibung erstellen.
     Um bei Problemen mit einer Anmeldung Rückfragen stellen zu können benötigen wir
-    für alle Einschreibungen zumindest eine Email-Adresse.
+    für alle Einschreibungen zumindest eine E-Mail Adresse.
     Bitte erstelle deshalb im Formular auf der %{start_html} eine Einschreibung und zwar entweder
     mit deiner Lizenznummer (dann können wir den Namen automatisch bestimmen) oder mit deinem Namen.
   help_para2: |
@@ -347,7 +346,7 @@ de:
   inscribe: Anmelden
   shown_total_players: Die ersten %{shown} Spieler aus der aktuellen Auswahl mit %{total} werden angezeigt.
   all_players_shown: Alle %{count} Spieler aus der aktuellen Auswahl werden angezeigt.
-  inscription_for_saved: Die Anmeldung von %{player} wurde gespeichert
+  inscription_for_saved: Die Anmeldung von %{player} wurde gespeichert.
   sign_off: Abmelden
   sign_off_player: ! '%{player} wurde abgemeldet'
   really_sign_off: Soll %{player} wirklich abgemeldet werden?
@@ -357,7 +356,7 @@ de:
   flash:
     thanks_we_will_get_back_to_you: |
       Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
-    please_provide_email: Bitte fülle die Email-Adresse aus, sonst können wir dir keinen neuen Link zustellen!
+    please_provide_email: Bitte fülle die E-Mail Adresse aus, sonst können wir dir keinen neuen Link zustellen!
     no_inscription_for: Keine Einschreibung für %{address} vorhanden, bitte erzeuge eine neue Einschreibung.
     new_link_has_been_created: Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.
     inscription_exists: Eine Einschreibung für die Lizenznummer %{licence} existiert bereits, bitte Login-Link neu anfordern
@@ -368,7 +367,7 @@ de:
     login_link_incorrect: Dein Link ist nicht aktuell (%{token} ist falsch), bitte neu anfordern falls nicht mehr vorhanden!
     inscription_not_found: Einschreibung Nummer %{id} nicht gefunden, bitte neu anmelden.
     no_player_for_licence: Ich finde keinen Spieler mit der Lizenz %{licence}, bitte verwende eine gültige Nummer
-    inscription_for_email_exists: Eine Einschreibung für die Email-Adresse %{address} existiert bereits, bitte fordere deinen Login-Link neu an.
+    inscription_for_email_exists: Eine Einschreibung für die E-Mail Adresse %{address} existiert bereits, bitte fordere deinen Login-Link neu an.
     inscription_form_created_successfully: Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-Email.
   error:
     may_only_edit_own_inscription: Nur die eigene Einschreibung kann geändert werden!
@@ -395,8 +394,9 @@ de:
     send_new_link: Neuen Login-Link schicken
     back_to_list: Zurück zur Liste
     edit: Ändern
+    send_email: E-Mail abschicken
   resend_link:
-    intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine Email-Adresse.
+    intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine E-Mail Adresse.
     instruction: |
       Bitte trage diese Informationen im untenstehenden Formular ein und schicke es ab.
       Der Login-Link sollte dann innerhalb weniger Minuten zugestellt werden.

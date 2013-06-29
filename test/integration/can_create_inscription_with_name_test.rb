@@ -11,7 +11,7 @@ describe "CanCreateInscriptionWithName Integration Test" do
       click_button 'Einschreibung erstellen'
     end
     page.must_have_content "Fehler beim Anlegen der Einschreibung"
-    page.must_have_content "Email hat ein ungültiges Format"
+    page.must_have_content "E-Mail hat ein ungültiges Format"
   end
 
   it "must create an inscription with name and email" do
@@ -23,10 +23,10 @@ describe "CanCreateInscriptionWithName Integration Test" do
       fill_in "inscription[email]", with: my_email
       click_button 'Einschreibung erstellen'
     end
-    page.must_have_content "Die Einschreibung wurde erfolgreich erzeugt, bitte den Link in der Bestätigungs-Email verwenden."
+    page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-Email."
     open_email my_email
     current_email.subject.must_equal "Bestätigung der Einschreibung"
     visit email_link_path(current_email)
-    page.must_have_content "#{DUMMY_NAME} eingeloggt!"
+    page.must_have_content "#{DUMMY_NAME} ist jetzt eingeloggt!"
   end
 end

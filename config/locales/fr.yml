@@ -271,7 +271,7 @@ fr:
   thanks_and_purpose: |
     Merci pour ton intérêt au %{tour_name}.
     C'est le bon endroit pour inscrire toi ou d'autres joueurs pour le tournoi. Pour ça
-    nous avons besoin d'und adresse e-mail en tout cas, mais on peut aussi créer une inscription sans une licence.
+    nous avons besoin d'une adresse e-mail en tout cas, mais on peut aussi créer une inscription sans une licence.
   create_new_incription: "Composer un nouveau formulaire d'inscription"
   create_and_confirm: créer le formulaire d'inscription et confirmer l'adresse e-mail
   licence: numéro de licence
@@ -283,7 +283,6 @@ fr:
   help: aide
   lost_login_link: "j'ai perdu le lien d'inscription"
   root_page: "page d'accueil"
-  send_email: envoyer le courriel
   help_para1: |
     Pour t'inscrire pour le %{tournament_name} tu dois d'abord créer un formulaire d'inscription.
     C'est un proccess très simple qui nous permet de verifier ton address e-mail ce qui va faciliter
@@ -390,6 +389,7 @@ fr:
     send_new_link: Envoyer le nouveau lien d'inscription
     back_to_list: retour à la liste
     edit: modifier
+    send_email: envoyer le courriel
   resend_link:
     intro: Pour t'envoyer un nouveau lien d'inscription nous avons besoin du tournoi concerné et de ton adresse e-mail.
     instruction: |

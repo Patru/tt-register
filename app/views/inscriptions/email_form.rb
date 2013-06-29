@@ -21,7 +21,7 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
         form_text_area  f, :text
       end
       p do
-        rawtext f.submit(t :send_email)
+        rawtext f.submit(t 'button.send_email')
       end
     end
   end

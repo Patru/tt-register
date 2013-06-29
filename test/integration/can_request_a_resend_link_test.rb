@@ -9,18 +9,18 @@ describe "CanRequestAResendLink Integration Test" do
   end
   it "can request a new link" do
     click_link "... und Tschüss, genug angemeldet für heute"
-    click_link "Natürlich stellen wir dir auch einen neuen login-Link zu"
+    click_link "Ich habe den Login-Link verloren"
     clear_emails
     within 'form#new_inscription' do
       fill_in 'inscription_email', with: @inscription.email
-      click_button 'Link zustellen'
+      click_button 'Neuen Login-Link schicken'
     end
     within 'div.notice' do
-      page.must_have_content 'Link neu zugestellt, die Email sollte in wenigen Minuten ankommen.'
+      page.must_have_content 'Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.'
     end
     all_emails.count.must_equal 1
     open_email(@inscription.email)
     visit email_link_path(current_email)
-    page.must_have_content "#{@inscription.name} eingeloggt"
+    page.must_have_content "#{@inscription.name} ist jetzt eingeloggt"
   end
 end

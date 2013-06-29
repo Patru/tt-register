@@ -11,7 +11,7 @@ describe "CanSendAnEmailToTheTeam Integration Test" do
       fill_in 'Von:', with: 'sender@nowhere.near'
       fill_in 'Betreff:', with: 'I want to say something'
       fill_in 'Text:', with: 'I just do not know what exactly'
-      click_button 'Email abschicken'
+      click_button 'E-Mail abschicken'
     end
     all_emails.count.must_equal 1
     current_mail = all_emails.last
