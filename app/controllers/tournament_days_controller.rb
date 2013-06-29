@@ -92,11 +92,12 @@ class TournamentDaysController < ApplicationController
   end
   
   # PUT /tournament_days/copy_series
+  # todo: semantic integration test for this one
   def copy_series
     target = TournamentDay.find(params[:target_id])
     source = TournamentDay.find(params[:source_id])
     source.series.each do |serie|
-      copy = serie.clone
+      copy = serie.dup
       copy.tournament_day_id = target.id
       copy.save
     end
