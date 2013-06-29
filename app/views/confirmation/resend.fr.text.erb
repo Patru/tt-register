@@ -1,0 +1,24 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Ton nouveau lien d'inscription c'est
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+Avec un simple clic tu peux administrer ton inscription an ajoutant ou on effacant des joueurs.
+
+Sauvegarde cet e-mail jusq'au tournoi, le lien restera active jusqu'à ce temps la.
+<% unless @inscription.tournament.facebook_link.blank? %>
+Tu peux aussi utiliser notre page Facebook
+
+<%=@inscription.tournament.facebook_link%>
+
+pour rester au courant du tournoi.
+<% end %>
+
+Avec les meilleurs salutations
+
+le team d'organisation du <%=@inscription.tournament.name%>
+
+P.S.: Avec la distribution du nouveau lien d'inscription le vieux sera inutile.
+Si tu as déjà demandé un autre lien entre-temps le lien dans cet e-mail ne vas pas fonctionner, comme c'est toujours le dernier lien qui est valide.
+C'est pour cette raison que nous demandons un peu de patience.

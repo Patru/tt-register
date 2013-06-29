@@ -405,6 +405,10 @@ de:
   pronoun:
     he: er
     she: sie
+  salutation:
+    him: Lieber
+    her: Liebe
+    both: Liebe/r
   header:
     day: Tag
     time: Zeit

@@ -400,6 +400,10 @@ fr:
   pronoun:
     he: il
     she: elle
+  salutation:
+    him: Cher
+    her: Chère
+    both: Cher/Chère
   header:
     day: jour
     time: temps

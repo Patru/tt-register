@@ -185,6 +185,10 @@ en:
   pronoun:
     he: he
     she: she
+  salutation:
+    him: Dear
+    her: Dear
+    both: Dear
   confirm:
     transfer_inscription: Transfer inscription to %{long_name}
     create_new_inscription: Do you want to create a new inscription form for %{long_name} and transfer this inscription to him?

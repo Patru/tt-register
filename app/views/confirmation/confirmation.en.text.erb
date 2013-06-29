@@ -1,0 +1,21 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Thank you for using our inscription website. Please click the following link
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+to confirm your e-mail address and to enroll yourself and others on your inscription.
+
+Please keep this e-mail up to the tournament in order to quickly enroll and sign off players, the link wil stay active until then.
+<% unless @inscription.tournament.facebook_link.blank? %>
+To keep you posted on the state of inscriptions and other tournament related news we also maintain the Facebook page
+
+<%=@inscription.tournament.facebook_link%>
+
+We encourage you to share this page with your table tennis friends.
+<% end %>
+
+Sincerely
+
+the <%=@inscription.tournament.name%> team
+

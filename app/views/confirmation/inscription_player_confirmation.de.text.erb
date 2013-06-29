@@ -1,0 +1,17 @@
+<%=@inscription_player.inscription.anrede%> <%=@inscription_player.inscription.name%>
+
+<%=@inscription_player.player.long_name%> was enrolled on your inscription as follows:
+
+<%=@inscription_player.inscribed_for%>.
+<% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+Um dich über den Stand der Anmeldungen auf dem laufenden zu halten betreiben
+wir auch die Facebook-Seite
+
+<%=@inscription_player.inscription.tournament.facebook_link%>
+
+Dies könnte auch <%=@inscription_player.inscription.name%> interessieren, leite den Link doch weiter.
+<% end %>
+
+Herzliche Grüsse
+
+das <%=@inscription_player.inscription.tournament.name%> Team

@@ -1,0 +1,19 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Your inscription to the <%=@inscription.tournament.name%> has been registered by <%=  @original.name%>, it has now been transfered to your e-mail address. Please clic the following link
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+to verify your insciption and administer it.
+
+Please keep this e-mail up to the tournament, in this way you can quickly add and remove players from your inscription, the link will remain active until the tournament starts.
+<% unless @inscription.tournament.facebook_link.blank? %>
+To keep you posted on the state of inscriptions and other tournament related news we also maintain the Facebook page
+
+<%=@inscription.tournament.facebook_link%>
+
+We encourage you to share this page with your table tennis friends.
+<% end %>
+Sincerely
+
+the <%=@inscription.tournament.name%> team

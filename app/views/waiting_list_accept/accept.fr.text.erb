@@ -1,0 +1,15 @@
+<%=@inscription_player.inscription.anrede%> <%=@inscription_player.inscription.name%>
+
+A cause d'une annonce de départ l'inscription de <%=@inscription_player.player.long_name%> pour le <%=@tournament_day.day_name%> peut maintenant être considéré.
+
+<%=@inscription_player.player.long_name%> est maintenant inscrit comme ça: <%=@inscription_player.inscribed_for%>
+<% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+Sur la page Facebook
+
+<%=@inscription_player.inscription.tournament.facebook_link%>
+
+nous informerons de l'état des inscription, si tu est sur Facebook ça sera le plus simple pour rester en courant
+<% end %>
+Avec les meilleurs salutations
+
+le team d'organisation du <%=@inscription.tournament.name%>

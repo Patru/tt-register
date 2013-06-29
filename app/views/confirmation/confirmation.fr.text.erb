@@ -1,0 +1,20 @@
+<%=@inscription.anrede%> <%=@inscription.name%>
+
+Merci pour utiliser notre programme d'inscription. Appuye sur le lien suivant s'il te plaît
+
+<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+
+pour confirmer ton adresse e-mail et pour inscrire toi même et d'autres joueurs.
+
+Sauvgarde cet e-mail jusqu'au tournoi, comme ça tu peux rapidement inscrire ou désinscrire des joueurs, le lien restera valable aussi longtemps.
+<% unless @inscription.tournament.facebook_link.blank? %>
+Pour te tenir au courrant de l'état des inscriptions et des autres nouvelles concernant le tournoi nous maintenons aussi une page Facebook à
+
+<%=@inscription.tournament.facebook_link%>
+
+C'était gentil si tu partagais ce lien avec des amis pongistes.
+<% end %>
+Avec les meilleurs salutations
+
+le team d'organisation du <%=@inscription.tournament.name%>
+

@@ -1,0 +1,16 @@
+<%=@inscription_player.inscription.anrede%> <%=@inscription_player.inscription.name%>
+
+Thank you for your update. On your inscription the entry for
+
+<%=@inscription_player.player.long_name%> has been modified as follows:
+
+<%=@inscription_player.inscribed_for%>.
+<% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+The latest news on the tournament can be found on the Facebook page
+
+<%=@inscription_player.inscription.tournament.facebook_link%>
+<% end %>
+
+Sincerely
+
+the <%=@inscription_player.inscription.tournament.name%> team

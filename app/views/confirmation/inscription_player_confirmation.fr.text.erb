@@ -1,0 +1,16 @@
+<%=@inscription_player.inscription.anrede%> <%=@inscription_player.inscription.name%>
+
+<%=@inscription_player.player.long_name%> a été inscrit sur ton inscription de la manière suivante:
+
+<%=@inscription_player.inscribed_for%>.
+<% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+Pour te tenir au courrant de l'état des inscriptions et des autres nouvelles concernant le tournoi nous maintenons aussi une page Facebook à
+
+<%=@inscription_player.inscription.tournament.facebook_link%>
+
+Ça pourait egalement interesser <%=@inscription_player.inscription.name%>, alors pourquoi pas rediriger ce lien a lui?.
+<% end %>
+
+Avec les meilleurs salutations
+
+le team d'organisation du <%=@inscription.tournament.name%>
