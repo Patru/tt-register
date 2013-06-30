@@ -205,6 +205,9 @@ en:
     edit_inscription:
       text: edit
       title: edit this inscription
+    new_inscription:
+      text: New inscription
+      title: Create a new inscription
     privacy:
       text: privacy
       title: elaborate conditions on privacy

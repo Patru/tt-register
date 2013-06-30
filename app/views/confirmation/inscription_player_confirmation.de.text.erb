@@ -4,12 +4,13 @@
 
 <%=@inscription_player.inscribed_for%>.
 <% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+
 Um dich über den Stand der Anmeldungen auf dem laufenden zu halten betreiben
 wir auch die Facebook-Seite
 
 <%=@inscription_player.inscription.tournament.facebook_link%>
 
-Dies könnte auch <%=@inscription_player.inscription.name%> interessieren, leite den Link doch weiter.
+Dies könnte auch <%=@inscription_player.player.long_name%> interessieren, leite den Link doch weiter.
 <% end %>
 
 Herzliche Grüsse

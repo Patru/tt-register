@@ -9,7 +9,7 @@ class Confirmation < ActionMailer::Base
     mail(to:      inscription.email,
          from:    inscription.tournament.sender_email,
          bcc:     inscription.tournament.bcc_email,
-         subject: "Bestätigung der Einschreibung")
+         subject: I18n.t('mailer.confirmation.subject'))
   end
 
   def inscription_player_confirmation(inscription_player)

@@ -4,12 +4,14 @@ Durch eine Abmeldung kann die Anmeldung von <%=@inscription_player.player.long_n
 
 <%=@inscription_player.player.long_name%> ist jetzt wie folgt angemeldet: <%=@inscription_player.inscribed_for%>
 <% unless @inscription_player.inscription.tournament.facebook_link.blank? %>
+
 Über den neuesten Stand der Anmeldungen informieren wir auch auf der Facebook-Seite
 
 <%=@inscription_player.inscription.tournament.facebook_link%>
 
 Wenn du auf Facebook bist bleibst du so leicht auf dem laufenden.
 <% end %>
+
 Herzliche Grüsse
 
 das <%=@inscription_player.inscription.tournament.name%> Team

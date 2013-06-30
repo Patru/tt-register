@@ -504,3 +504,6 @@ de:
     edit_inscription_player:
       text: ändern
       title: Diese Anmeldung ändern
+  mailer:
+    confirmation:
+      subject: Bestätigung der Einschreibung
