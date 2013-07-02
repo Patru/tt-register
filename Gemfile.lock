@@ -199,7 +199,6 @@ DEPENDENCIES
   json
   launchy
   libv8
-  minitest (~> 4.7.1)
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
