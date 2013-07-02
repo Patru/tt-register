@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710224804) do
+ActiveRecord::Schema.define(:version => 20130701000406) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20120710224804) do
     t.string   "facebook_link"
     t.string   "layout_parser"
     t.text     "favicon"
+    t.datetime "accept_inscriptions_until"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

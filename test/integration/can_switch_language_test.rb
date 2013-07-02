@@ -26,5 +26,9 @@ describe 'Language behavior Integration Test' do
     page.must_have_selector "#language"
     page.select('Français', from: 'language')
     page.must_have_content "Cher ami pongiste"
+    page.select('Deutsch', from: 'language')
+    page.must_have_content "Lieber Tischtennisfreund"
+    # for a random reason I do not understand this language sticks around until the next :webkit-Test
+    # so we will make sure it is the default
   end
 end

@@ -448,3 +448,11 @@ fr:
     edit_inscription_player:
       text: modifier
       title: modifier cette inscription
+  series:
+    men: Messieurs
+    women: Dames
+    mens_doubles: Double messieurs
+    womens_doubles: Double dames
+    mixed_doubles: Double mixte
+    none: aucune
+    elite: Élite

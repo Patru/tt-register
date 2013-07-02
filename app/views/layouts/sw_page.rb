@@ -39,7 +39,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   def head_content
     super
     link :rel => "shortcut icon", :type => "image/x-icon", :href => favicon
-    csrf_meta_tag
+    csrf_meta_tags
   end
   
   def tournament
@@ -239,7 +239,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       ul do
         seris.each do |seri|
           li do
-            link_to seri.long_name, :controller => "series", :id => seri.id, :action => "players"
+            link_to seri.translated_name, :controller => "series", :id => seri.id, :action => "players"
           end
         end
       end

@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 class Series < ActiveRecord::Base
+  after_initialize :init
   belongs_to :tournament_day
   has_many :play_series
   has_many :inscription_players, :through => :play_series
@@ -150,6 +151,28 @@ class Series < ActiveRecord::Base
 
   def open
     return []
+  end
+
+  def translated_name
+    return long_name if I18n.locale == :de
+    return @trans_names[I18n.locale] if @trans_names[I18n.locale]
+    trans_name=long_name.dup
+    translate_series_tag trans_name, :mens_doubles
+    translate_series_tag trans_name, :womens_doubles
+    translate_series_tag trans_name, :mixed_doubles
+    translate_series_tag trans_name, :men
+    translate_series_tag trans_name, :women
+    translate_series_tag trans_name, :elite
+    @trans_names[I18n.locale]=trans_name
+  end
+
+private
+  def translate_series_tag(str, tag)
+    str.sub! I18n.t(tag, scope: [:series], locale: :de), I18n.t(tag, scope: [:series])
+  end
+
+  def init
+    @trans_names={}
   end
 end
 

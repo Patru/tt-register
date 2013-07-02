@@ -23,9 +23,9 @@ en:
     token: "Token"
     from: "From"
     subject: "Subject"
+    woman_rank: "Women-ranking"
     text: "Text"
     rank: "Ranking"
-    woman_rank: "Women-ranking"
     disp_ranking: "Classing"
     disp_woman_ranking: "Women classing"
     use_rank: "Ranking to"
@@ -226,3 +226,11 @@ en:
     edit_inscription_player:
       text: edit
       title: edit this inscription
+  series:
+    men: Men
+    women: Women
+    mens_doubles: Men's Doubles
+    womens_doubles: Women's Doubles
+    mixed_doubles: Mixed Doubles
+    none: none
+    elite: Elite

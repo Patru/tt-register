@@ -507,3 +507,11 @@ de:
   mailer:
     confirmation:
       subject: Bestätigung der Einschreibung
+  series:
+    men: Herren
+    women: Damen
+    mens_doubles: Herren Doppel
+    womens_doubles: Damen Doppel
+    mixed_doubles: Mixed Doppel
+    none: keine
+    elite: Elite

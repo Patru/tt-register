@@ -71,4 +71,54 @@ class SeriesTest < ActiveSupport::TestCase
     s1=Series.new(min_ranking: 1, max_ranking: 20, category:"")
     assert_equal 1, s0<=>s1
   end
+
+  it "can translate men in name" do
+    men=Series.new(long_name: "Herren A20")
+    I18n.locale=:de
+    men.translated_name.must_equal "Herren A20"
+    I18n.locale=:en
+    men.translated_name.must_equal "Men A20"
+    I18n.locale=:fr
+    men.translated_name.must_equal "Messieurs A20"
+  end
+
+  it "can translate women in name" do
+    women=Series.new(long_name: "Damen B15")
+    I18n.locale=:de
+    women.translated_name.must_equal "Damen B15"
+    I18n.locale=:en
+    women.translated_name.must_equal "Women B15"
+    I18n.locale=:fr
+    women.translated_name.must_equal "Dames B15"
+  end
+
+  it "can translate men's doubles in name" do
+    doubles=Series.new(long_name: "Herren Doppel A/B")
+    I18n.locale=:de
+    doubles.translated_name.must_equal "Herren Doppel A/B"
+    I18n.locale=:en
+    doubles.translated_name.must_equal "Men's Doubles A/B"
+    I18n.locale=:fr
+    doubles.translated_name.must_equal "Double messieurs A/B"
+  end
+
+  it "can translate women's doubles in name" do
+    doubles=Series.new(long_name: "Damen Doppel A/B")
+    I18n.locale=:de
+    doubles.translated_name.must_equal "Damen Doppel A/B"
+    I18n.locale=:en
+    doubles.translated_name.must_equal "Women's Doubles A/B"
+    I18n.locale=:fr
+    doubles.translated_name.must_equal "Double dames A/B"
+  end
+
+  it "can translate mixes doubles in name" do
+    doubles=Series.new(long_name: "Mixed Doppel A/B")
+    I18n.locale=:de
+    doubles.translated_name.must_equal "Mixed Doppel A/B"
+    I18n.locale=:en
+    doubles.translated_name.must_equal "Mixed Doubles A/B"
+    I18n.locale=:fr
+    doubles.translated_name.must_equal "Double mixte A/B"
+  end
 end

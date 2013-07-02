@@ -36,7 +36,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
         td td_opts do
           input(input_opts)
           label :for => input_opts[:id] do
-            text serie.long_name
+            text serie.translated_name
           end
         end
       end
@@ -81,7 +81,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
       td td_opts do
         input(input_opts)
         label :for => input_opts[:id] do
-          text doubl.long_name
+          text doubl.translated_name
         end
       end
       td :colspan => 2 do

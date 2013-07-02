@@ -35,7 +35,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
         td td_opts do
           input(input_opts) 
           label :for => input_opts[:id] do
-            text serie.long_name
+            text serie.translated_name
           end
         end
       end

@@ -24,8 +24,6 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
             rawtext f.collection_select(:tournament_id, @tournaments, :id, :name)
           end
         end
-        form_text_field f, :licence, {placeholder: t(:licence), type: 'number'}
-        form_text_field f, :name, {placeholder: t(:first_name_name)}
         if @inscription.new_record? or @admin then
           form_text_field f, :email, {placeholder: 'me@my.host', type: 'email'}
         else
@@ -33,6 +31,8 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
             form_hidden_field f, :email
           end
         end
+        form_text_field f, :licence, {placeholder: t(:licence), type: 'number'}
+        form_text_field f, :name, {placeholder: t(:first_name_name)}
       end
       p do
         rawtext f.submit(button_text)
