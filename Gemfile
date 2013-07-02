@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'json'
 gem 'http_accept_language'
+gem 'minitest', '~> 4.7.1'
 group :assets do
   gem 'sass-rails', "~>3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
