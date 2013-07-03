@@ -88,63 +88,55 @@ div#heading {
 }
 div#menu {
   background-color: #f0f8f8;
-  margin-top: -18px;
-}
-div#menu ul.context {
-    text-align: left;
-    float: left;
-    margin-top: 2px;
-    padding-left: 0.5em;
-    margin-bottom: 1px;
-    white-space: nowrap;
-}
-div#menu ul.standard {
-    text-align: right;
-    margin-top: 2px;
+  margin-top: -1.3em;
+  height:2em;
+  ul {
     margin-bottom: 0px;
+    margin-top: 2px;
+    li {
+      display: inline;
+      list-style-type: none;
+      margin-right: 0.7em;
+    }
+    a {
+      text-decoration:none;
+      vertical-align: middle;
+      padding: 3px 2px 5px 1px;
+      &:hover {
+        background-color: #a0f8f8;
+        color: #0000f8;
+      }
+      &:active {
+        color: #00c800;
+      }
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+  ul.context {
+    float: left;
+    padding-left: 0.5em;
     white-space: nowrap;
-}
-div#menu li {
-    display: inline;
-    list-style-type: none;
-    line-height: 24px;
-    padding: 3px 0px;
-    margin-right: 0.7em;
-}
+  }
 
-div#menu a {
-    text-decoration:none;
-    vertical-align:top;
-    padding: 3px 2px 3px 1px
-}
-div#menu a:hover {
-    background-color: #a0f8f8;
-    color: #0000f8;
-    vertical-align:top;
-}
-div#menu a:active {
-    color: #00c800;
-    vertical-align:top;
-}
-
-div#menu span.menu_text {
-    color:red;
-    padding-top:5px;
-    margin-top:5px;
-}
-div#menu img.menu_icon {
-    vertical-align: middle;
+  ul.standard {
+    float: right;
+    white-space: nowrap;
+  }
 }
 div.notice {
-    background: #f0f838;
-    color: #108f10;
-    margin: 0px 145px 0px 0px;
+  padding: 0.2em 0em 0.15em 0.5em ;
+  background: #f0f838;
+  color: #108f10;
+  margin: 0px 145px 0px 0px;
 }
 
 div.errorExplanation {
-    background: #f0f838;
-    color: #8f1010;
-    margin: 0px 145px 0px 0px;
+  padding: 0.2em 0em 0.15em 0.5em ;
+  background: #f0f838;
+  color: #8f1010;
+  margin: 0px 145px 0px 0px;
 }
 
 .fieldWithErrors {

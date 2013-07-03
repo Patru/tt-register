@@ -107,6 +107,7 @@ GEM
       builder
       minitest (>= 2.12, < 5.0)
       powerbar
+    minitest-spec-context (0.0.3)
     minitest-spec-rails (4.7.2)
       minitest (~> 4.7)
       rails (>= 3.0)
@@ -202,6 +203,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
+  minitest-spec-context
   minitest-spec-rails
   pg
   rails (= 3.2.13)

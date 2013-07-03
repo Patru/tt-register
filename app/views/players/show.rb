@@ -6,7 +6,7 @@ class Views::Players::Show < Views::Players::Player
   end
 
   def menu_items
-    edit_menu()
+    edit_menu
   end
 
   def sw_content

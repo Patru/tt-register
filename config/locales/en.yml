@@ -135,6 +135,7 @@ en:
   title:
     transfer_inscription_to_player: Transfer inscription to player
     edit_inscription_of: Edit the inscription of %{long_name}
+    info_on_tournament: Further information on the tournament
   flash:
     thanks_we_will_get_back_to_you: |
       Thank you very much, your e-mail has been sent to the tournament team, it will get back to you if necessary.

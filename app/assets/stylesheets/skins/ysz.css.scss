@@ -1,3 +1,4 @@
+$link_color:#0000bb;
 div#tournament_header {
   background: #ffff00;
   margin: -5px 0px 0px 0px;
@@ -20,36 +21,41 @@ h1 {
   background: #ffff00;
 }
 
-div#header_text h1 {
+div#header_text {
+  h1 a {
     color: black;
     margin: 0px 0px 3px 0px;
     padding: 10px 0px 3px 0px;
     font-size: 40px;
     font-weight:bold;
-}
-div#header_text p {
+    &:hover {
+      color: $link_color;
+      text-decoration: none;
+    }
+  }
+  p {
     text-align: right;
     margin: 9px 0px 0px 0px;
     font-size: 20px;
-}
+    span {
+      margin: 0px 20px 0px 10px;
+    }
 
-div#header_text p span {
-    margin: 0px 20px 0px 10px;
-}
+    .open {
+      color: #00A000;
+    }
 
-div#header_text p span.open {
-    color: #00A000;
-}
-
-div#header_text p span.closed {
-    color: #F00000;
+    .closed {
+      color: #F00000;
+    }
+  }
 }
 
 div#navigation {
-	float: right;
-	width: 135px;
-	padding: 5px;
-	background: #ffff00;
+  float: right;
+  width: 135px;
+  padding: 5px;
+  background: #ffff00;
 }
 
 div#navigation ul {

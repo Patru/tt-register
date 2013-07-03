@@ -9,6 +9,10 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     edit_menu if logged_in?
   end
 
+  def back_link
+    new_inscription_menu
+  end
+
   def protect_against_forgery?
     true
   end

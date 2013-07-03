@@ -5,6 +5,14 @@ require File.join(File.dirname(__FILE__), "..", "test_helper")
 describe "can access home Integration Test" do
   it "can access the root path" do
     visit root_path
+    save_and_open_page
+    within "div#header_logo" do
+      page.must_have_link "home_link", {href: "/"}
+    end
+    within "div#header_text" do
+      page.must_have_content "Zürich Open"
+      page.must_have_link "Zürich Open", {href: "http://www.ttvz.ch"}
+    end
     page.must_have_content "Lieber Tischtennisfreund"
     within "div#maincontent" do
       page.must_have_content "Eine neue Einschreibung erstellen"

@@ -346,6 +346,7 @@ fr:
   title:
     transfer_inscription_to_player: transferer cette inscription au joueur
     edit_inscription_of: Modification de l'inscription de %{long_name}
+    info_on_tournament: Informations au tournoi
   flash:
     thanks_we_will_get_back_to_you: |
       Merci beaucoup, votre e-mail a été evoyé au team d'organisation, il va vous contacter si necessaire.

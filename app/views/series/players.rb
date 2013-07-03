@@ -5,9 +5,6 @@ class Views::Series::Players < Views::Layouts::SWPage
     "#{@play_series.size} Anmeldungen für #{@series.long_name}"
   end
 
-  def page_menu
-  end
-
   def sw_content
     table do
       headers :name, :club, :ranking

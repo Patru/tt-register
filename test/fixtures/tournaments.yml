@@ -5,7 +5,7 @@ one:
   tour_id: "ZhOpen"
   name: Zürich Open
   date: 2012-02-18
-  info_link: MyString
+  info_link: http://www.ttvz.ch
   organiser: TTVZ
   layout_parser: Verifiers::RadioButtonTimeBox
   sender_email: team@tournament.mail
@@ -17,7 +17,7 @@ two:
   tour_id: ZKM
   name: Zürcher Kantonalmeisterschaften
   date: 2012-03-25
-  info_link: MyString
+  info_link: http://www.ttvkz.ch
   organiser: TTVKZ
   stylesheet: /assets/zkm.css
   layout_parser: Verifiers::SeriesCountVerifier

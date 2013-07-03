@@ -353,6 +353,7 @@ de:
   title:
     transfer_inscription_to_player: Einschreibung an Spieler übertragen
     edit_inscription_of: Änderung der Anmeldung von %{long_name}
+    info_on_tournament: Informationen zum Turnier
   flash:
     thanks_we_will_get_back_to_you: |
       Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
@@ -432,6 +433,9 @@ de:
     email:
       text: E-Mail
       title: E-Mail ans Turnierteam
+    my_inscription:
+      text: Meine Einschreibung
+      title: Zurück zu meiner Einschreibung
     show_inscription:
       text: anzeigen
       title: Details für Einschreibung anzeigen

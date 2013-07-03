@@ -24,7 +24,7 @@ protected
         session[:admin_id]=nil
       end
     elsif @inscription.nil? && session[:id] &&
-            session[:expires] && session[:expires] > Time.now then
+        session[:expires] && session[:expires] > Time.now then
       begin
         @inscription = Inscription.find(session[:id])
       rescue

@@ -6,7 +6,10 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
     t :new_inscription
   end
   
-  def page_menu
+  def back_link
+    if valid_inscription
+      my_inscription_link
+    end
   end
 
   def help_links

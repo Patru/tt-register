@@ -124,11 +124,15 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     div :id => 'tournament_header' do
       if tournament.logo then
         div :id => 'header_logo' do
-          img :src => tournament.logo, :align => 'top', :height => 101, :alt => "logo"
+          link_to root_path, id: 'home_link' do
+            img :src => tournament.logo, :align => 'top', :height => 101, :alt => "logo"
+          end
         end
       end
       div :id => "header_text" do
-        h1 tournament.name
+        h1 do
+          link_to tournament.name, tournament.info_link, {target: :blank, title: t('title.info_on_tournament')}
+        end
         p do
           text t(:inscriptions) + ": "
           tournament.tournament_days.each do |tour_day|
@@ -428,15 +432,15 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
   
   def stylo_image
-    @@stylo_image ||= capture{image_tag("stylo.png", :border=>0, :style => "vertical-align:middle")}
+    @@stylo_image ||= capture{image_tag("stylo.png", :border=>0)}
   end
 
   def lightning_image
-    @@lightning_image ||= capture{image_tag("lightning.png", :border=>0, :style => "vertical-align:middle")}
+    @@lightning_image ||= capture{image_tag("lightning.png", :border=>0)}
   end
 
   def eye_image
-    @@eye_image ||= capture{image_tag("show.png", :border=>0, :style => "vertical-align:middle")}
+    @@eye_image ||= capture{image_tag("show.png", :border=>0)}
   end
 
   def message_image
@@ -444,7 +448,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
   end
 
   def right_arrow_image
-    @@right_arrow_image ||= capture{image_tag("right_arrow.png", :border=>0, :style => "vertical-align:middle")}
+    @@right_arrow_image ||= capture{image_tag("right_arrow.png", :border=>0)}
   end
 
   def list_image
@@ -469,15 +473,32 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def menu_list
     ul :class => "context" do
+      back_link
       menu_items
     end
+  end
+
+  def back_link
+    if @inscription
+      my_inscription_link
+    else
+      menu_item root_path, :new_inscription, new_image
+    end
+  end
+
+  def my_inscription_link
+    menu_item inscription_path(@inscription), :my_inscription, list_image
+  end
+
+  def valid_inscription
+    @inscription and not @inscription.id.nil?
   end
 
   def standard_menu
     ul :class => "standard" do
       menu_item protection_path, :privacy, lock_image
       menu_item email_form_path, :email, message_image
-      menu_item logout_path, :exit, exit_image unless is_admin?
+      menu_item logout_path, :exit, exit_image if valid_inscription and not is_admin?
     end
   end
 
