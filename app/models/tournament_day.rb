@@ -60,9 +60,9 @@ class TournamentDay < ActiveRecord::Base
 
   def permits? inscription_player, series_count
     if not series_per_day.blank? and series_count[:total] > series_per_day
-      inscription_player.errors.add :base, "Am #{day_name} dürfen maximal \
-           #{series_per_day} Serien belegt werden"
+      inscription_player.errors.add :base, I18n.t('error.max_series_per_day', day: day_name, max:series_per_day)
     end
+#TODO: translate the rest
     if not max_single_series.blank? and series_count[:single] > max_single_series
       inscription_player.errors.add :base, "Am #{day_name} dürfen maximal \
            #{max_single_series} Einzelserien belegt werden"
