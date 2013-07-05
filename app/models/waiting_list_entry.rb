@@ -19,7 +19,7 @@ class WaitingListEntry < ActiveRecord::Base
   def must_be_allowed_to_play_all_series
     series.each do |seri|
       unless seri.may_be_played_by? inscription_player.player
-        errors.add :base, t('error.may_not_play_series', player:inscription_player.player.name, series:seri.long_name)
+        errors.add :base, t('error.may_not_play_series', player:inscription_player.player.name, series:seri.translated_name)
       end
     end
   end

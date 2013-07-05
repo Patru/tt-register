@@ -23,9 +23,9 @@ class PlaySeries < ActiveRecord::Base
 
   def series_string
     if partner_id.nil?
-      series.long_name
+      series.translated_name
     else
-      "#{series.long_name} (#{partner.long_name})"
+      "#{series.translated_name} (#{partner.long_name})"
     end
   end
 

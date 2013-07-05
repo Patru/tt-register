@@ -17,16 +17,16 @@ div#header_text {
 }
 h1 { 
   padding-top:5px;
-  padding-bottom: 10px;
+  padding-bottom: 1px;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
   background: #ffff00;
 }
 
 div#header_text {
   h1 a {
     color: black;
-    margin: 0px 0px 3px 0px;
-    padding: 10px 0px 3px 0px;
-    font-size: 40px;
+    font-size: 1.5em;
     font-weight:bold;
     &:hover {
       color: $link_color;
@@ -35,7 +35,7 @@ div#header_text {
   }
   p {
     text-align: right;
-    margin: 9px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     font-size: 20px;
     span {
       margin: 0px 20px 0px 10px;

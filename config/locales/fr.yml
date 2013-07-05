@@ -345,6 +345,7 @@ fr:
   really_sign_off: Vraiment désinscrire  %{player}?
   waiting_list:
     full: "Liste d'attente %{day}: %{series}; au moment numéro %{number} sur la liste"
+    short: liste d'attente
   title:
     transfer_inscription_to_player: transferer cette inscription au joueur
     edit_inscription_of: Modification de l'inscription de %{long_name}
@@ -379,13 +380,17 @@ fr:
     already_enrolled_ignored: ! "%{long_name} est déjà inscrit, j'ignore cette inscription."
     no_series_selected: Aucune série sélectionné, l'inscription n'as pas été enregistré.
     not_this_tournament: Cette inscription n'appartient pas au tournoi courrant.
-    no_inscriptions_left_max: Il n'y a plus d'inscription pour le %{day} choisi un maximum de %{max} séries.
+    no_inscriptions_left_max: Il n'y a plus d'inscriptions pour le %{day} choisi un maximum de %{max} séries.
     wrong_inscription_for_sign_off: Mauvaise inscription, %{long_name} ne peut pas être désinscrit.
     wrong_inscription_for_edit: Mauvaise inscription, %{long_name} ne peut pas être modifié.
     licence_max: Le numéro de licence ne peut avoir que %{max} charactères au maximum!
     no_series_pointless: Sauvegarder 0 pour la liste d'attente le %{day_name} n'a pas lieu d'être.
     too_many_series: Le %{day_name} on ne peut pas s'inscrire pour plus de %{max} séries.
-    may_not_play_series: ! "%{player} ne peut pas jouer au série %{series}!"
+    may_not_play_series: ! "%{player} ne peut pas jouer dans la série %{series}!"
+    max_series_per_day: Tu peux choisir un maximum de %{max} series le %{day}
+    problems_occurred: "Les problèmes suivants se sont posé:"
+    header:
+      save_inscription: Erreurs pendent la sauvgarde de l'inscription
   notice:
     inscription_edited_success: Ton formulaire d'inscription a été modifié avec succès.
     enrollment_edited_success: Ton inscription a été modifié avec succès.
@@ -429,14 +434,17 @@ fr:
     none: aucune participation
   links:
     exit:
-      text: "Sortie"
-      title: "Au revoir, c'est assez pour aujourd'hui"
+      text: Sortie
+      title: Au revoir, c'est assez pour aujourd'hui
     privacy:
       text: Protection des données
       title: Conditions de la protection des données
     email:
       text: e-mail
       title: "e-mail au team d'organisation"
+    my_inscription:
+      text: Mon inscription
+      title: Retour à mon inscription
     show_inscription:
       text: afficher
       title: "Afficher les détails de l'inscription"

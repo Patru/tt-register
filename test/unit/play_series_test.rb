@@ -5,7 +5,7 @@ class PlaySeriesTest < ActiveSupport::TestCase
   # Called before every test method runs. Can be used
   # to set up fixture information.
   def setup
-    # Do nothing
+    I18n.locale= :de    # should be default ??
   end
 
   # Called after every test method runs. Can be used to tear

@@ -144,6 +144,7 @@ en:
   really_sign_off: Do you really want to sign off %{player}?
   waiting_list:
     full: "Waiting list %{day}: %{series}; currently number %{number} on the list"
+    short: Waiting list
   title:
     transfer_inscription_to_player: Transfer inscription to player
     edit_inscription_of: Edit the inscription of %{long_name}
@@ -182,6 +183,10 @@ en:
     no_series_pointless: Saving 0 series for the waiting list on %{day_name} is pointless.
     too_many_series: There must be no more than %{max} series played on %{day_name}.
     may_not_play_series: ! "%{player} must not play in series %{series}!"
+    max_series_per_day: You may choose a maximum of %{max} series on %{day}
+    problems_occurred: "The following problems have occurred:"
+    header:
+      save_inscription: Errors while saving inscription
   notice:
     inscription_edited_success: Your inscription form has been changed successfully.
     enrollment_edited_success: Your inscription has been changed successfully.
@@ -238,6 +243,9 @@ en:
     email:
       text: e-mail
       title: e-mail to the tournament team
+    my_inscription:
+      text: My inscription
+      title: Back to my inscription
     show_inscription_player:
       text: show
       title: show details of inscription

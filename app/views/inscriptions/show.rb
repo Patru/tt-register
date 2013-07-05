@@ -71,7 +71,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
           :confirm => t('confirm.sign_off_own'))
       waiting_list
     end
-    render_players(t('title.own_inscription'), @inscription.inscription_players_without_self)
+    render_players(t('title.further_inscriptions'), @inscription.inscription_players_without_self)
   end
 
   private :render_own_inscription

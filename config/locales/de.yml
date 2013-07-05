@@ -272,7 +272,7 @@ de:
   email: E-mail
   new_inscription: "Neue Einschreibung"
   new_inscription_to: Neue Anmeldung zum %{tournament_name}
-  inscriptions: "Einschreibungen"
+  inscriptions: "Anmeldungen"
   thanks_and_purpose: |
     Vielen Dank für dein Interesse am %{tour_name}.
     Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden. Dafür benötigen wir in jedem Fall
@@ -352,6 +352,7 @@ de:
   really_sign_off: Soll %{player} wirklich abgemeldet werden?
   waiting_list:
     full: "Warteliste %{day}: %{series}; aktuell Nummer %{number} auf der Liste"
+    short: Warteliste
   title:
     transfer_inscription_to_player: Einschreibung an Spieler übertragen
     edit_inscription_of: Änderung der Anmeldung von %{long_name}
@@ -391,6 +392,10 @@ de:
     no_series_pointless: Speichern von 0 Serien für die Warteliste am %{day_name} ist sinnlos.
     too_many_series: Am %{day_name} dürfen nicht mehr als %{max} Serien belegt werden.
     may_not_play_series: ! "%{player} darf Serie %{series} nicht spielen!"
+    max_series_per_day: Am %{day} dürfen maximal %{max} Serien belegt werden
+    problems_occurred: "Folgende Probleme sind aufgetreten:"
+    header:
+      save_inscription: Fehler beim Speichern der Einschreibung
   notice:
     inscription_edited_success: Die Einschreibung wurde erfolgreich geändert.
     enrollment_edited_success: Die Anmeldung wurde erfolgreich geändert.

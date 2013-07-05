@@ -13,8 +13,8 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
 
   def sw_content
     form_tag :controller => 'inscription_players', :action => 'update_series' do
-      rawtext error_messages_for(:inscription_player, :header_message => "Fehler beim speichern",
-                                 :message => "Folgende Probleme sind aufgetreten:")
+      rawtext error_messages_for(:inscription_player, :header_message => t('error.header.save_inscription'),
+                                 :message => t('error.problems_occurred'))
       widget tournament.layouter, {:player => @inscription_player.player,
                                    :inscription => @inscription_player.inscription,
                                    :selected_series => @inscription_player.series,

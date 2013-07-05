@@ -72,7 +72,7 @@ class InscriptionPlayer < ActiveRecord::Base
   end
   
   def waiting_lists
-    "Warteliste " + waiting_list_entries.collect{|entry| entry.day_list_string}.join(", ")
+    I18n.t(:short, scope: :waiting_list) + " " + waiting_list_entries.collect{|entry| entry.day_list_string}.join(", ")
   end
   
   def ranking
@@ -106,10 +106,14 @@ class InscriptionPlayer < ActiveRecord::Base
       else
         day_series[t_day] = 1
       end
-      errors.add :base, ("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!") if not seri.may_be_played_by? self.player
+      unless seri.may_be_played_by? self.player
+        errors.add :base, t(:may_not_play_series, player:self.player.name, series:seri.translated_name, scope: :error)
+      end
     end
     day_series.each do |tour_day, val|
-      errors.add :base, ("Am #{tour_day.day_name} dürfen maximal #{tour_day.series_per_day} Serien belegt werden") if tour_day.series_per_day < val
+      if val > tour_day.series_per_day
+        errors.add :base, t(:max_series_per_day, day: tour_day.day_name, max: tour_day.series_per_day, scope: :error)
+      end
     end
   end
 

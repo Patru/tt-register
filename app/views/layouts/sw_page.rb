@@ -88,11 +88,6 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     if tournament then
       tournament_header tournament
     end
-    div :id => "heading" do
-      h1 do
-        text page_heading
-      end
-    end
     div :id => "menu" do
       page_menu
     end
@@ -149,6 +144,11 @@ class Views::Layouts::SWPage < Views::Layouts::Page
               text tour_day.max_inscriptions
               text " "
             end
+          end
+        end
+        div :id => "heading" do
+          h1 do
+            text page_heading
           end
         end
       end
