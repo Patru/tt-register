@@ -18,7 +18,7 @@ class Confirmation < ActionMailer::Base
     mail(to:     inscription.email,
         from:    inscription.tournament.sender_email,
         bcc:     inscription.tournament.bcc_email,
-        subject: "Bestätigung der Anmeldung von #{inscription_player.player.long_name}")
+        subject: I18n.t('mailer.inscription_player_confirmation.subject', player_name:inscription_player.player.long_name))
   end
 
   def inscription_player_update(inscription_player)
@@ -27,7 +27,7 @@ class Confirmation < ActionMailer::Base
     mail(to:     inscription.email,
         from:    inscription.tournament.sender_email,
         bcc:     inscription.tournament.bcc_email,
-        subject: "Änderung der Anmeldung von #{inscription_player.player.long_name}")
+        subject: I18n.t('mailer.inscription_changed.subject', player_name:inscription_player.player.long_name))
   end
 
   def deregistration(inscription_player)
@@ -36,7 +36,7 @@ class Confirmation < ActionMailer::Base
     mail(to:      inscription.email,
          from:    inscription.tournament.sender_email,
          bcc:     inscription.tournament.bcc_email,
-         subject: "Abmeldung von #{inscription_player.player.long_name}")
+         subject: I18n.t('mailer.deregistration.subject', player_name: inscription_player.player.long_name))
   end
 
   def resend(inscription, host)
@@ -45,7 +45,7 @@ class Confirmation < ActionMailer::Base
     mail(to:      inscription.email,
          from:    inscription.tournament.sender_email,
          bcc:     inscription.tournament.bcc_email,
-         subject: "Erneute Zustellung des Login-Links")
+         subject: I18n.t('mailer.resend_login.subject'))
   end
 
   def mail_team(email, recipient)

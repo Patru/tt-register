@@ -327,7 +327,7 @@ fr:
       Tu peux restreindre ou le club, le nom ou le prénom des joueurs et tu peux remplir ces champs partiellement.
       Pour chaque joureur que tu choisi tu dois fournir la liste des séries qu'il va jouer.
   add_player_with_licence: |
-    Si tu connais le numéro de licence d'un joueur tu peux l'entre directement.
+    Si tu connais le numéro de licence d'un joueur tu peux l'entrer directement.
     Comme ça tu ne devras que chosir ces séries.
   inscribed_by: inscrit par
   actions: actions
@@ -343,10 +343,15 @@ fr:
   sign_off: désinscrire
   sign_off_player: ! '%{player} a été désinscrit'
   really_sign_off: Vraiment désinscrire  %{player}?
+  waiting_list:
+    full: "Liste d'attente %{day}: %{series}; au moment numéro %{number} sur la liste"
   title:
     transfer_inscription_to_player: transferer cette inscription au joueur
     edit_inscription_of: Modification de l'inscription de %{long_name}
     info_on_tournament: Informations au tournoi
+    inscriptions_for: ! '%{number} inscriptions pour %{series_name}'
+    own_inscription: Ma propre inscription
+    further_inscriptions: inscriptions pour des autres
   flash:
     thanks_we_will_get_back_to_you: |
       Merci beaucoup, votre e-mail a été evoyé au team d'organisation, il va vous contacter si necessaire.
@@ -378,6 +383,9 @@ fr:
     wrong_inscription_for_sign_off: Mauvaise inscription, %{long_name} ne peut pas être désinscrit.
     wrong_inscription_for_edit: Mauvaise inscription, %{long_name} ne peut pas être modifié.
     licence_max: Le numéro de licence ne peut avoir que %{max} charactères au maximum!
+    no_series_pointless: Sauvegarder 0 pour la liste d'attente le %{day_name} n'a pas lieu d'être.
+    too_many_series: Le %{day_name} on ne peut pas s'inscrire pour plus de %{max} séries.
+    may_not_play_series: ! "%{player} ne peut pas jouer au série %{series}!"
   notice:
     inscription_edited_success: Ton formulaire d'inscription a été modifié avec succès.
     enrollment_edited_success: Ton inscription a été modifié avec succès.
@@ -389,8 +397,11 @@ fr:
   button:
     send_new_link: Envoyer le nouveau lien d'inscription
     back_to_list: retour à la liste
-    edit: modifier
+    update: modifier
     send_email: envoyer le courriel
+    enroll: inscrire
+    sign_off_own: Malheureusement je ne peux pas participer au tournoi, je veux me désinscrire
+    add: ajouter
   resend_link:
     intro: Pour t'envoyer un nouveau lien d'inscription nous avons besoin du tournoi concerné et de ton adresse e-mail.
     instruction: |
@@ -413,6 +424,7 @@ fr:
     transfer_inscription: Transferer cet inscription à %{long_name}
     create_new_inscription: Est-ce que tu veux créer une nouvelle inscription pour %{long_name} et transferer cet inscription à lui?
     delete_inscription: Effacer l'inscription?
+    sign_off_own: Tu es sûr que tu veux te désinscrire du tournoi?
   series:
     none: aucune participation
   links:
@@ -449,6 +461,21 @@ fr:
     edit_inscription_player:
       text: modifier
       title: modifier cette inscription
+  mailer:
+    confirmation:
+      subject: Confirmation de ton inscription
+    inscription_player_confirmation:
+      subject: Confirmation de l'inscription de %{player_name}
+    inscription_changed:
+      subject: L'inscription de %{player_name} a été modifié
+    deregistration:
+      subject: ! "%{player_name} a été désinscrit"
+    resend_login:
+      subject: retransmission de votre lien de login
+    transfer_inscription:
+      subject: Transfert de ton inscription
+    waiting_list_accept:
+      subject: Inscription par diminution de la list d'attente pour le %{tournment}
   series:
     men: Messieurs
     women: Dames

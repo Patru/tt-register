@@ -350,10 +350,15 @@ de:
   sign_off: Abmelden
   sign_off_player: ! '%{player} wurde abgemeldet'
   really_sign_off: Soll %{player} wirklich abgemeldet werden?
+  waiting_list:
+    full: "Warteliste %{day}: %{series}; aktuell Nummer %{number} auf der Liste"
   title:
     transfer_inscription_to_player: Einschreibung an Spieler übertragen
     edit_inscription_of: Änderung der Anmeldung von %{long_name}
     info_on_tournament: Informationen zum Turnier
+    inscriptions_for: ! '%{number} Anmeldungen für %{series_name}'
+    own_inscription: Eigene Anmeldung
+    further_inscriptions: Weitere Anmeldungen
   flash:
     thanks_we_will_get_back_to_you: |
       Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
@@ -369,7 +374,7 @@ de:
     inscription_not_found: Einschreibung Nummer %{id} nicht gefunden, bitte neu anmelden.
     no_player_for_licence: Ich finde keinen Spieler mit der Lizenz %{licence}, bitte verwende eine gültige Nummer
     inscription_for_email_exists: Eine Einschreibung für die E-Mail Adresse %{address} existiert bereits, bitte fordere deinen Login-Link neu an.
-    inscription_form_created_successfully: Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-Email.
+    inscription_form_created_successfully: Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail.
   error:
     may_only_edit_own_inscription: Nur die eigene Einschreibung kann geändert werden!
     may_only_delete_own_inscription: Nur die eigene Einschreibung kann gelöscht werden!
@@ -383,6 +388,9 @@ de:
     wrong_inscription_for_sign_off: Falsche Einschreibung, %{long_name} kann nicht abgemeldet werden.
     wrong_inscription_for_edit: Falsche Einschreibung, %{long_name} kann nicht geändert werden.
     licence_max: Lizenz darf höchstens %{max} Zeichen lang sein!
+    no_series_pointless: Speichern von 0 Serien für die Warteliste am %{day_name} ist sinnlos.
+    too_many_series: Am %{day_name} dürfen nicht mehr als %{max} Serien belegt werden.
+    may_not_play_series: ! "%{player} darf Serie %{series} nicht spielen!"
   notice:
     inscription_edited_success: Die Einschreibung wurde erfolgreich geändert.
     enrollment_edited_success: Die Anmeldung wurde erfolgreich geändert.
@@ -394,8 +402,11 @@ de:
   button:
     send_new_link: Neuen Login-Link schicken
     back_to_list: Zurück zur Liste
-    edit: Ändern
+    update: Ändern
     send_email: E-Mail abschicken
+    enroll: Anmelden
+    sign_off_own: Leider kann ich nicht ans Turnier kommen, ich möchte mich Abmelden
+    add: Hinzufügen
   resend_link:
     intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine E-Mail Adresse.
     instruction: |
@@ -418,6 +429,7 @@ de:
     transfer_inscription: Anmeldung an %{long_name} übertragen
     create_new_inscription: Willst du eine neue Einschreibung für %{long_name} erzeugen und die Anmeldung übertragen?
     delete_inscription: Ganze Einschreibung löschen?
+    sign_off_own: Möchtest du dich wirklich vom Turnier abmelden?
   series:
     none: keine Teilnahme
   links:
@@ -511,6 +523,18 @@ de:
   mailer:
     confirmation:
       subject: Bestätigung der Einschreibung
+    inscription_player_confirmation:
+      subject: Bestätigung der Anmeldung von %{player_name}
+    inscription_changed:
+      subject: Änderung der Anmeldung von %{player_name}
+    deregistration:
+      subject: Abmeldung von %{player_name}
+    resend_login:
+      subject: Erneute Zustellung des Login-Links
+    transfer_inscription:
+      subject: Übertragung deiner Einschreibung
+    waiting_list_accept:
+      subject: Anmeldung durch Abbau der Warteliste für das %{tournment}
   series:
     men: Herren
     women: Damen

@@ -43,21 +43,22 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
   def waiting_list
     return unless @inscription.own_inscription.waiting_list_entries.length > 0
     @inscription.own_inscription.waiting_list_entries.each do |waiting_day|
-      p "Warteliste #{waiting_day.tournament_day.day_name}: #{waiting_day.series_list}; aktuell Nummer #{waiting_day.number_in_list} auf der Liste"
+      p t('waiting_list.full', day:waiting_day.tournament_day.day_name, series: waiting_day.series_list,
+          number: waiting_day.number_in_list)
     end
   end
 
   def render_own_inscription
     hr
-    h2 "Eigene Anmeldung"
+    h2 t 'title.own_inscription'
     form_action = 'enroll'
-    method_name = "Anmelden"
     if @inscription.own_inscription
       selected_series = @inscription.own_inscription.series
       form_action = "update_series"
-      method_name = "Ändern"
+      method_name = t 'button.update'
     else
       selected_series = []
+      method_name = t 'button.enroll'
     end
     form_params = {:player => @inscription.own_player, :inscription => @inscription, :selected_series => selected_series}
     form_params[:inscription_player] = @inscription.own_inscription if @inscription.own_inscription
@@ -66,11 +67,11 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       input :type => "submit", :value => method_name
     end
     if @inscription.own_inscription then
-      button_to("Leider kann ich nicht ans Turnier kommen, ich möchte mich Abmelden",  @inscription.own_inscription, :method => :delete,
-          :confirm => "Möchtest du dich wirklich  vom Turnier abmelden?")
+      button_to(t('button.sign_off_own'),  @inscription.own_inscription, :method => :delete,
+          :confirm => t('confirm.sign_off_own'))
       waiting_list
     end
-    render_players("Weitere Anmeldungen", @inscription.inscription_players_without_self)
+    render_players(t('title.own_inscription'), @inscription.inscription_players_without_self)
   end
 
   private :render_own_inscription
@@ -79,7 +80,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     form_tag({:controller => 'inscription_players', :action => 'add_player'}, {id: 'licence'}) do
       label t(:licence_number)
       input type: 'number', name: 'licence', size: 7, placeholder: t(:licence)
-      input :type => "submit", :value => "Hinzufügen"
+      input :type => "submit", :value => t('button.add')
     end
   end
   

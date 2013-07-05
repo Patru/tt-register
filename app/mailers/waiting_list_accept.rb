@@ -8,7 +8,7 @@ class WaitingListAccept < ActionMailer::Base
     mail(to:     inscription.email,
         from:    inscription.tournament.sender_email,
         bcc:     inscription.tournament.bcc_email,
-        subject: "Anmeldung durch Abbau der Warteliste für das " +
-                 "#{waiting_list_entry.inscription_player.inscription.tournament.name}")
+        subject: t('mailer.waiting_list_accept.subject',
+                   tournment: waiting_list_entry.inscription_player.inscription.tournament.name))
   end
 end

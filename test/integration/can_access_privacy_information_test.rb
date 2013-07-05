@@ -5,7 +5,9 @@ require "test_helper"
 describe "CanAccessPrivacyInformation Integration Test" do
   it "does provide privacy information without login" do
     visit root_path
-    click_link "Datenschutz"
+    within "ul#help_links" do
+      click_link "Datenschutz"
+    end
     page.must_have_content "Datenschutzbestimmungen"
   end
 end

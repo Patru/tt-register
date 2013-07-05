@@ -23,7 +23,7 @@ describe "CanCreateInscriptionWithName Integration Test" do
       fill_in "inscription[email]", with: my_email
       click_button 'Einschreibung erstellen'
     end
-    page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-Email."
+    page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
     open_email my_email
     current_email.subject.must_equal "Bestätigung der Einschreibung"
     visit email_link_path(current_email)

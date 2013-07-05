@@ -14,7 +14,6 @@ describe "LocalizedSeriesMenu Integration Test" do
   it "must render the german series_menu by default" do
     page.driver.header 'ACCEPT_LANGUAGE', 'de-DE'
     visit root_path
-    save_and_open_page
     within "div#navigation" do
       page.must_have_select "language", selected: 'Deutsch'
       page.must_have_content "Damen A"

@@ -27,7 +27,8 @@ class Views::InscriptionPlayers::InscriptionPlayer < Views::Layouts::SWPage
   def waiting_list
     return unless @inscription_player.waiting_list_entries.length > 0
     @inscription_player.waiting_list_entries.each do |waiting_day|
-      p "Warteliste #{waiting_day.tournament_day.day_name}: #{waiting_day.series_list}; aktuell Nummer #{waiting_day.number_in_list} auf der Liste"
+      p t('waiting_list.full', day:waiting_day.tournament_day.day_name, series: waiting_day.series_list,
+          number: waiting_day.number_in_list)
     end
   end
 

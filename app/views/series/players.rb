@@ -2,7 +2,7 @@
 
 class Views::Series::Players < Views::Layouts::SWPage
   def page_title
-    "#{@play_series.size} Anmeldungen für #{@series.long_name}"
+    t('title.inscriptions_for', number:@play_series.size, series_name:@series.translated_name)
   end
 
   def sw_content

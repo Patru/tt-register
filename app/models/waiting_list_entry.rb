@@ -10,20 +10,22 @@ class WaitingListEntry < ActiveRecord::Base
 
   def must_not_have_too_many_series
     if series.size == 0 then
-      inscription_player.errors.add :base, "Speichern von 0 Serien für die Warteliste am #{tournament_day.day_name} ist sinnlos."
+      inscription_player.errors.add :base, t('error.no_series_pointless', day_name: tournament_day.day_name)
     elsif series.size > tournament_day.series_per_day  then
-      inscription_player.errors.add :base, "Am #{tournament_day.day_name} dürfen nicht mehr als #{tournament_day.series_per_day} Serien belegt werden."
+      inscription_player.errors.add :base, t('error.too_many_series', day_name: tournament_day.day_name, max:tournament_day.series_per_day)
     end
   end
 
   def must_be_allowed_to_play_all_series
     series.each do |seri|
-      errors.add :base,("#{inscription_player.player.name} darf Serie #{seri.long_name} nicht spielen!") if not seri.may_be_played_by? inscription_player.player
+      unless seri.may_be_played_by? inscription_player.player
+        errors.add :base, t('error.may_not_play_series', player:inscription_player.player.name, series:seri.long_name)
+      end
     end
   end
 
   def series_list
-    series.collect{|ser| ser.long_name}.join(", ")   
+    series.collect{|ser| ser.translated_name}.join(", ")
   end
   
   def number_in_list

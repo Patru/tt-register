@@ -22,7 +22,7 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
       tr do
         td {}
         td do
-          input type: "submit", value: t('button.edit')
+          input type: "submit", value: t('button.update')
         end
       end
     end

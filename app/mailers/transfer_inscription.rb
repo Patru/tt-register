@@ -9,6 +9,6 @@ class TransferInscription < ActionMailer::Base
     mail(to:      inscription.email,
          from:    inscription.tournament.sender_email,
          bcc:     inscription.tournament.bcc_email,
-         subject: "Übertragung deiner Einschreibung")
+         subject: I18n.t('mailer.transfer_inscription.subject'))
   end
 end
