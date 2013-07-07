@@ -412,6 +412,7 @@ de:
     enroll: Anmelden
     sign_off_own: Leider kann ich nicht ans Turnier kommen, ich möchte mich Abmelden
     add: Hinzufügen
+    transfer_inscription: Einschreibung übertragen und Login-Link zustellen
   resend_link:
     intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine E-Mail Adresse.
     instruction: |

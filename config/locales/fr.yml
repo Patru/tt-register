@@ -407,6 +407,7 @@ fr:
     enroll: inscrire
     sign_off_own: Malheureusement je ne peux pas participer au tournoi, je veux me désinscrire
     add: ajouter
+    transfer_inscription: Transférer l'inscription et envoyer le lien d'inscription
   resend_link:
     intro: Pour t'envoyer un nouveau lien d'inscription nous avons besoin du tournoi concerné et de ton adresse e-mail.
     instruction: |

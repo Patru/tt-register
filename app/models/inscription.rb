@@ -22,9 +22,9 @@ class Inscription < ActiveRecord::Base
   def anrede
     if attribute_present? :licence then
       if own_player.woman_ranking then
-        return I18n.t 'salutation.him'
-      else
         return I18n.t 'salutation.her'
+      else
+        return I18n.t 'salutation.him'
       end
     else
       return I18n.t 'salutation.both'

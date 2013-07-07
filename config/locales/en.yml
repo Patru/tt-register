@@ -203,6 +203,7 @@ en:
     enroll: enroll
     sign_off_own: I cannot participate in the tournament and would like to be signed off
     add: add
+    transfer_inscription: Transfer the inscription and send the login link
   resend_link:
     intro: In order to send you a new login link we need the tournament concerned and your e-mail address.
     instruction: |

@@ -17,7 +17,7 @@ class Views::Inscriptions::OwnInscription < Views::Inscriptions::Inscription
       end
       input :type => :hidden, :name => :inscription_player_id, :value => @inscription_player.id
       p do
-        rawtext f.submit("Einschreibung übertragen und Email zustellen")
+        rawtext f.submit(t :transfer_inscription, scope: :button)
       end
     end
   end
