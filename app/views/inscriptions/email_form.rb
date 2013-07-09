@@ -3,7 +3,7 @@
 class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title
-    'Email ans Team senden'
+    t :send_email, scope: :title
   end
   
   def page_menu

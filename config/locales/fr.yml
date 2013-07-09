@@ -353,6 +353,7 @@ fr:
     inscriptions_for: ! '%{number} inscriptions pour %{series_name}'
     own_inscription: Ma propre inscription
     further_inscriptions: inscriptions pour des autres
+    send_email: Envoyer un e-mail au team
   flash:
     thanks_we_will_get_back_to_you: |
       Merci beaucoup, votre e-mail a été evoyé au team d'organisation, il va vous contacter si necessaire.
