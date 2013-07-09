@@ -360,7 +360,7 @@ de:
     inscriptions_for: ! '%{number} Anmeldungen für %{series_name}'
     own_inscription: Eigene Anmeldung
     further_inscriptions: Weitere Anmeldungen
-    send_email: Email ans Team senden
+    send_email: E-Mail ans Team senden
   flash:
     thanks_we_will_get_back_to_you: |
       Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
