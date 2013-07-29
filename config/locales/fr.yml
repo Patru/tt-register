@@ -274,6 +274,7 @@ fr:
     nous avons besoin d'une adresse e-mail en tout cas, mais on peut aussi créer une inscription sans une licence.
   create_new_incription: "Composer un nouveau formulaire d'inscription"
   create_and_confirm: créer le formulaire d'inscription et confirmer l'adresse e-mail
+  processing: traitement au cours ...
   licence: numéro de licence
   first_name_name: prénom nom
   select: "Choisir"

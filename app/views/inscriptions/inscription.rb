@@ -35,7 +35,7 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
         form_text_field f, :name, {placeholder: t(:first_name_name)}
       end
       p do
-        rawtext f.submit(button_text)
+        rawtext f.submit(button_text, data: { disable_with: t(:processing) })
       end
     end
   end

@@ -5,8 +5,11 @@
 db/*.sqlite3
 log/*.log
 tmp/
+
+# config info that must not end up in public repos
 config/database.yml
 config/smtp_settings.yml
+config/initializers/secret_token.rb
 
 # RubyMine
 .idea

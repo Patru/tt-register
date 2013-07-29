@@ -160,7 +160,8 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def commercial
     div :class => "commercial" do
-      link_to erra_team_image, "http://www.errateam.ch"
+      link_to erra_team_image, "http://www.errateam.ch", target: "_blank"
+      link_to spinny_shop_image, 'http://www.spinnyshop.com', target: "_blank"
     end
   end
 
@@ -172,7 +173,10 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     end
     div :class => "copyright" do
       p :class => 'footer' do
-        text '© Soft-Werker, '+copy_year
+        text '© '
+        link_to 'Soft-Werker', 'http://www.soft-werker.ch'
+        text ' '
+        text copy_year
       end
     end
   end
@@ -469,6 +473,10 @@ class Views::Layouts::SWPage < Views::Layouts::Page
 
   def erra_team_image
     @@erra_team_image ||= capture{image_tag("erra-team.png", :border=>0, :style => "vertical-align:middle")}
+  end
+
+  def spinny_shop_image
+    @@spinny_shop_image ||= capture{image_tag("SpinnyShop.png", :border=>0, :style => "vertical-align:middle")}
   end
 
   def menu_list

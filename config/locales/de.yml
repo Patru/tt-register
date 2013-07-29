@@ -279,6 +279,7 @@ de:
     eine E-Mail Adresse, aber man kann auch nur mit einem Namen eine Einschreibung erstellen.
   create_new_incription: "Eine neue Einschreibung erstellen"
   create_and_confirm: Einschreibung erstellen und E-Mail Adresse bestätigen
+  processing: Verarbeitung läuft ...
   licence: Lizenznummer
   first_name_name: Vorname Name
   select: "Auswählen"

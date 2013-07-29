@@ -19,7 +19,7 @@ class Views::InscriptionPlayers::InscriptionPlayer < Views::Layouts::SWPage
         form_text_field f, :email
       end
       p do
-        f.submit(button_text)
+        f.submit(button_text, data: { disable_with: t(:processing) })
       end
     end
   end

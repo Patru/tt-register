@@ -76,6 +76,7 @@ en:
     address, but you may also create an inscription form by merely providing a name.
   create_new_incription: "Create a new inscription form"
   create_and_confirm: "Create inscription form and confirm e-mail address"
+  processing: "processing ..."
   licence: licence number
   first_name_name: first name and name
   select: Select
