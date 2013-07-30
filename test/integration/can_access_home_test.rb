@@ -23,6 +23,14 @@ describe "can access home Integration Test" do
         page.find_field("me@my.host")['name'].must_equal 'inscription[email]'
         page.find_field("me@my.host")['type'].must_equal 'email'
       end
+      save_and_open_page
+      within "div.copyright" do
+        page.must_have_link "Soft-Werker GmbH", {href: "http://www.soft-werker.ch"}
+      end
+      within "div.commercial" do
+        page.must_have_link "ERRA-Team", {href: "http://www.errateam.ch"}
+        page.must_have_link "SpinnyShop", {href: "http://www.spinnyshop.com"}
+      end
     end
   end
 

@@ -174,7 +174,7 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     div :class => "copyright" do
       p :class => 'footer' do
         text '© '
-        link_to 'Soft-Werker', 'http://www.soft-werker.ch'
+        link_to 'Soft-Werker GmbH', 'http://www.soft-werker.ch'
         text ' '
         text copy_year
       end
@@ -471,12 +471,17 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     @@exit_image ||= capture{image_tag("ausgang.png", :border=>0)}
   end
 
+  def commercialImage(image, alt)
+    capture { image_tag(image, :border => 0, :style => "vertical-align:middle",
+                        alt: alt, title: alt) }
+  end
+
   def erra_team_image
-    @@erra_team_image ||= capture{image_tag("erra-team.png", :border=>0, :style => "vertical-align:middle")}
+    @@erra_team_image ||= commercialImage("erra-team.png", "ERRA-Team")
   end
 
   def spinny_shop_image
-    @@spinny_shop_image ||= capture{image_tag("SpinnyShop.png", :border=>0, :style => "vertical-align:middle")}
+    @@spinny_shop_image ||= commercialImage("SpinnyShop.png", "SpinnyShop")
   end
 
   def menu_list

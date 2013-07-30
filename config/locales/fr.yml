@@ -313,8 +313,7 @@ fr:
     Si tu as d'autres questions ou des suggestions tu peux %{email_link}.
   mail_team: envoyer un e-mail au team du tournoi
   help_create_inscription: |
-    Alors, après tant d'explication la balle est dans ton camp pour
-    So, nach so vielen Erklärungen bist du jetzt am Zug um %{create_inscription_link}.
+    Alors, après tant d'explication la balle est dans ton camp pour %{create_inscription_link}.
   create_inscription_form: créer ton inscription
   feedback_form: Avec ce formulaire tu peux nous envoyer tes suggestions, problèmes, critiques ou juste des compliments.
   resend_login_link: "M'envoye un nouveau lien d'inscription"
