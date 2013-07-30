@@ -17,11 +17,11 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
       #rawtext f.hidden_field(:tournament_id, tournament.id)
       table do
         form_text_field f, :from
-        form_text_field f, :subject
-        form_text_area  f, :text
+        form_text_field f, :subject, placeholder: t('topic')
+        form_text_area  f, :text, placeholder:t('enter_your_message_here')
       end
       p do
-        rawtext f.submit(t 'button.send_email')
+        rawtext f.submit(t('button.send_email'), data: { disable_with: t(:processing) })
       end
     end
   end

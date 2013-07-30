@@ -350,13 +350,14 @@ class Views::Layouts::SWPage < Views::Layouts::Page
     end
   end
 
-  def form_text_area form, symbol
+  def form_text_area form, symbol, options={}
+    area_opts = {cols:60, rows:20}.merge(options)
     tr do
       td :class => 'label', :valign => "top" do
          rawtext form.label(symbol, Views::Labels.label(symbol))
       end
       td do
-        rawtext form.text_area(symbol, :cols => 60, :rows => 20)
+        rawtext form.text_area(symbol, area_opts)
       end
     end
   end

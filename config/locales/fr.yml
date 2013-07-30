@@ -265,6 +265,8 @@ fr:
   privacy: "Protection des données"
   privacy_long: "Conditions de la protection des données"
   email: e-mail
+  topic: thème
+  enter_your_message_here: entre ton message ici
   new_inscription: "Nouvelle inscription"
   new_inscription_to: Nouvelle inscription pour le %{tournament_name}
   inscriptions: "Inscriptions"
