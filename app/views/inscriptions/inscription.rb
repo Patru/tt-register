@@ -25,7 +25,7 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
           end
         end
         if @inscription.new_record? or @admin then
-          form_text_field f, :email, {placeholder: 'me@my.host', type: 'email'}
+          form_text_field f, :email, {placeholder: 'me@my.host', type: 'email', autofocus:true}
         else
           if @inscription.id.eql? session[:id] then
             form_hidden_field f, :email

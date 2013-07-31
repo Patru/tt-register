@@ -16,7 +16,7 @@ class Views::Inscriptions::EmailForm < Views::Inscriptions::Inscription
       hidden_field_tag( "tournament_id", tournament.id)
       #rawtext f.hidden_field(:tournament_id, tournament.id)
       table do
-        form_text_field f, :from
+        form_text_field f, :from, autofocus:true
         form_text_field f, :subject, placeholder: t('topic')
         form_text_area  f, :text, placeholder:t('enter_your_message_here')
       end
