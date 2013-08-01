@@ -65,14 +65,6 @@ ActiveRecord::Schema.define(:version => 20130701000406) do
     t.integer  "woman_rank"
   end
 
-  create_table "quarks", :force => true do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "series", :force => true do |t|
     t.string   "series_name"
     t.string   "long_name"

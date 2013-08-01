@@ -33,7 +33,7 @@ TtRegister::Application.routes.draw do
 
   match 'inscriptions/new' => 'inscritions#new', as:'new_inscription'
   match 'admins/login/:token' => 'admins#login', via: :get
-  match 'series/:id/players' => 'series#players', :as => :series_players
+  match 'series/:id/players' => 'series#players', via: :get, :as => :series_players
   get 'static/:page_id' => 'static#show', as: :static
   post 'inscriptions/own_inscription/:id' => 'inscriptions#own_inscription', as: :own_inscription
   post 'inscriptions/transfer_player/:inscription_player_id' => 'inscriptions#transfer_player', as: :transfer_player

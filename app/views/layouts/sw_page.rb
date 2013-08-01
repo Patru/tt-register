@@ -10,8 +10,8 @@ class String
   end
 end
 
-#class Views::Layouts::SWPage < Erector::Widgets::Page
-class Views::Layouts::SWPage < Views::Layouts::Page
+class Views::Layouts::SWPage < Erector::Widgets::Page
+#class Views::Layouts::SWPage < Views::Layouts::Page
   external :js, "/assets/application.js"
 
   def self.default_url_options
@@ -247,7 +247,9 @@ class Views::Layouts::SWPage < Views::Layouts::Page
       ul do
         seris.each do |seri|
           li do
-            link_to seri.translated_name, :controller => "series", :id => seri.id, :action => "players"
+#            url_for(:controller => "series", :id => seri.id, :action => "players")
+            link_to seri.translated_name, series_players_path(id: seri.id)
+                    # :controller => "series", :id => seri.id, :action => "players"
           end
         end
       end
