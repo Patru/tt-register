@@ -17,6 +17,7 @@ class SWPageTest < ActionView::TestCase
   end
 
   it 'will render in english by default' do
+    I18n.locale=:en         # rails-default will be :de, default-default :en, have to set to run alone and in context
     html_text = @page.to_html(prettyprint: true, helpers: self)
     node = Capybara.string html_text
     node.must_have_selector('div#menu')

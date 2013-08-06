@@ -12,7 +12,7 @@ end
 
 class Views::Layouts::SWPage < Erector::Widgets::Page
 #class Views::Layouts::SWPage < Views::Layouts::Page
-  external :js, "/assets/application.js"
+  depends_on :js, "/assets/application.js"
 
   def self.default_url_options
     {}
@@ -30,16 +30,14 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       end
     end
   end
-  
-  def included_stylesheets
-    super
-    link :rel => "stylesheet", :href => stylesheet, :type => "text/css", :media => "all"
-  end
-  
+
   def head_content
     super
     link :rel => "shortcut icon", :type => "image/x-icon", :href => favicon
     csrf_meta_tags
+    # these should not be necessary, depends_on somehow broken?
+    link :rel => "stylesheet", :href => stylesheet, :type => "text/css", :media => "all"
+    script({:type => "text/javascript", :src => '/assets/application.js'})
   end
   
   def tournament

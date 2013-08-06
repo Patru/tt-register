@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+ruby "1.9.2"
+gem 'rails', '=3.2.14'
 
-gem 'erector', '0.9.0'
+gem 'erector', '~>0.9.0'
 gem 'sqlite3'
 gem 'capistrano'
 gem 'jquery-rails'
@@ -18,7 +19,7 @@ end
 group :test, :development do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
-  gem 'capybara', "~>2.0.0"
+  gem 'capybara', "~>2.0.0"   # upgrade this with Ruby 1.9.3
   gem 'minitest-spec-rails'
   gem 'minitest-spec-context'
   gem 'minitest-reporters'
