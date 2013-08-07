@@ -32,6 +32,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'libv8'
-  gem 'therubyracer'
+  gem 'libv8', "~>3.11.8.1"
+  gem 'therubyracer', "~>0.11.4"
 end
