@@ -17,7 +17,6 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'capybara', "~>2.0.0"   # upgrade this with Ruby 1.9.3
   gem 'minitest-spec-rails'

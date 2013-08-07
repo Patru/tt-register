@@ -1,5 +1,6 @@
 .DS_STORE
 .rvmrc
+.ruby-version
 .bundle
 .sass-cache
 db/*.sqlite3
