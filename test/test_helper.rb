@@ -19,8 +19,8 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
-  include Capybara::RSpecMatchers
   include Capybara::DSL
+  include Capybara::Assertions      # we should not need to include this on our own, there must be a better way
   include Capybara::Email::DSL
   DUMMY_EMAIL = "nobody@nowhere.net"
 

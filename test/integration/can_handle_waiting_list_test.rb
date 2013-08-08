@@ -24,8 +24,7 @@ describe "CanHandleWaitingList Integration Test" do
     open_email @inscription.email
     waiting_list_text = 'Warteliste Sa: 1'
     current_email.must_have_content "#{player.name} wurde auf deiner Einschreibung " +
-                                    "folgendermassen angemeldet: #{waiting_list_text}"
-        # this expectation seems to fail spuriously?
+                                        "folgendermassen angemeldet: #{waiting_list_text}"
     within 'table#my_inscriptions' do
       page.must_have_link(player.name)
       page.must_have_content waiting_list_text
@@ -46,13 +45,15 @@ describe "CanHandleWaitingList Integration Test" do
       page.wont_have_content @player.long_name
     end
     all_emails.count.must_equal 2
-    first_mail = all_emails[0]
+
+    emails_sent_to @inscription.email
+    first_mail = current_emails[0]
     first_mail.to.count.must_equal 1
     first_mail.to[0].must_equal @inscription.email
     first_mail.subject.must_equal "Abmeldung von #{@player.long_name}"
-    first_mail.must_have_content "#{@player.long_name} wurde aus deiner Einschreibung gel=C3=B6scht"
-        # all emails will HEX escape UTF-8 characters
-    second_mail = all_emails[1]
+    first_mail.must_have_content "#{@player.long_name} wurde aus deiner Einschreibung gelöscht"
+        # Nokogiri will fix quoted printable encoding
+    second_mail = current_emails[1]
     second_mail.to.count.must_equal 1
     second_mail.to[0].must_equal @inscription.email
     second_mail.subject.must_match "Anmeldung durch Abbau der Warteliste"
