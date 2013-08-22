@@ -13,7 +13,7 @@ class Views::Series::Players < Views::Layouts::SWPage
           td play_ser.list_name
           td play_ser.list_club
           td :align => "right" do 
-            text play_ser.ranking
+            text play_ser.display_ranking
           end
         end
       end

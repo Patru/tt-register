@@ -5,8 +5,6 @@ class Views::Inscriptions::SelectPlayer < Views::Layouts::SWPage
   def self.default_url_options
     {}
   end
-  def page_menu
-  end
   def page_title
     t :players_for_selection
   end

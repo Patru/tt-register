@@ -5,10 +5,7 @@ class Views::Inscriptions::Protection < Views::Inscriptions::Inscription
   def page_title
     'Datenschutzbestimmungen'
   end
-  
-  def page_menu
-  end
-  
+
   def sw_content
     p do
       text "Der Schutz deiner persönlichen Daten ist uns wichtig, deshalb möchten wir auf die herrschende Gesetzeslage aufmerksam machen. Das "

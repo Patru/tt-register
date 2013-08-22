@@ -362,13 +362,13 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     end
   end
 
-  def form_password_field form, symbol
+  def form_password_field form, symbol, options={}
     tr do
       td :class => 'label' do
          rawtext form.label(symbol, Views::Labels.label(symbol))
       end
       td do
-        rawtext form.password_field(symbol)
+        rawtext form.password_field(symbol, options)
       end
     end
   end
@@ -495,7 +495,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   def back_link
     if @inscription
       my_inscription_link
-    else
+    elsif not is_admin?
       menu_item root_path, :new_inscription, new_image
     end
   end

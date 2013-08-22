@@ -11,7 +11,7 @@ class Views::Admins::Login < Views::Layouts::SWPage
       table do
         show_data_item @admin, :name
         rawtext f.hidden_field(:token)
-        form_password_field f, :password
+        form_password_field f, :password, autofocus:true
       end
       p do
         rawtext f.submit("Anmelden")

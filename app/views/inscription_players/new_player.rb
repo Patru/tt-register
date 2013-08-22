@@ -6,9 +6,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
   def page_title
     t(:new_inscription_to, tournament_name: tournament.name)
   end
-  def page_menu
-  end
-  
+
   def sw_content
     form_tag(:controller => 'inscription_players', :action => 'enroll') do
       rawtext error_messages_for(:inscription_player, header_message: t('error.header.save_inscription'),
