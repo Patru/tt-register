@@ -164,7 +164,7 @@ div#navigation ul li {
 	display: block;
 	border-width: thin;
 	border-top: thin;
-	margin: 1px 1px 2px -30px;
+	margin: 1px 1px 2px 0px;
 }
 div#navigation ul li ul li a {
 	display: block;
@@ -237,4 +237,90 @@ ul#help_links{
 }
 div.commercial a{
   margin-left:1em;
+}
+div#header_text {
+  vertical-align: top;
+  min-height: 111px;
+  overflow: auto;
+  p {
+    text-align: right;
+    margin: 0px 0px 0px 0px;
+    font-size: 20px;
+    span {
+      margin: 0px 20px 0px 10px;
+    }
+
+    .open {
+      color: #00A000;
+    }
+
+    .closed {
+      color: #F00000;
+    }
+  }
+}
+
+$theme_bg_color:#dddddd;
+$nav_link_bg_color:#eeeeee;
+$nav_link_hover_color:#eeffdd;
+$nav_link_active_color:#ddeeff;
+div#navigation {
+  float: right;
+  width: 135px;
+  padding: 5px;
+  background:$theme_bg_color;
+  ul {
+    list-style-type: none;
+    li {
+      display: block;
+      border-width: thin;
+      border-top: thin;
+      margin: 1px 1px 2px -30px;
+      ul {
+        background:$nav_link_bg_color;
+        li {
+          a {
+            .link {
+              display: block;
+              border-bottom: dotted;
+              border-width: thin;
+              border-top: thin;
+              color:#2020e0;
+              text-decoration:none
+            }
+            &:visited {
+              display: block;
+              color: #6060ff
+            }
+            &:hover {
+              display: block;
+              border-bottom: solid;
+              border-width: thin;
+              border-top: thin;
+              background:$nav_link_hover_color;
+            }
+            &:active {
+              display: block;
+              color: #202000;
+              background:$nav_link_active_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div#header_logo {
+  float: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  vertical-align: top;
+  min-width: 5%;
+}
+h1 {
+  padding-top:5px;
+  padding-bottom: 1px;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
 }

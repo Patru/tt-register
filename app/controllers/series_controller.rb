@@ -88,7 +88,7 @@ class SeriesController < ApplicationController
     @series = Series.find(params[:id])
     
     respond_to do |format|
-      @series.type=determine_series_type(params[:series][:type])
+      params[:series][:type]=determine_series_type(params[:series][:type])
       if @series.update_attributes(params[:series])
         flash[:notice] = 'Serie erfolgreich gespeichert.'
         format.html { redirect_to(series_url(@series)) }

@@ -2,7 +2,7 @@
 
 class Views::Series::Series < Views::Layouts::SWPage
   def series_form(button_text)
-    form_for @series,
+    form_for @series, :as => :series,
              :url => @series.new_record? ? {:action => 'create'}:{:action => 'update', :id=>@series },
              :html => @series.new_record? ? {}:{:method => :put} do |f|
       rawtext f.error_messages

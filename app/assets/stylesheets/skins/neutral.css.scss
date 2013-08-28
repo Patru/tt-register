@@ -1,10 +1,36 @@
+$link_color:#0000bb;
+$theme_bg_color:#dddddd;
 div#tournament_header {
-  background: #ffff00;
-  margin: 0px 0px -10px 0px;
-  font-family:Arial,Helvetica,sans-serif;
-  font-weight:bold;
-  font-size:48px;
+  background:$theme_bg_color;
+  margin: -5px 0px 0px 0px;
 }
+h1 {
+  padding-top:5px;
+  padding-bottom: 1px;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  background:$theme_bg_color;
+}
+
+div#header_text {
+  h1 a {
+    color: black;
+    font-size: 1.5em;
+    font-weight:bold;
+    &:hover {
+      color: $link_color;
+      text-decoration: none;
+    }
+  }
+}
+
+form#new_inscription {
+  border: {
+    color:#eeeeee;
+  }
+}
+
+/*
 h1 { 
   background: #ffffff;
 }
@@ -53,3 +79,4 @@ div#navigation ul li ul li a:active {
 	color: #202000;
 	background:#eeeeee;
 }
+*/

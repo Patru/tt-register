@@ -65,7 +65,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     if tournament and tournament.stylesheet then
       return tournament.stylesheet
     else
-      return "/stylesheets/neutral.css"
+      return "/stylesheets/neutral.css.scss"
     end
   end
     
@@ -118,7 +118,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       if tournament.logo then
         div :id => 'header_logo' do
           link_to root_path, id: 'home_link' do
-            img :src => tournament.logo, :align => 'top', :height => 101, :alt => "logo"
+            img :src => tournament.logo, :align => 'top', :alt => "logo"
           end
         end
       end
@@ -159,7 +159,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   def commercial
     div :class => "commercial" do
       link_to erra_team_image, "http://www.errateam.ch", target: "_blank"
-      link_to spinny_shop_image, 'http://www.spinnyshop.com', target: "_blank"
+#      link_to spinny_shop_image, 'http://www.spinnyshop.com', target: "_blank"
     end
   end
 

@@ -1,26 +1,11 @@
 $link_color:#0000bb;
+$theme_bg_color:#ffff00;
 div#tournament_header {
-  background: #ffff00;
+  background:$theme_bg_color;
   margin: -5px 0px 0px 0px;
 }
-div#header_logo {
-  float: left;
-  padding-left: 10px;
-  padding-top: 10px;
-  vertical-align: top;
-  min-width: 5%;
-}
-div#header_text {
-    vertical-align: top;
-    min-height: 111px;
-    overflow: auto;
-}
-h1 { 
-  padding-top:5px;
-  padding-bottom: 1px;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
-  background: #ffff00;
+h1 {
+  background:$theme_bg_color;
 }
 
 div#header_text {
@@ -33,68 +18,36 @@ div#header_text {
       text-decoration: none;
     }
   }
-  p {
-    text-align: right;
-    margin: 0px 0px 0px 0px;
-    font-size: 20px;
-    span {
-      margin: 0px 20px 0px 10px;
-    }
+}
 
-    .open {
-      color: #00A000;
-    }
-
-    .closed {
-      color: #F00000;
+div#navigation {
+  background:$theme_bg_color;
+  ul {
+    li {
+      ul {
+        background: #ffffa0;
+        li {
+          a {
+            .link {
+              color:#2020e0;
+            }
+            &:visited {
+              color: #6060ff
+            }
+            &:hover {
+              background:$theme_bg_color;
+            }
+            &:active {
+              color: #202000;
+              background:#ffe020;
+            }
+          }
+        }
+      }
     }
   }
 }
 
-div#navigation {
-  float: right;
-  width: 135px;
-  padding: 5px;
-  background: #ffff00;
-}
-
-div#navigation ul {
-	list-style-type: none;
-}
-	
-div#navigation ul li {
-	display: block;
-	border-width: thin;
-	border-top: thin;
-	margin: 1px 1px 2px -30px;
-}
-div#navigation ul li ul {
-	background: #ffffa0;
-}
-div#navigation ul li ul li a.link {
-	display: block;
-	border-bottom: dotted;
-	border-width: thin;
-	border-top: thin;
-	color:#2020e0;
-	text-decoration:none
-}
-div#navigation ul li ul li a:visited {
-	display: block;
-	color: #6060ff
-}
-div#navigation ul li ul li a:hover {
-	display: block;
-	border-bottom: solid;
-	border-width: thin;
-	border-top: thin;
-	background:#ffff20;
-}
-div#navigation ul li ul li a:active {
-	display: block;
-	color: #202000;
-	background:#ffe020;
-}
 form#new_inscription {
   border: {
     color:yellow;
