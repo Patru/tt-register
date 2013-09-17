@@ -293,7 +293,7 @@ de:
   root_page: Startseite
   help_para1: |
     Um dich für das %{tournament_name} anzumelden musst du zuerst eine Einschreibung erstellen.
-    Um bei Problemen mit einer Anmeldung Rückfragen stellen zu können benötigen wir
+    Damit wir bei Problemen mit einer Anmeldung Rückfragen stellen können benötigen wir
     für alle Einschreibungen zumindest eine E-Mail Adresse.
     Bitte erstelle deshalb im Formular auf der %{start_html} eine Einschreibung und zwar entweder
     mit deiner Lizenznummer (dann können wir den Namen automatisch bestimmen) oder mit deinem Namen.
@@ -316,7 +316,7 @@ de:
     Darüber hinaus halten wir dich per Email über alle Veränderungen an deiner Einschreibung auf dem laufenden.
     Wenn also Spieler an- oder abgemeldet werden, so verschicken wir dafür jedes mal eine Email.
     Normalerweise hast du diese Anpassungen zwar selber vorgenommen, im Zweifelsfall kannst
-    du so aber auch Missbräuche rasch erkennen.
+    du so aber auch Missbräuche rasch erkennen und durch Verlangen eines neuen Login-Links rasch unterbinden.
   help_para5: |
     Falls du weitere Fragen oder Anregungen hast, so kannst du %{email_link}.
   help_create_inscription: |

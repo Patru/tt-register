@@ -8,4 +8,4 @@
 //= require jquery_ujs
 //= require ttreg
 // require_tree .
-//= require jquery-ui-1.8.17.custom.min
+//= require jquery.ui.all

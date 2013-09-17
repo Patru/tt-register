@@ -68,7 +68,7 @@ div#navigation {
             }
             &:active {
               color: #202000;
-              background:#ffe020;
+              background:lighten($menu_bg_color, 30%);
             }
           }
         }
@@ -78,11 +78,22 @@ div#navigation {
 }
 
 form#new_inscription {
-  @include radial-fade-background(white, $theme_bg_color);
+  @include radial-fade-background(white, lighten($theme_bg_color, 30%));
   border: {
     color:lighten($theme_bg_color, 20);
   }
 }
 ul#help_links {
   @include linear-gradient-background(30deg, lighten($theme_bg_color, 50), lighten($theme_bg_color, 45), lighten($theme_bg_color, 50));
+  li {
+    a {
+      &:hover {
+        background-color: $menu_bg_color;
+        color:$menu_color;
+        &:before {
+          color:$menu_color;
+        }
+      }
+    }
+  }
 }

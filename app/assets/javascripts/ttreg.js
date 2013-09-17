@@ -1,16 +1,15 @@
-//(function($){         for a random reason autocomplete does not work in this setup (undefined)
+(function($){        // for a random reason autocomplete does not work in this setup (undefined)
   $(document).ready(function(){
-//    $("input.partner").each(function(){alert("hello "+$(this).attr('name'))})
     $("input.partner").autocomplete({
         minLength: 2,
-        source: "/auto.js", // ["trunz", "engels", "hallo", "hello"],
+        source: "/auto.js",
         select: select_player
     })
     .each(function() {
-        $(this).data( "autocomplete" )._renderItem = player_formatter;
+        $(this).data( "ui-autocomplete" )._renderItem = player_formatter;
     });
   });
-//})(jQuery);
+})(jQuery);
 
 function select_player( event, ui) {
     event.target.value=player_desc(ui.item.player);
@@ -20,7 +19,7 @@ function select_player( event, ui) {
 }
 
 function player_formatter( ul, item ) {
-    return $( "<li></li>" )
+    return $( "<li>" )
         .data( "item.autocomplete", item )
         .append( "<a>" + player_desc(item.player) + "</a>")
         .appendTo( ul );
