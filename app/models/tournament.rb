@@ -42,4 +42,12 @@ class Tournament < ActiveRecord::Base
     layouter_class=layout_parser.split('::').inject(Kernel) {|scope, const_name| scope.const_get(const_name)}
     @layout_parser ||= layouter_class.new
   end
+
+  def day_spread
+    dates=tournament_days.map{|day| day.day}
+    min_date = dates.min
+    return 0 if min_date.nil?
+    max_date = dates.max
+    (max_date-min_date).to_i+1
+  end
 end

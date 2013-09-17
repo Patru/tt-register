@@ -19,7 +19,8 @@ end
 
 group :test, :development do
   gem 'minitest-rails-capybara'
-  gem 'minitest-capybara', :git => 'git@github.com:Patru/minitest-capybara.git', :branch => 'fix_assert_text_for_non_pages'
+  gem 'minitest-capybara'
+  gem 'minitest-matchers'
   gem 'capybara', "~>2.0.0"   # upgrade this with Ruby 1.9.3
   gem 'minitest-spec-rails'
   gem 'minitest-spec-context'

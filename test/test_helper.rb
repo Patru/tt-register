@@ -9,6 +9,8 @@ require 'capybara/email'
 
 MiniTest::Reporters.use!
 
+require "capybara/rspec/matchers"
+require "minitest/matchers"
 require "minitest/rails/capybara"
 require "minitest/pride"
 

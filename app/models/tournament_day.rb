@@ -1,15 +1,19 @@
 # encoding: UTF-8
 
 class TournamentDay < ActiveRecord::Base
-  @@weekdays = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
   belongs_to :tournament
   has_many :series, :order => "sex ASC, max_ranking DESC, category ASC"
   attr_accessor :series_map
   attr_accessible :tournament_id, :max_inscriptions, :day, :series_per_day, :max_single_series, :max_double_series, :max_age_series
   has_many :waiting_list_entries
   
-  def day_name
-    I18n.t('date.day_names')[day.strftime("%w").to_i]
+  def day_name day_spread=2
+    week_day = day.strftime("%w").to_i
+    if day_spread < 7
+      I18n.t('date.day_names')[week_day]
+    else
+      "#{(I18n.t('date.abbr_day_names')[week_day])} #{day.strftime("%d")}."
+    end
   end
   
   def display_name

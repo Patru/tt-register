@@ -135,7 +135,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
               day_class = "closed"
             end
             span :class => day_class, :title => span_title(tour_day) do
-              text tour_day.day_name
+              text tour_day.day_name(tournament.day_spread)
               text ": "
               text tour_day.count_entries
               text "/"
@@ -495,7 +495,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   def back_link
     if @inscription
       my_inscription_link
-    elsif not is_admin?
+    elsif not helpers.is_admin?
       menu_item root_path, :new_inscription, new_image
     end
   end

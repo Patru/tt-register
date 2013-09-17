@@ -3,8 +3,15 @@ require 'test_helper'
 require 'views/layouts/sw_page'
 
 class SWPageTest < ActionView::TestCase
-  include Capybara::RSpecMatchers
+  include Capybara::DSL
+  include Capybara::Assertions
+  MiniTest::Unit::TestCase.register_matcher :have_link, :have_link
+
   fixtures []
+
+  def is_admin?
+    false
+  end
 
   before do
     @page = Views::Layouts::SWPage.new
@@ -20,7 +27,7 @@ class SWPageTest < ActionView::TestCase
     I18n.locale=:en         # rails-default will be :de, default-default :en, have to set to run alone and in context
     html_text = @page.to_html(prettyprint: true, helpers: self)
     node = Capybara.string html_text
-    node.must_have_selector('div#menu')
+    node.has_selector?('div#menu').must_equal true
     node.find('div#menu ul.context').must_have_link("New inscription")
     node.find('div#menu ul.standard').must_have_link("e-mail")
     node.find('div#menu ul.standard').must_have_link("privacy")
