@@ -11,7 +11,7 @@ class Views::TournamentDays::TournamentDay < Views::Layouts::SWPage
       rawtext f.error_messages
       table do
         tr do
-          td :align => 'right' do
+          td :class => 'label'  do
             rawtext f.label(Views::Labels.label(:tournament_id))
           end
           td do
@@ -24,6 +24,7 @@ class Views::TournamentDays::TournamentDay < Views::Layouts::SWPage
         form_text_field f, :max_single_series
         form_text_field f, :max_double_series
         form_text_field f, :max_age_series
+        form_datetime_select f, :last_inscription_time
       end
       p do
         rawtext f.submit(button_text)

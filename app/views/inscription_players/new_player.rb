@@ -4,7 +4,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
 #  needs :player, :inscription, :inscription_player => nil
   
   def page_title
-    t(:new_inscription_to, tournament_name: tournament.name)
+    t(:new_enrollment)
   end
 
   def sw_content

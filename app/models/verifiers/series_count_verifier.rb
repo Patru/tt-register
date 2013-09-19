@@ -5,8 +5,9 @@ module Verifiers::SeriesCountVerifier
   def verify_series_count inscription_player
     day_series = Hash.new{|hash,key| hash[key] = [] }
     inscription_player.play_series.each do |play_ser|
-      t_day = play_ser.series.tournament_day
-      day_series[t_day]=day_series[t_day] << play_ser.series
+      seri = play_ser.series
+      t_day = seri.tournament_day
+      day_series[t_day]=day_series[t_day] << seri
     end
     day_series.each do |tour_day, seris|
       series_count = count_series_types seris
@@ -20,7 +21,7 @@ module Verifiers::SeriesCountVerifier
       counts[:total] += 1
       if seri.single_sex_double_series?
         counts[:double] += 1
-      elsif seri.age_series?
+      elsif seri.age_series? and seri.single_series?
         counts[:age] += 1
       elsif seri.single_series?
         counts[:single] += 1

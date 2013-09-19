@@ -16,7 +16,7 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
     table do 
       labeled_data(:tournament_id, @tournament_day.tournament.name)
       [:day, :max_inscriptions, :series_per_day, :max_single_series, :max_double_series,
-       :max_age_series].each do |field|
+       :max_age_series, :last_inscription_time].each do |field|
         show_data_item(@tournament_day, field)
       end
     end

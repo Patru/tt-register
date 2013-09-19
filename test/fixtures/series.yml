@@ -110,3 +110,13 @@ elite:
   min_ranking: 1
   max_ranking: 20
   category: ""
+
+too_late:
+  id: 11
+  series_name: O60
+  tournament_day_id: 3
+  long_name: O 60
+  start_time: 2013-09-17 16:00
+  min_ranking: 1
+  max_ranking: 20
+  category: ""

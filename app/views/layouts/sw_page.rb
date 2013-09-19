@@ -354,7 +354,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     area_opts = {cols:60, rows:20}.merge(options)
     tr do
       td :class => 'label', :valign => "top" do
-         rawtext form.label(symbol, Views::Labels.label(symbol))
+         rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
         rawtext form.text_area(symbol, area_opts)
@@ -391,7 +391,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   
   def form_time_select form, symbol
     tr do
-      td :align => 'right' do
+      td :class => 'label'  do
          rawtext form.label(symbol, Views::Labels.label(symbol))
       end
       td do
@@ -402,8 +402,8 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   
   def form_datetime_select form, symbol
     tr do
-      td :align => 'right' do
-         rawtext form.label(symbol, Views::Labels.label(symbol))
+      td :class => 'label'  do
+         rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
         rawtext form.datetime_select(symbol)
@@ -413,7 +413,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   
   def form_date_select form, symbol
     tr do
-      td :align => 'right' do
+      td :class => 'label'  do
          rawtext form.label(symbol, Views::Labels.label(symbol))
       end
       td do
@@ -427,7 +427,12 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       rawtext f.error_messages
       table do
         symbols.each do |symb|
-          form_text_field f, symb
+          case object.class.columns_hash[symb.to_s].type
+            when :datetime
+              form_datetime_select f, symb
+            else
+              form_text_field f, symb
+          end
         end
       end
       p do

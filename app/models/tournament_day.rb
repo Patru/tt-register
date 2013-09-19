@@ -4,7 +4,8 @@ class TournamentDay < ActiveRecord::Base
   belongs_to :tournament
   has_many :series, :order => "sex ASC, max_ranking DESC, category ASC"
   attr_accessor :series_map
-  attr_accessible :tournament_id, :max_inscriptions, :day, :series_per_day, :max_single_series, :max_double_series, :max_age_series
+  attr_accessible :tournament_id, :max_inscriptions, :day, :series_per_day, :max_single_series,
+                  :max_double_series, :max_age_series, :last_inscription_time
   has_many :waiting_list_entries
   
   def day_name day_spread=2
@@ -14,6 +15,10 @@ class TournamentDay < ActiveRecord::Base
     else
       "#{(I18n.t('date.abbr_day_names')[week_day])} #{day.strftime("%d")}."
     end
+  end
+
+  def day_string
+    day.strftime(I18n.t('date.formats.default'))
   end
   
   def display_name
@@ -78,6 +83,14 @@ class TournamentDay < ActiveRecord::Base
     if not max_age_series.blank? and series_count[:age] > max_age_series
       inscription_player.errors.add :base, "Am #{day_name} darf maximal \
            #{max_age_series} Altersserie belegt werden"
+    end
+  end
+
+  def accept_inscriptions_until
+    if last_inscription_time.nil?
+      tournament.accept_inscriptions_until
+    else
+      last_inscription_time
     end
   end
 end

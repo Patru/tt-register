@@ -118,12 +118,17 @@ class InscriptionPlayer < ActiveRecord::Base
   end
 
   def series_ok_for_tournament
-    series.each do |seri|
+    inscription.tournament.verify_series self
+    play_series.each do |pl_ser|
+      seri=pl_ser.series
+      if not seri.accepting_inscriptions?
+        errors.add :base, I18n.t('error.accept_inscription_until', series: seri.long_name,
+                                                    time: I18n.l(seri.tournament_day.accept_inscriptions_until, format: :short))
+      end
       if not seri.may_be_played_by? self.player
         errors.add :base, ("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!")
       end
     end
-    inscription.tournament.verify_series self
   end
 
   def no_series_selected?

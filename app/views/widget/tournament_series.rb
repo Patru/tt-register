@@ -66,6 +66,8 @@ class Views::Widget::TournamentSeries < Erector::Widget
     tday.series_map.sort.each_with_index do |(time, sers), index|
       if index == 0 then
         day_name = tday.day_name
+      elsif index == 1
+        day_name = tday.day_string
       else
         day_name = ""
       end

@@ -11,6 +11,8 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :bcc_email
   @@fields << :facebook_link
   @@fields << :layout_parser
+  @@fields << :last_inscription_time
+
   def fields
     @@fields
   end

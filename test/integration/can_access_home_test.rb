@@ -28,7 +28,7 @@ describe "can access home Integration Test" do
       end
       within "div.commercial" do
         page.must_have_link "ERRA-Team", {href: "http://www.errateam.ch"}
-        page.must_have_link "SpinnyShop", {href: "http://www.spinnyshop.com"}
+#        page.must_have_link "SpinnyShop", {href: "http://www.spinnyshop.com"}
       end
     end
   end

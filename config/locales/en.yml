@@ -65,12 +65,14 @@ en:
     sender_email: "Send e-mail from"
     bcc_email: "Blind copy to"
     facebook_link: "Facebook link"
+    last_inscription_time: inscriptions until
   dear_chap: "Dear table tennis chap"
   privacy: privacy
   email: e-mail
   topic: Topic
   enter_your_message_here: enter your message here
   new_inscription: "New inscription"
+  new_enrollment: "New enrollment"
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
     Thanks for your interest in the %{tour_name}.
@@ -188,6 +190,7 @@ en:
     too_many_series: There must be no more than %{max} series played on %{day_name}.
     may_not_play_series: ! "%{player} must not play in series %{series}!"
     max_series_per_day: You may choose a maximum of %{max} series on %{day}
+    accept_inscription_until: Inscriptions for %{series} could only be accepted until %{time}
     problems_occurred: "The following problems have occurred:"
     header:
       save_inscription: Errors while saving inscription
@@ -240,7 +243,7 @@ en:
       text: edit
       title: edit this inscription
     new_inscription:
-      text: New inscription
+      text: New inscription form
       title: Create a new inscription
     privacy:
       text: privacy

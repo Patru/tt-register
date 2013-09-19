@@ -69,21 +69,22 @@ protected
   def set_locale
 
     #puts "prefering #{env["HTTP_ACCEPT_LANGUAGE"]} as interaction languages"
-    preferred_locale = preferred_language_from I18n.available_locales
-    compatible_locale = compatible_language_from I18n.available_locales
+    preferred_locale = http_accept_language.preferred_language_from I18n.available_locales
+    compatible_locale = http_accept_language.compatible_language_from I18n.available_locales
     #puts "I18n.locale was #{I18n.locale}"
     I18n.locale = session[:locale] || compatible_locale || preferred_locale || I18n.default_locale
-    #print "now set to #{I18n.locale} "
+=begin (debugging block)
+    print "now set to #{I18n.locale} "
     if session[:locale]
-      #puts "using session #{session[:locale]}"
+      puts "using session #{session[:locale]}"
     elsif compatible_locale
-      #puts "using compatible #{compatible_locale}"
+      puts "using compatible #{compatible_locale}"
     elsif preferred_locale
-      #puts "using preferred #{preferred_locale}"
+      puts "using preferred #{preferred_locale}"
     else
-      #puts "using default"
+      puts "using default"
     end
-
+=end
   end
 end
 

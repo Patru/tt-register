@@ -166,6 +166,10 @@ class Series < ActiveRecord::Base
     @trans_names[I18n.locale]=trans_name
   end
 
+  def accepting_inscriptions?
+    tournament_day.accept_inscriptions_until > Time.now
+  end
+
 private
   def translate_series_tag(str, tag)
     str.sub! I18n.t(tag, scope: [:series], locale: :de), I18n.t(tag, scope: [:series])

@@ -227,7 +227,7 @@ class InscriptionPlayersController < ApplicationController
     @inscription = inscription_player.inscription
     @inscription.tournament.build_series_map
     @sel_series = inscription_player.play_series.collect{|pls| pls.series}
-        # we collect the series here since the may not have been saved yet
+        # we collect the series here since they may not have been saved yet
   end
 
   def new_ins_player(player, param_days)

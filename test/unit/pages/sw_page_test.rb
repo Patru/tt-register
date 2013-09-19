@@ -3,10 +3,6 @@ require 'test_helper'
 require 'views/layouts/sw_page'
 
 class SWPageTest < ActionView::TestCase
-  include Capybara::DSL
-  include Capybara::Assertions
-  MiniTest::Unit::TestCase.register_matcher :have_link, :have_link
-
   fixtures []
 
   def is_admin?

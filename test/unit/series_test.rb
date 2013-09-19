@@ -121,4 +121,18 @@ class SeriesTest < ActiveSupport::TestCase
     I18n.locale=:fr
     doubles.translated_name.must_equal "Double mixte A/B"
   end
+
+  it 'accepts inscriptions based on the current time' do
+    tour_day = TournamentDay.new(last_inscription_time: (Time.now+100))
+    ser = tour_day.series.build()
+    ser.tournament_day = tour_day    # this will usually happen during save
+    ser.must_be :accepting_inscriptions?
+    tour_day.last_inscription_time=(Time.now-1)
+    ser.wont_be :accepting_inscriptions?
+  end
+
+  it 'knows when it is time not to accept an inscription anymore' do
+    o60=series(:too_late)
+    o60.wont_be :accepting_inscriptions?
+  end
 end

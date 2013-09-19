@@ -12,3 +12,10 @@ two:
   max_inscriptions: 7
   series_per_day: 3
 
+three:
+  id: 3
+  tournament_id: 2
+  day: <%=(Date.parse('Saturday')+1).to_s%>
+  max_inscriptions: 7
+  series_per_day: 3
+  last_inscription_time: <%=Time.now.utc-100%>

@@ -44,10 +44,22 @@ class Tournament < ActiveRecord::Base
   end
 
   def day_spread
-    dates=tournament_days.map{|day| day.day}
+    tournament_days.map{|day| day.day}
     min_date = dates.min
     return 0 if min_date.nil?
     max_date = dates.max
     (max_date-min_date).to_i+1
+  end
+
+  def dates
+    @dates||=tournament_days.map{|tour_day| tour_day.day}
+  end
+
+  def accept_inscriptions_until
+    if last_inscription_time.nil?
+      dates.min.to_time
+    else
+      last_inscription_time
+    end
   end
 end

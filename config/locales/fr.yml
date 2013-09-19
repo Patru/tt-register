@@ -261,14 +261,15 @@ fr:
     sender_email: "envoyer e-mail par"
     bcc_email: "copie invisible à"
     facebook_link: "lien pour Facebook"
+    last_inscription_time: "inscriptions jusqu'à"
   dear_chap: "Cher ami pongiste"
   privacy: "Protection des données"
   privacy_long: "Conditions de la protection des données"
   email: e-mail
   topic: thème
   enter_your_message_here: entre ton message ici
-  new_inscription: "Nouvelle inscription"
-  new_inscription_to: Nouvelle inscription pour le %{tournament_name}
+  new_inscription: "Nouveau formulaire d'inscription"
+  new_enrollment: Nouvelle inscription
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
     Merci pour ton intérêt au %{tour_name}.
@@ -391,6 +392,7 @@ fr:
     too_many_series: Le %{day_name} on ne peut pas s'inscrire pour plus de %{max} séries.
     may_not_play_series: ! "%{player} ne peut pas jouer dans la série %{series}!"
     max_series_per_day: Tu peux choisir un maximum de %{max} series le %{day}
+    accept_inscription_until: Les inscriptions pour la série %{series} ne pourrait qu'être accepté jusqu'à %{time}
     problems_occurred: "Les problèmes suivants se sont posé:"
     header:
       save_inscription: Erreurs pendent la sauvgarde de l'inscription
@@ -459,7 +461,7 @@ fr:
       text: liste
       title: à la liste des inscriptions
     new_inscription:
-      text: Nouvelle inscription
+      text: "Nouveau formulaire d'inscription"
       title: Enregister une nouvelle inscription
     show_inscription_player:
       text: afficher

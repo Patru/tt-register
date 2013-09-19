@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701000406) do
+ActiveRecord::Schema.define(:version => 20130918065600) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(:version => 20130701000406) do
     t.integer  "woman_rank"
   end
 
+  create_table "quarks", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "series", :force => true do |t|
     t.string   "series_name"
     t.string   "long_name"
@@ -90,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20130701000406) do
     t.integer  "max_single_series"
     t.integer  "max_double_series"
     t.integer  "max_age_series"
+    t.datetime "last_inscription_time"
   end
 
   create_table "tournaments", :force => true do |t|
@@ -107,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20130701000406) do
     t.string   "facebook_link"
     t.string   "layout_parser"
     t.text     "favicon"
-    t.datetime "accept_inscriptions_until"
+    t.datetime "last_inscription_time"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

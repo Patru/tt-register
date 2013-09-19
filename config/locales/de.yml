@@ -266,6 +266,7 @@ de:
     sender_email: "Email versenden von"
     bcc_email: "unsichtbare Kopie an"
     facebook_link: "Facebook Link"
+    last_inscription_time: Anmeldungen bis
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen
@@ -273,7 +274,7 @@ de:
   enter_your_message_here: Gib deine Meldung hier ein.
   topic: Thema
   new_inscription: "Neue Einschreibung"
-  new_inscription_to: Neue Anmeldung zum %{tournament_name}
+  new_enrollment: Neue Anmeldung
   inscriptions: "Anmeldungen"
   thanks_and_purpose: |
     Vielen Dank für dein Interesse am %{tour_name}.
@@ -397,6 +398,7 @@ de:
     too_many_series: Am %{day_name} dürfen nicht mehr als %{max} Serien belegt werden.
     may_not_play_series: ! "%{player} darf Serie %{series} nicht spielen!"
     max_series_per_day: Am %{day} dürfen maximal %{max} Serien belegt werden
+    accept_inscription_until: Anmeldungen zur Serie %{series} konnten nur bis am %{time} angenommen werden
     problems_occurred: "Folgende Probleme sind aufgetreten:"
     header:
       save_inscription: Fehler beim Speichern der Einschreibung
