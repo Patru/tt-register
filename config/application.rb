@@ -2,6 +2,7 @@
 
 require File.expand_path('../boot', __FILE__)
 
+require 'csv'
 require 'rails/all'
 require 'http_accept_language'
 

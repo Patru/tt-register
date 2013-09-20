@@ -1,0 +1,3 @@
+<% @pl_list.each do |pl| %>
+  <%=pl.to_csv(col_sep:"\t") -%>
+<% end %>

@@ -87,41 +87,6 @@ class TournamentsController < ApplicationController
     end
   end
 
-  def render_csv(filename = nil)
-    filename ||= params[:action]
-    filename += '.csv'
-
-    if request.env['HTTP_USER_AGENT'] =~ /msie/i
-      headers['Pragma'] = 'public'
-      headers["Content-type"] = "text/plain"
-      headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-      headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
-      headers['Expires'] = "0"
-    else
-      headers["Content-Type"] ||= 'text/csv'
-      headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
-    end
-  end
-
-  def render_dbsv(filename = nil)
-    filename ||= params[:action]
-    filename += '.dbsv'
-
-    if request.env['HTTP_USER_AGENT'] =~ /msie/i
-      headers['Pragma'] = 'public'
-      headers["Content-type"] = "text/plain"
-      headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-      headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
-      headers['Expires'] = "0"
-    else
-      headers["Content-Type"] ||= 'text/dbsv'
-      headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
-    end
-
-    render :layout => false
-  end
-
-
   def download_entries
     @tournament = Tournament.find(params[:id])
     @play_series = PlaySeries.all(

@@ -109,4 +109,39 @@ class TournamentDaysController < ApplicationController
         format.xml  { head :ok }
     end
   end
+
+  def download_entries
+    @tournament_day = TournamentDay.find(params[:id])
+    @tournament_day.series
+    @play_series = PlaySeries.all(
+        include:[:series, {:inscription_player => :player}, :partner],
+        conditions:{'series.tournament_day_id' => @tournament_day.id})
+    group_by_player
+
+    respond_to do |format|
+      format.dbsv do
+        render_dbsv "entries-"+Time.now.strftime("%d-%m-%Y")
+      end
+      format.csv do
+        render_csv "day_entries-#{Time.now.strftime("%d-%m-%Y_%k:%M")}"
+      end
+    end
+  end
+
+  def group_by_player
+    all_sers = @tournament_day.series.sort { |s1, s2| s1.series_name <=> s2.series_name }
+    player_series = Hash.new{|h, k| h[k]=PlayerSeries.new(all_sers)}
+    @play_series.each do |pls|
+      player_series[pls.player]=(player_series[pls.player]<<pls)
+    end
+    headers = ["Verein", "Liz.Nr.", "Name", "Vorname", "Kat.", "Kla H", "Kla D", "Klub D"]
+    all_sers.each do |ser|
+      headers << ser.series_name
+    end
+    headers.concat ["Partner", "Lizenz", "Mixed Partner", "Mix.Liz."]
+    @pl_list =[headers]
+    player_series.keys.sort{|pl1, pl2| pl1.ranking <=> pl2.ranking}.each do |pl|
+      @pl_list << player_series[pl].line
+    end
+  end
 end

@@ -36,6 +36,9 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
         end
         input :type => "submit", :value => "Durchführen"
       end
+      p do
+        link_to t('tournament_days.download'), day_entries_path(id:@tournament_day.id, format:'csv')
+      end
     end
   end
 end

@@ -555,3 +555,5 @@ de:
     mixed_doubles: Mixed Doppel
     none: keine
     elite: Elite
+  tournament_days:
+    download: Alle Anmeldungen dieses Tages als Datei

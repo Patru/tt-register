@@ -289,3 +289,5 @@ en:
     mixed_doubles: Mixed Doubles
     none: none
     elite: Elite
+  tournament_days:
+    download: Download all inscriptions for this day

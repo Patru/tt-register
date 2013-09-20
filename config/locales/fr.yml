@@ -498,3 +498,5 @@ fr:
     mixed_doubles: Double mixte
     none: aucune
     elite: Élite
+  tournament_days:
+    download: Télécharger tous les inscriptions de ce jour

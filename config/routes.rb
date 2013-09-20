@@ -38,6 +38,7 @@ TtRegister::Application.routes.draw do
   post 'inscriptions/own_inscription/:id' => 'inscriptions#own_inscription', as: :own_inscription
   post 'inscriptions/transfer_player/:inscription_player_id' => 'inscriptions#transfer_player', as: :transfer_player
   match 'inscriptions/:id/:token' => 'inscriptions#login', :as => 'login'
+  get 'tournament_days/entries/:id.:format' => 'tournament_days#download_entries', :as => 'day_entries'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
