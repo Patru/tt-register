@@ -101,7 +101,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
     input :type => "hidden", :name => "inscription_id", :value => @inscription.id
     table do
       headers
-      @inscription.tournament.tournament_days.each do |tday|
+      @inscription.tournament.tournament_days.sort{|td1, td2| td1.day <=> td2.day}.each do |tday|
         day_display tday
       end
     end
