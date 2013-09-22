@@ -10,7 +10,7 @@ class TournamentDay < ActiveRecord::Base
   
   def day_name day_spread=2
     week_day = day.strftime("%w").to_i
-    if day_spread < 7
+    if day_spread < 6
       I18n.t('date.day_names')[week_day]
     else
       "#{(I18n.t('date.abbr_day_names')[week_day])} #{day.strftime("%d")}."

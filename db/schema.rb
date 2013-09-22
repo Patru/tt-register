@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918065600) do
+ActiveRecord::Schema.define(:version => 20130922145732) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20130918065600) do
     t.string   "category",      :default => "-"
     t.integer  "rank"
     t.integer  "woman_rank"
+    t.string   "rv"
+    t.string   "canton"
   end
 
   create_table "quarks", :force => true do |t|

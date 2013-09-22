@@ -262,6 +262,9 @@ fr:
     bcc_email: "copie invisible à"
     facebook_link: "lien pour Facebook"
     last_inscription_time: "inscriptions jusqu'à"
+    canton: Canton
+    rv: AR
+
   dear_chap: "Cher ami pongiste"
   privacy: "Protection des données"
   privacy_long: "Conditions de la protection des données"

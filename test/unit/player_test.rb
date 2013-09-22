@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  it "responds to #canton and #rv and can assign them" do
+    pl=Player.new()
+    pl.must_respond_to :canton
+    pl.must_respond_to :rv
+    pl.canton="ZH"
+    pl.rv="OTTV"
   end
 end

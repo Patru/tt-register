@@ -199,8 +199,8 @@ class PlayerImporter
   def import_player_row(row)
     @imported = @imported+1
     pl = Player.new
-    rv, pl.club, pl.first_name, pl.name, pl.category, ranking,
-    woman_ranking, stt_ranking, licence = row
+    pl.rv, pl.club, pl.first_name, pl.name, pl.category, ranking,
+    woman_ranking, stt_ranking, licence, pl.canton = row
     pl.licence = licence.to_i
     pl.ranking = ranking.to_i
     pl.woman_ranking = woman_ranking.to_i if woman_ranking.to_i > 0

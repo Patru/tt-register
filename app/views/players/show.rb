@@ -10,6 +10,7 @@ class Views::Players::Show < Views::Players::Player
   end
 
   def sw_content
-    show_data_table @player, :name, :first_name, :club, :licence, :disp_ranking, :disp_woman_ranking, :category
+    show_data_table @player, :name, :first_name, :club, :licence, :disp_ranking,
+                    :disp_woman_ranking, :category, :canton, :rv
   end
 end
