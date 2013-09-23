@@ -12,6 +12,7 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :facebook_link
   @@fields << :layout_parser
   @@fields << :last_inscription_time
+  @@fields << :only_show_playable_series
 
   def fields
     @@fields

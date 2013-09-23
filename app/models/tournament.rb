@@ -9,9 +9,9 @@ class Tournament < ActiveRecord::Base
   validates_presence_of :sender_email
   validates_presence_of :name
 
-  def build_series_map
+  def build_series_map(player=nil)
     tournament_days.each do |day|
-      day.build_series_map
+      day.build_series_map player
     end
   end
   

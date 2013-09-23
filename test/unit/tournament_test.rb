@@ -25,4 +25,9 @@ class TournamentTest < ActiveSupport::TestCase
     tour_day.tournament = @tournament
     tour_day.accept_inscriptions_until.must_equal Date.today.to_time
   end
+
+  it 'can select to only show playable series' do
+    @tournament.must_respond_to :only_show_playable_series
+    @tournament.only_show_playable_series=true
+  end
 end

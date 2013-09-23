@@ -21,7 +21,7 @@ class InscriptionPlayersController < ApplicationController
         :include => [:player, :inscription, :series, {:waiting_list_entries => [:series, :tournament_day]}])
     @player = @inscription_player.player
     @inscription = @inscription_player.inscription
-    @inscription.tournament.build_series_map
+    @inscription.tournament.build_series_map @player
     @go_back_to_list = true if params[:go_back_to_list]
     if @inscription_player.waiting_list_entries.size > 0 then
       @inscription_player.waiting_list_entries.map{|entry| entry.number_in_list}
@@ -59,7 +59,7 @@ class InscriptionPlayersController < ApplicationController
       redirect_to @inscription_player
       return
     end
-    @inscription_player.inscription.tournament.build_series_map
+    @inscription_player.build_series_map
     respond_to do |format|
       format.html # edit.rb
       format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
@@ -154,7 +154,7 @@ class InscriptionPlayersController < ApplicationController
     return if licence_too_long?(params[:licence])
     return if not fetch_player_by_licence(params[:licence])
     return if fetch_inscription_player(@player, @inscription.tournament_id)
-    @inscription.tournament.build_series_map
+    @inscription.tournament.build_series_map @player
     respond_to do |format|
       if @player then
         flash[:notice] = t 'notice.select_series_to_complete'
@@ -170,7 +170,7 @@ class InscriptionPlayersController < ApplicationController
   def player
     return if not fetch_player_by_id(params[:id])
     return if fetch_inscription_player(@player, @inscription.tournament_id)
-    @inscription.tournament.build_series_map
+    @inscription.tournament.build_series_map @player
     respond_to do |format|
       format.html {render :action => 'new_player'}
     end
@@ -225,7 +225,7 @@ class InscriptionPlayersController < ApplicationController
   def prepare_new_player(inscription_player)
     @player = inscription_player.player
     @inscription = inscription_player.inscription
-    @inscription.tournament.build_series_map
+    @inscription.tournament.build_series_map @player
     @sel_series = inscription_player.play_series.collect{|pls| pls.series}
         # we collect the series here since they may not have been saved yet
   end
@@ -295,7 +295,7 @@ class InscriptionPlayersController < ApplicationController
         format.html { redirect_to(@inscription_player) }
         format.xml  { head :ok }
       rescue
-        @inscription_player.inscription.tournament.build_series_map
+        @inscription_player.build_series_map
         format.html { render :action => "edit" }
         format.xml  { render :xml => @inscription_player.errors, :status => :unprocessable_entity }
       end

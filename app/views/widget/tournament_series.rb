@@ -63,6 +63,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
   end
   
   def day_display(tday)
+    return if tday.series_map.nil?
     tday.series_map.sort.each_with_index do |(time, sers), index|
       if index == 0 then
         day_name = tday.day_name

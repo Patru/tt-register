@@ -22,7 +22,7 @@ class InscriptionsController < ApplicationController
   def show
     @inscription = Inscription.where(id:params[:id]).
             includes(:tournament,  :inscription_players => [:player, :series]).first
-    @inscription.tournament.build_series_map
+    @inscription.tournament.build_series_map @inscription.own_player
 
     respond_to do |format|
       format.html # show.html.erb

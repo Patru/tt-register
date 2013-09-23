@@ -264,7 +264,7 @@ fr:
     last_inscription_time: "inscriptions jusqu'à"
     canton: Canton
     rv: AR
-
+    only_show_playable_series: "Seulment afficher les séries jouables"
   dear_chap: "Cher ami pongiste"
   privacy: "Protection des données"
   privacy_long: "Conditions de la protection des données"

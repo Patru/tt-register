@@ -68,6 +68,7 @@ en:
     last_inscription_time: inscriptions until
     canton: Canton
     rv: RA
+    only_show_playable_series: "Only show playable series"
   dear_chap: "Dear table tennis chap"
   privacy: privacy
   email: e-mail

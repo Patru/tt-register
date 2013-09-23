@@ -29,19 +29,17 @@ class TournamentDay < ActiveRecord::Base
     "#{tournament.tour_id}, #{day_name}"
   end
   
-  def build_series_map
-    @series_map={}
+  def build_series_map(player=nil)
+    @series_map=Hash.new{|h, k| h[k]=Array.new}
     self.series.each do |ser|
-      time = ser.start_time_text
-      unless @series_map.has_key?(time)
-        @series_map[time]=[]   # a default for the hash will not work!
+      if player.nil? or (not tournament.only_show_playable_series) or ser.may_be_played_by?(player)
+        @series_map[ser.start_time_text]<<ser
       end
-      @series_map[time]<<ser
     end
   end
   
   def max_series
-    if series_map.length > 0 then
+    if series_map and series_map.length > 0 then
       (max_tim, max_sers) = series_map.max {|(time1, sers1), (time2, sers2)| sers1.length <=> sers2.length}
       return max_sers.length
     else

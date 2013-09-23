@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922145732) do
+ActiveRecord::Schema.define(:version => 20130923015636) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20130922145732) do
     t.string   "layout_parser"
     t.text     "favicon"
     t.datetime "last_inscription_time"
+    t.boolean  "only_show_playable_series"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

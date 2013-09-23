@@ -48,7 +48,7 @@ class Inscription < ActiveRecord::Base
     split_inscription_players
     @own_inscription
   end
-  
+
   def split_inscription_players
     if @inscription_players_without_self.nil?
       @inscription_players_without_self=[]

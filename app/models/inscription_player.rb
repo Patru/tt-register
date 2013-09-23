@@ -144,4 +144,8 @@ class InscriptionPlayer < ActiveRecord::Base
     return rank if rank and series.use_rank and rank <= series.use_rank
     return nil
   end
+
+  def build_series_map
+    inscription.tournament.build_series_map player
+  end
 end

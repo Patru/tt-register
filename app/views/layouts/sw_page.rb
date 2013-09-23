@@ -410,18 +410,29 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       end
     end
   end
-  
+
   def form_date_select form, symbol
     tr do
       td :class => 'label'  do
-         rawtext form.label(symbol, Views::Labels.label(symbol))
+        rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
         rawtext form.date_select(symbol)
       end
     end
   end
-  
+
+  def form_checkbox_field form, symbol
+    tr do
+      td :class => 'label'  do
+        rawtext form.label(symbol, label_text(form, symbol))
+      end
+      td do
+        rawtext form.check_box(symbol)
+      end
+    end
+  end
+
   def labeled_table_form(object, symbols, button_text)
     form_for(object) do |f|
       rawtext f.error_messages
@@ -430,6 +441,8 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
           case object.class.columns_hash[symb.to_s].type
             when :datetime
               form_datetime_select f, symb
+            when :boolean
+              form_checkbox_field f, symb
             else
               form_text_field f, symb
           end
