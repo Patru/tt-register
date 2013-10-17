@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
   def auto
     if (lic=digits_as_int(params[:term])) > 0
       if lic > 10000
-        players=Player.where(["Licence like ?", "#{lic}%"]).all
+        players=Player.where(["CAST(Licence AS TEXT) like ?", "#{lic}%"]).all
       else
         players=[]
       end
