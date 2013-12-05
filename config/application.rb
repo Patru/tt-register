@@ -48,6 +48,8 @@ module TtRegister
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    config.assets.initialize_on_precompile = false
+
     config.generators do |g|
       g.test_framework :mini_test, :spec => true, :fixture => false
     end
