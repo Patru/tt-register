@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "1.9.2"
-gem 'rails', '=3.2.14'
+gem 'rails', '=3.2.16'
 
 gem 'erector', '~>0.9.0'
 gem 'sqlite3'
