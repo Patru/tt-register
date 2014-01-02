@@ -89,7 +89,7 @@ class AdminsController < ApplicationController
     respond_to do |format|
       if @new_admin.save
         Confirmation.admin_confirmation(@new_admin, sender_admin, request.host_with_port).deliver
-        flash[:notice] = 'Admin gespeichert, Login Link per Email zugestellt.'
+        flash[:notice] = 'Admin gespeichert, Login Link per E-mail zugestellt.'
         @admins = Admin.all
         format.html { redirect_to :action => :index }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }

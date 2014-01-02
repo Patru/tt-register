@@ -263,7 +263,7 @@ de:
     tournament_day_id: "Turniertag"
     series: "Serien"
     inscribed_for: "Eingeschrieben für"
-    sender_email: "Email versenden von"
+    sender_email: "E-mail versenden von"
     bcc_email: "unsichtbare Kopie an"
     facebook_link: "Facebook Link"
     last_inscription_time: Anmeldungen bis
@@ -308,17 +308,17 @@ de:
     anmelden.
   new_login_link: neuen login-Link
   help_para3: |
-    Nachdem die Einschreibung gespeichert ist, stellen wir dir eine Email mit einem Bestätigungs-Link zu,
+    Nachdem die Einschreibung gespeichert ist, stellen wir dir eine E-mail mit einem Bestätigungs-Link zu,
     dieser enthält eine zufällige Zahl die in der Folge als Login für deine Einschreibung dient.
-    Bitte bewahre die Email auf, denn damit kannst du deine Anmeldungen leicht abändern und verwalten.
-    Da die Einschreibung nur bis zum Turnier gültig ist, kannst du den Link aus der Email auch an andere
+    Bitte bewahre die E-mail auf, denn damit kannst du deine Anmeldungen leicht abändern und verwalten.
+    Da die Einschreibung nur bis zum Turnier gültig ist, kannst du den Link aus der E-mail auch an andere
     weiter geben, wenn du z.B. in die Ferien gehst. Natürlich stellen wir dir auch einen %{new_login_link}
     zu falls du deinen versehentlich gelöscht haben solltest. Der alte Link ist nach dem Versand eines
     neuen Links nicht mehr gültig, es hilft also nichts diesen mehrfach hintereinander zu verlangen,
     es gilt immer nur der letzte.
   help_para4: |
-    Darüber hinaus halten wir dich per Email über alle Veränderungen an deiner Einschreibung auf dem laufenden.
-    Wenn also Spieler an- oder abgemeldet werden, so verschicken wir dafür jedes mal eine Email.
+    Darüber hinaus halten wir dich per E-mail über alle Veränderungen an deiner Einschreibung auf dem laufenden.
+    Wenn also Spieler an- oder abgemeldet werden, so verschicken wir dafür jedes mal eine E-mail.
     Normalerweise hast du diese Anpassungen zwar selber vorgenommen, im Zweifelsfall kannst
     du so aber auch Missbräuche rasch erkennen und durch Verlangen eines neuen Login-Links rasch unterbinden.
   help_para5: |
@@ -330,7 +330,7 @@ de:
   feedback_form: Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen.
   resend_login_link: Sende mir einen neuen Login Link
   change: Ändern
-  must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der Email verwenden.
+  must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der E-mail verwenden.
   change_player_data: Spielerdaten ändern
   show_inscription: Einschreibung anzeigen
   add_players:
@@ -370,7 +370,7 @@ de:
     send_email: E-Mail ans Team senden
   flash:
     thanks_we_will_get_back_to_you: |
-      Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
+      Herzlichen Dank, die E-mail wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
     please_provide_email: Bitte fülle die E-Mail Adresse aus, sonst können wir dir keinen neuen Link zustellen!
     no_inscription_for: Keine Einschreibung für %{address} vorhanden, bitte erzeuge eine neue Einschreibung.
     new_link_has_been_created: Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.
