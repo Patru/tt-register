@@ -1,0 +1,143 @@
+$theme_bg_color:rgb(0, 102, 204);
+$header_color:white;
+$link_color:lighten($theme_bg_color, 35);
+@mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
+  background: linear-gradient($orientation, $col1, $col2, $col3);
+  background: -webkit-linear-gradient($orientation, $col1 0%, $col2 20%, $col2 95%, $col3 100%);
+  background: -moz-linear-gradient($orientation, $col1 0%, $col2 20%, $col2 95%, $col3 100%);
+  background: -o-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -ms-linear-gradient($orientation, $col1, $col2, $col3);
+}
+@mixin radial-fade-background($col1, $col2) {
+  background: -webkit-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: -moz-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: -o-radial-gradient(center, ellipse cover, $col1 0%, $col1 70%, $col2 100%);
+  background: radial-gradient(ellipse at center, $col1 0%, $col1 70%, $col2 100%);
+}
+
+div#tournament_header {
+    background: #0066CC;
+    margin: -5px 0px 0px 0px;
+}
+div#header_logo {
+    float: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    vertical-align: top;
+    min-width: 5%;
+}
+h1 {
+  background:$theme_bg_color;
+  color:$header_color;
+}
+
+div#header_text {
+  color: $header_color;
+  h1 {
+    a {
+      color: $header_color;
+      font-size: 1.5em;
+      font-weight:bold;
+      &:hover {
+        color: $link_color;
+        text-decoration: none;
+      }
+    }
+  }
+  p {
+    text-align: right;
+    margin: -0.2em 0em 0em 0em;
+    font-size: 1.3em;
+    span {
+      margin: 0px 20px 0px 10px;
+      &.open {
+        color: #20E020;
+      }
+      &.closed {
+        color: #F02020;
+      }
+    }
+  }
+}
+
+div#menu {
+	background: #aaccf5;
+}
+
+div#maincontent {
+    margin: 0px 200px 0px 0px;
+}
+div#navigation {
+	float: right;
+	width: 160px;
+	padding: 5px;
+	background: #cbdaf9;
+}
+
+div#navigation ul {
+	list-style-type: none;
+    padding-left: 0px;
+}
+	
+div#navigation ul li {
+	display: block;
+	border-width: thin;
+	border-top: thin;
+	margin: 1px 1px 2px 3px;
+}
+div#navigation ul li ul {
+	background: #ddeafb;
+    padding-left: 8px;
+    padding-right: 5px;
+}
+div#navigation ul li ul li a.link {
+	display: block;
+	border-bottom: dotted;
+	border-width: thin;
+	border-top: thin;
+	color:#2020e0;
+	text-decoration:none;
+}
+div#navigation ul li ul li {
+}
+div#navigation ul li ul li a:visited {
+	display: block;
+	color: #6060ff;
+}
+div#navigation ul li ul li a:hover {
+	display: block;
+	color: white;
+	border-bottom: solid;
+	border-width: thin;
+	border-top: thin;
+	background:#0066CC;
+}
+	div#navigation ul li ul li a:active {
+	display: block;
+	color: white;
+	background:#0066CC;
+}
+
+$menu_bg_color:lighten($theme_bg_color, 10);
+$menu_color:white;
+
+form#new_inscription {
+  @include radial-fade-background(white, lighten($theme_bg_color, 30%));
+  border: {
+    color:lighten($theme_bg_color, 20);
+  }
+}
+ul#help_links {
+  @include linear-gradient-background(30deg, lighten($theme_bg_color, 50), lighten($theme_bg_color, 45), lighten($theme_bg_color, 50));
+  li {
+    a {
+      &:hover {
+        background-color: $menu_bg_color;
+        color:$menu_color;
+        &:before {
+          color:$menu_color;
+        }
+      }
+    }
+  }
+}
