@@ -22,6 +22,7 @@ group :test, :development do
   gem 'minitest-capybara'
   gem 'minitest-matchers'
   gem 'capybara', "~>2.0.0"   # upgrade this with Ruby 1.9.3
+  gem 'capybara_minitest_spec'
   gem 'minitest-spec-rails'
   gem 'minitest-spec-context'
   gem 'minitest-reporters'

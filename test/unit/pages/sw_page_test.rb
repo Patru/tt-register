@@ -24,7 +24,7 @@ class SWPageTest < ActionView::TestCase
     html_text = @page.to_html(prettyprint: true, helpers: self)
     node = Capybara.string html_text
     node.has_selector?('div#menu').must_equal true
-    node.find('div#menu ul.context').must_have_link("New inscription")
+    node.find('div#menu ul.context').must_have_link("New inscription form")
     node.find('div#menu ul.standard').must_have_link("e-mail")
     node.find('div#menu ul.standard').must_have_link("privacy")
     node.find('div#navigation').must_have_select('language', selected:'English')

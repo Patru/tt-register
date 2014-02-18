@@ -370,7 +370,7 @@ de:
     send_email: E-Mail ans Team senden
   flash:
     thanks_we_will_get_back_to_you: |
-      Herzlichen Dank, die E-mail wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
+      Herzlichen Dank, die E-Mail wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
     please_provide_email: Bitte fülle die E-Mail Adresse aus, sonst können wir dir keinen neuen Link zustellen!
     no_inscription_for: Keine Einschreibung für %{address} vorhanden, bitte erzeuge eine neue Einschreibung.
     new_link_has_been_created: Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.

@@ -20,7 +20,7 @@ describe "CanSendAnEmailToTheTeam Integration Test" do
     current_mail.subject.wont_be_nil
     current_mail.body.wont_be_nil
     within 'div.notice' do
-      page.must_have_content 'Herzlichen Dank, die Email wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.'
+      page.must_have_content 'Herzlichen Dank, die E-Mail wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.'
     end
   end
 end

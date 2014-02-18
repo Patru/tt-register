@@ -4,7 +4,7 @@ Ton nouveau lien d'inscription c'est
 
 <%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
-Avec un simple clic tu peux administrer ton inscription an ajoutant ou on effacant des joueurs.
+Avec un simple clic tu peux administrer ton inscription en ajoutant ou en effacant des joueurs.
 
 Sauvegarde cet e-mail jusq'au tournoi, le lien restera active jusqu'à ce temps la.
 <% unless @inscription.tournament.facebook_link.blank? %>

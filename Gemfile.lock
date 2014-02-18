@@ -51,6 +51,9 @@ GEM
     capybara-webkit (1.0.0)
       capybara (~> 2.0, >= 2.0.2)
       json
+    capybara_minitest_spec (1.0.1)
+      capybara (>= 2)
+      minitest (>= 2)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (3.2.2)
@@ -196,6 +199,7 @@ DEPENDENCIES
   capybara (~> 2.0.0)
   capybara-email
   capybara-webkit
+  capybara_minitest_spec
   coffee-rails (~> 3.2.1)
   dynamic_form
   erector (~> 0.9.0)
