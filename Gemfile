@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "1.9.2"
-gem 'rails', '=3.2.16'
+gem 'rails', '=3.2.17'
 
 gem 'erector', '~>0.9.0'
 gem 'sqlite3'
@@ -29,7 +29,7 @@ group :test, :development do
   gem 'capybara-email'
   gem 'launchy'
   gem 'rdoc'
-  gem 'ruby-prof'
+  gem 'ruby-prof', "~> 0.13.0"
   gem "capybara-webkit"
 end
 
