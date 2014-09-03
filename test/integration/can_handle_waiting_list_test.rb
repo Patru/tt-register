@@ -35,9 +35,11 @@ describe "CanHandleWaitingList Integration Test" do
     surplus_player = players :eleven
     add_player_to_inscription surplus_player
     clear_emails
-    signoff_link=all(:link, 'Abmelden').first
+    signoff_link=first(:link, 'Abmelden')
     signoff_link.click
     accept_js_alert
+    # if the above fails without a dialog your application.js might be broken,
+    # start a local server and check your console to figure out why.
     page.must_have_content "#{@player.name} wurde abgemeldet"
     within 'table#my_inscriptions' do
       page.must_have_content surplus_player.long_name

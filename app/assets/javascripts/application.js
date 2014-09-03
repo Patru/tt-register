@@ -8,4 +8,4 @@
 //= require jquery_ujs
 //= require ttreg
 // require_tree .
-//= require jquery.ui.all
+//= require jquery-ui
