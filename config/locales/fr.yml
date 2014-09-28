@@ -275,10 +275,10 @@ fr:
   new_enrollment: Nouvelle inscription
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
-    Merci pour ton intérêt au %{tour_name}.
+    %{thanks_for_interest}.
     C'est le bon endroit pour inscrire toi ou d'autres joueurs pour le tournoi. Pour ça
     nous avons besoin d'une adresse e-mail en tout cas, mais on peut aussi créer une inscription sans une licence.
-  create_new_incription: "Composer un nouveau formulaire d'inscription"
+  create_new_inscription: "Composer un nouveau formulaire d'inscription"
   create_and_confirm: créer le formulaire d'inscription et confirmer l'adresse e-mail
   processing: traitement au cours ...
   licence: numéro de licence

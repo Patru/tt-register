@@ -23,8 +23,8 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
   
   def sw_content
     p t :dear_chap
-    p t :thanks_and_purpose, tour_name: tournament.name
-    h2 t :create_new_incription
+    p t :thanks_and_purpose, thanks_for_interest: tournament.thanks_for_interest_localized
+    h2 t :create_new_inscription
     inscription_form t :create_and_confirm
     help_links
   end

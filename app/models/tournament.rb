@@ -62,4 +62,14 @@ class Tournament < ActiveRecord::Base
       last_inscription_time
     end
   end
+
+  def thanks_for_interest_localized
+    thanks_sym = ("thanks_for_interest_"+I18n.locale.to_s).to_sym
+    thanks = send(thanks_sym)
+    if thanks
+      return thanks
+    else
+      return "Danke für dein interesse am " + name
+    end
+  end
 end
