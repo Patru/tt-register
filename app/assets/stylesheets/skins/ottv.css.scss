@@ -2,6 +2,7 @@ $theme_bg_color:rgb(90, 105, 142);
 $header_color:white;
 $link_color:lighten($theme_bg_color, 35);
 @mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
+  background: $col2;    /* fallback for IE up to 9 */
   background: linear-gradient($orientation, $col1, $col2, $col3);
   background: -webkit-linear-gradient($orientation, $col1 0%, $col2 20%, $col2 95%, $col3 100%);
   background: -moz-linear-gradient($orientation, $col1 0%, $col2 20%, $col2 95%, $col3 100%);
