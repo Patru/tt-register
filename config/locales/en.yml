@@ -150,6 +150,7 @@ en:
   sign_off: sign off
   sign_off_player: ! '%{player} has been signed off'
   really_sign_off: Do you really want to sign off %{player}?
+  sign_off_inscription_expired: Inscription period expired, sign off by E-Mail
   waiting_list:
     full: "Waiting list %{day}: %{series}; currently number %{number} on the list"
     short: Waiting list

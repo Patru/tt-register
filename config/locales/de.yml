@@ -360,6 +360,7 @@ de:
   sign_off: Abmelden
   sign_off_player: ! '%{player} wurde abgemeldet'
   really_sign_off: Soll %{player} wirklich abgemeldet werden?
+  sign_off_inscription_expired: Anmeldefrist abgelaufen, per E-Mail abmelden
   waiting_list:
     full: "Warteliste %{day}: %{series}; aktuell Nummer %{number} auf der Liste"
     short: Warteliste

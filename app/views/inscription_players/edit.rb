@@ -26,8 +26,12 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
         end
       end
     end
-    button_to(t(:sign_off),  @inscription_player, :method => :delete,
-        :confirm => t(:really_sign_off, player: @inscription_player.player.long_name)) unless @inscription_player.new_record?
+    if not @inscription_player.all_series_past_end_of_inscriptions?
+      button_to(t(:sign_off),  @inscription_player, :method => :delete,
+          :confirm => t(:really_sign_off, player: @inscription_player.player.long_name)) unless @inscription_player.new_record?
+    else
+      button_to(t(:sign_off_inscription_expired), email_form_path, :method => :get)
+    end
     waiting_list
   end
 end

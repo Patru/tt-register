@@ -349,6 +349,7 @@ fr:
   sign_off: désinscrire
   sign_off_player: ! '%{player} a été désinscrit'
   really_sign_off: Vraiment désinscrire  %{player}?
+  sign_off_inscription_expired: Le delai d'inscriptions est passé, désinscrire par E-Mail
   waiting_list:
     full: "Liste d'attente %{day}: %{series}; au moment numéro %{number} sur la liste"
     short: liste d'attente

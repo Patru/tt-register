@@ -67,8 +67,12 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       input :type => "submit", :value => method_name
     end
     if @inscription.own_inscription then
-      button_to(t('button.sign_off_own'),  @inscription.own_inscription, :method => :delete,
-          :confirm => t('confirm.sign_off_own'))
+      if not @inscription.own_inscription.all_series_past_end_of_inscriptions?
+        button_to(t('button.sign_off_own'),  @inscription.own_inscription, :method => :delete,
+            :confirm => t('confirm.sign_off_own'))
+      else
+        button_to(t(:sign_off_inscription_expired), email_form_path, :method => :get)
+      end
       waiting_list
     end
     render_players(t('title.further_inscriptions'), @inscription.inscription_players_without_self)
@@ -132,8 +136,12 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
       td ins_player.inscribed_for
       if @inscription.id == session[:id] or @admin then
         td do
-          link_to(lightning_image, ins_player, :confirm => t(:really_sign_off, player: ins_player.player.long_name),
-              :method => :delete, :title => t(:sign_off))
+          if (not ins_player.all_series_past_end_of_inscriptions?) or @admin
+            link_to(lightning_image, ins_player, :confirm => t(:really_sign_off, player: ins_player.player.long_name),
+                    :method => :delete, :title => t(:sign_off))
+          else
+            link_to(lightning_image, email_form_path, :title => t(:sign_off_inscription_expired))
+          end
         end
         td do
           link_to(right_arrow_image, own_inscription_path(:id => ins_player.id),

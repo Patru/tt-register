@@ -91,4 +91,8 @@ class TournamentDay < ActiveRecord::Base
       last_inscription_time
     end
   end
+
+  def accepting_inscriptions?
+    accept_inscriptions_until > Time.now
+  end
 end

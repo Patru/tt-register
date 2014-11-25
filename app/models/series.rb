@@ -167,7 +167,7 @@ class Series < ActiveRecord::Base
   end
 
   def accepting_inscriptions?
-    tournament_day.accept_inscriptions_until > Time.now
+    tournament_day.accepting_inscriptions?
   end
 
 private

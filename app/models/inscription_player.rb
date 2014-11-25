@@ -123,10 +123,11 @@ class InscriptionPlayer < ActiveRecord::Base
       seri=pl_ser.series
       if not seri.accepting_inscriptions?
         errors.add :base, I18n.t('error.accept_inscription_until', series: seri.long_name,
-                                                    time: I18n.l(seri.tournament_day.accept_inscriptions_until, format: :short))
+                                    time: I18n.l(seri.tournament_day.accept_inscriptions_until, format: :short))
       end
       if not seri.may_be_played_by? self.player
         errors.add :base, ("#{self.player.name} darf Serie #{seri.long_name} nicht spielen!")
+        # translate!
       end
     end
   end
@@ -147,5 +148,15 @@ class InscriptionPlayer < ActiveRecord::Base
 
   def build_series_map
     inscription.tournament.build_series_map player
+  end
+
+  def all_series_past_end_of_inscriptions?
+    day_ids=series.collect{|seri| seri.tournament_day_id}.uniq
+    TournamentDay.find(day_ids).each do |tour_day|
+      if tour_day.accepting_inscriptions?
+        return false
+      end
+    end
+    return true
   end
 end
