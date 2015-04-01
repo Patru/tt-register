@@ -173,7 +173,7 @@ Capistrano::Configuration.instance.load do
 
         template = <<-EOF
 production:
-  address: "smtp.alwaysdata.com"
+  address: "smtp-soft-werker.alwaysdata.net"
   port: 587
   domain: "tt.soft-werker.ch"
   user_name: "zueri.open@tt.soft-werker.ch"

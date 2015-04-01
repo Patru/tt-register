@@ -17,9 +17,9 @@ set :use_sudo, false
 
 set :user, 'soft-werker'
 
-role :web, "ssh.alwaysdata.com"                          # Your HTTP server, Apache/etc
-role :app, "ssh.alwaysdata.com"                          # This may be the same as your `Web` server
-role :db,  "ssh.alwaysdata.com", :primary => true        # This is where Rails migrations will run
+role :web, "ssh-soft-werker.alwaysdata.net"                          # Your HTTP server, Apache/etc
+role :app, "ssh-soft-werker.alwaysdata.net"                          # This may be the same as your `Web` server
+role :db,  "ssh-soft-werker.alwaysdata.net", :primary => true        # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 # If you are using Passenger mod_rails uncomment this:
