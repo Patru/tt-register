@@ -19,6 +19,8 @@ require "minitest/pride"
 
 I18n.locale = :en
 
+Capybara.save_and_open_page_path=Rails.root.join("screenshots")
+
 class ActiveSupport::TestCase
   fixtures :all
 end
@@ -56,7 +58,7 @@ class ActionDispatch::IntegrationTest
     clear_emails
     within "form#new_inscription" do
       fill_in "Name", with: name
-      fill_in "E-Mail", with: email
+      fill_in "inscription[email]", with: email
       click_button 'Einschreibung erstellen und E-Mail Adresse bestätigen'
     end
     open_email email

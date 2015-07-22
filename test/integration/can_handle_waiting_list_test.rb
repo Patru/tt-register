@@ -7,7 +7,7 @@ describe "CanHandleWaitingList Integration Test" do
   self.use_transactional_fixtures = false
   before do
     @player = players :ten
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :webkit
     new_inscription_with_name(NICK_NAME)
     add_player_to_inscription(@player)
   end
