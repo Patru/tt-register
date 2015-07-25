@@ -17,7 +17,7 @@ require "minitest/matchers"
 require "minitest/rails/capybara"
 require "minitest/pride"
 
-I18n.locale = :en
+I18n.locale = :de
 
 Capybara.save_and_open_page_path=Rails.root.join("screenshots")
 
@@ -39,13 +39,20 @@ class ActionDispatch::IntegrationTest
     email.body.match(/http:\/\/[^\/]+(\S+)/)[1]
   end
 
-  def new_inscription_with_licence(licence, email=DUMMY_EMAIL)
+  def set_browser_language language
+    if Capybara.current_driver == :webkit
+      page.driver.header 'Accept-Language', language
+    end
+  end
+
+  def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language=:de)
+    set_browser_language language
     visit "/"
     clear_emails
     within "form#new_inscription" do
       fill_in "inscription_licence", with: licence
       fill_in "inscription[email]", with: email
-      click_button 'Einschreibung erstellen'
+      click_button 'create_inscription'
     end
     open_email email
     visit email_link_path(current_email)
@@ -53,14 +60,19 @@ class ActionDispatch::IntegrationTest
     page.must_have_content "#{@inscription.name} ist jetzt eingeloggt!"
   end
 
-  def new_inscription_with_name(name, email=DUMMY_EMAIL)
+  def new_inscription_with_name(name, email=DUMMY_EMAIL, language=:de)
+    set_browser_language language
     visit "/"
     clear_emails
     within "form#new_inscription" do
-      fill_in "Name", with: name
+      fill_in "inscription[name]", with: name
       fill_in "inscription[email]", with: email
-      click_button 'Einschreibung erstellen und E-Mail Adresse bestätigen'
+      click_button 'create_inscription'
     end
+    within 'div.notice' do
+      # this will wait long enough for the mail to "arrive" even in webkit
+    end
+    all_emails.count.must_equal 1
     open_email email
     visit email_link_path(current_email)
     @inscription = Inscription.where(name: name).first

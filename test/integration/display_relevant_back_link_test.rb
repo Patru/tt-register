@@ -21,9 +21,8 @@ describe "Display relevant back link Integration Test" do
   end
 
   describe "for users with an active inscription" do
-    NICK_NAME = "this is another nickname"
     before do
-      new_inscription_with_name(NICK_NAME)
+      new_inscription_with_name("this is another nickname")
     end
     it "will show a link to the inscription" do
       within "div#navigation" do

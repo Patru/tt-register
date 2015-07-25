@@ -12,17 +12,15 @@ describe 'Language behavior Integration Test' do
   end
 
   it 'will retain a language specified in the session' do
-#    page.driver.header 'ACCEPT_LANGUAGE', 'de-DE'# pointless in webkit-driver, strange
- #   page.driver.header 'refrer', 'bla bla de-DE'
-  #  page.driver.header 'nana', 'bla bla -DE'
+    set_browser_language 'de-DE'   # used to be pointless in webkit-driver, no more ...
     visit root_path
     page.must_have_content "Lieber Tischtennisfreund"
-#    page.driver.header 'ACCEPT_LANGUAGE', 'fr-FR'
-#    visit root_path
-#    page.must_have_content "Cher ami pongiste"
+    page.driver.header 'ACCEPT_LANGUAGE', 'fr-FR'
+    visit root_path
+    page.must_have_content "Cher ami pongiste"
     page.driver.header 'ACCEPT_LANGUAGE', 'en-GB'
     visit root_path
-    page.wont_have_content "Dear table tennis chap"
+    page.must_have_content "Dear table tennis chap"
     page.must_have_selector "#language"
     page.select('Français', from: 'language')
     page.must_have_content "Cher ami pongiste"

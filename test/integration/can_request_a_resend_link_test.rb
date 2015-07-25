@@ -3,9 +3,8 @@ require "test_helper"
 
 # To be handled correctly this spec must end with "Integration Test"
 describe "CanRequestAResendLink Integration Test" do
-  NICK_NAME = "Mein Spitzname"
   before do
-    new_inscription_with_name(NICK_NAME)
+    new_inscription_with_name("Mein Spitzname")
   end
   it "can request a new link" do
     click_link "... und Tschüss, genug angemeldet für heute"

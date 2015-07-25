@@ -1,21 +1,21 @@
 one:
   id: 1
   tournament_id: 1
-  day: <%=Date.parse('Saturday').to_s%>
+  day: <%=(Date.parse('Saturday')+7).to_s%>
   max_inscriptions: 19
   series_per_day: 2
 
 two:
   id: 2
   tournament_id: 1
-  day: <%=(Date.parse('Saturday')+1).to_s%>
+  day: <%=(Date.parse('Saturday')+8).to_s%>
   max_inscriptions: 7
   series_per_day: 3
 
 three:
   id: 3
   tournament_id: 2
-  day: <%=(Date.parse('Saturday')+1).to_s%>
+  day: <%=(Date.parse('Saturday')+8).to_s%>
   max_inscriptions: 7
   series_per_day: 3
   last_inscription_time: <%=Time.now.utc-100%>

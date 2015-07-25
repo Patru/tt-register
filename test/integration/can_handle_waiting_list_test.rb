@@ -3,12 +3,11 @@ require "test_helper"
 
 # To be handled correctly this spec must end with "Integration Test"
 describe "CanHandleWaitingList Integration Test" do
-  NICK_NAME = "this is a nickname"
   self.use_transactional_fixtures = false
   before do
     @player = players :ten
     Capybara.current_driver = :webkit
-    new_inscription_with_name(NICK_NAME)
+    new_inscription_with_name("this is a nickname")
     add_player_to_inscription(@player)
   end
 
@@ -35,9 +34,19 @@ describe "CanHandleWaitingList Integration Test" do
     surplus_player = players :eleven
     add_player_to_inscription surplus_player
     clear_emails
+=begin
+  later versions of capybara would allow this:
+   msg=page.accept_confirm do
+      signoff_link=first(:link, 'Abmelden')
+      signoff_link.click
+    end
+=end
+  msg=page.driver.accept_modal :confirm do
     signoff_link=first(:link, 'Abmelden')
     signoff_link.click
-    accept_js_alert
+  end
+  msg.must_equal "Soll Noch Nicht Angemeldet wirklich abgemeldet werden?"
+
     # if the above fails without a dialog your application.js might be broken,
     # start a local server and check your console to figure out why.
     page.must_have_content "#{@player.name} wurde abgemeldet"

@@ -126,6 +126,7 @@ class InscriptionsController < ApplicationController
     @inscription = Inscription.new(params[:inscription])
     @inscription.email.strip!
     if not @inscription.valid? then
+      # This would not work, tell the user why this is
       @tournaments = Tournament.all
       render :action => :new
       return
@@ -163,6 +164,7 @@ class InscriptionsController < ApplicationController
         format.html { redirect_to(@inscription) }
         format.xml  { render :xml => @inscription, :status => :created, :location => @inscription }
       else
+        flash[:notice] = 'inscription could not be saved'
         @tournaments = Tournament.all
         format.html { render :action => "new" }
         format.xml  { render :xml => @inscription.errors, :status => :unprocessable_entity }

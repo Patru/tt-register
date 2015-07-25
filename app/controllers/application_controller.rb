@@ -67,7 +67,7 @@ protected
   end
 
   def set_locale
-    #puts "prefering #{env["HTTP_ACCEPT_LANGUAGE"]} as interaction languages"
+    # puts "prefering #{env["HTTP_ACCEPT_LANGUAGE"]} as interaction languages"
     preferred_locale = http_accept_language.preferred_language_from I18n.available_locales
     compatible_locale = http_accept_language.compatible_language_from I18n.available_locales
     #puts "I18n.locale was #{I18n.locale}"
