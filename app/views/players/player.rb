@@ -3,7 +3,7 @@
 class Views::Players::Player < Views::Layouts::SWPage
   def player_form(button_text)
     labeled_table_form @player, [:licence, :name, :first_name, :club, :ranking, :woman_ranking,
-                                 :category, :rank, :woman_rank, :canton, :rv], button_text
+                                 :category, :rank, :woman_rank, :elo, :canton, :rv], button_text
   end
 
   def show_menu

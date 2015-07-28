@@ -2,6 +2,7 @@
 .rvmrc
 .ruby-version
 .bundle
+.vagrant
 .sass-cache
 db/*.sqlite3
 log/*.log

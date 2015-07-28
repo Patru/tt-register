@@ -216,7 +216,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     return unless @admin
     li do
       text "Administration"
-      ul do
+      ul id: 'admin' do
         li do
           link_to("Einschreibungen", inscriptions_path)
         end

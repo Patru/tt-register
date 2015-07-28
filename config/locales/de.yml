@@ -209,10 +209,11 @@ de:
     errors:
       full_messages:
         format: "%{attribute} %{message}"
-        template:
-          header:
-            one: "1 Fehler verhindert, dass %{model} gespeichert werden kann."
-            other: "%{count} Fehler verhindern, dass %{model} gespeichert werden kann."
+      template:
+        header:
+          one: "1 Fehler verhindert, dass %{model} gespeichert werden kann."
+          other: "%{count} Fehler verhindern, dass %{model} gespeichert werden kann."
+        body: "Folgende Fehler müssen korrigiert werden:"
   attributes:
     name: Name
     max_ranking: "Klassierung bis"
@@ -273,6 +274,7 @@ de:
     thanks_for_interest_de: "Danke für dein Interesse ..."
     thanks_for_interest_fr: "Merci pour ton intérêt ..."
     thanks_for_interest_en: "Thanks for your interest ..."
+    elo: "Elo Punkte"
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen

@@ -82,18 +82,24 @@ class AdminsController < ApplicationController
   # POST /admins
   # POST /admins.xml
   def create
-    @new_admin = Admin.new(params[:admin])
-    @new_admin.hash_password
-    sender_admin = @admin?@admin:@new_admin
+    new_admin = Admin.new(params[:admin])
+    new_admin.hash_password
+    sender_admin = @admin?@admin:new_admin
 
     respond_to do |format|
-      if @new_admin.save
-        Confirmation.admin_confirmation(@new_admin, sender_admin, request.host_with_port).deliver
+      if new_admin.save
+        Confirmation.admin_confirmation(new_admin, sender_admin, request.host_with_port).deliver
         flash[:notice] = 'Admin gespeichert, Login Link per E-mail zugestellt.'
         @admins = Admin.all
-        format.html { redirect_to :action => :index }
-        format.xml  { render :xml => @admin, :status => :created, :location => @admin }
+        if @admins.count == 1
+          format.html { redirect_to root_path }
+          format.xml  { render :xml => @admin, :status => :created, :location => @admin }
+        else
+          format.html { redirect_to :action => :index }
+          format.xml  { render :xml => @admin, :status => :created, :location => @admin }
+        end
       else
+        @admin=new_admin
         format.html { render :action => "new" }
         format.xml  { render :xml => @admin.errors, :status => :unprocessable_entity }
       end

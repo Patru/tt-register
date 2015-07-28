@@ -200,7 +200,7 @@ class PlayerImporter
     @imported = @imported+1
     pl = Player.new
     pl.rv, pl.club, pl.first_name, pl.name, pl.category, ranking,
-    woman_ranking, stt_ranking, licence, pl.canton = row
+    woman_ranking, stt_ranking, licence, pl.canton, elo = row
     pl.licence = licence.to_i
     pl.ranking = ranking.to_i
     pl.woman_ranking = woman_ranking.to_i if woman_ranking.to_i > 0
@@ -208,6 +208,7 @@ class PlayerImporter
       pl.rank = stt_ranking.to_i if pl.male?
       pl.woman_rank = stt_ranking.to_i if pl.female?
     end
+    pl.elo=elo.to_i
     player = @existing_players_map.delete(pl.licence)
     if player != nil then
       attrs = pl.attributes

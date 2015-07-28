@@ -56,17 +56,17 @@ class Views::Players::Index < Views::Players::Player
     
   def sw_content
     table do
-      headers :name, :first_name, :club, :licence, :ranking, :woman_ranking, :category
+      headers :name, :first_name, :club, :licence, :ranking, :woman_ranking, :elo, :category
       filter_row
 
       for player in @players do
-        player_row player, :name, :first_name, :club, :licence, :disp_ranking, :disp_woman_ranking, :category
+        player_row player, :name, :first_name, :club, :licence, :disp_ranking, :disp_woman_ranking, :elo, :category
       end
     end
     p do
       text " Insgesamt #{@player_count} Spieler in der Selektion"
-      form_tag  url_for(:controller => 'players', :action => 'upload', :only_path => true), :method => "post",
-          :enctype => "multipart/form-data" do
+      form_tag  url_for(:controller => 'players', :action => 'upload', :only_path => true),
+                :method => "post",id: 'upload', :enctype => "multipart/form-data" do
         label "STT Spieler mit Daten aus Datei ersetzen", :for => :file_players
         input :type => :file, :name => :players, :accept => "csv"
         submit_tag "Senden" #input :type => :submit, :value => "Senden"
