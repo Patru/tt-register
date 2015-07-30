@@ -3,6 +3,10 @@
 class Verifiers::CheckBoxCategories <Verifiers::RadioButtonTimeBox
   include Verifiers::SeriesCountVerifier
 
+  def self.display_name
+    "Check boxes"
+  end
+
   def layouter
     Views::Widget::SeriesBox
   end

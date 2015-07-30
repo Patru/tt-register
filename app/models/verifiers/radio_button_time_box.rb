@@ -1,8 +1,13 @@
 # encoding: UTF-8
+require_relative 'layouter_parser'
 
 # Initial verifier demonstrating the use of the layouter, series_parser and verifier factory methods
-class Verifiers::RadioButtonTimeBox
+class Verifiers::RadioButtonTimeBox < Verifiers::LayouterParser
   include Verifiers::SeriesCountVerifier
+
+  def self.display_name
+    "Radio buttons"
+  end
 
   # returns a class, for use with the Erector::widget-method
   def layouter

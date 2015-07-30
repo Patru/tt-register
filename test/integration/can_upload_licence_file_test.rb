@@ -65,7 +65,7 @@ describe "Can Upload Licence File Integration Test" do
         click_link 'Details anzeigen'
       end
     end
-    save_page 'uploads.html'
+
     within find('tr', text: 'Elo Punkte') do
       page.wont_have_text '973'
       page.must_have_text '0'

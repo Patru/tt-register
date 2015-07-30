@@ -88,6 +88,28 @@ class ActionDispatch::IntegrationTest
     click_button 'Anmelden'
     click_link @inscription.name
   end
+
+  def select_option_value(id, options = {})
+    field = options[:from]
+    option_xpath = "//*[@id='#{field}']/option[#{id}]"
+    find(:xpath, option_xpath).select_option
+  end
+
+  def fill_date_in(field_prefix, options = {})
+    date = options[:with]
+    select date.year.to_s,          :from => "#{field_prefix}_1i"
+    select_option_value date.month, :from => "#{field_prefix}_2i"
+    select date.day.to_s,           :from => "#{field_prefix}_3i"
+  end
+
+  def fill_date_time_in(field_prefix, options = {})
+    date = options[:with]
+    select date.year.to_s,          :from => "#{field_prefix}_1i"
+    select_option_value date.month, :from => "#{field_prefix}_2i"
+    select date.day.to_s,           :from => "#{field_prefix}_3i"
+    select date.strftime("%H"),     :from => "#{field_prefix}_4i"
+    select date.strftime("%M"),     :from => "#{field_prefix}_5i"
+  end
 end
 
 class ActiveSupport::TestCase
@@ -128,7 +150,9 @@ def create_initial_admin_and_login
     fill_in 'admin[password]', with: 'none'
     click_button 'Erzeugen'
   end
-  Admin.first.wont_be_nil
+  within 'div.notice' do      # wait for next page before testing this (with webkit)
+    Admin.first.wont_be_nil
+  end
   all_emails.count.must_equal 1
   open_email 'nowhere@near.or.far'
   visit email_link_path(current_email)

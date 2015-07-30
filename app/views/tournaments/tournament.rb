@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require 'verifiers/all'
 
 class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@table_fields=[:tour_id, :name, :date, :organiser]
@@ -23,7 +24,23 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   def table_fields
     @@table_fields
   end
-  
+
+  def field_for_symbol(builder, object, symb)
+    if symb == :layout_parser
+      tr do
+        td :class => 'label' do
+          puts "for some reason #{symb} becomes #{label_text(builder, symb)}"
+          rawtext builder.label(symb, label_text(builder, symb))
+        end
+        td do
+          rawtext builder.collection_select(symb, Verifiers::LayouterParser.all_subclasses, :name, :display_name)
+        end
+      end
+    else
+      super
+    end
+  end
+
   def tournament_form(button_text)
     labeled_table_form @tournament, fields, button_text
   end

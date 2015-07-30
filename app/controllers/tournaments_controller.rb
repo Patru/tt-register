@@ -48,7 +48,7 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
-        flash[:notice] = 'Tournament was successfully created.'
+        flash[:notice] = 'Tournament was created successfully.'
         format.html { redirect_to(@tournament) }
         format.xml  { render :xml => @tournament, :status => :created, :location => @tournament }
       else

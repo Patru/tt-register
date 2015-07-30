@@ -9,7 +9,7 @@ describe "inscription can switch licence Integration Test" do
     skip
   end
 
-  it "allows an administrator to modifie a users name, licence and e-mail in an inscription" do
+  it "allows an administrator to modify a users name, licence and e-mail in an inscription" do
     skip
   end
 end

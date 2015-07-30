@@ -40,7 +40,6 @@ describe "Can Upload Licence File Integration Test" do
       fill_in 'admin[email]', with: 'nowhere@near.or.far'
       click_button 'Erzeugen'
     end
-    save_page "admins.html"
     within 'div.errorExplanation' do
       page.must_have_text 'Passwort muss ausgefüllt werden'
     end

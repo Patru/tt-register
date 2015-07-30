@@ -438,14 +438,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       rawtext f.error_messages
       table do
         symbols.each do |symb|
-          case object.class.columns_hash[symb.to_s].type
-            when :datetime
-              form_datetime_select f, symb
-            when :boolean
-              form_checkbox_field f, symb
-            else
-              form_text_field f, symb
-          end
+          field_for_symbol(f, object, symb)
         end
       end
       p do
@@ -453,7 +446,18 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       end
     end
   end
-  
+
+  def field_for_symbol(builder, object, symb)
+    case object.class.columns_hash[symb.to_s].type
+      when :datetime
+        form_datetime_select builder, symb
+      when :boolean
+        form_checkbox_field builder, symb
+      else
+        form_text_field builder, symb
+    end
+  end
+
   def stylo_image
     @@stylo_image ||= capture{image_tag("stylo.png", :border=>0)}
   end
