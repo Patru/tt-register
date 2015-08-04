@@ -21,3 +21,16 @@ two:
   organiser: TTVKZ
   stylesheet: /assets/zkm.css
   layout_parser: Verifiers::SeriesCountVerifier
+
+twelve:
+  id: 3
+  tour_id: TWE
+  name: Dummy Twelve-Tournament
+  <% date = Date.parse('Saturday')+14 %>
+  <% follo = date.day+1 %>
+  date: <%= date.strftime "%-d./#{follo}. %B %Y" %>
+  info_link: http://www.ysz.ch
+  organiser: YSZ
+  stylesheet: /assets/ysz.css
+  layout_parser: Verifiers::CheckBoxCategories
+  sender_email: turniere@ysz.ch

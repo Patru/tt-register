@@ -41,6 +41,7 @@ class Player < ActiveRecord::Base
     info = letter_ranking(ranking)
     info << "/#{letter_ranking woman_ranking}" unless male?
     info << "; " << category unless category.eql? "-"
+    info << " (Elo #{elo})"
     return info
   end
   

@@ -49,7 +49,7 @@ class Views::Series::List < Erector::Widget
   end
   
   def content
-    table do
+    table class:'series-list' do
       headers @@columns
       for series in @series do
         row series

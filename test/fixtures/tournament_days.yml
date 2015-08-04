@@ -19,3 +19,17 @@ three:
   max_inscriptions: 7
   series_per_day: 3
   last_inscription_time: <%=Time.now.utc-100%>
+
+twelveSa:
+  id: 4
+  tournament_id: 3
+  day: <%=(Date.parse('Saturday')+14).to_s%>
+  max_inscriptions: 10
+  series_per_day: 1
+
+twelveSo:
+  id: 5
+  tournament_id: 3
+  day: <%=(Date.parse('Saturday')+15).to_s%>
+  max_inscriptions: 11
+  series_per_day: 1

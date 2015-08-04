@@ -120,3 +120,25 @@ too_late:
   min_ranking: 1
   max_ranking: 20
   category: ""
+
+<% saturday = Date.parse('Saturday')+14 %>
+<% sunday = saturday+1 %>
+all_sa:
+  id: 12
+  series_name: EloSa
+  tournament_day_id: 4
+  long_name: Elo Zwölferserie (passend)
+  start_time: <%=saturday%> 11:00
+  min_ranking: 1
+  max_ranking: 20
+  category: ""
+
+all_so:
+  id: 13
+  series_name: EloSo
+  tournament_day_id: 5
+  long_name: Elo Zwölferserie (passend)
+  start_time: <%=sunday%> 09:00
+  min_ranking: 1
+  max_ranking: 20
+  category: ""

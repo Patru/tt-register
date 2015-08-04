@@ -68,6 +68,15 @@ describe "Twelve Tournament Integration Test" do
     add_tournament_day('Dummy Twelve Turnier', saturday, friday, 10)
     add_tournament_day('Dummy Twelve Turnier', sunday, friday, 20)
     within 'div#navigation ul#admin' do
+      click_link 'Turniertage'
+    end
+    within 'div#maincontent table' do
+      within find('tr', text: '2015-09-05') do
+        click_link 'Details anzeigen'
+        page.wont_have_text 'Serien'
+      end
+    end
+    within 'div#navigation ul#admin' do
       click_link 'Serien'
     end
     within 'div#menu ul.context' do
@@ -76,7 +85,7 @@ describe "Twelve Tournament Integration Test" do
     within 'form.new_series' do
       select "Dummy Twelve Turnier: Samstag (#{day_string})", from:'series_tournament_day_id'
       fill_in 'Kürzel:', with: 'MDAllSa'
-      fill_in 'Name:', with:'Alle'
+      fill_in 'Name:', with:'Zwölferserien Samstag'
       select '11', from:'series_start_time_4i'
       select '00', from:'series_start_time_5i'
       fill_in 'Klassierung von:', with:'1'
@@ -85,12 +94,27 @@ describe "Twelve Tournament Integration Test" do
 
       select "Dummy Twelve Turnier: Sonntag (#{sunday.strftime('%d.%m.%Y')})", from:'series_tournament_day_id'
       fill_in 'Kürzel:', with: 'MDAllSo'
-      fill_in 'Name:', with:'Alle'
+      fill_in 'Name:', with:'Zwölferserien Sonntag'
       select '09', from:'series_start_time_4i'
       select '00', from:'series_start_time_5i'
       fill_in 'Klassierung von:', with:'1'
       fill_in 'series_max_ranking', with:'20'
       click_button 'speichern'
+    end
+    within 'div#navigation ul#admin' do
+      click_link 'Turniertage'
+    end
+    within 'div#maincontent table' do
+      within find('tr', text: '2015-09-05') do
+        click_link 'Details anzeigen'
+      end
+    end
+    save_page "series.html"
+    within 'h2' do
+      page.must_have_text 'Serien für diesen Tag'
+    end
+    within 'table.series-list' do
+      page.must_have_text 'Zwölferserien Samstag'
     end
   end
 

@@ -24,6 +24,7 @@ three:
   first_name: Zworgel
   club: meiner
   ranking: 6
+  elo: 1050
 
 four:
   id: 4

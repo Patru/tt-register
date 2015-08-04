@@ -45,14 +45,16 @@ class ActionDispatch::IntegrationTest
     end
   end
 
-  def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language=:de)
+  def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language=:de, tournament=nil)
     set_browser_language language
     visit "/"
     clear_emails
     within "form#new_inscription" do
       fill_in "inscription_licence", with: licence
       fill_in "inscription[email]", with: email
+      select tournament, from: 'inscription[tournament_id]' unless tournament.nil?
       click_button 'create_inscription'
+      save_page "intro.html"
     end
     open_email email
     visit email_link_path(current_email)
