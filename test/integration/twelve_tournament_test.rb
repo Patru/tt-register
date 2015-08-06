@@ -71,7 +71,7 @@ describe "Twelve Tournament Integration Test" do
       click_link 'Turniertage'
     end
     within 'div#maincontent table' do
-      within find('tr', text: '2015-09-05') do
+      within find('tr', text: saturday.to_s) do
         click_link 'Details anzeigen'
         page.wont_have_text 'Serien'
       end
@@ -105,7 +105,7 @@ describe "Twelve Tournament Integration Test" do
       click_link 'Turniertage'
     end
     within 'div#maincontent table' do
-      within find('tr', text: '2015-09-05') do
+      within find('tr', text: saturday.to_s) do
         click_link 'Details anzeigen'
       end
     end

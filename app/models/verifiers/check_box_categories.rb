@@ -23,8 +23,10 @@ class Verifiers::CheckBoxCategories <Verifiers::RadioButtonTimeBox
       series_info.each do |ser_id, checked|
         ser_ids << ser_id.to_i if checked == "1"
       end
-      series_info[:partner_ids].each do  |ser_id, partner_id|
-        partner_ids[ser_id.to_i]=partner_id.to_i unless partner_id.blank?
+      unless series_info[:partner_ids].nil?
+        series_info[:partner_ids].each do  |ser_id, partner_id|
+          partner_ids[ser_id.to_i]=partner_id.to_i unless partner_id.blank?
+        end
       end
       sel_days[day_id.to_i] = ser_ids unless ser_ids.blank?
     end

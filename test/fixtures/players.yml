@@ -16,6 +16,7 @@ two:
   club: heiner
   ranking: 1
   woman_ranking: 3
+  elo: 660;
 
 three:
   id: 3
@@ -24,7 +25,6 @@ three:
   first_name: Zworgel
   club: meiner
   ranking: 6
-  elo: 1050
 
 four:
   id: 4
@@ -97,3 +97,12 @@ eleven:
   first_name: Einer
   club: keiner
   ranking: 1
+
+twelve:
+  id: 12
+  licence: 700034
+  name: Inscriptions
+  first_name: Freefrom
+  club: meiner
+  ranking: 6
+  elo: 1050

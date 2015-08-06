@@ -9,3 +9,9 @@ two:
   tournament_id: 1
   name: thy name
   email: emil@detektive.de
+
+three:
+  id: 3
+  tournament_id: 1
+  name: no name
+  email: I_coud_be@not.here

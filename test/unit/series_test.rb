@@ -135,4 +135,16 @@ class SeriesTest < ActiveSupport::TestCase
     o60=series(:too_late)
     o60.wont_be :accepting_inscriptions?
   end
+
+  describe "handling of Elo series" do
+    it "can specify a minimal Elo number for inscription" do
+      elo_sa = series(:elo_sa)
+      elo_sa.min_elo=999
+      elo_sa.slack_elo=200
+      elo_sa.slack_days=10
+
+      elo_so = series(:elo_so)
+      elo_so.max_elo=1500
+    end
+  end
 end

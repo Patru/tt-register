@@ -12,7 +12,8 @@ class Views::InscriptionPlayers::Edit < Views::InscriptionPlayers::InscriptionPl
   end
 
   def sw_content
-    form_tag :controller => 'inscription_players', :action => 'update_series' do
+    form_tag({:controller => 'inscription_players', :action => 'update_series'},
+             id:'enrollments') do
       rawtext error_messages_for(:inscription_player, :header_message => t('error.header.save_inscription'),
                                  :message => t('error.problems_occurred'))
       widget tournament.layouter, {:player => @inscription_player.player,

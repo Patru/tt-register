@@ -17,6 +17,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
         input[:checked] = "checked"
       end
     else
+      puts "the series #{serie.translated_name} should not be playable"
       input[:disabled]="disabled"
       td[:class] = 'forbidden_series'
     end
@@ -33,6 +34,10 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
       end
       singles.each do |serie|
         input_opts, td_opts = cb_options serie
+        if input_opts[:disabled]
+          puts "disabled with options #{input_opts}"
+          puts "and td-options #{td_opts}"
+        end
         td td_opts do
           input(input_opts)
           label :for => input_opts[:id] do

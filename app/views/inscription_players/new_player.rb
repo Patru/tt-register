@@ -8,7 +8,7 @@ class Views::InscriptionPlayers::NewPlayer < Views::InscriptionPlayers::Inscript
   end
 
   def sw_content
-    form_tag(:controller => 'inscription_players', :action => 'enroll') do
+    form_tag({:controller => 'inscription_players', :action => 'enroll'}, id:'enrollments') do
       rawtext error_messages_for(:inscription_player, header_message: t('error.header.save_inscription'),
                                  message: t('error.problems_occurred'))
       if @sel_series then

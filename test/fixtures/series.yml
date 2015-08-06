@@ -123,7 +123,7 @@ too_late:
 
 <% saturday = Date.parse('Saturday')+14 %>
 <% sunday = saturday+1 %>
-all_sa:
+elo_sa:
   id: 12
   series_name: EloSa
   tournament_day_id: 4
@@ -132,8 +132,10 @@ all_sa:
   min_ranking: 1
   max_ranking: 20
   category: ""
+  min_elo: 999
+  type: EloSeries
 
-all_so:
+elo_so:
   id: 13
   series_name: EloSo
   tournament_day_id: 5
@@ -142,3 +144,5 @@ all_so:
   min_ranking: 1
   max_ranking: 20
   category: ""
+  max_elo: 1500
+  type: EloSeries

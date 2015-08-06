@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150727161546) do
+ActiveRecord::Schema.define(:version => 20150804155834) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(:version => 20150727161546) do
     t.integer  "tournament_day_id", :default => 1
     t.integer  "use_rank"
     t.string   "type"
+    t.integer  "min_elo"
+    t.integer  "max_elo"
+    t.integer  "slack_elo"
+    t.integer  "slack_days"
   end
 
   create_table "tournament_days", :force => true do |t|
