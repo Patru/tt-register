@@ -29,7 +29,6 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
     if symb == :layout_parser
       tr do
         td :class => 'label' do
-          puts "for some reason #{symb} becomes #{label_text(builder, symb)}"
           rawtext builder.label(symb, label_text(builder, symb))
         end
         td do

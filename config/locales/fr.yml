@@ -34,6 +34,7 @@ fr:
       default: ! '%d.%m.%Y'
       long: ! '%e %B %Y'
       short: ! '%e %b'
+      abr_day: ! '%a'
     month_names:
     -
     - janvier
@@ -505,3 +506,8 @@ fr:
     elite: Élite
   tournament_days:
     download: Télécharger tous les inscriptions de ce jour
+  elo_nav_name: Elo à 12
+  elo_12_min: série Elo à douze à partir de %{min}
+  elo_12_max: série Elo à douze jusqu'à %{max}
+  elo_12_min_max: série Elo à douze dès %{min} à %{max}
+  elo_12: série Elo à douze

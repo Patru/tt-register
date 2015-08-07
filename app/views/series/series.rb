@@ -21,6 +21,8 @@ class Views::Series::Series < Views::Layouts::SWPage
         form_time_select f, :start_time
         form_text_field f, :min_ranking
         form_text_field f, :max_ranking
+        form_text_field f, :min_elo
+        form_text_field f, :max_elo
         form_text_field f, :category
         form_text_field f, :sex
         form_text_field f, :use_rank

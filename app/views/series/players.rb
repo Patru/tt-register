@@ -6,19 +6,22 @@ class Views::Series::Players < Views::Layouts::SWPage
   end
 
   def sw_content
-    table do
-      headers :name, :club, :ranking
-      @play_series.each do |play_ser|
-        tr do
-          td play_ser.list_name
-          td play_ser.list_club
-          td :align => "right" do 
-            text play_ser.display_ranking
+    table class: 'players_list' do
+      headers @series.table_headers
+
+      tbody do
+        @play_series.each do |play_ser|
+          tr do
+            td play_ser.list_name
+            td play_ser.list_club
+            td :align => "right" do
+              text play_ser.display_ranking
+            end
           end
         end
-      end
-      @open.each do |players|
-        list_of_open players
+        @open.each do |players|
+          list_of_open players
+        end
       end
     end
   end

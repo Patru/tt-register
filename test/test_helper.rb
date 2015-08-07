@@ -40,9 +40,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def set_browser_language language
-    if Capybara.current_driver == :webkit
-      page.driver.header 'Accept-Language', language
-    end
+    page.driver.header 'Accept-Language', language
   end
 
   def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language=:de, tournament=nil)

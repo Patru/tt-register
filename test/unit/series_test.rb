@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require 'test_helper'
 
 class SeriesTest < ActiveSupport::TestCase
@@ -145,6 +146,50 @@ class SeriesTest < ActiveSupport::TestCase
 
       elo_so = series(:elo_so)
       elo_so.max_elo=1500
+    end
+    describe "naming in german" do
+      before do
+        @was=I18n.locale
+        I18n.locale=:de
+        @elo_sa = series(:elo_sa)
+      end
+      after do
+        I18n.locale=@was
+      end
+
+      it "abbreviates for navigation" do
+        @elo_sa.nav_name.must_equal "Elo 12-er Sa"
+      end
+    end
+
+    describe "naming in french" do
+      before do
+        @was=I18n.locale
+        I18n.locale=:fr
+        @elo_sa = series(:elo_so)
+      end
+      after do
+        I18n.locale=@was
+      end
+
+      it "abbreviates for navigation" do
+        @elo_sa.nav_name.must_equal "Elo à 12 dim"
+      end
+    end
+  end
+
+  describe "naming in english" do
+    before do
+      @was=I18n.locale
+      I18n.locale=:en
+      @elo_sa = series(:elo_so)
+    end
+    after do
+      I18n.locale=@was
+    end
+
+    it "abbreviates for navigation" do
+      @elo_sa.nav_name.must_equal "Elo twelver Sun"
     end
   end
 end

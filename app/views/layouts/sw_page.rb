@@ -242,11 +242,11 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     seris = tournament.tournament_days.collect{|tour_day| tour_day.series}.flatten.sort
     li do
       text t(:series_plural)
-      ul do
+      ul id:'series' do
         seris.each do |seri|
           li do
 #            url_for(:controller => "series", :id => seri.id, :action => "players")
-            link_to seri.translated_name, series_players_path(id: seri.id)
+            link_to seri.nav_name, series_players_path(id: seri.id)
                     # :controller => "series", :id => seri.id, :action => "players"
           end
         end
@@ -311,10 +311,12 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     if fields.length == 1 and fields[0].is_a?(Array)
       fields = fields[0]
     end
-    tr do 
-      fields.each do |field|
-        th :align => 'left' do 
-          text column_header(field)
+    thead do
+      tr do
+        fields.each do |field|
+          th :align => 'left' do
+            text column_header(field)
+          end
         end
       end
     end

@@ -3,12 +3,24 @@
 class EloSeries < Series
   def translated_name
     if min_elo
-      return "#{long_name} ab Elo #{min_elo}"
+      if max_elo
+        return I18n.translate :elo_12_min_max, min:min_elo, max:max_elo
+      else
+        return I18n.translate :elo_12_min, min:min_elo
+      end
     elsif max_elo
-      return "#{long_name} bis Elo #{max_elo}"
+      return I18n.translate :elo_12_max, max:max_elo
     else
-      return long_name
+      return I18n.translate :elo_12
     end
+  end
+
+  def table_headers
+    [:name, :club, :elo]
+  end
+
+  def nav_name
+    @nav_name ||= "#{I18n.t(:elo_nav_name)} #{I18n.localize(tournament_day.day, format: :abr_day)}"
   end
 
   def may_be_played_by?(player)
@@ -28,5 +40,10 @@ class EloSeries < Series
       end
     end
     return true
+  end
+
+  # does not sound clean, but I lack the time for a decent abstraction TODO
+  def ranking_of(player)
+    player.elo
   end
 end

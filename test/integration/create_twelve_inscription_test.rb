@@ -11,11 +11,11 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
     page.must_have_text 'Elo 1050'
     within 'div#maincontent' do
       within find('tr', text: 'Samstag') do
-        page.must_have_text 'ab Elo 999'
-        check "Elo Zwölferserie (passend) ab Elo 999"
+        page.must_have_text 'ab 999'
+        check "Elo Zwölferserie ab 999"
       end
       within find('tr', text: 'Sonntag') do
-        page.must_have_text 'bis Elo 1500'
+        page.must_have_text 'bis 1500'
       end
       page.wont_have_text 'Weitere Anmeldungen'
       click_button 'Anmelden'
@@ -37,10 +37,18 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
                                            # where it would be  must_have_selector 'checkbox', disabled:true
       end
       within find('tr', text:'Sonntag') do
-        check 'Elo Zwölferserie (passend) bis Elo 1500'
+        check 'Elo Zwölferserie bis 1500'
       end
       click_button 'Anmelden'
-      save_page "twelve_inscription.html"
     end
+    within 'ul#series' do
+      click_link 'Elo 12-er Sa'
+    end
+    within 'table.players_list tbody' do
+      within find('tr', text: 'Freefrom') do
+        page.must_have_text '1050'
+      end
+    end
+    save_page "twelve_inscription.html"
   end
 end

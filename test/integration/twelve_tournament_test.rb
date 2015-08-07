@@ -12,13 +12,7 @@ def add_tournament_day(tournament_name, day, inscription_day, max)
     select tournament_name, from: 'tournament_day[tournament_id]'
     fill_date_in 'tournament_day_day', with: day
     fill_in 'tournament_day_max_inscriptions', with: max
-    select inscription_day.day, from: 'tournament_day_last_inscription_time_3i'
-    within '#tournament_day_last_inscription_time_2i' do
-      find("option[value='#{inscription_day.month}']").click
-    end
-    select inscription_day.year, from: 'tournament_day_last_inscription_time_1i'
-    select 20, from: 'tournament_day_last_inscription_time_4i'
-    select "00", from: 'tournament_day_last_inscription_time_5i'
+    fill_date_time_in 'tournament_day_last_inscription_time', with:inscription_day
     click_button 'Erzeugen'
   end
   within 'div.notice' do
@@ -37,6 +31,7 @@ describe "Twelve Tournament Integration Test" do
 
   after do
     Capybara.use_default_driver
+    set_browser_language 'de-CH'
   end
   it "can can set up a tournament" do
     within 'div#navigation ul#admin' do
@@ -84,23 +79,39 @@ describe "Twelve Tournament Integration Test" do
     end
     within 'form.new_series' do
       select "Dummy Twelve Turnier: Samstag (#{day_string})", from:'series_tournament_day_id'
-      fill_in 'Kürzel:', with: 'MDAllSa'
+      fill_in 'Kürzel:', with: 'EloSa'
       fill_in 'Name:', with:'Zwölferserien Samstag'
       select '11', from:'series_start_time_4i'
       select '00', from:'series_start_time_5i'
       fill_in 'Klassierung von:', with:'1'
       fill_in 'series_max_ranking', with:'20'
+      fill_in 'Elo Minimum:', with:999
+      fill_in 'Typ', with: 'Elo'
       click_button 'speichern'
+    end
 
+    page.must_have_text "Serie erfolgreich erzeugt."
+    page.must_have_text "999"
+    within 'div#navigation ul#admin' do
+      click_link 'Serien'
+    end
+    within 'div#menu ul.context' do
+      click_link 'Neue Serie'
+    end
+    within 'form.new_series' do
       select "Dummy Twelve Turnier: Sonntag (#{sunday.strftime('%d.%m.%Y')})", from:'series_tournament_day_id'
-      fill_in 'Kürzel:', with: 'MDAllSo'
+      fill_in 'Kürzel:', with: 'EloSo'
       fill_in 'Name:', with:'Zwölferserien Sonntag'
       select '09', from:'series_start_time_4i'
       select '00', from:'series_start_time_5i'
       fill_in 'Klassierung von:', with:'1'
       fill_in 'series_max_ranking', with:'20'
+      fill_in 'Elo Maximum', with:1500
+      fill_in 'Typ', with: 'Elo'
       click_button 'speichern'
     end
+    page.must_have_text "1500"
+    page.must_have_text "Serie erfolgreich erzeugt."
     within 'div#navigation ul#admin' do
       click_link 'Turniertage'
     end
@@ -109,13 +120,47 @@ describe "Twelve Tournament Integration Test" do
         click_link 'Details anzeigen'
       end
     end
-    save_page "series.html"
     within 'h2' do
       page.must_have_text 'Serien für diesen Tag'
     end
     within 'table.series-list' do
       page.must_have_text 'Zwölferserien Samstag'
     end
-  end
+    within 'div#navigation ul#admin' do
+      click_link 'Turniere'
+    end
+    within 'div#maincontent table' do
+      within find('tr', text: "Dummy Twelve Turnier") do
+        click_link "Details anzeigen"
+      end
+    end
+    within 'ul#series' do
+      page.must_have_text 'Elo 12-er Sa'
+      click_link 'Elo 12-er Sa'
+    end
+    save_page "series_sa.html"
+    within 'div#maincontent table thead' do
+      page.wont_have_css('th', text:"Klassierung")
+      page.must_have_css 'th', text:'Elo Punkte'
+    end
+    page.must_have_text 'Elo Zwölferserie ab 999'
+    within 'ul#series' do
+      page.must_have_text 'Elo 12-er Sa'
+      set_browser_language 'fr-fr'
+      click_link 'Elo 12-er Sa'
+    end
+    save_page 'elo_fr.html'
+    page.must_have_text 'série Elo à douze à partir de 999'
+    within 'ul#series' do
+      page.must_have_text 'Elo à 12 sam'
+      set_browser_language 'en-gb'
+      click_link 'Elo à 12 sam'
+    end
+    save_page 'elo_en.html'
+    page.must_have_text 'Elo twelve series higher than 999'
+    within 'ul#series' do
+      page.must_have_text 'Elo twelver Sat'
+    end
 
+  end
 end

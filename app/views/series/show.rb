@@ -12,8 +12,8 @@ class Views::Series::Show < Views::Series::Series
   def sw_content
     table do 
       labeled_data(:tournament_day_id, @series.tournament_day.display_name)
-      [:series_name, :long_name, :start_time_text, :min_ranking, :max_ranking, :category, :sex,
-       :use_rank, :type].each do |field|
+      [:series_name, :long_name, :start_time_text, :min_ranking, :max_ranking, :min_elo, :max_elo,
+       :category, :sex, :use_rank, :type].each do |field|
         show_data_item(@series, field)
       end
     end

@@ -34,6 +34,7 @@ de:
       default: ! '%d.%m.%Y'
       long: ! '%e. %B %Y'
       short: ! '%e. %b'
+      abr_day: ! '%a'
     month_names:
     -
     - Januar
@@ -216,7 +217,6 @@ de:
         body: "Folgende Fehler müssen korrigiert werden:"
   attributes:
     name: Name
-    max_ranking: "Klassierung bis"
     max_inscriptions: "Einschreibungen maximal"
     logo: "Logo"
     stylesheet: "Stylesheet"
@@ -251,6 +251,8 @@ de:
     start_time_text: "Start"
     min_ranking: "Klassierung von"
     max_ranking: "bis"
+    min_elo: "Elo Minimum"
+    max_elo: "Elo Maximum"
     category: "Alterskategorie"
     sex: "Geschlecht"
     tour_id: "Turnier-ID"
@@ -566,3 +568,8 @@ de:
     elite: Elite
   tournament_days:
     download: Alle Anmeldungen dieses Tages als Datei
+  elo_nav_name: Elo 12-er
+  elo_12_min: Elo Zwölferserie ab %{min}
+  elo_12_max: Elo Zwölferserie bis %{max}
+  elo_12_min_max: Elo Zwölferserie von %{min} bis %{max}
+  elo_12: Elo Zwölferserie

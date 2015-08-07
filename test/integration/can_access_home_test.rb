@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), "..", "test_helper")
 describe "can access home Integration Test" do
   it "can access the root path" do
     visit root_path
+    save_page "intro.html"
     within "div#header_logo" do
       page.must_have_link "home_link", {href: "/"}
     end

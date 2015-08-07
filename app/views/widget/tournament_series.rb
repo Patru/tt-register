@@ -77,10 +77,12 @@ class Views::Widget::TournamentSeries < Erector::Widget
   end
 
   def headers
-    tr do
-      th t('header.day')
-      th t('header.time')
-      th t('header.series')
+    thead do
+      tr do
+        th t('header.day')
+        th t('header.time')
+        th t('header.series')
+      end
     end
   end
 
@@ -102,8 +104,10 @@ class Views::Widget::TournamentSeries < Erector::Widget
     input :type => "hidden", :name => "inscription_id", :value => @inscription.id
     table do
       headers
-      @inscription.tournament.tournament_days.sort{|td1, td2| td1.day <=> td2.day}.each do |tday|
-        day_display tday
+      tbody do
+        @inscription.tournament.tournament_days.sort{|td1, td2| td1.day <=> td2.day}.each do |tday|
+          day_display tday
+        end
       end
     end
   end

@@ -6,7 +6,6 @@ class TournamentTest < ActiveSupport::TestCase
     @tournament = Tournament.new
   end
   it "must know about the end of inscriptions" do
-    puts @tournament.methods.select do |m| m.match /accept/ end.to_a
     @tournament.must_respond_to :accept_inscriptions_until
   end
 

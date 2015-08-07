@@ -9,12 +9,16 @@ class Series < ActiveRecord::Base
   validates_numericality_of :min_ranking, :max_ranking
   validate :category_is_valid
   attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
-                  :category, :sex, :use_rank, :start_time
+                  :category, :sex, :use_rank, :start_time, :min_elo, :max_elo
 
   def category_is_valid
     self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?
   end
-  
+
+  def table_headers
+    [:name, :club, :ranking]
+  end
+
   def normalize_start_time
     hour=start_time.hour
     min=start_time.min
@@ -164,6 +168,10 @@ class Series < ActiveRecord::Base
     translate_series_tag trans_name, :women
     translate_series_tag trans_name, :elite
     @trans_names[I18n.locale]=trans_name
+  end
+
+  def nav_name
+    translated_name
   end
 
   def accepting_inscriptions?
