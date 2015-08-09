@@ -33,6 +33,7 @@ fr:
     formats:
       default: ! '%d.%m.%Y'
       long: ! '%e %B %Y'
+      long_time: ! '%e %B %Y %H:%Mh'
       short: ! '%e %b'
       abr_day: ! '%a'
     month_names:
@@ -511,3 +512,4 @@ fr:
   elo_12_max: série Elo à douze jusqu'à %{max}
   elo_12_min_max: série Elo à douze dès %{min} à %{max}
   elo_12: série Elo à douze
+  series_start: "Début: %{series_start}"

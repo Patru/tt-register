@@ -2,6 +2,7 @@ en:
   date:
     formats:
       abr_day: "%a"
+      long_time: ! '%B %e %Y %H:%Mh'
   activerecord:
     errors:
       full_messages:
@@ -304,3 +305,4 @@ en:
   elo_12_max: Elo twelve series lower than %{max}
   elo_12_min_max: Elo twelve series von %{min} bis %{max}
   elo_12: Elo twelve series
+  series_start: "Beginning: %{series_start}"

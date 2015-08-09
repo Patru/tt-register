@@ -37,3 +37,73 @@ eight:
   id: 8
   inscription_id: 2
   player_id: 9
+
+nine:
+  id: 9
+  inscription_id: 4
+  player_id: 1
+
+ten:
+  id: 10
+  inscription_id: 4
+  player_id: 3
+
+eleven:
+  id: 11
+  inscription_id: 4
+  player_id: 4
+
+twelve:
+  id: 12
+  inscription_id: 4
+  player_id: 5
+
+thirteen:
+  id: 13
+  inscription_id: 4
+  player_id: 6
+
+fourteen:
+  id: 14
+  inscription_id: 4
+  player_id: 7
+
+fifteen:
+  id: 15
+  inscription_id: 4
+  player_id: 8
+
+sixteen:
+  id: 16
+  inscription_id: 4
+  player_id: 9
+
+seventeen:
+  id: 17
+  inscription_id: 4
+  player_id: 10
+
+eighteen:
+  id: 18
+  inscription_id: 4
+  player_id: 11
+
+nineteen:
+  id: 19
+  inscription_id: 4
+  player_id: 12
+
+twenty:
+  id: 20
+  inscription_id: 4
+  player_id: 13
+
+twentyone:
+  id: 21
+  inscription_id: 4
+  player_id: 14
+
+twentytwo:
+  id: 22
+  inscription_id: 4
+  player_id: 15

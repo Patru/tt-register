@@ -52,7 +52,6 @@ class ActionDispatch::IntegrationTest
       fill_in "inscription[email]", with: email
       select tournament, from: 'inscription[tournament_id]' unless tournament.nil?
       click_button 'create_inscription'
-      save_page "intro.html"
     end
     open_email email
     visit email_link_path(current_email)
@@ -168,6 +167,11 @@ end
 
 def accept_js_alert
   page.driver.browser.switch_to.alert.accept
+end
+
+# cheapskate pseudo-assertion, turn into proper assertion/expectation
+def preserve_order(page, earlier, later)
+  page.body.index(earlier.to_s).must_be :<, page.body.index(later.to_s)
 end
 
 class Capybara::Session

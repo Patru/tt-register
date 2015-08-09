@@ -6,7 +6,7 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
 
   end
 
-  it 'can create an inscription' do
+  it 'can create an inscription from scratch' do
     new_inscription_with_licence(700034, DUMMY_EMAIL, :de, 'Dummy Twelve-Tournament')
     page.must_have_text 'Elo 1050'
     within 'div#maincontent' do
@@ -49,6 +49,5 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
         page.must_have_text '1050'
       end
     end
-    save_page "twelve_inscription.html"
   end
 end

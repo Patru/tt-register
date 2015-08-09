@@ -6,6 +6,9 @@ class Views::Series::Players < Views::Layouts::SWPage
   end
 
   def sw_content
+    div class:'series-start' do
+      text t :series_start, series_start:I18n.localize(@series.day_time, format: :long)
+    end
     table class: 'players_list' do
       headers @series.table_headers
 

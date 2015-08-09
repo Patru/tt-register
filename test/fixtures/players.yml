@@ -7,6 +7,7 @@ one:
   first_name: Zwurgel
   club: keiner
   ranking: 1
+  elo: 993
 
 two:
   id: 2
@@ -16,7 +17,7 @@ two:
   club: heiner
   ranking: 1
   woman_ranking: 3
-  elo: 660;
+  elo: 660
 
 three:
   id: 3
@@ -25,6 +26,7 @@ three:
   first_name: Zworgel
   club: meiner
   ranking: 6
+  elo: 777
 
 four:
   id: 4
@@ -34,6 +36,7 @@ four:
   club: keiner
   ranking: 3
   woman_ranking: 9
+  elo: 810
 
 five:
   id: 5
@@ -43,6 +46,7 @@ five:
   club: keiner
   ranking: 18
   rank: 50
+  elo: 1600
 
 six:
   id: 6
@@ -53,6 +57,7 @@ six:
   ranking: 10
   woman_ranking: 17
   woman_rank: 20
+  elo: 1200
 
 seven:
   id: 7
@@ -64,6 +69,7 @@ seven:
   woman_ranking: 20
   rank: 51
   woman_rank: 2
+  elo: 645
 
 eight:
   id: 8
@@ -73,6 +79,7 @@ eight:
   club: keiner
   ranking: 15
   rank: 48
+  elo: 1700
 
 nine:
   id: 9
@@ -81,6 +88,7 @@ nine:
   first_name: Singl
   club: keiner
   ranking: 5
+  elo: 909
 
 ten:
   id: 10
@@ -89,6 +97,7 @@ ten:
   first_name: Noch Nicht
   club: keiner
   ranking: 1
+  elo: 630
 
 eleven:
   id: 11
@@ -97,6 +106,7 @@ eleven:
   first_name: Einer
   club: keiner
   ranking: 1
+  elo: 600
 
 twelve:
   id: 12
@@ -106,3 +116,30 @@ twelve:
   club: meiner
   ranking: 6
   elo: 1050
+
+thirteen:
+  id: 13
+  licence: 700035
+  name: Not exists
+  first_name: Me
+  club: meiner
+  ranking: 12
+  elo: 1300
+
+fourteen:
+  id: 14
+  licence: 700036
+  name: Not exists
+  first_name: You
+  club: meiner
+  ranking: 11
+  elo: 1270
+
+fifteen:
+  id: 15
+  licence: 700037
+  name: Not exists
+  first_name: Us
+  club: meiner
+  ranking: 10
+  elo: 1210

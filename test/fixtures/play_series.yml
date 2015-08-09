@@ -94,3 +94,57 @@ doubleMenNoPartner:
   inscription_player_id: 8
   series_id: 3
 
+elo1:
+  id: 19
+  inscription_player_id: 9
+  series_id: 12
+
+elo2:
+  id: 20
+  inscription_player_id: 10
+  series_id: 12
+
+elo3:
+  id: 21
+  inscription_player_id: 11
+  series_id: 12
+
+elo4:
+  id: 22
+  inscription_player_id: 12
+  series_id: 12
+
+elo5:
+  id: 23
+  inscription_player_id: 13
+  series_id: 12
+
+elo6:
+  id: 24
+  inscription_player_id: 14
+  series_id: 12
+
+elo7:
+  id: 25
+  inscription_player_id: 15
+  series_id: 12
+
+elo8:
+  id: 26
+  inscription_player_id: 16
+  series_id: 12
+
+elo9:
+  id: 27
+  inscription_player_id: 17
+  series_id: 12
+
+elo10:
+  id: 28
+  inscription_player_id: 18
+  series_id: 12
+
+elo11:
+  id: 29
+  inscription_player_id: 19
+  series_id: 12
