@@ -33,6 +33,12 @@ group :test, :development do
   gem "capybara-webkit"
 end
 
+group :development do
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rbenv',   '~> 2.0', require: false
+end
+
 group :production do
   gem 'pg'
   gem 'libv8', "~>3.11.8.1"
