@@ -8,6 +8,7 @@ describe 'Language behavior Integration Test' do
   end
 
   after do
+    page.select('Deutsch', from: 'language')
     Capybara.use_default_driver
   end
 
@@ -15,10 +16,10 @@ describe 'Language behavior Integration Test' do
     set_browser_language 'de-DE'   # used to be pointless in webkit-driver, no more ...
     visit root_path
     page.must_have_content "Lieber Tischtennisfreund"
-    page.driver.header 'ACCEPT_LANGUAGE', 'fr-FR'
+    set_browser_language 'fr-FR'
     visit root_path
     page.must_have_content "Cher ami pongiste"
-    page.driver.header 'ACCEPT_LANGUAGE', 'en-GB'
+    set_browser_language 'en-GB'
     visit root_path
     page.must_have_content "Dear table tennis chap"
     page.must_have_selector "#language"
@@ -26,7 +27,7 @@ describe 'Language behavior Integration Test' do
     page.must_have_content "Cher ami pongiste"
     page.select('Deutsch', from: 'language')
     page.must_have_content "Lieber Tischtennisfreund"
-    # for a random reason I do not understand this language sticks around until the next :webkit-Test
-    # so we will make sure it is the default
+    # for a random reason I do not understand (well, probably session will keep track of it)
+    # this language sticks around until the next :webkit-Test so we make sure it is the default
   end
 end

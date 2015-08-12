@@ -22,7 +22,6 @@ describe "display list of players in Elo series properly Integration Test" do
   it "displays starting date and starting time" do
     elo_sa = series :elo_sa
     puts elo_sa.start_time
-    save_page "series_sa.html"
     page.must_have_text I18n.localize(elo_sa.day_time, format: '%e. %B %Y, %H:%M')
   end
 

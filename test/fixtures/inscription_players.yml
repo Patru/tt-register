@@ -91,19 +91,14 @@ eighteen:
 nineteen:
   id: 19
   inscription_id: 4
-  player_id: 12
+  player_id: 13
 
 twenty:
   id: 20
   inscription_id: 4
-  player_id: 13
+  player_id: 14
 
 twentyone:
   id: 21
-  inscription_id: 4
-  player_id: 14
-
-twentytwo:
-  id: 22
   inscription_id: 4
   player_id: 15

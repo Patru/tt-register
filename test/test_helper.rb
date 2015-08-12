@@ -43,7 +43,7 @@ class ActionDispatch::IntegrationTest
     page.driver.header 'Accept-Language', language
   end
 
-  def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language=:de, tournament=nil)
+  def new_inscription_with_licence(licence, email=DUMMY_EMAIL, language='de-CH', tournament=nil)
     set_browser_language language
     visit "/"
     clear_emails
@@ -56,6 +56,7 @@ class ActionDispatch::IntegrationTest
     open_email email
     visit email_link_path(current_email)
     @inscription = Inscription.where(licence: licence).first
+    save_page "logins_#{@inscription.name}.html"
     page.must_have_content "#{@inscription.name} ist jetzt eingeloggt!"
   end
 

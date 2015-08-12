@@ -124,6 +124,7 @@ de:
       invalid_format: hat ein ungültiges Format
       name_or_licence_filled: Name oder Lizenznummer müssen ausgefüllt werden
       must_be_in_licence_range: ist nicht zwischen 100000 und 999999
+      enrollment_without_series: Eine Anmeldung ohne Serien ist nicht möglich. Falls du jemanden abmelden möchtest so verwende bitte den entsprechenden Knopf.
   template:
       body: ! 'Bitte überprüfen Sie die folgenden Felder:'
       header:

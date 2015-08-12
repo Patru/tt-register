@@ -77,7 +77,8 @@ protected
     if session[:locale]
       puts "using session #{session[:locale]}"
     elsif compatible_locale
-      puts "using compatible #{compatible_locale}"
+      puts "using compatible #{compatible_locale}, u-prefs: #{http_accept_language.user_preferred_languages}"\
+           ", available: #{I18n.available_locales}, headers: #{request.headers['HTTP_ACCEPT_LANGUAGE']}"
     elsif preferred_locale
       puts "using preferred #{preferred_locale}"
     else

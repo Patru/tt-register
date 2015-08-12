@@ -8,11 +8,12 @@ describe "LocalizedSeriesMenu Integration Test" do
   end
 
   after do
+    page.select('Deutsch', from: 'language')
     Capybara.use_default_driver
   end
 
   it "must render the german series_menu by default" do
-    page.driver.header 'ACCEPT_LANGUAGE', 'de-DE'
+    set_browser_language 'de-DE'
     visit root_path
     within "div#navigation" do
       page.must_have_select "language", selected: 'Deutsch'

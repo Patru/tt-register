@@ -27,7 +27,7 @@ class InscriptionPlayersController < ApplicationController
       @inscription_player.waiting_list_entries.map{|entry| entry.number_in_list}
     end
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.rb
       format.xml  { render :xml => @inscription_player }
     end
   end
@@ -260,6 +260,11 @@ class InscriptionPlayersController < ApplicationController
       return
     end
     success_notice = t 'notice.enrollment_edited_success'
+    if params[:start].nil?
+      flash[:error]= t 'errors.messages.enrollment_without_series'
+      redirect_to @inscription_player
+      return
+    end
     days, partner_ids=@inscription_player.inscription.tournament.parse_series(params[:start])
     all_series = []
     days.each do |day_id, sers|

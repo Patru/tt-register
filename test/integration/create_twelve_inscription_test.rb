@@ -45,9 +45,21 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
       click_link 'Elo 12-er Sa'
     end
     within 'table.players_list tbody' do
-      within find('tr', text: 'Freefrom') do
-        page.must_have_text '1050'
+      within find('tr', text: 'Einer Zuviel') do
+        page.must_have_text '600'
       end
+    end
+    within 'ul.context' do
+      click_link 'Meine Einschreibung'
+    end
+    save_page "without_me.html"
+    within 'form.sers' do
+      uncheck "Elo Zwölferserie ab 999"
+      click_button 'Ändern'
+    end
+    save_page "with_inscription.html"
+    within 'div.errorExplanation' do
+      page.must_have_text 'Eine Anmeldung ohne Serien ist nicht möglich.'
     end
   end
 end

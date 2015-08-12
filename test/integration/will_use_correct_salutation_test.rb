@@ -8,6 +8,7 @@ describe "WillUseCorrectSalutation Integration Test" do
   end
 
   after do
+    page.select('Deutsch', from: 'language')
     Capybara.use_default_driver
   end
 

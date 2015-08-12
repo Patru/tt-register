@@ -24,7 +24,7 @@ twelveSa:
   id: 4
   tournament_id: 3
   day: <%=(Date.parse('Saturday')+14).to_s%>
-  max_inscriptions: 10
+  max_inscriptions: 13
   series_per_day: 1
 
 twelveSo:
