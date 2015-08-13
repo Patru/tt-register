@@ -16,6 +16,7 @@ en:
       name_or_licence_filled: Either the name or the licence number must be filled
       must_be_an_integer: must be an integer number
       must_be_in_licence_range: is not between 100000 and 999999
+      enrollment_without_series: An inscription without series is not possible. Use the corresponding button to sign off someone.
   attributes:
     name: Name
     max_ranking: "Classing to"

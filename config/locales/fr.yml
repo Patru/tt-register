@@ -132,6 +132,7 @@ fr:
       invalid_format: a un format invalide
       name_or_licence_filled: Nom ou numéro de licence doivent être remplis
       must_be_in_licence_range: n'est pas entre 100000 et 999999
+      enrollment_without_series: Une inscription sans series n'est pas possible. Utilise le bouton correspendant pour désinscrire quelqu'un.
     template:
       body: ! 'Veuillez vérifier les champs suivants : '
       header:
