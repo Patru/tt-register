@@ -269,6 +269,7 @@ fr:
     rv: AR
     only_show_playable_series: "Seulment afficher les séries jouables"
     elo: "Points Elo"
+    prov_cat: Série (provisoire)
   dear_chap: "Cher ami pongiste"
   privacy: "Protection des données"
   privacy_long: "Conditions de la protection des données"
@@ -513,4 +514,6 @@ fr:
   elo_12_max: série Elo à douze jusqu'à %{max}
   elo_12_min_max: série Elo à douze dès %{min} à %{max}
   elo_12: série Elo à douze
+  players:
+    series_name: Série %{index}
   series_start: "Début: %{series_start}"

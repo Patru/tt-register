@@ -138,7 +138,6 @@ describe "Twelve Tournament Integration Test" do
       page.must_have_text 'Elo 12-er Sa'
       click_link 'Elo 12-er Sa'
     end
-    save_page "series_sa.html"
     within 'div#maincontent table thead' do
       page.wont_have_css('th', text:"Klassierung")
       page.must_have_css 'th', text:'Elo Punkte'
@@ -149,14 +148,12 @@ describe "Twelve Tournament Integration Test" do
       set_browser_language 'fr-fr'
       click_link 'Elo 12-er Sa'
     end
-    save_page 'elo_fr.html'
     page.must_have_text 'série Elo à douze à partir de 999'
     within 'ul#series' do
       page.must_have_text 'Elo à 12 sam'
       set_browser_language 'en-gb'
       click_link 'Elo à 12 sam'
     end
-    save_page 'elo_en.html'
     page.must_have_text 'Elo twelve series higher than 999'
     within 'ul#series' do
       page.must_have_text 'Elo twelver Sat'

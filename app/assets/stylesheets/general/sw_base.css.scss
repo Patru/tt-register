@@ -340,3 +340,60 @@ div.series-start {
     weight: bold;
   }
 }
+
+$series_color:darkgreen;
+$series_width:3px;
+$series_radius:8px;
+table.players_list {
+  td {
+    padding: 1px, 2px;
+  }
+  td:nth-child(3) {
+    text-align: right;
+  }
+  border-spacing: 0px;
+  td.spacer {
+    width:30px;
+  }
+  tr.first td.spacer {
+    border: {
+      top-style: solid;
+      right-style: solid;
+      color: $series_color;
+      width: $series_width;
+      top-right-radius: $series_radius;
+    }
+  }
+  tr.last td.spacer {
+    border: {
+      bottom-style: solid;
+      right-style: solid;
+      color: $series_color;
+      width: $series_width;
+      bottom-right-radius: $series_radius;
+    }
+  }
+  td.series-name {
+    width: 120px;
+    border: {
+      bottom-style: solid;
+      color: $series_color;
+      width: $series_width;
+    }
+    color:$series_color;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  tr.in td.spacer {
+    border: {
+      right-style: solid;
+      color:$series_color;
+      width:$series_width;
+    }
+  }
+
+  td.small-vspace {
+    height:5px;
+  }
+}

@@ -1,32 +1,18 @@
 # encoding: UTF-8
+require 'views/series/listers/all'
 
 class Views::Series::Players < Views::Layouts::SWPage
+#  needs :series, :play_series, :open   #not sure we can have :inscription in here, kind of optional
   def page_title
     t('title.inscriptions_for', number:@play_series.size, series_name:@series.translated_name)
   end
 
-  def sw_content
-    div class:'series-start' do
-      text t :series_start, series_start:I18n.localize(@series.day_time, format: :long)
-    end
-    table class: 'players_list' do
-      headers @series.table_headers
+  def lister
+    make_class(:Views, :Series, :Listers, @series.lister)
+  end
 
-      tbody do
-        @play_series.each do |play_ser|
-          tr do
-            td play_ser.list_name
-            td play_ser.list_club
-            td :align => "right" do
-              text play_ser.display_ranking
-            end
-          end
-        end
-        @open.each do |players|
-          list_of_open players
-        end
-      end
-    end
+  def sw_content
+    widget lister, {series: @series, play_series: @play_series, open:@open}
   end
 
   def list_of_open players

@@ -279,6 +279,7 @@ de:
     thanks_for_interest_fr: "Merci pour ton intérêt ..."
     thanks_for_interest_en: "Thanks for your interest ..."
     elo: "Elo Punkte"
+    prov_cat: Serie (provisorisch)
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen
@@ -575,4 +576,6 @@ de:
   elo_12_max: Elo Zwölferserie bis %{max}
   elo_12_min_max: Elo Zwölferserie von %{min} bis %{max}
   elo_12: Elo Zwölferserie
+  players:
+    series_name: Serie %{index}
   series_start: "Beginn: %{series_start}"

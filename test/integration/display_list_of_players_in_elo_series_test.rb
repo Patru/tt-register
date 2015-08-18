@@ -16,7 +16,6 @@ describe "display list of players in Elo series properly Integration Test" do
       preserve_order(page, 1600, 1200)
       preserve_order(page, 1200, 993)
     end
-    save_page 'series_elo_sa.html'
   end
 
   it "displays starting date and starting time" do
@@ -25,5 +24,50 @@ describe "display list of players in Elo series properly Integration Test" do
     page.must_have_text I18n.localize(elo_sa.day_time, format: '%e. %B %Y, %H:%M')
   end
 
-  it "provides provisional grouping info"
+  it "provides provisional grouping info" do
+    within 'table.players_list' do
+      within 'thead' do
+        within 'th[colspan="2"]' do
+          page.must_have_text 'Serie (provisorisch)'
+        end
+      end
+      within 'tbody' do
+        page.must_have_css('tr.in', count:9)
+        within find('tr.first') do
+          page.must_have_text 'Ron Raiser'
+        end
+        within find('td.series-name') do
+          page.must_have_text "Serie 1"
+        end
+        within find('tr.last') do
+          page.must_have_text "Einer Zuviel"
+        end
+      end
+    end
+    set_browser_language 'fr-FR'
+    within 'ul#series' do
+      click_link 'Elo 12-er Sa'
+    end
+    within 'table.players_list' do
+      within 'thead th[colspan="2"]' do
+        page.must_have_text 'Série (provisoire)'
+      end
+      within 'tbody td.series-name' do
+        page.must_have_text 'Série 1'
+      end
+    end
+    set_browser_language 'en-GB'
+    within 'ul#series' do
+      click_link 'Elo à 12 sam'
+    end
+    save_page "prov_series.html"
+    within 'table.players_list' do
+      within 'thead th[colspan="2"]' do
+        page.must_have_text 'Series (provisional)'
+      end
+      within 'tbody td.series-name' do
+        page.must_have_text 'Series 1'
+      end
+    end
+  end
 end

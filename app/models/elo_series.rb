@@ -15,10 +15,6 @@ class EloSeries < Series
     end
   end
 
-  def table_headers
-    [:name, :club, :elo]
-  end
-
   def nav_name
     @nav_name ||= "#{I18n.t(:elo_nav_name)} #{I18n.localize(tournament_day.day, format: :abr_day)}"
   end
@@ -46,4 +42,9 @@ class EloSeries < Series
   def ranking_of(player)
     player.elo
   end
+
+  def lister
+    :Elo
+  end
+
 end

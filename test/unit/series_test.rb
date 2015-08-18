@@ -1,5 +1,6 @@
 #encoding: UTF-8
 require 'test_helper'
+require 'views/series/listers/standard'
 
 class SeriesTest < ActiveSupport::TestCase
   test "ranking of players in men series" do
@@ -190,6 +191,13 @@ class SeriesTest < ActiveSupport::TestCase
 
     it "abbreviates for navigation" do
       @elo_sa.nav_name.must_equal "Elo twelver Sun"
+    end
+  end
+
+  describe "listers" do
+    it "provides a default class for listing all players" do
+      Series.new.lister.wont_be_nil
+      series(:elite).lister.wont_equal series(:elo_so).lister
     end
   end
 end

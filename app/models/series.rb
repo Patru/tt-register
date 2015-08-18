@@ -183,6 +183,10 @@ class Series < ActiveRecord::Base
     DateTime.new(td_day.year, td_day.month, td_day.day, start_time.hour, start_time.min)
   end
 
+  def lister
+    :Standard
+  end
+
 private
   def translate_series_tag(str, tag)
     str.sub! I18n.t(tag, scope: [:series], locale: :de), I18n.t(tag, scope: [:series])
@@ -191,5 +195,6 @@ private
   def init
     @trans_names={}
   end
+
 end
 

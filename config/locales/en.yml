@@ -75,6 +75,7 @@ en:
     rv: RA
     only_show_playable_series: "Only show playable series"
     elo: "Elo points"
+    prov_cat: Series (provisional)
   dear_chap: "Dear table tennis chap"
   privacy: privacy
   email: e-mail
@@ -306,4 +307,6 @@ en:
   elo_12_max: Elo twelve series lower than %{max}
   elo_12_min_max: Elo twelve series von %{min} bis %{max}
   elo_12: Elo twelve series
+  players:
+    series_name: Series %{index}
   series_start: "Beginning: %{series_start}"
