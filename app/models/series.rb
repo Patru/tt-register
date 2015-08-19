@@ -9,7 +9,8 @@ class Series < ActiveRecord::Base
   validates_numericality_of :min_ranking, :max_ranking
   validate :category_is_valid
   attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
-                  :category, :sex, :use_rank, :start_time, :min_elo, :max_elo
+                  :category, :sex, :use_rank, :start_time, :min_elo, :max_elo, :sys_exp_link_de,
+                  :sys_exp_link_fr, :sys_exp_link_en
 
   def category_is_valid
     self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?
@@ -187,7 +188,18 @@ class Series < ActiveRecord::Base
     :Standard
   end
 
-private
+  def sys_exp_link
+    meth="sys_exp_link_#{I18n.locale}".to_sym
+    begin
+      res=send(meth)
+      return res unless res.nil?
+      sys_exp_link_de
+    rescue
+      sys_exp_link_de
+    end
+  end
+
+  private
   def translate_series_tag(str, tag)
     str.sub! I18n.t(tag, scope: [:series], locale: :de), I18n.t(tag, scope: [:series])
   end

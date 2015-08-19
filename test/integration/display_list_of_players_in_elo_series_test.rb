@@ -25,6 +25,9 @@ describe "display list of players in Elo series properly Integration Test" do
   end
 
   it "provides provisional grouping info" do
+    within 'div.series-start' do
+      page.must_have_link "Spielsystem", href:"http://www.ysz.ch/turnier/spielsystem_de.html"
+    end
     within 'table.players_list' do
       within 'thead' do
         within 'th[colspan="2"]' do
@@ -44,9 +47,13 @@ describe "display list of players in Elo series properly Integration Test" do
         end
       end
     end
+    save_page "prov_series.html"
     set_browser_language 'fr-FR'
     within 'ul#series' do
       click_link 'Elo 12-er Sa'
+    end
+    within 'div.series-start' do
+      page.must_have_link "mode des jeux"
     end
     within 'table.players_list' do
       within 'thead th[colspan="2"]' do
@@ -60,7 +67,9 @@ describe "display list of players in Elo series properly Integration Test" do
     within 'ul#series' do
       click_link 'Elo à 12 sam'
     end
-    save_page "prov_series.html"
+    within 'div.series-start' do
+      page.must_have_link "system of play"
+    end
     within 'table.players_list' do
       within 'thead th[colspan="2"]' do
         page.must_have_text 'Series (provisional)'

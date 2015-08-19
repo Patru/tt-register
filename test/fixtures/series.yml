@@ -134,6 +134,7 @@ elo_sa:
   category: ""
   min_elo: 999
   type: EloSeries
+  sys_exp_link_de: http://www.ysz.ch/turnier/spielsystem_de.html
 
 elo_so:
   id: 13
@@ -146,3 +147,6 @@ elo_so:
   category: ""
   max_elo: 1500
   type: EloSeries
+  sys_exp_link_de: http://www.ysz.ch/turnier/spielsystem_de.html
+  sys_exp_link_fr: http://www.ysz.ch/turnier/spielsystem_fr.html
+  sys_exp_link_en: http://www.ysz.ch/turnier/spielsystem_en.html

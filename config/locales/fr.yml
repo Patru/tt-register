@@ -516,4 +516,5 @@ fr:
   elo_12: série Elo à douze
   players:
     series_name: Série %{index}
+  system_explanation: mode des jeux
   series_start: "Début: %{series_start}"

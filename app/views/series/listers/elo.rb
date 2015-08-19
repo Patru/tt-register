@@ -11,6 +11,12 @@ module Views
         def content
           div class:'series-start' do
             text t :series_start, series_start:I18n.localize(@series.day_time, format: :long)
+            unless @series.sys_exp_link.nil?
+              text "; "
+              a href:@series.sys_exp_link, target:'_blank' do
+                text t :system_explanation
+              end
+            end
           end
           table class: 'players_list' do
             elo_header

@@ -38,6 +38,12 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
           label :for => input_opts[:id] do
             text serie.translated_name
           end
+          text " "
+          if serie.sys_exp_link
+            a href:serie.sys_exp_link, target:'_blank' do
+              text t :system_explanation
+            end
+          end
         end
       end
     end

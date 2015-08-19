@@ -183,14 +183,14 @@ class SeriesTest < ActiveSupport::TestCase
     before do
       @was=I18n.locale
       I18n.locale=:en
-      @elo_sa = series(:elo_so)
+      @elo_so = series(:elo_so)
     end
     after do
       I18n.locale=@was
     end
 
     it "abbreviates for navigation" do
-      @elo_sa.nav_name.must_equal "Elo twelver Sun"
+      @elo_so.nav_name.must_equal "Elo twelver Sun"
     end
   end
 
@@ -198,6 +198,24 @@ class SeriesTest < ActiveSupport::TestCase
     it "provides a default class for listing all players" do
       Series.new.lister.wont_be_nil
       series(:elite).lister.wont_equal series(:elo_so).lister
+    end
+  end
+
+  describe "system links" do
+    before do
+      I18n.locale=:de
+    end
+    after do
+      I18n.locale=:de
+    end
+    it 'can have system explanation links in 3 languages' do
+      elo_sa=series(:elo_sa)
+      elo_so=series(:elo_so)
+      elo_sa.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
+      elo_so.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
+      I18n.locale=:fr
+      elo_sa.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
+      elo_so.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_fr.html"
     end
   end
 end

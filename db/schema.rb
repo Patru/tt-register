@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150804155834) do
+ActiveRecord::Schema.define(:version => 20150819073956) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(:version => 20150804155834) do
     t.integer  "max_elo"
     t.integer  "slack_elo"
     t.integer  "slack_days"
+    t.string   "sys_exp_link_de"
+    t.string   "sys_exp_link_fr"
+    t.string   "sys_exp_link_en"
   end
 
   create_table "tournament_days", :force => true do |t|

@@ -309,4 +309,5 @@ en:
   elo_12: Elo twelve series
   players:
     series_name: Series %{index}
+  system_explanation: system of play
   series_start: "Beginning: %{series_start}"

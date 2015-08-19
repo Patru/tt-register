@@ -38,6 +38,9 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
       end
       within find('tr', text:'Sonntag') do
         check 'Elo Zwölferserie bis 1500'
+        save_page "series_mode.html"
+        page.must_have_link "Spielsystem"
+        page.find_link("Spielsystem")[:target].must_equal '_blank'
       end
       click_button 'Anmelden'
     end

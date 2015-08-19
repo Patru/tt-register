@@ -87,6 +87,9 @@ describe "Twelve Tournament Integration Test" do
       fill_in 'series_max_ranking', with:'20'
       fill_in 'Elo Minimum:', with:999
       fill_in 'Typ', with: 'Elo'
+      fill_in 'Spielsystem-Link Deutsch', with: 'http://www.ysz.ch/turnier/spielsystem_de.html'
+      fill_in 'Spielsystem-Link Französisch', with: 'http://www.ysz.ch/turnier/spielsystem_fr.html'
+      fill_in 'Spielsystem-Link Englisch', with: 'http://www.ysz.ch/turnier/spielsystem_ed.html'
       click_button 'speichern'
     end
 
