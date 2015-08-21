@@ -192,7 +192,7 @@ class Series < ActiveRecord::Base
     meth="sys_exp_link_#{I18n.locale}".to_sym
     begin
       res=send(meth)
-      return res unless res.nil?
+      return res unless res.blank?
       sys_exp_link_de
     rescue
       sys_exp_link_de

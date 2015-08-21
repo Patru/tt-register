@@ -25,7 +25,6 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
       fill_in 'crit[club]', with:'heiner'
       click_button 'Auswählen'
     end
-    save_page "player_list.html"
     within 'table.players' do
       click_link 'Zwargel Margel'
     end
@@ -38,7 +37,6 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
       end
       within find('tr', text:'Sonntag') do
         check 'Elo Zwölferserie bis 1500'
-        save_page "series_mode.html"
         page.must_have_link "Spielsystem"
         page.find_link("Spielsystem")[:target].must_equal '_blank'
       end
@@ -61,6 +59,18 @@ describe "Create and inscriction for a Twelve Tournament Integration Test" do
     end
     within 'div.errorExplanation' do
       page.must_have_text 'Eine Anmeldung ohne Serien ist nicht möglich.'
+    end
+    set_browser_language 'en-GB'
+    within 'ul.context' do
+      click_link 'Meine Einschreibung'
+    end
+    within "form.sers table" do
+      within  find('tr', text:'Saturday') do
+        page.must_have_link('system of play', href:'http://www.ysz.ch/turnier/spielsystem_de.html')
+      end
+      within  find('tr', text:'Sunday') do
+        page.must_have_link('system of play', href:'http://www.ysz.ch/turnier/spielsystem_en.html')
+      end
     end
   end
 end

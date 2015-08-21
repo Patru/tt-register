@@ -134,6 +134,7 @@ elo_sa:
   category: ""
   min_elo: 999
   type: EloSeries
+  sys_exp_link_fr: ""
   sys_exp_link_de: http://www.ysz.ch/turnier/spielsystem_de.html
 
 elo_so:

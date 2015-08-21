@@ -17,9 +17,8 @@ class AdminsControllerTest < ActionController::TestCase
       create_admin_user
     end
 
-    assert_not_nil(assigns(:new_admin))
     assert_not_nil(assigns(:admins))
-    assert_redirected_to admins_path
+    assert_redirected_to root_path
     assert !ActionMailer::Base.deliveries.empty?
     email = ActionMailer::Base.deliveries.last
     assert_equal [TEST_EMAIL], email.to

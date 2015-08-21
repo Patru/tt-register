@@ -47,7 +47,6 @@ describe "display list of players in Elo series properly Integration Test" do
         end
       end
     end
-    save_page "prov_series.html"
     set_browser_language 'fr-FR'
     within 'ul#series' do
       click_link 'Elo 12-er Sa'

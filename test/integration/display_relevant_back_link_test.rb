@@ -4,6 +4,9 @@ require "minitest-spec-context"
 
 # To be handled correctly this spec must end with "Integration Test"
 describe "Display relevant back link Integration Test" do
+  before do
+    set_browser_language 'de-CH'
+  end
   describe "for a user without inscription" do
     it "will show a new_inscription link while browsing series" do
       visit root_path

@@ -213,6 +213,9 @@ class SeriesTest < ActiveSupport::TestCase
       elo_so=series(:elo_so)
       elo_sa.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
       elo_so.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
+      I18n.locale=:en
+      elo_sa.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
+      elo_so.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_en.html"
       I18n.locale=:fr
       elo_sa.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_de.html"
       elo_so.sys_exp_link.must_equal "http://www.ysz.ch/turnier/spielsystem_fr.html"
