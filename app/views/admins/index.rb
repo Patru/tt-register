@@ -12,9 +12,11 @@ class Views::Admins::Index < Views::Layouts::SWPage
       end
       tbody do
         @admins.each do |admin|
-          data_fields admin, :name, :token, :password, :tournament
-          td do
-            link_to stylo_image, edit_admin_path(admin), :title => t(:change)
+          tr do
+            data_fields admin, :name, :token, :password, :tournament
+            td do
+              link_to stylo_image, edit_admin_path(admin), :title => t(:change)
+            end
           end
         end
       end
