@@ -33,7 +33,7 @@ class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.xml
   def index
-    @admins = Admin.find(:all)
+    @admins = Admin.all
 
     respond_to do |format|
       format.html # index.html.erb
