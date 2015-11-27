@@ -4,7 +4,8 @@ require 'base64'
 class InscriptionsController < ApplicationController
   before_filter :login_required,
                 :except => [:new, :create, :show, :login, :resend,
-                            :resend_link, :protection, :email_form, :mail_team]
+                            :resend_link, :protection, :email_form, :mail_team,
+                            :tour_with_id]
   layout nil
   # GET /inscriptions
   # GET /inscriptions.xml
@@ -35,7 +36,11 @@ class InscriptionsController < ApplicationController
   def new
     @tournaments = Tournament.all
     @inscription = Inscription.new
-    @inscription.tournament = Tournament.next
+    if session['tour_id'].nil?
+      @inscription.tournament = Tournament.next
+    else
+      @inscription.tournament = Tournament.where(id:session['tour_id']).first
+    end
 
     respond_to do |format|
       format.html # new.rb
@@ -313,6 +318,13 @@ class InscriptionsController < ApplicationController
         end
       end
     end
+  end
+
+  def with_id
+    tourn=Tournament.where(tour_id:params['id'].upcase).first
+    session[:tour_id]=tourn.id
+
+    redirect_to action:'new'
   end
 
   def host
