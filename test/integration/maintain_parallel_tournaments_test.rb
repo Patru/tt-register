@@ -37,5 +37,9 @@ describe "maintain parallel tournaments Integration Test" do
     within '#tournament_header' do
       page.must_have_text 'Ostschweizer Meisterschaft'
     end
+    within 'form#new_inscription' do
+      page.must_have_select('inscription_tournament_id', selected: 'Ostschweizer Meisterschaft')
+    end
+
   end
 end

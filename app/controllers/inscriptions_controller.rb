@@ -5,7 +5,7 @@ class InscriptionsController < ApplicationController
   before_filter :login_required,
                 :except => [:new, :create, :show, :login, :resend,
                             :resend_link, :protection, :email_form, :mail_team,
-                            :tour_with_id]
+                            :with_id]
   layout nil
   # GET /inscriptions
   # GET /inscriptions.xml
