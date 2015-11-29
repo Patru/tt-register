@@ -507,6 +507,8 @@ fr:
     mixed_doubles: Double mixte
     none: aucune
     elite: Élite
+    boys: garçons
+    girls: jeunes filles
   tournament_days:
     download: Télécharger tous les inscriptions de ce jour
   elo_nav_name: Elo à 12

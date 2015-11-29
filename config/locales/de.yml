@@ -572,6 +572,8 @@ de:
     mixed_doubles: Mixed Doppel
     none: keine
     elite: Elite
+    boys: Knaben
+    girls: Mädchen
   tournament_days:
     download: Alle Anmeldungen dieses Tages als Datei
   elo_nav_name: Elo 12-er

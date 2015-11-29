@@ -300,6 +300,8 @@ en:
     mixed_doubles: Mixed Doubles
     none: none
     elite: Elite
+    boys: boys
+    girls: girls
   tournament_days:
     download: Download all inscriptions for this day
   elo_nav_name: Elo twelver

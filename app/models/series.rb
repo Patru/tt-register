@@ -168,6 +168,8 @@ class Series < ActiveRecord::Base
     translate_series_tag trans_name, :men
     translate_series_tag trans_name, :women
     translate_series_tag trans_name, :elite
+    translate_series_tag trans_name, :boys
+    translate_series_tag trans_name, :girls
     @trans_names[I18n.locale]=trans_name
   end
 

@@ -79,6 +79,8 @@ class SeriesController < ApplicationController
         return MixedSeries.name
       elsif /elo/i.match ser_type
         return EloSeries.name
+      elsif /rlq/i.match ser_type
+        return RlqSeries.name
       end
     end
     nil
