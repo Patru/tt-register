@@ -1,0 +1,109 @@
+@mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
+  background: linear-gradient($orientation, $col1, $col2, $col3);
+  background: -webkit-linear-gradient($orientation, $col1, $col2, $col2, $col3);
+    background: -moz-linear-gradient($orientation, $col1, $col2, $col2, $col3);
+  background: -o-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -ms-linear-gradient($orientation, $col1, $col2, $col3);
+}
+@mixin radial-fade-background($col1, $col2) {
+  background: -webkit-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: -moz-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: -o-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: radial-gradient(ellipse at center, $col1 0%, $col1 75%, $col2 100%);
+}
+
+$link_color:#0000bb;
+$theme_bg_color:rgb(26, 75, 131);
+$header_color:white;
+$header_link_hover: lighten($theme_bg_color, 45%);
+div#heading {
+  background:inherit;
+}
+
+h1 {
+  background:inherit;
+  color:$header_color;
+}
+
+
+div#tournament_header {
+  background:$theme_bg_color;
+  margin: -5px 0px 0px 0px;
+  color:$header_color;
+}
+h1 {
+  background:$theme_bg_color;
+}
+
+div#header_text {
+  h1 a {
+    color: white;
+    font-size: 1.5em;
+    font-weight:bold;
+    &:hover {
+      color: $header_link_hover;
+      text-decoration: none;
+    }
+  }
+}
+
+$menu_bg:lighten($theme_bg_color, 10%);
+$menu_items_bg:lighten($menu_bg, 5%);
+$menu_color:#e8e0e0;
+$menu_heading_color:rgb(221, 226, 230);
+$menu_hover_color:white;
+$menu_visited_color:#f0f0f0;
+$nav_width:185px;
+div#maincontent {
+  margin-right:$nav_width+5;
+}
+div#navigation {
+  width:$nav_width;
+  background:$menu_bg;
+  ul {
+    li {
+      color:$menu_heading_color;
+      ul {
+        background: $menu_items_bg;
+        li {
+          a {
+            color:$menu_color;
+            &:visited {
+              color: $menu_visited_color;
+            }
+            &:hover {
+              background:$theme_bg_color;
+              color:$menu_hover_color;
+            }
+            &:active {
+              color: #202000;
+              background:lighten($menu_bg, 30%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+form#new_inscription {
+  @include radial-fade-background(white, lighten($theme_bg_color, 30%));
+  border: {
+    color:lighten($theme_bg_color, 20);
+  }
+}
+
+ul#help_links {
+  @include linear-gradient-background(30deg, lighten($menu_bg, 12), lighten($menu_bg, 5), lighten($menu_bg, 12));
+  li {
+    a {
+      &:hover {
+        background-color: $theme_bg_color;
+        color:$menu_hover_color;
+        &:before {
+          color:$menu_hover_color;
+        }
+      }
+    }
+  }
+}
