@@ -39,7 +39,7 @@ class Views::Widget::SeriesBox < Views::Widget::TournamentSeries
             text serie.translated_name
           end
           text " "
-          if serie.sys_exp_link
+          unless serie.sys_exp_link.blank?
             a href:serie.sys_exp_link, target:'_blank' do
               text t :system_explanation
             end
