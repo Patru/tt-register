@@ -241,7 +241,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     end
   end
   def series_menu
-    seris = tournament.tournament_days.collect{|tour_day| tour_day.series}.flatten.sort
+    seris = tournament.active_tournament_days.collect{|tour_day| tour_day.series}.flatten.sort
     li do
       text t(:series_plural)
       ul id:'series' do

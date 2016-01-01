@@ -72,4 +72,10 @@ class Tournament < ActiveRecord::Base
       return "Danke für dein interesse am " + name
     end
   end
+
+  def active_tournament_days
+    tournament_days.select do |tour_day|
+      tour_day.day > Date.today-30
+    end
+  end
 end
