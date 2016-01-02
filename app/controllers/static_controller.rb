@@ -1,6 +1,7 @@
 class StaticController < ApplicationController
   before_filter :admin_required, :except => :show
   def show
+    guess_tournament
     not_found if params[:page_id].nil?
     case params[:page_id]
       when 'help'

@@ -14,7 +14,7 @@ class Tournament < ActiveRecord::Base
       day.build_series_map player
     end
   end
-  
+
   def self.next
     min_day = TournamentDay.minimum(:day, :conditions => ["day > ?", Time.now])
     day = TournamentDay.first(:conditions => {:day => min_day})

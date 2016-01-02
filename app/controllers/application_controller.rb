@@ -66,6 +66,14 @@ protected
     Base64.encode64(ary.pack('C*')).tr('+/','-_').chomp
   end
 
+  def guess_tournament
+    if session['tour_id'].nil?
+      @tournament=Tournament.next
+    else
+      @tournament=Tournament.where(id:session['tour_id']).first
+    end
+  end
+
   def set_locale
     # puts "prefering #{env["HTTP_ACCEPT_LANGUAGE"]} as interaction languages"
     preferred_locale = http_accept_language.preferred_language_from I18n.available_locales

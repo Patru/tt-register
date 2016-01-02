@@ -36,11 +36,7 @@ class InscriptionsController < ApplicationController
   def new
     @tournaments = Tournament.all
     @inscription = Inscription.new
-    if session['tour_id'].nil?
-      @inscription.tournament = Tournament.next
-    else
-      @inscription.tournament = Tournament.where(id:session['tour_id']).first
-    end
+    @inscription.tournament = guess_tournament
 
     respond_to do |format|
       format.html # new.rb
@@ -49,6 +45,7 @@ class InscriptionsController < ApplicationController
   end
 
   def email_form
+    guess_tournament
     if @email.nil?
       from = @inscription.email if @inscription
       @email = Email.new(from)
@@ -59,6 +56,7 @@ class InscriptionsController < ApplicationController
   end
 
   def protection
+    guess_tournament
     respond_to do |format|
       format.html # protection.rb
     end
@@ -80,7 +78,7 @@ class InscriptionsController < ApplicationController
   def resend_link
     @tournaments = Tournament.all
     @inscription = Inscription.new
-    @inscription.tournament = Tournament.next
+    @inscription.tournament = guess_tournament
 
     respond_to do |format|
       format.html # resend.rb
@@ -322,7 +320,7 @@ class InscriptionsController < ApplicationController
 
   def with_id
     tourn=Tournament.where(tour_id:params['id'].upcase).first
-    session[:tour_id]=tourn.id
+    session['tour_id']=tourn.id unless tourn.nil?
 
     redirect_to action:'new'
   end
