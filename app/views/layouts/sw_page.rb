@@ -130,7 +130,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
         end
         p do
           text t(:inscriptions) + ": "
-          tournament.tournament_days.sort{|td1, td2| td1.day <=> td2.day}.each do |tour_day|
+          tournament.active_tournament_days.sort{|td1, td2| td1.day <=> td2.day}.each do |tour_day|
             if tour_day.entries_remaining? then
               day_class = "open"
             else
