@@ -152,6 +152,7 @@ class InscriptionPlayer < ActiveRecord::Base
 
   def all_series_past_end_of_inscriptions?
     day_ids=series.collect{|seri| seri.tournament_day_id}.uniq
+    day_ids.concat(waiting_list_entries.collect{|seri| seri.tournament_day_id}.uniq)
     TournamentDay.find(day_ids).each do |tour_day|
       if tour_day.accepting_inscriptions?
         return false
