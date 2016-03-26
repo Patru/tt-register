@@ -143,3 +143,13 @@ fifteen:
   club: meiner
   ranking: 10
   elo: 1210
+
+dario:
+  id: 16
+  licence: 716004
+  name: Stanic
+  first_name: Dario
+  club: Horgen
+  ranking: 1
+  woman_ranking:
+  category: U9

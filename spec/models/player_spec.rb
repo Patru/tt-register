@@ -60,5 +60,4 @@ describe Player do
       pekka.matches_category?("U13").should be_true
     end
   end
-  
 end

@@ -25,9 +25,9 @@ class Player < ActiveRecord::Base
 
   def matches_category?(cat)
     if cat.starts_with? "U" then
-      return (category.starts_with? "U") && (category <= cat)
+      return (category.starts_with? "U") && (category_years <= Player.years_of(cat))
     elsif cat.starts_with? "O" then
-      return (category.starts_with? "O") && (category >= cat)
+      return (category.starts_with? "O") && (category_years >= Player.years_of(cat))
     else
       return true
     end
@@ -36,7 +36,19 @@ class Player < ActiveRecord::Base
   def long_name
     first_name + " " + name
   end
-  
+
+  def category_years
+    Player.years_of category
+  end
+
+  def self.years_of a_category
+    if (/[U|O](?<years>[[:digit:]]*)/ =~ a_category)
+      years.to_i
+    else
+      0
+    end
+  end
+
   def player_info
     info = letter_ranking(ranking)
     info << "/#{letter_ranking woman_ranking}" unless male?
