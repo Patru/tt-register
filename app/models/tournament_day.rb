@@ -57,7 +57,7 @@ class TournamentDay < ActiveRecord::Base
 
   def check_waiting_list
     while entries_remaining? and waiting_list_entries.size > 0 do
-      accepted = WaitingListEntry.first(:order => :created_at).accept_for_tournament
+      accepted = WaitingListEntry.where(tournament_day_id: id).first(:order => :created_at).accept_for_tournament
       if not accepted.nil?
         WaitingListAccept.accept(accepted).deliver
         # TODO: think about an acceptable reaction if accept did not work
