@@ -70,4 +70,8 @@ describe "CanHandleWaitingList Integration Test" do
     second_mail.subject.must_match "Anmeldung durch Abbau der Warteliste"
     second_mail.must_have_content "#{surplus_player.long_name} ist jetzt wie folgt angemeldet"
   end
+
+  it "can handle the waiting lists of multiple tournament days" do
+    skip
+  end
 end
