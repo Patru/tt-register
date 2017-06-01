@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
 protected
   def set_admin_inscription
-    if @admin.nil? and session[:admin_id] and session[:expires] then
+    if (!defined?(@admin) || @admin.nil?) and session[:admin_id] and session[:expires] then
       time_left = (session[:expires] - Time.now).to_i
       if time_left > 0 then
         begin
@@ -23,7 +23,7 @@ protected
       else
         session[:admin_id]=nil
       end
-    elsif @inscription.nil? && session[:id] &&
+    elsif (!defined?(@inscription) || @inscription.nil?) && session[:id] &&
         session[:expires] && session[:expires] > Time.now then
       begin
         @inscription = Inscription.find(session[:id])

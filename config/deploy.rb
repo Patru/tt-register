@@ -1,6 +1,6 @@
 # encoding: UTF-8
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for Capistrano 3.4.1
+lock '3.4.1'
 
 set :application, "tt_register"
 set :repo_url,"git@github.com:Patru/tt-register.git"
@@ -41,9 +41,9 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 #set :stage, :production
 #set :user, 'soft-werker'
 
-#role :web, "ssh-soft-werker.alwaysdata.net"                          # Your HTTP server, Apache/etc
-#role :app, "ssh-soft-werker.alwaysdata.net"                          # This may be the same as your `Web` server
-#role :db,  "ssh-soft-werker.alwaysdata.net", :primary => true        # This is where Rails migrations will run
+role :web, "ssh-soft-werker.alwaysdata.net"                          # Your HTTP server, Apache/etc
+role :app, "ssh-soft-werker.alwaysdata.net"                          # This may be the same as your `Web` server
+role :db,  "ssh-soft-werker.alwaysdata.net", :primary => true        # This is where Rails migrations will run
 
 #set :ssh_options, {
 #    keys: %w(/home/rlisowski/.ssh/id_rsa),

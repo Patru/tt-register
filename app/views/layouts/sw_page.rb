@@ -43,20 +43,20 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   end
   
   def tournament
-    if @series.respond_to?(:tournament_day) then
+    if defined?(@series) && @series.respond_to?(:tournament_day) then
       series = @series
-    elsif @series.kind_of?(Array) and @series.length > 0 and respond_to?(:tournament_day) then
+    elsif defined?(@series) && @series.kind_of?(Array) && @series.length > 0 && @series[0].respond_to?(:tournament_day) then
       series = @series[0]
     else
       series = nil
     end
-    if @inscription and @inscription.tournament then
+    if  defined?(@inscription) && @inscription && @inscription.tournament then
       return @inscription.tournament
-    elsif @inscription_player and @inscription_player.inscription and @inscription_player.inscription.tournament
+    elsif defined?(@inscription_player) && @inscription_player && @inscription_player.inscription and @inscription_player.inscription.tournament
       return @inscription_player.inscription.tournament
-    elsif series and series.tournament_day and series.tournament_day.tournament then
+    elsif series && series.tournament_day && series.tournament_day.tournament then
       return series.tournament_day.tournament
-    elsif @tournament and not @tournament.new_record? then
+    elsif defined?(@tournament) && @tournament && !@tournament.new_record? then
       return @tournament
     else
       return ::Tournament.next
