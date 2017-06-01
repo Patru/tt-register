@@ -47,9 +47,9 @@ group :test, :development do
 end
 
 group :development do
-  gem 'capistrano-rails',   '~> 1.1', require: false
-  gem 'capistrano-bundler', '~> 1.1', require: false
-  gem 'capistrano-rbenv',   '~> 2.0', require: false
+  gem 'capistrano-rails',   '1.1.8'
+  gem 'capistrano-bundler', '1.1.1'
+  gem 'capistrano-rbenv',   '2.0.3'
 end
 
 group :production do
