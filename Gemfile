@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 ruby "1.9.2"
-gem 'rails', '=3.2.19'
+gem 'rails', '=3.2.22.5'
 
 gem 'erector', '~>0.9.0'
+gem 'capistrano', '3.2.1'
 gem 'sqlite3'
-gem 'capistrano'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'dynamic_form'
@@ -16,6 +16,18 @@ group :assets do
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier', '>=1.0.3'
 end
+
+gem 'i18n', '~> 0.6.11'     # do away with this once you update ruby
+gem 'rack-cache', '1.2.0'   # do away with this once you update ruby
+gem 'public_suffix', '1.3.3'  # do away with this once you update ruby
+gem 'net-ssh', '~> 2.9'  # do away with this once you update ruby
+gem 'babosa', '~> 0.3.11'
+#gem 'nokogiri', '~> 1.6.8'
+gem 'nokogiri', '1.6.3.1'
+#gem 'ref', '~> 1.0', '>= 1.0.5'
+#gem 'highline', '~> 1.6.21', '>= 1.6.21'
+#gem 'acts-as-taggable-on', '3.0.2'
+#gem 'rails_autolink', '1.1.4'
 
 group :test, :development do
   gem 'minitest-rails-capybara'
@@ -31,6 +43,7 @@ group :test, :development do
   gem 'rdoc'
   gem 'ruby-prof', "~> 0.13.0"
   gem "capybara-webkit"
+  gem 'rake', '~>10.5.0'      # do away with this once you update ruby
 end
 
 group :development do

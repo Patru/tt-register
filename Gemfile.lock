@@ -1,12 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (3.2.19)
-      actionpack (= 3.2.19)
+    actionmailer (3.2.22.5)
+      actionpack (= 3.2.22.5)
       mail (~> 2.5.4)
-    actionpack (3.2.19)
-      activemodel (= 3.2.19)
-      activesupport (= 3.2.19)
+    actionpack (3.2.22.5)
+      activemodel (= 3.2.22.5)
+      activesupport (= 3.2.22.5)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -14,23 +14,24 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activemodel (3.2.19)
-      activesupport (= 3.2.19)
+    activemodel (3.2.22.5)
+      activesupport (= 3.2.22.5)
       builder (~> 3.0.0)
-    activerecord (3.2.19)
-      activemodel (= 3.2.19)
-      activesupport (= 3.2.19)
+    activerecord (3.2.22.5)
+      activemodel (= 3.2.22.5)
+      activesupport (= 3.2.22.5)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.19)
-      activemodel (= 3.2.19)
-      activesupport (= 3.2.19)
-    activesupport (3.2.19)
+    activeresource (3.2.22.5)
+      activemodel (= 3.2.22.5)
+      activesupport (= 3.2.22.5)
+    activesupport (3.2.22.5)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.6)
     ansi (1.4.3)
     arel (3.0.3)
+    babosa (0.3.11)
     builder (3.0.4)
     capistrano (3.2.1)
       i18n
@@ -87,7 +88,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
-    json (1.8.1)
+    json (1.8.6)
     launchy (2.4.2)
       addressable (~> 2.3)
     libv8 (3.11.8.17)
@@ -122,7 +123,7 @@ GEM
     minitest-spec-rails (4.7.7)
       minitest (~> 4.7)
       rails (>= 3.0, < 4.1)
-    multi_json (1.10.1)
+    multi_json (1.12.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -133,29 +134,30 @@ GEM
     powerbar (1.0.11)
       ansi (~> 1.4.0)
       hashie (>= 1.1.0)
-    rack (1.4.5)
+    public_suffix (1.3.3)
+    rack (1.4.7)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-ssl (1.3.4)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    rails (3.2.19)
-      actionmailer (= 3.2.19)
-      actionpack (= 3.2.19)
-      activerecord (= 3.2.19)
-      activeresource (= 3.2.19)
-      activesupport (= 3.2.19)
+    rails (3.2.22.5)
+      actionmailer (= 3.2.22.5)
+      actionpack (= 3.2.22.5)
+      activerecord (= 3.2.22.5)
+      activeresource (= 3.2.22.5)
+      activesupport (= 3.2.22.5)
       bundler (~> 1.0)
-      railties (= 3.2.19)
-    railties (3.2.19)
-      actionpack (= 3.2.19)
-      activesupport (= 3.2.19)
+      railties (= 3.2.22.5)
+    railties (3.2.22.5)
+      actionpack (= 3.2.22.5)
+      activesupport (= 3.2.22.5)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.3.2)
+    rake (10.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
@@ -171,7 +173,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    sprockets (2.2.2)
+    sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -184,12 +186,12 @@ GEM
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
-    thor (0.19.1)
+    thor (0.19.4)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.41)
+    tzinfo (0.3.53)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -201,7 +203,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano
+  babosa (~> 0.3.11)
+  capistrano (= 3.2.1)
   capistrano-bundler (~> 1.1)
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0)
@@ -213,6 +216,7 @@ DEPENDENCIES
   dynamic_form
   erector (~> 0.9.0)
   http_accept_language
+  i18n (~> 0.6.11)
   jquery-rails
   jquery-ui-rails
   json
@@ -224,8 +228,13 @@ DEPENDENCIES
   minitest-reporters
   minitest-spec-context
   minitest-spec-rails
+  net-ssh (~> 2.9)
+  nokogiri (= 1.6.3.1)
   pg
-  rails (= 3.2.19)
+  public_suffix (= 1.3.3)
+  rack-cache (= 1.2.0)
+  rails (= 3.2.22.5)
+  rake (~> 10.5.0)
   rdoc
   ruby-prof (~> 0.13.0)
   sass-rails (~> 3.2.3)
@@ -233,5 +242,8 @@ DEPENDENCIES
   therubyracer (~> 0.11.4)
   uglifier (>= 1.0.3)
 
+RUBY VERSION
+   ruby 1.9.2p330
+
 BUNDLED WITH
-   1.10.6
+   1.13.0
