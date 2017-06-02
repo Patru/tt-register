@@ -13,7 +13,8 @@ set :scm_verbose, true
 set :scm, 'git'
 set :scm_username, "patru"
 
-set :default_environment, {
+# Default value for remote shells
+set :default_env, {
     'RUBY_VERSION' => '1.9.3-p551'
 }
 # Default value for :scm is :git
@@ -36,23 +37,8 @@ set :linked_files, %w{config/database.yml config/smtp_settings.yml}
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-#set :stage, :production
-#set :user, 'soft-werker'
-
-role :web, "ssh-soft-werker.alwaysdata.net"                          # Your HTTP server, Apache/etc
-role :app, "ssh-soft-werker.alwaysdata.net"                          # This may be the same as your `Web` server
-role :db,  "ssh-soft-werker.alwaysdata.net", :primary => true        # This is where Rails migrations will run
-
-#set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,#ssh_options[:forward_agent] = true
-#}
 
 namespace :deploy do
 
