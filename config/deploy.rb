@@ -12,6 +12,10 @@ set :deploy_to, "/home/soft-werker/app/tt"
 set :scm_verbose, true
 set :scm, 'git'
 set :scm_username, "patru"
+
+set :default_environment, {
+    'RUBY_VERSION' => '1.9.3-p551'
+}
 # Default value for :scm is :git
 
 # Default branch is :master
