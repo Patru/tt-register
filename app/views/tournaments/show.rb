@@ -10,7 +10,7 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
   end
   
   def sw_content
-    show_data_table @tournament, fields
+    show_data_table @tournament, all_fields
     p do
       link_to "Einschreibungen herunterladen", tournament_entries_path(:id => @tournament.id, :format => "dbsv")
       text " | "

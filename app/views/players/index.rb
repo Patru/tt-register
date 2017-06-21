@@ -69,6 +69,10 @@ class Views::Players::Index < Views::Players::Player
                 :method => "post",id: 'upload', :enctype => "multipart/form-data" do
         label "STT Spieler mit Daten aus Datei ersetzen", :for => :file_players
         input :type => :file, :name => :players, :accept => "csv"
+        br
+        input :type => :checkbox, :name => :delete_not_present
+        label "Nicht vorhandene Spieler löschen", :for => :delete_not_sent_players
+        br
         submit_tag "Senden" #input :type => :submit, :value => "Senden"
       end
     end

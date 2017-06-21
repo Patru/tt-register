@@ -283,6 +283,9 @@ de:
     sys_exp_link_de: Spielsystem-Link Deutsch
     sys_exp_link_fr: "Spielsystem-Link Französisch"
     sys_exp_link_en: Spielsystem-Link Englisch
+    remark_de: Bemerkung Deutsch
+    remark_fr: Bemerkung Französisch
+    remark_en: Bemerkung English
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen
@@ -585,3 +588,4 @@ de:
     series_name: Serie %{index}
   system_explanation: Spielsystem
   series_start: "Beginn: %{series_start}"
+  remark: Bemerkung

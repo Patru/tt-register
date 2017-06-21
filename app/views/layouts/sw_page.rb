@@ -403,12 +403,17 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     end
   end
 
-  def labeled_table_form(object, symbols, button_text)
+  def labeled_table_form(object, symbols, button_text, areas = nil)
     form_for(object) do |f|
       rawtext f.error_messages
       table do
         symbols.each do |symb|
           field_for_symbol(f, object, symb)
+        end
+        if areas
+          areas.each do |symb|
+            area_for_symbol(f, object, symb)
+          end
         end
       end
       p do
@@ -426,6 +431,10 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       else
         form_text_field builder, symb
     end
+  end
+
+  def area_for_symbol(builder, object, symb)
+    form_text_area builder, symb, {rows:6}
   end
 
   def stylo_image

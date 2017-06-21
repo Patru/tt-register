@@ -73,6 +73,16 @@ class Tournament < ActiveRecord::Base
     end
   end
 
+  def remark_localized
+    remark_sym = ("remark_"+I18n.locale.to_s).to_sym
+    remark = send(remark_sym)
+    if remark
+      return remark
+    else
+      return ""
+    end
+  end
+
   def active_tournament_days
     tournament_days.select do |tour_day|
       tour_day.day > Date.today-30

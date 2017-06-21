@@ -20,6 +20,15 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
       li {link_to t(:mail_team), email_form_path}
     end
   end
+
+  def remark
+    unless tournament.remark_localized.blank?
+      div id:'remark' do
+        h2 t(:remark)
+        p tournament.remark_localized
+      end
+    end
+  end
   
   def sw_content
     p t :dear_chap
@@ -27,5 +36,6 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
     h2 t :create_new_inscription
     inscription_form t :create_and_confirm
     help_links
+    remark
   end
 end

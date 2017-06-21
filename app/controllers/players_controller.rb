@@ -126,10 +126,11 @@ class PlayersController < ApplicationController
   
   def upload
     if not params[:players].nil? then
-      player_importer = PlayerImporter.new(params[:players].tempfile)
+      player_importer = PlayerImporter.new(params[:players].tempfile, params[:delete_not_sent_players])
       player_importer.import
       flash[:notice] = "Total: #{player_importer.rows}, geladen: #{player_importer.imported}, \
-          neu: #{player_importer.added.size}, gelöscht: #{player_importer.deleted.size}"
+          neu: #{player_importer.added.size}, gelöscht: #{player_importer.deleted.size}, \
+          würde löschen: #{player_importer.would_delete}"
     else
       flash[:notice] = "Bitte Datei auswählen, nur " + params[:upload].class.to_s + " gefunden...: " + params.size.to_s
     end
@@ -168,9 +169,10 @@ class PlayersController < ApplicationController
 end
 
 class PlayerImporter
-  attr_reader :imported, :updated_ranking, :added, :deleted, :rows
-  def initialize(file)
+  attr_reader :imported, :updated_ranking, :added, :deleted, :rows, :should_delete_not_sent, :would_delete
+  def initialize(file, should_delete_not_sent)
     @file = file
+    @should_delete_not_sent = should_delete_not_sent
     @rows = 0
     @imported = 0
     @updated_ranking = []
@@ -183,10 +185,14 @@ class PlayerImporter
     CSV.foreach(@file, col_sep:"\t", encoding: 'UTF-8') do |row|
       @rows = @rows+1
       import_player_row row 
-    end    
-    @existing_players_map.each do |licence, pl|
-      pl.destroy
-      @deleted << pl
+    end
+    if should_delete_not_sent
+      @existing_players_map.each do |licence, pl|
+        pl.destroy
+        @deleted << pl
+      end
+    else
+      @would_delete = @existing_players_map.size
     end
   end
   

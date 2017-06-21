@@ -17,12 +17,23 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :thanks_for_interest_de
   @@fields << :thanks_for_interest_fr
   @@fields << :thanks_for_interest_en
+  @@areas = [:remark_de, :remark_fr, :remark_en]
+  @@all_fields = @@fields+@@areas
 
-  def fields
+
+  def all_fields
+    @@all_fields
+  end
+
+  def regular_fields
     @@fields
   end
   def table_fields
     @@table_fields
+  end
+
+  def areas
+    @@areas
   end
 
   def field_for_symbol(builder, object, symb)
@@ -41,7 +52,7 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   end
 
   def tournament_form(button_text)
-    labeled_table_form @tournament, fields, button_text
+    labeled_table_form @tournament, regular_fields, button_text, areas
   end
 
   def show_menu
