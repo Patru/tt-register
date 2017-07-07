@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class TournamentsController < ApplicationController
-  before_filter :admin_required
+  before_filter :admin_required, :except => [:api_entries]
   layout nil
   # GET /tournaments
   # GET /tournaments.xml
@@ -102,6 +102,34 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def api_entries
+    tour_id = params[:tour_id]
+    unless tour_id.blank?
+      tournament = Tournament.where(:tour_id => tour_id).first
+      unless tournament.nil?
+        # TODO:verify API-key here
+        play_series = PlaySeries.all(
+            :include => [{:series => :tournament_day}, {:inscription_player => :player}, :partner],
+            :conditions => ["tournament_days.tournament_id = ?", tournament.id])
+        @entries_list = play_series.map { |pls|
+          if pls.partner.nil?
+            partner_licence=nil
+          else
+            partner_licence=play_ser.partner.licence
+          end
+          [tour_id, pls.inscription_player.player.licence, pls.series.series_name, pls.series_rank, partner_licence]
+        }
+        @entries_list.unshift [:tour_id, :licence, :series_name, :rank_in_series, :partner_licence]
+        respond_to do |format|
+          format.csv do
+            render_csv "entries"
+          end
+        end
+      end
+    end
+    puts "request for tournament #{} with api-key #{params[:api_key]}"
+  end
+
   def delete_all_inscriptions
     tournament = Tournament.find(params[:id])
     Inscription.all(:conditions => {:tournament_id => tournament.id}).each do |inscription|
@@ -109,4 +137,5 @@ class TournamentsController < ApplicationController
     end
     redirect_to :controller => "inscriptions", :action => "new"
   end
+
 end

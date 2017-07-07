@@ -28,6 +28,7 @@ TtRegister::Application.routes.draw do
   match 'players/filtered' => 'players#filtered'
   match 'players/upload' => 'players#upload', via: :post
   match 'auto.:format' => 'players#auto', as: 'auto'
+  get '/tournaments/:tour_id/:api_key/all_entries.:format', to: 'tournaments#api_entries'
   match 'tournaments/entries/:id.:format' => 'tournaments#download_entries', :as => 'tournament_entries'
   match 'tournaments/delete_inscriptions/:id' => 'tournaments#delete_all_inscriptions', :as => 'delete_all_inscriptions'
 

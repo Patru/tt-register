@@ -1,0 +1,3 @@
+<% @entries_list.each do |entry| %>
+<%=  entry.to_csv(col_sep:"\t") -%>
+<% end %>

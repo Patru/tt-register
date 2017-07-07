@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class InscriptionPlayersController < ApplicationController
-  before_filter :login_required, :except => [:show]
+  before_filter :login_required, :except => [:show, :all]
   layout nil
   # GET /inscription_players
   # GET /inscription_players.xml
@@ -333,4 +333,5 @@ class InscriptionPlayersController < ApplicationController
       tour_day.check_waiting_list
     end
   end
+
 end
