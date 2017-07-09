@@ -88,4 +88,19 @@ class Tournament < ActiveRecord::Base
       tour_day.day > Date.today-30
     end
   end
+
+  def hash_key(key)
+    self.salt = rand_str(20) if self.salt.nil?
+    Digest::SHA2.hexdigest(self.salt + key)
+  end
+
+  def create_api_key()
+    api_key = rand_str(20)
+    self.hashed_api_key = hash_key(api_key)
+    api_key
+  end
+
+  def accept_api_request_for?(key)
+    return self.hashed_api_key.eql?(hash_key(key))
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170621155217) do
+ActiveRecord::Schema.define(:version => 20170707141223) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20170621155217) do
     t.string   "remark_de",                 :limit => 3500
     t.string   "remark_fr",                 :limit => 3500
     t.string   "remark_en",                 :limit => 3500
+    t.string   "salt"
+    t.string   "hashed_api_key"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

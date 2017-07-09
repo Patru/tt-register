@@ -15,6 +15,8 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
       link_to "Einschreibungen herunterladen", tournament_entries_path(:id => @tournament.id, :format => "dbsv")
       text " | "
       link_to "Einschreibungen löschen", delete_all_inscriptions_path(:id => @tournament.id), :confirm => "Alle Einschreibungen löschen?"
+      text " | "
+      button_to "API-Key erzeugen", create_api_key_path(id: @tournament.id)
     end
   end
 end

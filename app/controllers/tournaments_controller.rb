@@ -20,7 +20,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.rb
       format.xml  { render :xml => @tournament }
     end
   end
@@ -104,30 +104,36 @@ class TournamentsController < ApplicationController
 
   def api_entries
     tour_id = params[:tour_id]
-    unless tour_id.blank?
-      tournament = Tournament.where(:tour_id => tour_id).first
-      unless tournament.nil?
-        # TODO:verify API-key here
-        play_series = PlaySeries.all(
-            :include => [{:series => :tournament_day}, {:inscription_player => :player}, :partner],
-            :conditions => ["tournament_days.tournament_id = ?", tournament.id])
-        @entries_list = play_series.map { |pls|
-          if pls.partner.nil?
-            partner_licence=nil
-          else
-            partner_licence=play_ser.partner.licence
-          end
-          [tour_id, pls.inscription_player.player.licence, pls.series.series_name, pls.series_rank, partner_licence]
-        }
-        @entries_list.unshift [:tour_id, :licence, :series_name, :rank_in_series, :partner_licence]
-        respond_to do |format|
-          format.csv do
-            render_csv "entries"
-          end
+    if tour_id.blank?
+      raise ActionController::RoutingError.new('Tournament Not Found')
+    end
+
+    tourn = Tournament.where(:tour_id => tour_id).first
+    if tourn.nil?
+      raise ActionController::RoutingError.new('Tournament Not Found')
+    end
+
+    if tourn.accept_api_request_for? params[:api_key]
+      play_series = PlaySeries.all(
+          :include => [{:series => :tournament_day}, {:inscription_player => :player}, :partner],
+          :conditions => ["tournament_days.tournament_id = ?", tourn.id])
+      @entries_list = play_series.map { |pls|
+        if pls.partner.nil?
+          partner_licence=nil
+        else
+          partner_licence=play_ser.partner.licence
+        end
+        [tour_id, pls.inscription_player.player.licence, pls.series.series_name, pls.series_rank, partner_licence]
+      }
+      @entries_list.unshift [:tour_id, :licence, :series_name, :rank_in_series, :partner_licence]
+      respond_to do |format|
+        format.csv do
+          render_csv "entries"
         end
       end
+    else
+      raise ActionController::RoutingError.new('Tournament Not Accessible')
     end
-    puts "request for tournament #{} with api-key #{params[:api_key]}"
   end
 
   def delete_all_inscriptions
@@ -138,4 +144,16 @@ class TournamentsController < ApplicationController
     redirect_to :controller => "inscriptions", :action => "new"
   end
 
+  # api-keys for tournaments can only be created, they will only be displayed once in the flash, a hash will be stored
+  def create_api_key
+    @tournament = Tournament.find(params[:id])
+    api_key = @tournament.create_api_key
+    if api_key
+      @tournament.save
+      flash[:notice] = "Bitte [#{api_key}] im Client eintragen"
+    else
+      flash[:error] = "Fehlgeschlagen"
+    end
+    render "show"
+  end
 end
