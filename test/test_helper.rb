@@ -25,11 +25,11 @@ class ActiveSupport::TestCase
   fixtures :all
 end
 
+DUMMY_EMAIL = "nobody@nowhere.net"
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include Capybara::Assertions      # we should not need to include this on our own, there must be a better way
   include Capybara::Email::DSL
-  DUMMY_EMAIL = "nobody@nowhere.net"
 
   def create_admin_user
     post :create, :admin => {name:"Test", password:"blank", email: "test_email", token:"blabla" }
@@ -134,7 +134,7 @@ class ActiveSupport::TestCase
   def create_and_login_dummy_admin
     test_admin=create_admin_user
     email = ActionMailer::Base.deliveries.last
-    link=email.encoded.match(/(https?:\/\/[\S]+)/)[0]
+    email.encoded.match(/(https?:\/\/[\S]+)/)[0]
     post :verify_login, :admin => { token:"blabla", password:"blank"}
     test_admin
   end
@@ -189,6 +189,9 @@ end
 # and you will have decent error messages again
 
 # (stolen from Capybara 2.1.0 on which minitest-capybara implicitely depends)
+=begin
+probably not needed anymore with ruby 1.9.3, it actually produces a redefined warning.
+
 module Capybara
   module Helpers
     extend self
@@ -218,3 +221,4 @@ module Capybara
     end
   end
 end
+=end

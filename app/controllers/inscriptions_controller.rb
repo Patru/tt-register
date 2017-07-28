@@ -46,8 +46,8 @@ class InscriptionsController < ApplicationController
 
   def email_form
     guess_tournament
-    if @email.nil?
-      from = @inscription.email if @inscription
+    unless defined?(@email)
+      from = @inscription.email if defined?(@inscription)
       @email = Email.new(from)
     end
     respond_to do |format|

@@ -50,7 +50,8 @@ class Inscription < ActiveRecord::Base
   end
 
   def split_inscription_players
-    if @inscription_players_without_self.nil?
+    unless defined?(@inscription_players_without_self) and @inscription_players_without_self
+      @own_inscription = nil
       @inscription_players_without_self=[]
       inscription_players.each do |ins_player|
         if ins_player.player.licence != licence then

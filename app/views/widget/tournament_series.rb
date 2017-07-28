@@ -98,7 +98,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
         link_to @inscription.name, @inscription
       end
     end
-    input :type => "hidden", :name => "id", :value => @inscription_player.id if @inscription_player
+    input :type => "hidden", :name => "id", :value => @inscription_player.id if defined?(@inscription_player) and @inscription_player
     input :type => "hidden", :name => "player_id", :value => @player.id
     input :type => "hidden", :name => "tournament_id", :value => @inscription.tournament.id
     input :type => "hidden", :name => "inscription_id", :value => @inscription.id
@@ -124,7 +124,7 @@ class Views::Widget::TournamentSeries < Erector::Widget
   end
 
   def partner_map
-    unless @inscription_player.nil?
+    if defined?(@inscription_player) and @inscription_player
       @partner_map={}
       @inscription_player.play_series.each do |play_ser|
         unless play_ser.partner_id.nil?

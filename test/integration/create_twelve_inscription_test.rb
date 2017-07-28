@@ -1,7 +1,7 @@
 #encoding: UTF-8
 require "test_helper"
 
-describe "Create and inscriction for a Twelve Tournament Integration Test" do
+describe "Create and inscription for a Twelve Tournament Integration Test" do
   before do
 
   end

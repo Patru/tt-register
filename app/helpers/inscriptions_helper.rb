@@ -2,6 +2,6 @@
 
 module InscriptionsHelper
   def logged_in?
-    @inscription or @admin
+    (defined?(@inscription) and @inscription) or (defined?(@admin) and @admin)
   end
 end

@@ -41,7 +41,7 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
   end
 
   def see_email?
-    own_inscription? or @admin
+    own_inscription? or (defined?(@admin) and @admin)
   end
 
   def own_inscription?

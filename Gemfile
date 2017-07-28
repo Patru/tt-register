@@ -18,6 +18,7 @@ end
 
 gem 'i18n', '~> 0.7'     # do away with this once you update ruby
 gem 'nokogiri', '~> 1.6.8'
+gem 'hashie', '~>3.5.6'
 #gem 'ref', '~> 1.0', '>= 1.0.5'
 #gem 'highline', '~> 1.6.21', '>= 1.6.21'
 #gem 'acts-as-taggable-on', '3.0.2'

@@ -84,7 +84,7 @@ class AdminsController < ApplicationController
   def create
     new_admin = Admin.new(params[:admin])
     new_admin.hash_password
-    sender_admin = @admin?@admin:new_admin
+    sender_admin = (defined?(@admin) and @admin)?@admin:new_admin
 
     respond_to do |format|
       if new_admin.save

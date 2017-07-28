@@ -36,11 +36,11 @@ protected
   helper_method :is_admin?
 
   def is_admin?
-    @admin != nil
+    defined?(@admin) && @admin
   end
 
   def admin_required
-    return true if  @admin or Admin.first.nil?
+    return true if  (defined?(@admin) and @admin) or Admin.first.nil?
     admin_access_denied
     return false
   end

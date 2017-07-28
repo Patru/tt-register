@@ -13,6 +13,6 @@ describe "LanguageController" do
     post :set_language, parameters={language: 'de'}
     assert_redirected_to root_path
     I18n.locale.must_equal :de
-    session[:locale].must_equal :de
+    :de.must_equal session[:locale]
   end
 end

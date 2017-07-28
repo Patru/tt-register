@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all(:order => "club, name", :limit => 20)
     @player_count = Player.count()
-    if @filter_cond.nil? then
+    unless defined?(@filter_cond)
       @filter_cond = Player.new
     else
       flash[:notice] = "filtering here"

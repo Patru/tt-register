@@ -215,7 +215,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   end
 
   def admin_menu
-    return unless @admin
+    return unless is_admin?
     li do
       text "Administration"
       ul id: 'admin' do
@@ -494,7 +494,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   end
 
   def back_link
-    if @inscription
+    if defined?(@inscription) && @inscription
       my_inscription_link
     elsif not helpers.is_admin?
       menu_item root_path, :new_inscription, new_image
@@ -506,7 +506,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
   end
 
   def valid_inscription
-    @inscription and not @inscription.id.nil?
+    defined?(@inscription) and @inscription and not @inscription.id.nil?
   end
 
   def standard_menu

@@ -30,7 +30,7 @@ class Views::Inscriptions::Show < Views::Inscriptions::Inscription
     else
       render_players(t(:inscriptions), @inscription.inscription_players)
     end
-    if @inscription.id == session[:id] or @admin then
+    if @inscription.id == session[:id] or is_admin? then
       hr
       h2 t('add_players.title')
       p t('add_players.explanation')
