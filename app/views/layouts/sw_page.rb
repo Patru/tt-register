@@ -85,19 +85,21 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     flash_type :error, "errorExplanation"
   end
   def body_content
-    if tournament then
-      tournament_header tournament
-    end
-    div :id => "menu" do
-      page_menu
-    end
-    div :id => "navigation" do
-      navigation
-    end
-    show_flash
-    div :id => "maincontent" do
-      sw_content
-      sw_footer
+    div :id => 'all_content' do
+      if tournament then
+        tournament_header tournament
+      end
+      div :id => "menu" do
+        page_menu
+      end
+      div :id => "navigation" do
+        navigation
+      end
+      show_flash
+      div :id => "maincontent" do
+        sw_content
+        sw_footer
+      end
     end
   end
 

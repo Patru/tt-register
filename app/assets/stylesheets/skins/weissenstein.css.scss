@@ -1,0 +1,160 @@
+@mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
+  background: linear-gradient($orientation, $col1, $col2, $col3);
+  background: -webkit-linear-gradient($orientation, $col1, $col2, $col2, $col3);
+    background: -moz-linear-gradient($orientation, $col1, $col2, $col2, $col3);
+  background: -o-linear-gradient($orientation, $col1, $col2, $col3);
+  background: -ms-linear-gradient($orientation, $col1, $col2, $col3);
+}
+@mixin radial-fade-background($col1, $col2) {
+  background: -webkit-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: -moz-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: -o-radial-gradient(center, ellipse cover, $col1 0%, $col1 75%, $col2 100%);
+  background: radial-gradient(ellipse at center, $col1 0%, $col1 75%, $col2 100%);
+}
+
+$ws_red:rgba(242, 19, 7, 100);
+$link_color:#0000bb;
+$theme_bg_color:white;
+$header_color:black;
+$header_link_hover: lighten($ws_red, 15%);
+
+body {
+  padding: 20;
+  background-color: $ws_red;
+  margin-top: 35px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+div#heading {
+  background:inherit;
+}
+
+div#all_content {
+  padding: {
+    top: 15px;
+    left: 20px;
+    bottom: 15px;
+    right: 10px;
+  }
+  background-color: $theme_bg_color;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.5);
+  border: {
+    top-right-radius: 10px;
+    top-left-radius: 70px;
+    bottom-left-radius: 10px;
+    bottom-right-radius: 10px;
+    width: 0;
+  }
+}
+
+div#maincontent {
+  background:white;
+}
+
+h1 {
+  background:inherit;
+  color:$header_color;
+}
+
+
+div#tournament_header {
+  background:$theme_bg_color;
+  margin: -5px 0px 0px 0px;
+  color:$header_color;
+  border-top-left-radius: 50px;
+}
+h1 {
+  background:$theme_bg_color;
+}
+
+div#header_text {
+  h1 a {
+    color: $ws_red;
+    font-size: 1.5em;
+    font-weight:bold;
+    &:hover {
+      color: $header_link_hover;
+      text-decoration: underline;
+    }
+  }
+}
+
+$menu_bg:darken($theme_bg_color, 10%);
+$menu_items_bg:darken($menu_bg, 10%);
+$menu_color:rgb(11, 11, 11);
+$menu_heading_color:rgb(21, 26, 30);
+$menu_hover_color:rgb(10, 10, 240);
+$menu_visited_color:lighten($menu_hover_color, 10%);
+$nav_width:185px;
+div#maincontent {
+  margin-right:$nav_width+5;
+  padding-left: 20px;
+}
+div#navigation {
+  width:$nav_width;
+  background:$menu_bg;
+  ul {
+    li {
+      color:$menu_heading_color;
+      ul {
+        background: $menu_items_bg;
+        li {
+          a {
+            color:$menu_color;
+            &:visited {
+              color: $menu_visited_color;
+            }
+            &:hover {
+              background:$menu_bg;
+              color:$menu_hover_color;
+            }
+            &:active {
+              color: #202000;
+              background:lighten($menu_bg, 30%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div#menu {
+  background-color: black;
+  ul a {
+    color:white;
+    &:hover {
+      background-color: $menu_items_bg;
+      color:#000000;
+    }
+  }
+}
+
+div#footer {
+  height:50px;
+}
+
+
+form#new_inscription {
+  @include radial-fade-background(white, lighten($theme_bg_color, 30%));
+  border: {
+    color:lighten($theme_bg_color, 20);
+  }
+}
+
+ul#help_links {
+  margin-right: 30px;
+  @include linear-gradient-background(30deg, lighten($menu_bg, 32), lighten($menu_bg, 20), lighten($menu_bg, 32));
+  li {
+    a {
+      &:hover {
+        background-color: $theme_bg_color;
+        color:$menu_hover_color;
+        &:before {
+          color:$menu_hover_color;
+        }
+      }
+    }
+  }
+}
