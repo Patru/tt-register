@@ -85,7 +85,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     flash_type :error, "errorExplanation"
   end
   def body_content
-    div :id => 'all_content' do
+    div :id => 'all-content' do
       if tournament then
         tournament_header tournament
       end
