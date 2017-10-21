@@ -119,9 +119,9 @@ class TournamentsController < ApplicationController
           :conditions => ["tournament_days.tournament_id = ?", tourn.id])
       @entries_list = play_series.map { |pls|
         if pls.partner.nil?
-          partner_licence=nil
+          partner_licence=""
         else
-          partner_licence=play_ser.partner.licence
+          partner_licence=pls.partner.licence
         end
         [tour_id, pls.inscription_player.player.licence, pls.series.series_name, pls.series_rank, partner_licence]
       }
