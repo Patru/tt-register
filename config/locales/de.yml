@@ -297,8 +297,8 @@ de:
   inscriptions: "Anmeldungen"
   thanks_and_purpose: |
     %{thanks_for_interest}.
-    Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden. Dafür benötigen wir in jedem Fall
-    eine E-Mail Adresse, aber man kann auch nur mit einem Namen eine Einschreibung erstellen.
+    Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden. Dafür benötigen wir zusätzlich
+    zu deiner E-Mail Adresse entweder eine Lizenznummer oder deinen Namen.
   create_new_inscription: "Eine neue Einschreibung erstellen"
   create_and_confirm: Einschreibung erstellen und E-Mail Adresse bestätigen
   processing: Verarbeitung läuft ...
