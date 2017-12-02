@@ -17,6 +17,21 @@ module Views
       end
     end
 
+    def headers_with_class tr_class, *fields
+      if fields.length == 1 and fields[0].is_a?(Array)
+        fields = fields[0]
+      end
+      thead do
+        tr :class=>tr_class do
+          fields.each do |field|
+            th :align => 'left' do
+              text column_header(field)
+            end
+          end
+        end
+      end
+    end
+
     def column_header(symbol)
       attribute_label symbol
     end

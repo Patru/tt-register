@@ -114,10 +114,9 @@ class TournamentsController < ApplicationController
     end
 
     if tourn.accept_api_request_for? params[:api_key]
-      play_series = PlaySeries.all(
-          :include => [{:series => :tournament_day}, {:inscription_player => :player}, :partner],
-          :conditions => ["tournament_days.tournament_id = ?", tourn.id])
-      @entries_list = play_series.map { |pls|
+      entries = entries_for(tourn)
+
+      @entries_list = entries.map { |pls|
         if pls.partner.nil?
           partner_licence=nil
         else
@@ -134,6 +133,27 @@ class TournamentsController < ApplicationController
     else
       raise ActionController::RoutingError.new('Tournament Not Accessible')
     end
+  end
+
+  def entries_for(tournament)
+    sers = Series.includes(:tournament_day).where('tournament_days.tournament_id' => 5).all
+    limited_series = sers.select{|s| s.max_participants > 0}
+    unlimited_series= sers.select{|s| s.max_participants.nil? || s.max_participants == 0}
+
+    play_series_with_partner = []
+    if unlimited_series.count > 0
+      unlimited_ids = unlimited_series.map(&:id)
+      play_series_with_partner.concat(PlaySeries.includes({:inscription_player => :player}, :partner)
+                                      .where(series_id: unlimited_ids).all)
+    end
+    if limited_series.count > 0
+      limited_ids = limited_series.map(&:id)
+      Series.where(id:limited_ids).each do |ser|
+        pl_sers = ser.playing.sort
+        play_series_with_partner.concat(pl_sers.slice(0, ser.max_participants))
+      end
+    end
+    play_series_with_partner
   end
 
   def delete_all_inscriptions

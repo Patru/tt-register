@@ -8,9 +8,10 @@ class Series < ActiveRecord::Base
   has_many :waiting_list_series
   validates_numericality_of :min_ranking, :max_ranking
   validate :category_is_valid
+  validates_numericality_of :max_participants
   attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
                   :category, :sex, :use_rank, :start_time, :min_elo, :max_elo, :sys_exp_link_de,
-                  :sys_exp_link_fr, :sys_exp_link_en
+                  :sys_exp_link_fr, :sys_exp_link_en, :max_participants
 
   def category_is_valid
     self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?
@@ -151,7 +152,7 @@ class Series < ActiveRecord::Base
   end
 
   def playing
-    return play_series
+    return PlaySeries.includes({:inscription_player => :player}, :series, :partner).where(series_id: id)
   end
 
   def open

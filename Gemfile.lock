@@ -187,7 +187,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
-  capybara (~> 2.2)
+  capybara
   capybara-email
   capybara-webkit
   capybara_minitest_spec
@@ -205,6 +205,7 @@ DEPENDENCIES
   minitest
   minitest-capybara
   minitest-matchers
+  minitest-rails
   minitest-rails-capybara
   minitest-reporters
   minitest-spec-context

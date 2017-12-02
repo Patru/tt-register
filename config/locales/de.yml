@@ -255,6 +255,7 @@ de:
     max_ranking: "bis"
     min_elo: "Elo Minimum"
     max_elo: "Elo Maximum"
+    max_participants: "Teilnehmer (max)"
     category: "Alterskategorie"
     sex: "Geschlecht"
     tour_id: "Turnier-ID"
@@ -589,3 +590,4 @@ de:
   system_explanation: Spielsystem
   series_start: "Beginn: %{series_start}"
   remark: Bemerkung
+  replacement_players: Ersatzspieler

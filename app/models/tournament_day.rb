@@ -40,7 +40,7 @@ class TournamentDay < ActiveRecord::Base
   
   def max_series
     if series_map and series_map.length > 0 then
-      (max_tim, max_sers) = series_map.max {|(time1, sers1), (time2, sers2)| sers1.length <=> sers2.length}
+      (_, max_sers) = series_map.max {|(time1, sers1), (time2, sers2)| sers1.length <=> sers2.length}
       return max_sers.length
     else
       return 0

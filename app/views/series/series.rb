@@ -27,6 +27,7 @@ class Views::Series::Series < Views::Layouts::SWPage
         form_text_field f, :sex
         form_text_field f, :use_rank
         form_text_field f, :type
+        form_text_field f, :max_participants
         form_text_field f, :sys_exp_link_de
         form_text_field f, :sys_exp_link_fr
         form_text_field f, :sys_exp_link_en
@@ -37,7 +38,8 @@ class Views::Series::Series < Views::Layouts::SWPage
     end
   end
   
-  @@text_fields = [:series_name, :long_name, :start_time, :min_ranking, :max_ranking, :category, :sex]
+  @@text_fields = [:series_name, :long_name, :start_time, :min_ranking, :max_ranking, :max_participants,
+                   :category, :sex]
   @@fields = [:tournament_day_id].concat @@text_fields
   
   def fields

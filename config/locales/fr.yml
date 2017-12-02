@@ -247,7 +247,7 @@ fr:
     start_time: "Début"
     start_time_text: "Début"
     min_ranking: "classement de"
-    max_ranking: "jusqu'à"
+    max_participants: "Participants (max)"
     category: "catégorie d'age"
     sex: "sexe"
     tour_id: "ID du tournoi"
@@ -521,3 +521,4 @@ fr:
   system_explanation: mode des jeux
   series_start: "Début: %{series_start}"
   remark: Remarque
+  replacement_players: joueurs de remplacement

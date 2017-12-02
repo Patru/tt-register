@@ -53,7 +53,7 @@ en:
     start_time: "Start"
     start_time_text: "Start"
     min_ranking: "Classment from"
-    max_ranking: "to"
+    max_participants: "Participants (max)"
     category: "Age category"
     sex: "Sex"
     tour_id: "Tournament-ID"
@@ -314,3 +314,4 @@ en:
   system_explanation: system of play
   series_start: "Beginning: %{series_start}"
   remark: Remark
+  replacement_players: replacement players

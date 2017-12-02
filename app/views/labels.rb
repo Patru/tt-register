@@ -22,6 +22,7 @@ class Views::Labels
     :subject => "Betreff",
     :text => "Text",
     :rank => "Ranking",
+    :max_participants => "Teilnehmer (max)",
     :woman_rank => "Damen-Ranking",
     :disp_ranking => "Klassierung",
     :disp_woman_ranking => "Damenklassierung",
