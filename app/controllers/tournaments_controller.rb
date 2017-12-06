@@ -135,9 +135,9 @@ class TournamentsController < ApplicationController
     end
   end
 
-  def entries_for(tournament)
-    sers = Series.includes(:tournament_day).where('tournament_days.tournament_id' => 5).all
-    limited_series = sers.select{|s| s.max_participants > 0}
+  def entries_for(tournment)
+    sers = Series.includes(:tournament_day).where('tournament_days.tournament_id' => tournment.id).all
+    limited_series = sers.select{|s| !s.max_participants.nil? && s.max_participants > 0}
     unlimited_series= sers.select{|s| s.max_participants.nil? || s.max_participants == 0}
 
     play_series_with_partner = []
