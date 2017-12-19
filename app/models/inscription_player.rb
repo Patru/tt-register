@@ -141,6 +141,10 @@ class InscriptionPlayer < ActiveRecord::Base
   end
 
   def series_rank(series)
+    if player.nil?
+      puts "own player not found: #{created_at}"
+      return 0
+    end
     rank = player.send(series.relevant_rank)
     return rank if rank and series.use_rank and rank <= series.use_rank
     return nil

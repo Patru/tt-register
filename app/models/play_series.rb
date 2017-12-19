@@ -79,6 +79,10 @@ class PlaySeries < ActiveRecord::Base
 
   # rank according to the target series, all doubles will have no rank at all
   def rank
-    series.rank_of player
+    unless player.nil?
+      series.rank_of player
+    else
+      0
+    end
   end
 end

@@ -305,12 +305,13 @@ en:
   tournament_days:
     download: Download all inscriptions for this day
   elo_nav_name: Elo twelver
+  elo_18_nav_name: Elo 18 series
   elo_12_min: Elo twelve series higher than %{min}
   elo_12_max: Elo twelve series lower than %{max}
   elo_12_min_max: Elo twelve series von %{min} bis %{max}
   elo_12: Elo twelve series
   players:
-    series_name: Series %{index}
+    series_name: Series %{index} (%{count})
   system_explanation: system of play
   series_start: "Beginning: %{series_start}"
   remark: Remark

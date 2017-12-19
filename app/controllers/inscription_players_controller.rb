@@ -232,6 +232,9 @@ class InscriptionPlayersController < ApplicationController
 
   def new_ins_player(player, param_days)
     inscription_player = InscriptionPlayer.new(:player_id => player.id, :inscription_id => @inscription.id)
+    if param_days.nil?
+      return inscription_player
+    end
     day_ids, partner_ids=@inscription.tournament.parse_series(param_days)
     all_series=[]
     day_ids.each do |day_id, ser_ids|

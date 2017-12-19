@@ -1,37 +1,20 @@
 # encoding: UTF-8
 require 'views/basics.rb'
-require_relative 'standard'
 
 module Views
   module Series
     module Listers
-      class Elo < Erector::Widget
+      class Lister < Erector::Widget
         include Views::Basics
         needs :series, :play_series, :open
-        def content
+
+        def series_title
           div class:'series-start' do
             text t :series_start, series_start:I18n.localize(@series.day_time, format: :long)
             unless @series.sys_exp_link.nil?
               text "; "
               a href:@series.sys_exp_link, target:'_blank' do
                 text t :system_explanation
-              end
-            end
-          end
-          table class: 'players_list' do
-            elo_header
-
-            tbody do
-              @play_series.each_slice(12).with_index do |(*play_sers), idx|
-                    # rather tedious piece of syntax above, beware
-                one_series idx+1, play_sers
-                if play_sers.count == 12
-                  tr do
-                    td class:'small-vspace' do
-                      text ""
-                    end
-                  end
-                end
               end
             end
           end
@@ -65,7 +48,7 @@ module Views
               end
               if idx ==half
                 td class:'series-name' do
-                  text I18n.t('players.series_name', index:ser_index)
+                  text I18n.t('players.series_name', index:ser_index, count:players.count)
                 end
               else
                 td ' '
@@ -87,4 +70,3 @@ module Views
     end
   end
 end
-

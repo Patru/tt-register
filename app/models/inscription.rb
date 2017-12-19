@@ -54,7 +54,9 @@ class Inscription < ActiveRecord::Base
       @own_inscription = nil
       @inscription_players_without_self=[]
       inscription_players.each do |ins_player|
-        if ins_player.player.licence != licence then
+        if ins_player.player.nil?
+          puts "player not available in InscriptionPlayer #{ins_player.id}"
+        elsif ins_player.player.licence != licence then
           @inscription_players_without_self << ins_player
         else
           @own_inscription = ins_player
