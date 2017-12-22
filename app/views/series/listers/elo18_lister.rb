@@ -33,6 +33,7 @@ module Views
         end
 
         def straight_list(n, parts)
+          return [n] if parts <= 1
           larger_size = (n.to_f/parts).ceil
           larger_count = n%parts
           if larger_count == 0
@@ -54,7 +55,7 @@ module Views
             dist = dist - 12
             parts = parts - 1
             new_list = straight_list(dist, parts)
-            if new_list[0] > 18
+            if new_list[0] > 18 || parts <= 1
               return list + twelves
             else
               list = new_list
