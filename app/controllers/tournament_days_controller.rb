@@ -114,7 +114,7 @@ class TournamentDaysController < ApplicationController
     @tournament_day = TournamentDay.find(params[:id])
     @tournament_day.series
     @play_series = PlaySeries.all(
-        include:[:series, {:inscription_player => :player}, :partner],
+        include:[:series, {:inscription_player => :player}, {:inscription_player => :inscription}, :partner],
         conditions:{'series.tournament_day_id' => @tournament_day.id})
     group_by_player
 
