@@ -114,7 +114,7 @@ class TournamentDaysController < ApplicationController
     @tournament_day = TournamentDay.find(params[:id])
     @tournament_day.series
     @play_series = PlaySeries.all(
-        include:[:series, {:inscription_player => :player}, :partner],
+        include:[:series, {:inscription_player => :player}, {:inscription_player => :inscription}, :partner],
         conditions:{'series.tournament_day_id' => @tournament_day.id})
     group_by_player
 
@@ -134,7 +134,7 @@ class TournamentDaysController < ApplicationController
     @play_series.each do |pls|
       player_series[pls.player]=(player_series[pls.player]<<pls)
     end
-    headers = ["Verein", "Liz.Nr.", "Name", "Vorname", "Kat.", "Kla H", "Kla D", "Klub D"]
+    headers = ["Verein", "Liz.Nr.", "Name", "Vorname", "E-Mail", "Kat.", "Kla H", "Kla D", "Klub D"]
     all_sers.each do |ser|
       headers << ser.series_name
     end

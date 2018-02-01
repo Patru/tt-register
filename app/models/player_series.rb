@@ -18,13 +18,18 @@ class PlayerSeries
       @double = pl_ser
     end
 
+    if @inscription.nil?
+      @inscription = pl_ser.inscription_player.inscription
+    end
+
     @series[pl_ser.series]=pl_ser
     self
   end
 
   def line
     attrs=[@player.club, @player.licence, @player.name, @player.first_name,
-        @player.category, @player.ranking, @player.woman_ranking, nil]
+        @inscription.email, @player.category, @player.ranking,
+        @player.woman_ranking, nil]
     attrs.concat xs
     attrs.concat doubles_partners
   end
