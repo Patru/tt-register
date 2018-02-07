@@ -65,7 +65,7 @@ module Views
               end
               if idx ==half
                 td class:'series-name' do
-                  text I18n.t('players.series_name', index:ser_index)
+                  text I18n.t('players.series_name', index:ser_index, count:players.count)
                 end
               else
                 td ' '
