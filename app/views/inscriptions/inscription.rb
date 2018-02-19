@@ -33,6 +33,7 @@ class Views::Inscriptions::Inscription < Views::Layouts::SWPage
         end
         form_text_field f, :licence, {placeholder: t(:licence), type: 'number'}
         form_text_field f, :name, {placeholder: t(:first_name_name)}
+        form_checkbox_field f, :keep_informed, t(:about_next_event)
       end
       p do
         rawtext f.submit(button_text, id:'create_inscription', data: { disable_with: t(:processing) })

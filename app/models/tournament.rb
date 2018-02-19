@@ -4,6 +4,7 @@ class Tournament < ActiveRecord::Base
   has_many :tournament_days
   has_many :inscriptions
   has_many :admins
+  has_many :keep_informeds
 
   validates_presence_of :tour_id
   validates_presence_of :sender_email

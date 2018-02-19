@@ -237,6 +237,7 @@ fr:
     first_name: "prénom"
     nickname: "login"
     email: "e-mail"
+    keep_informed: "tenez-moi"
     date_of_birth: "date de naissance"
     club: "club"
     licence: "licence"
@@ -277,6 +278,7 @@ fr:
   topic: thème
   enter_your_message_here: entre ton message ici
   new_inscription: "Nouveau formulaire d'inscription"
+  about_next_event: "au courant du prochain événement"
   new_enrollment: Nouvelle inscription
   inscriptions: "Inscriptions"
   thanks_and_purpose: |

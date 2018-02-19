@@ -16,6 +16,7 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
       text " | "
       link_to "Einschreibungen löschen", delete_all_inscriptions_path(:id => @tournament.id), :confirm => "Alle Einschreibungen löschen?"
       text " | "
+      link_to "E-Mail Adressen", tournament_emails_path(id:@tournament.id, format:'html')
       button_to "API-Key erzeugen", create_api_key_path(id: @tournament.id)
     end
   end

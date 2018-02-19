@@ -394,13 +394,17 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     end
   end
 
-  def form_checkbox_field form, symbol
+  def form_checkbox_field form, symbol, post_script=nil
     tr do
       td :class => 'label'  do
         rawtext form.label(symbol, label_text(form, symbol))
       end
       td do
         rawtext form.check_box(symbol)
+        unless post_script.nil?
+          text " "
+          text post_script
+        end
       end
     end
   end

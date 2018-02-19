@@ -242,6 +242,7 @@ de:
     first_name: "Vorname"
     nickname: "Login"
     email: "E-Mail"
+    keep_informed: "informiert mich"
     date_of_birth: "Geburtsdatum"
     club: "Club"
     licence: "Lizenz"
@@ -287,6 +288,7 @@ de:
     remark_de: Bemerkung Deutsch
     remark_fr: Bemerkung Französisch
     remark_en: Bemerkung English
+    create_inscription: Konto erzeugen
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen
@@ -294,6 +296,7 @@ de:
   enter_your_message_here: Gib deine Meldung hier ein.
   topic: Thema
   new_inscription: "Neue Einschreibung"
+  about_next_event: "über die nächste Austragung"
   new_enrollment: Neue Anmeldung
   inscriptions: "Anmeldungen"
   thanks_and_purpose: |

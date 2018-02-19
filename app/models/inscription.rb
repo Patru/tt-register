@@ -8,6 +8,8 @@ class Inscription < ActiveRecord::Base
   validates_length_of :name, :maximum => 100, :message => "darf nicht länger als 100 Zeichen sein"
   validates_length_of :email, :maximum => 120, :message => "darf nicht länger als 120 Zeichen sein"
   attr_reader :password
+  attr_accessor :keep_informed
+  attr_accessible :tournament_id, :email, :licence, :name, :keep_informed
 
   def must_have_name_or_licence
     if (name == nil or name.length == 0) and (licence == nil or licence.to_s.length == 0) then

@@ -162,6 +162,7 @@ class InscriptionsController < ApplicationController
     
     respond_to do |format|
       if @inscription.save
+        create_keep_informed(@inscription) if @inscription.keep_informed
         Confirmation.confirmation(@inscription, host).deliver
         flash[:notice] = t 'flash.inscription_form_created_successfully'
         format.html { redirect_to(@inscription) }
@@ -173,6 +174,13 @@ class InscriptionsController < ApplicationController
         format.xml  { render :xml => @inscription.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def create_keep_informed(inscription)
+    keep_informed = KeepInformed.new
+    keep_informed.email = inscription.email
+    keep_informed.tournament = inscription.tournament
+    keep_informed.save
   end
 
   # PUT /inscriptions/1

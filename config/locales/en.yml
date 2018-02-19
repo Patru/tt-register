@@ -43,6 +43,7 @@ en:
     first_name: "First name"
     nickname: "Login"
     email: "E-mail"
+    keep_informed: "Keep me informed"
     date_of_birth: "Date of birth"
     club: "Club"
     licence: "Licence"
@@ -82,6 +83,7 @@ en:
   topic: Topic
   enter_your_message_here: enter your message here
   new_inscription: "New inscription"
+  about_next_event: "about the next event"
   new_enrollment: "New enrollment"
   inscriptions: "Inscriptions"
   thanks_and_purpose: |

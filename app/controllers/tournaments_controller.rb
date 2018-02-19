@@ -135,6 +135,14 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def show_keep_informed_emails
+    @tournament = Tournament.find(params[:id])
+
+    respond_to do |format|
+      format.html # show_keep_informed_emails.rb
+    end
+  end
+
   def entries_for(tournment)
     sers = Series.includes(:tournament_day).where('tournament_days.tournament_id' => tournment.id).all
     limited_series = sers.select{|s| !s.max_participants.nil? && s.max_participants > 0}
