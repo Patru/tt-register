@@ -5,7 +5,7 @@ class InscriptionsController < ApplicationController
   before_filter :login_required,
                 :except => [:new, :create, :show, :login, :resend,
                             :resend_link, :protection, :email_form, :mail_team,
-                            :with_id]
+                            :with_id, :non_licensed_inscription]
   layout nil
   # GET /inscriptions
   # GET /inscriptions.xml
@@ -83,6 +83,16 @@ class InscriptionsController < ApplicationController
     respond_to do |format|
       format.html # resend.rb
       format.xml  { render :xml => @inscription }
+    end
+  end
+
+  def non_licensed_inscription
+    @tournaments = Tournament.all
+    @inscription = Inscription.new
+    @inscription.tournament = guess_tournament
+
+    respond_to do |format|
+      format.html # non_licensed_inscription.rb
     end
   end
 
