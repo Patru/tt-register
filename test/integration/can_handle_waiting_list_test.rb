@@ -22,7 +22,7 @@ describe "CanHandleWaitingList Integration Test" do
     add_player_to_inscription(player)
     open_email @inscription.email
     waiting_list_text = 'Warteliste Sa: 1'
-    current_email.must_have_content "#{player.name} wurde auf deiner Einschreibung " +
+    current_email.must_have_content "#{player.name} wurde auf deinem Konto " +
                                         "folgendermassen angemeldet: #{waiting_list_text}"
     within 'table#my_inscriptions' do
       page.must_have_link(player.name)
@@ -62,7 +62,7 @@ describe "CanHandleWaitingList Integration Test" do
     first_mail.to.count.must_equal 1
     first_mail.to[0].must_equal @inscription.email
     first_mail.subject.must_equal "Abmeldung von #{@player.long_name}"
-    first_mail.must_have_content "#{@player.long_name} wurde aus deiner Einschreibung gelöscht"
+    first_mail.must_have_content "#{@player.long_name} wurde aus deinem Konto gelöscht"
         # Nokogiri will fix quoted printable encoding
     second_mail = current_emails[1]
     second_mail.to.count.must_equal 1

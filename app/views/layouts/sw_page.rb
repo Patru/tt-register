@@ -222,7 +222,7 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
       text "Administration"
       ul id: 'admin' do
         li do
-          link_to("Einschreibungen", inscriptions_path)
+          link_to("Anmeldekonti", inscriptions_path)
         end
         li do
           link_to('Serien', url_for(:controller=>"series", :action=>"index", :only_path=>true))

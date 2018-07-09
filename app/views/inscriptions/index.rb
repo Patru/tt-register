@@ -5,7 +5,7 @@ class Views::Inscriptions::Index < Views::Inscriptions::Inscription
     {}
   end
   def page_title
-    'Liste der Einschreibungen'
+    'Liste der Anmeldekonti'
   end
 
   def menu_items

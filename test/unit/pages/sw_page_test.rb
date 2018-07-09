@@ -35,7 +35,7 @@ class SWPageTest < ActionView::TestCase
     I18n.locale=:de
     node = Capybara.string @page.to_html(prettyprint: true, helpers: self)
     node.has_selector?('div#menu').must_equal true
-    node.find('div#menu ul.context').has_link?("Neue Einschreibung").must_equal true
+    node.find('div#menu ul.context').has_link?("Neues Anmeldekonto").must_equal true
     node.find('div#menu ul.standard').has_link?("E-Mail").must_equal true
     node.find('div#menu ul.standard').has_link?("Datenschutz").must_equal true
     node.find('div#navigation').has_select?('language', selected:'Deutsch').must_equal true

@@ -55,6 +55,7 @@ en:
     start_time_text: "Start"
     min_ranking: "Classment from"
     max_participants: "Participants (max)"
+    non_licensed_start: "lowest licence non licensed"
     category: "Age category"
     sex: "Sex"
     tour_id: "Tournament-ID"
@@ -84,29 +85,29 @@ en:
   enter_your_message_here: enter your message here
   new_inscription: "New inscription"
   about_next_event: "about the next event"
-  new_enrollment: "New enrollment"
+  new_enrollment: "New inscription"
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
     %{thanks_for_interest}.
-    Here you are right to enroll yourself or other players for the tournament. To do this you must provide an e-mail
-    address, but you may also create an inscription form by merely providing a name.
-  create_new_inscription: "Create a new inscription form"
-  create_and_confirm: "Create inscription form and confirm e-mail address"
+    This site allows you to enroll yourself or other players for the tournament. To do this you must provide an e-mail
+    address, but you may also create an inscription account by merely providing a name.
+  create_new_inscription: "Create a new inscription account"
+  create_and_confirm: "Confirm e-mail address and reate inscription account"
   processing: "processing ..."
   licence: licence number
   first_name_name: first name and name
   select: Select
-  error_during_creation_of_inscription: Error during the creation of your inscription
+  error_during_creation_of_inscription: Error during the creation of your account
   the_following_fields_must_be_corrected: "The following fields must be corrected:"
   series_plural: series
   help: help
   lost_login_link: "I have lost the inscription link"
   root_page: homepage
   help_para1: |
-    In order to enroll yourself to the %{tournament_name} you first have to create an inscription form.
+    In order to enroll yourself to the %{tournament_name} you first have to create an inscription account.
     This is a simple process during which we can verify your e-mail address such that we can contact you
     if questions arise concerning your inscriptions.
-    Please create an inscription using the form on the %{start_html} either with your licence number
+    Please create an account using the form on the %{start_html} either with your licence number
     (in which case the program can look up your name) or by providing a name.
   help_para2: |
     If you do have a licence by Swiss Table Tennis it is most simple to provide your licence number which
@@ -115,16 +116,16 @@ en:
     is also possible (though a little less convenient) to just use your name in the inscription form.
   new_login_link: new login-Link
   help_para3: |
-    After your inscription has been saved we will send you an e-mail with a confirmation-link. It will contain
-    a random number which serves as your login for this inscription so you do not have to remember a password.
+    After your account has been created we will send you an e-mail with a confirmation-link. It will contain
+    a random number which serves as your login for this account so you do not have to remember a password.
     Please keep your confirmation e-mail because it allows you to easily manage and edit your inscriptions.
     Since the link will only be valid until up to the end of the tournament you may also pass it to someone
-    else, e.g. if you leave for the holiday. Of course we will provide a %{new_login_link} if you
-    accidentially lost your confirmation-link. Note however that any old links immediately become invalid
-    as soon as you askt for a new one, therefore it is pointless to ask for more than one in succession.
+    else, e.g. if you leave for a holiday. Of course we will provide a %{new_login_link} if you
+    accidentially lost your confirmation-link. Note however that any old link immediately become invalid
+    as soon as you ask for a new one, therefore it is pointless to ask for more than one in succession.
   help_para4: |
     Using your confirmation-link you you can easily check all your inscriptions, but we will also send you
-    an e-mail about any changes made to your inscription. So if you add a player or change his series we
+    an e-mail about any changes made to the inscriptions in your account. So if you add a player or change his series we
     will send you an e-mail about each edit. Usually you are responsible for these edits, but it will also
     permit you to react quickly in case of fraud.
   help_para5: |
@@ -132,14 +133,14 @@ en:
   mail_team: send an e-mail to the tournament-team
   help_create_inscription: |
     Having said all that it is now your turn to %{create_inscription_link}.
-  create_inscription_form: create your inscription form
-  feedback_form: With this form you may provide your your comments, problems, critics or even your commendations.
+  create_inscription_form: create your inscription account
+  feedback_form: With this form you may provide your comments, problems, critics or even your commendations.
   resend_login_link: Send me a new login link
-  show_inscription: Show inscription
+  show_inscription: Show account info
   add_players:
     title: Enroll further players
     explanation: |
-      Using this form you will see a list of players who you can enroll.
+      Using this form you can see a list of matching players to enroll.
       You may use the club, the familiy and/or the first name (or even parts of them) to search for players.
       For each enrolled player you will then have to select the series he wants to participate in.
   add_player_with_licence: |
@@ -164,7 +165,7 @@ en:
     full: "Waiting list %{day}: %{series}; currently number %{number} on the list"
     short: Waiting list
   title:
-    transfer_inscription_to_player: Transfer inscription to player
+    transfer_inscription_to_player: Transfer inscription to new account for player
     edit_inscription_of: Edit the inscription of %{long_name}
     info_on_tournament: Further information on the tournament
     inscriptions_for: ! '%{number} inscriptions for %{series_name}'
@@ -175,29 +176,29 @@ en:
     thanks_we_will_get_back_to_you: |
       Thank you very much, your e-mail has been sent to the tournament team, it will get back to you if necessary.
     please_provide_email: Please provide your e-mail address, otherwise we cannot send your new inscription link.
-    no_inscription_for: We could not find an inscription form for %{address}, please create a new one.
+    no_inscription_for: We could not find an inscription account for %{address}, please create a new one.
     new_link_has_been_created: The link has been generated anew and an e-mail has been sent to you, it will arrive in a few minutes.
-    inscription_exists: I already have an inscription for number %{licence}, please request a new login link
+    inscription_exists: I already have an account for number %{licence}, please request a new login link
     other_inscription: |
       %{player_name} has been enrolled by %{inscription_name}, so you cannot change his inscription.
     logged_in: ! '%{name} has been logged in!'
     no_selection_criteria: No selection criteria have been provided, showing the first %{max} players
     login_link_incorrect: Your login-link is no longer current (%{token} is wrong), please request a new one if you lost yours!
-    inscription_not_found: The inscription with number %{id} could not be found, please apply for a new one.
+    inscription_not_found: The account with number %{id} could not be found, please apply for a new one.
     no_player_for_licence: I cannot find a player with licence %{licence}, please use a valid number
-    inscription_for_email_exists: An inscription form for the e-mail address %{address} already exists, please request a new login-link.
-    inscription_form_created_successfully: Your inscription has been created successfully, please use the link in the confirmation e-mail from now on.
+    inscription_for_email_exists: An inscription account for the e-mail address %{address} already exists, please request a new login-link.
+    inscription_form_created_successfully: Your account has been created successfully, please use the link in the confirmation e-mail from now on.
   error:
-    may_only_edit_own_inscription: You may only edit your own inscription!
-    may_only_delete_own_inscription: You may only delete your own inscription!
-    while_transfering_inscription: An error occured while transferring your inscription.
+    may_only_edit_own_inscription: You may only edit your own account info!
+    may_only_delete_own_inscription: You may only delete your own account!
+    while_transfering_inscription: An error occured while creating a new account for this player.
     player_already_enrolled: |
       %{player_name} has already been enrolled by %{inscription_name}! %{pronoun} must not be enrolled once more.
     already_enrolled_ignored: ! "%{long_name} is enrolled already, this inscription will therefore be ignored."
     not_this_tournament: This inscripition does not belong to the current tournament.
     no_inscriptions_left_max: There are no inscriptions left for %{day}, please choose a maximum of %{max} series.
-    wrong_inscription_for_sign_off: Wrong inscription, %{long_name} cannot be signed off.
-    wrong_inscription_for_edit: Wrong inscription, %{long_name} cannot be edited.
+    wrong_inscription_for_sign_off: Wrong account, %{long_name} cannot be signed off.
+    wrong_inscription_for_edit: Wrong account, %{long_name} cannot be edited.
     licence_max: The licence number may have no more than %{max} characters!
     no_series_pointless: Saving 0 series for the waiting list on %{day_name} is pointless.
     too_many_series: There must be no more than %{max} series played on %{day_name}.
@@ -208,9 +209,9 @@ en:
     header:
       save_inscription: Errors while saving inscription
   notice:
-    inscription_edited_success: Your inscription form has been changed successfully.
+    inscription_edited_success: Your account info has been changed successfully.
     enrollment_edited_success: Your inscription has been changed successfully.
-    transfer_successful: The inscription has successfully been transfered, not the player can maintain it himself.
+    transfer_successful: The inscription has been transfered successfully, now the player can maintain it himself.
     thanks_for_your_visit: Thank you for your visit.
     select_series_to_complete: Please select the series to complete the inscription.
     inscription_saved: Your inscription has been saved.
@@ -223,12 +224,12 @@ en:
     enroll: enroll
     sign_off_own: I cannot participate in the tournament and would like to be signed off
     add: add
-    transfer_inscription: Transfer the inscription and send the login link
+    transfer_inscription: Create a new account and send the login link
   resend_link:
     intro: In order to send you a new login link we need the tournament concerned and your e-mail address.
     instruction: |
       Please provide this information in the form below and send it.
-      Yourn new login-link will be sent to you in a few minutes.
+      Your new login-link will be sent to you in a few minutes.
       If this does not work please send an
     email_team: e-mail to the tournament team
   pronoun:
@@ -239,8 +240,8 @@ en:
     her: Dear
     both: Dear
   confirm:
-    transfer_inscription: Transfer inscription to %{long_name}
-    create_new_inscription: Do you want to create a new inscription form for %{long_name} and transfer this inscription to him?
+    transfer_inscription: Create an account for %{long_name}
+    create_new_inscription: Do you want to create a new account for %{long_name} and transfer this inscription to him?
     delete_inscription: Delete this inscription?
     sign_off_own: Do you really want to sign of from the tournament?
   series:
@@ -256,8 +257,8 @@ en:
       text: edit
       title: edit this inscription
     new_inscription:
-      text: New inscription form
-      title: Create a new inscription
+      text: New inscription account
+      title: Create a new account
     privacy:
       text: privacy
       title: elaborate conditions on privacy
@@ -265,11 +266,11 @@ en:
       text: e-mail
       title: e-mail to the tournament team
     my_inscription:
-      text: My inscription
-      title: Back to my inscription
+      text: My account
+      title: Back to my account
     show_inscription_player:
       text: show
-      title: show details of inscription
+      title: show details of account
     list_inscription_players:
       text: list
       title: To the list of inscriptions
@@ -281,7 +282,7 @@ en:
       title: edit this inscription
   mailer:
     confirmation:
-      subject: Confirmation of your inscription
+      subject: Confirmation of your account
     inscription_player_confirmation:
       subject: Confirming the enrollment of %{player_name}
     inscription_changed:

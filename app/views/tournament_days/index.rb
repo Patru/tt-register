@@ -39,7 +39,7 @@ class Views::TournamentDays::Index < Views::TournamentDays::TournamentDay
       th "Turnier"
       th "Tag"
       th :colspan => 2 do
-        text "Einschreibungen"
+        text "Anmeldungen"
       end
       th :colspan => 3 do
         text "Aktionen"

@@ -12,6 +12,7 @@ TtRegister::Application.routes.draw do
   resources :inscriptions
   match 'inscriptions/select_player/:id' => 'inscriptions#select_player'
   match 'resend_link' => 'inscriptions#resend_link', :as => 'resend_link'
+  get 'non_licensed_inscription' => 'inscriptions#non_licensed', :as => 'non_licensed_inscription'
   match 'resend' => 'inscriptions#resend', :as => 'resend'
   match 'email_form' => 'inscriptions#email_form' , :as => 'email_form'
   match 'mail_team' => 'inscriptions#mail_team', :as => 'mail_team'

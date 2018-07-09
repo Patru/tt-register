@@ -12,11 +12,11 @@ describe "CanCreateNewInscriptionWithLicence Integration Test" do
     within "form#new_inscription" do
       fill_in "inscription_licence", with: 700032
       fill_in "inscription[email]", with: my_email
-      click_button 'Einschreibung erstellen'
+      click_button 'Anmeldekonto erstellen'
     end
-    page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
+    page.must_have_content "Dein Anmeldekonto wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
     open_email my_email
-    current_email.subject.must_equal "Bestätigung der Einschreibung"
+    current_email.subject.must_equal "Erstellung des Anmeldekontos"
     current_email.to.count.must_equal 1
     current_email.to[0].must_equal my_email
     current_email.must_have_content "http://"
@@ -33,9 +33,9 @@ describe "CanCreateNewInscriptionWithLicence Integration Test" do
     visit "/"
     within "form#new_inscription" do
       fill_in "inscription_licence", with: 700032
-      click_button 'Einschreibung erstellen'
+      click_button 'Konto erstellen'
     end
-    page.must_have_content "Fehler beim Anlegen der Einschreibung"
+    page.must_have_content "Fehler beim Anlegen des Anmeldekontos"
     page.must_have_content "E-Mail hat ein ungültiges Format"
   end
 end

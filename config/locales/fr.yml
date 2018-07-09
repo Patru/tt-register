@@ -249,6 +249,7 @@ fr:
     start_time_text: "Début"
     min_ranking: "classement de"
     max_participants: "Participants (max)"
+    non_licensed_start: "Plus bas numéro des non-licensiés"
     category: "catégorie d'age"
     sex: "sexe"
     tour_id: "ID du tournoi"
@@ -277,16 +278,16 @@ fr:
   email: e-mail
   topic: thème
   enter_your_message_here: entre ton message ici
-  new_inscription: "Nouveau formulaire d'inscription"
+  new_inscription: "Nouveau compte d'inscription"
   about_next_event: "au courant du prochain événement"
-  new_enrollment: Nouvelle inscription
+  new_enrollment: "Nouvelle inscription"
   inscriptions: "Inscriptions"
   thanks_and_purpose: |
     %{thanks_for_interest}.
     C'est le bon endroit pour inscrire toi ou d'autres joueurs pour le tournoi. Pour ça
     nous avons besoin d'une adresse e-mail en tout cas, mais on peut aussi créer une inscription sans une licence.
-  create_new_inscription: "Composer un nouveau formulaire d'inscription"
-  create_and_confirm: créer le formulaire d'inscription et confirmer l'adresse e-mail
+  create_new_inscription: "Composer un nouveau compte d'inscription"
+  create_and_confirm: confirmer l'adresse e-mail et créer le compte d'inscription
   processing: traitement au cours ...
   licence: numéro de licence
   first_name_name: prénom nom
@@ -298,22 +299,22 @@ fr:
   lost_login_link: "j'ai perdu le lien d'inscription"
   root_page: "page d'accueil"
   help_para1: |
-    Pour t'inscrire pour le %{tournament_name} tu dois d'abord créer un formulaire d'inscription.
+    Pour t'inscrire pour le %{tournament_name} tu dois d'abord créer un compte d'inscription.
     C'est un proccess très simple qui nous permet de verifier ton address e-mail ce qui va faciliter
     de te contacter en cas de problèmes. Pour cette raison nous avons besoin d'une addresse e-mail
-    pour chaque inscription. S'il te plaît rempli le formulaire sur le %{start_html} ou bien avec ton
+    pour chaque compte. S'il te plaît rempli le formulaire sur le %{start_html} ou bien avec ton
     numéro de licence (ce qui permettra le programme de trouver ton nom) ou bien avec ton nom.
   help_para2: |
     L'entré directe de ton numéro de licence est la possibilité la plus simple comme le programm peut
     déterminer ton nom et ton club par la base des données. Tu peux quand même donner ton surnom dans
     le champ 'nom' si tu veux. Si tu ne possède pas d'une licence ou tu ne veux pas l'entrer c'est aussi
-    possible (même si c'est un peux moins comfortable) de créer une inscription juste avec ton nom.
+    possible (même si c'est un peux moins comfortable) de créer une compte juste avec ton nom.
   new_login_link: "nouveau lien d'inscirption"
   help_para3: |
-    Après que ton inscription est enregistré nous t'enverrons un e-mail avec le lien d'inscription. Il
-    contient un numéro accidentiel qui servira comme login pour cet inscription, comme ça tu ne devra pas
+    Après que ton compte a été créé nous t'enverrons un e-mail avec le lien d'inscription. Il
+    contient un numéro accidentiel qui servira comme login pour cet compte, comme ça tu ne devra pas
     te rapeller d'un nouveau mot de passe. Si tu garde ton lien d'inscription ça sera facile de changer
-    tes inscriptions et de les administrer. Comme l'inscription n'est valable que jusqu'au tournement
+    tes inscriptions et de les administrer. Comme le compte n'est valable que jusqu'au tournement
     tu peux simplement le passer à ton remplacement si tu vas en vaccences. Naturellement nous t'enverrons
     %{new_login_link} si tu l'as effacé par hasard. Note que l'ancien lien va expirer le moment out tu
     demande le nouveau lien, alors ça ne sert a rien d'en demander plusieurs, c'est seulement
@@ -327,11 +328,11 @@ fr:
   mail_team: envoyer un e-mail au team du tournoi
   help_create_inscription: |
     Alors, après tant d'explication la balle est dans ton camp pour %{create_inscription_link}.
-  create_inscription_form: créer ton inscription
-  feedback_form: Avec ce formulaire tu peux nous envoyer tes suggestions, problèmes, critiques ou juste des compliments.
+  create_inscription_form: créer ton compte d'inscription
+  feedback_form: Avec ce compte tu peux nous envoyer tes suggestions, problèmes, critiques ou juste des compliments.
   resend_login_link: "M'envoye un nouveau lien d'inscription"
   change: 'change'
-  must_be_logged_in: Veuillez utiliser le lien d'inscription pour l'utilisation de cette fonction.
+  must_be_logged_in: Veuillez utiliser le lien de compte pour l'utilisation de cette fonction.
   show_inscription: Afficher l'inscription
   add_players:
     title: Inscrire des autres joueurs
@@ -375,7 +376,7 @@ fr:
     no_inscription_for: L'inscription pour %{address} n'a pas été trouvé, nous te prions d'en créer une nouvelle.
     new_link_has_been_created: J'ai generé un nouveau lien d'inscription et un e-mail t'a été envoyé, il va arriver dans quelques minutes.
     inscription_exists: |
-      Une inscription pour le numéro de licence  %{licence} est déjà présent,
+      Une compte d'inscription pour le numéro de licence  %{licence} est déjà présent,
       s'il te plaît demande un nouveau lien d'inscription
     other_inscription: |
       %{player_name} a été inscrit par %{inscription_name}, comme ça tu ne pourras pas changer son inscription.
@@ -384,20 +385,20 @@ fr:
     login_link_incorrect: Ton lien de login n'est plus en courrant (%{token} est fausse), demande un nouveau si tu l'as perdu!
     inscription_not_found: L'inscription numéro %{id} n'as pas été trouvé, nous te prions de créer un nouveau formulaire d'inscription.
     no_player_for_licence: Je ne trouve pas de joueur avec la licence %{licence}, s'il te plâit utilise un numéro valable
-    inscription_for_email_exists: Un formulaire d'iscription pour l'adresse e-mail %{address} est déjà présent, tu peux demander un nouveau lien d'inscription.
+    inscription_for_email_exists: Un compte d'inscription pour l'adresse e-mail %{address} est déjà présent, tu peux demander un nouveau lien d'inscription.
     inscription_form_created_successfully: Ton inscription a été créé avec succès, tu peux maintenant utiliser le lien d'inscription qui a été envoyé per e-mail.
   error:
-    may_only_edit_own_inscription: Tu ne peux que changer ton propre inscription!
-    may_only_delete_own_inscription: Tu ne peux que effacer ton propre inscription!
-    while_transfering_inscription: Un erreur est apparu pendent la transmission de ton formulaire d'inscription.
+    may_only_edit_own_inscription: Tu ne peux que changer ton propre compte!
+    may_only_delete_own_inscription: Tu ne peux que effacer ton propre compte!
+    while_transfering_inscription: Un erreur est apparu pendent la création de ce compte d'inscription.
     player_already_enrolled: |
       %{player_name} a déjà été inscrit par %{inscription_name}! %{pronoun} ne peut pas être inscrit encore une fois.
     already_enrolled_ignored: ! "%{long_name} est déjà inscrit, j'ignore cette inscription."
     no_series_selected: Aucune série sélectionné, l'inscription n'as pas été enregistré.
     not_this_tournament: Cette inscription n'appartient pas au tournoi courrant.
     no_inscriptions_left_max: Il n'y a plus d'inscriptions pour le %{day} choisi un maximum de %{max} séries.
-    wrong_inscription_for_sign_off: Mauvaise inscription, %{long_name} ne peut pas être désinscrit.
-    wrong_inscription_for_edit: Mauvaise inscription, %{long_name} ne peut pas être modifié.
+    wrong_inscription_for_sign_off: Mauvaise compte, %{long_name} ne peut pas être désinscrit.
+    wrong_inscription_for_edit: Mauvaise compte, %{long_name} ne peut pas être modifié.
     licence_max: Le numéro de licence ne peut avoir que %{max} charactères au maximum!
     no_series_pointless: Sauvegarder 0 pour la liste d'attente le %{day_name} n'a pas lieu d'être.
     too_many_series: Le %{day_name} on ne peut pas s'inscrire pour plus de %{max} séries.
@@ -408,7 +409,7 @@ fr:
     header:
       save_inscription: Erreurs pendent la sauvgarde de l'inscription
   notice:
-    inscription_edited_success: Ton formulaire d'inscription a été modifié avec succès.
+    inscription_edited_success: Les informations de ton compte ont été modifié avec succès.
     enrollment_edited_success: Ton inscription a été modifié avec succès.
     transfer_successful: L'inscription a été transféré avec succès, maintenant le joueur peut la maintenir lui même.
     thanks_for_your_visit: Merci beaucoup pour ta visite.
@@ -444,7 +445,7 @@ fr:
     series: séries
   confirm:
     transfer_inscription: Transferer cet inscription à %{long_name}
-    create_new_inscription: Est-ce que tu veux créer une nouvelle inscription pour %{long_name} et transferer cet inscription à lui?
+    create_new_inscription: Est-ce que tu veux créer une nouvelle compte d'inscription pour %{long_name} et transferer cet inscription à lui?
     delete_inscription: Effacer l'inscription?
     sign_off_own: Tu es sûr que tu veux te désinscrire du tournoi?
   series:
@@ -460,19 +461,19 @@ fr:
       text: e-mail
       title: "e-mail au team d'organisation"
     my_inscription:
-      text: Mon inscription
-      title: Retour à mon inscription
+      text: Mon compte
+      title: Retour à mon compte d'inscription
     show_inscription:
       text: afficher
-      title: "Afficher les détails de l'inscription"
+      title: "Afficher les détails du compte d'inscription"
     edit_inscription:
       text: modifier
-      title: modifier cette inscription
+      title: modifier ce compte d'inscription
     list_inscriptions:
       text: liste
       title: à la liste des inscriptions
     new_inscription:
-      text: "Nouveau formulaire d'inscription"
+      text: "Nouveau compte d'inscription"
       title: Enregister une nouvelle inscription
     show_inscription_player:
       text: afficher
@@ -498,7 +499,7 @@ fr:
     resend_login:
       subject: retransmission de votre lien de login
     transfer_inscription:
-      subject: Transfert de ton inscription
+      subject: Transfer de ton inscription
     waiting_list_accept:
       subject: Inscription par diminution de la list d'attente pour le %{tournment}
   series:

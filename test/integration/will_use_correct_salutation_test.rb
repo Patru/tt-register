@@ -21,11 +21,11 @@ describe "WillUseCorrectSalutation Integration Test" do
       within "form#new_inscription" do
         fill_in "inscription_licence", with: 700023
         fill_in "inscription[email]", with: email_address
-        click_button 'Einschreibung erstellen'
+        click_button 'Anmeldekonto erstellen'
       end
-      page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
+      page.must_have_content "Dein Anmeldekonto wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
       open_email email_address
-      current_email.subject.must_equal "Bestätigung der Einschreibung"
+      current_email.subject.must_equal "Erstellung des Anmeldekontos"
       current_email.must_have_text "Liebe Ricarda Strong"
     end
 
@@ -37,11 +37,11 @@ describe "WillUseCorrectSalutation Integration Test" do
       within "form#new_inscription" do
         fill_in "inscription_licence", with: 700011
         fill_in "inscription[email]", with: email_address
-        click_button 'Einschreibung erstellen'
+        click_button 'Konto erstellen'
       end
-      page.must_have_content "Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
+      page.must_have_content "Deine Anmeldekonto wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail."
       open_email email_address
-      current_email.subject.must_equal "Bestätigung der Einschreibung"
+      current_email.subject.must_equal "Erstellung des Anmeldekontos"
       current_email.must_have_text "Lieber Zworgel Orgel"
     end
   end

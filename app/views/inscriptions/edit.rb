@@ -3,7 +3,7 @@
 class Views::Inscriptions::Edit < Views::Inscriptions::Inscription
 #  needs :tournaments, :inscription
   def page_title
-    'Einschreibung ändern'
+    'Kontodaten ändern'
   end
   
   def menu_items

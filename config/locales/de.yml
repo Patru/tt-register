@@ -219,7 +219,7 @@ de:
         body: "Folgende Fehler müssen korrigiert werden:"
   attributes:
     name: Name
-    max_inscriptions: "Einschreibungen maximal"
+    max_inscriptions: "Anmeldungen maximal"
     logo: "Logo"
     stylesheet: "Stylesheet"
     series_per_day: "Serien pro Tag"
@@ -257,6 +257,8 @@ de:
     min_elo: "Elo Minimum"
     max_elo: "Elo Maximum"
     max_participants: "Teilnehmer (max)"
+    non_licensed_start: "Tiefste Lizenznummer Nichtlizenzierte"
+
     category: "Alterskategorie"
     sex: "Geschlecht"
     tour_id: "Turnier-ID"
@@ -264,7 +266,7 @@ de:
     organiser: "Organisator"
     info_link: "Link für weitere Infos"
     day: "Tag"
-    max_inscriptions: "Max. Einschreibungen"
+    max_inscriptions: "Max. Anmeldungen"
     tournament_id: "Turnier"
     tournament: "Turnier"
     tournament_day_id: "Turniertag"
@@ -295,31 +297,31 @@ de:
   email: E-mail
   enter_your_message_here: Gib deine Meldung hier ein.
   topic: Thema
-  new_inscription: "Neue Einschreibung"
+  new_inscription: "Anmeldekonto erstellen"
   about_next_event: "über die nächste Austragung"
-  new_enrollment: Neue Anmeldung
+  new_enrollment: "Neue Anmeldung"
   inscriptions: "Anmeldungen"
   thanks_and_purpose: |
     %{thanks_for_interest}.
     Hier bist du richtig um dich oder andere Spieler fürs Turnier anzumelden. Dafür benötigen wir zusätzlich
     zu deiner E-Mail Adresse entweder eine Lizenznummer oder deinen Namen.
-  create_new_inscription: "Eine neue Einschreibung erstellen"
-  create_and_confirm: Einschreibung erstellen und E-Mail Adresse bestätigen
+  create_new_inscription: "Ein neues Anmeldekonto erstellen"
+  create_and_confirm: E-Mail Adresse bestätigen und Anmeldekonto erstellen
   processing: Verarbeitung läuft ...
   licence: Lizenznummer
   first_name_name: Vorname Name
   select: "Auswählen"
-  error_during_creation_of_inscription: Fehler beim Anlegen der Einschreibung
+  error_during_creation_of_inscription: Fehler beim Anlegen des Anmeldekontos
   the_following_fields_must_be_corrected: "Die folgenden Felder müssen korrigiert werden:"
   series_plural: Serien
   help: Hilfe
   lost_login_link: Ich habe den Login-Link verloren
   root_page: Startseite
   help_para1: |
-    Um dich für das %{tournament_name} anzumelden musst du zuerst eine Einschreibung erstellen.
+    Um dich für das %{tournament_name} anzumelden musst du zuerst ein Anmeldekonto erstellen.
     Damit wir bei Problemen mit einer Anmeldung Rückfragen stellen können benötigen wir
-    für alle Einschreibungen zumindest eine E-Mail Adresse.
-    Bitte erstelle deshalb im Formular auf der %{start_html} eine Einschreibung und zwar entweder
+    für alle Kontos zumindest eine E-Mail Adresse.
+    Bitte erstelle deshalb im Formular auf der %{start_html} ein Anmeldekonto und zwar entweder
     mit deiner Lizenznummer (dann können wir den Namen automatisch bestimmen) oder mit deinem Namen.
   help_para2: |
     Die direkte Eingabe der Lizenznummer ist am einfachsten, dann kann das Programm deinen Namen in der
@@ -328,16 +330,16 @@ de:
     anmelden.
   new_login_link: neuen login-Link
   help_para3: |
-    Nachdem die Einschreibung gespeichert ist, stellen wir dir eine E-mail mit einem Bestätigungs-Link zu,
-    dieser enthält eine zufällige Zahl die in der Folge als Login für deine Einschreibung dient.
+    Nachdem dein Anmeldekonto angelegt wurde, stellen wir dir eine E-mail mit einem Bestätigungs-Link zu,
+    dieser enthält eine zufällige Zahl die in der Folge als Login für dein Anmeldekonto dient.
     Bitte bewahre die E-mail auf, denn damit kannst du deine Anmeldungen leicht abändern und verwalten.
-    Da die Einschreibung nur bis zum Turnier gültig ist, kannst du den Link aus der E-mail auch an andere
+    Da das Anmeldekonto nur bis zum Turnier gültig bleibt, kannst du den Link aus der E-mail auch an andere
     weiter geben, wenn du z.B. in die Ferien gehst. Natürlich stellen wir dir auch einen %{new_login_link}
     zu falls du deinen versehentlich gelöscht haben solltest. Der alte Link ist nach dem Versand eines
     neuen Links nicht mehr gültig, es hilft also nichts diesen mehrfach hintereinander zu verlangen,
     es gilt immer nur der letzte.
   help_para4: |
-    Darüber hinaus halten wir dich per E-mail über alle Veränderungen an deiner Einschreibung auf dem laufenden.
+    Darüber hinaus halten wir dich per E-mail über alle Veränderungen an deinem Anmeldekonto auf dem laufenden.
     Wenn also Spieler an- oder abgemeldet werden, so verschicken wir dafür jedes mal eine E-mail.
     Normalerweise hast du diese Anpassungen zwar selber vorgenommen, im Zweifelsfall kannst
     du so aber auch Missbräuche rasch erkennen und durch Verlangen eines neuen Login-Links rasch unterbinden.
@@ -345,19 +347,19 @@ de:
     Falls du weitere Fragen oder Anregungen hast, so kannst du %{email_link}.
   help_create_inscription: |
     So, nach so vielen Erklärungen bist du jetzt am Zug um %{create_inscription_link}.
-  create_inscription_form: deine Einschreibung zu erstellen
+  create_inscription_form: dein Anmeldekonto zu erstellen
   mail_team: dem Turnier-Team eine E-Mail schicken
   feedback_form: Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen.
   resend_login_link: Sende mir einen neuen Login Link
   change: Ändern
   must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der E-mail verwenden.
   change_player_data: Spielerdaten ändern
-  show_inscription: Einschreibung anzeigen
+  show_inscription: Konto anzeigen
   add_players:
     title: Weitere Spieler anmelden
     explanation: |
       Mit diesem Formular kannst du eine Liste mit Spielern
-      anzeigen lassen aus denen du Spieler für die Einschreibung auswählen kannst.
+      anzeigen lassen aus denen du Spieler für die Anmeldung auswählen kannst.
       Dabei kann der Club, der Name und/oder der Vorname eingeschränkt werden,
       wobei auch Teile von Namen verwendet werden können.
       Für jeden eingeschriebenen Spieler musst du dann die Serien auswählen die er spielen möchte.
@@ -382,7 +384,7 @@ de:
     full: "Warteliste %{day}: %{series}; aktuell Nummer %{number} auf der Liste"
     short: Warteliste
   title:
-    transfer_inscription_to_player: Einschreibung an Spieler übertragen
+    transfer_inscription_to_player: Eigenes Konto für Spieler erstellen
     edit_inscription_of: Änderung der Anmeldung von %{long_name}
     info_on_tournament: Informationen zum Turnier
     inscriptions_for: ! '%{number} Anmeldungen für %{series_name}'
@@ -393,30 +395,30 @@ de:
     thanks_we_will_get_back_to_you: |
       Herzlichen Dank, die E-Mail wurde dem Turnier-Team zugestellt, es wird sich bei Bedarf melden.
     please_provide_email: Bitte fülle die E-Mail Adresse aus, sonst können wir dir keinen neuen Link zustellen!
-    no_inscription_for: Keine Einschreibung für %{address} vorhanden, bitte erzeuge eine neue Einschreibung.
+    no_inscription_for: Kein Anmeldekont für %{address} vorhanden, bitte erzeuge ein neues Konto.
     new_link_has_been_created: Der Link wurde neu generiert und dir zugestellt, die E-Mail sollte in wenigen Minuten ankommen.
-    inscription_exists: Eine Einschreibung für die Lizenznummer %{licence} existiert bereits, bitte Login-Link neu anfordern
+    inscription_exists: Ein Anmeldekonto für die Lizenznummer %{licence} existiert bereits, bitte Login-Link neu anfordern
     other_inscription: |
       %{player_name} wurde von %{inscription_name} angemeldet, die Anmeldung kann deshalb nicht geändert werden.
     logged_in: ! '%{name} ist jetzt eingeloggt!'
     no_selection_criteria: Keine Selektionskriterien angegeben, erste %{max} Spieler angezeigt
     login_link_incorrect: Dein Link ist nicht aktuell (%{token} ist falsch), bitte neu anfordern falls nicht mehr vorhanden!
-    inscription_not_found: Einschreibung Nummer %{id} nicht gefunden, bitte neu anmelden.
+    inscription_not_found: Anmeldekonto Nummer %{id} nicht gefunden, bitte neu anmelden.
     no_player_for_licence: Ich finde keinen Spieler mit der Lizenz %{licence}, bitte verwende eine gültige Nummer
-    inscription_for_email_exists: Eine Einschreibung für die E-Mail Adresse %{address} existiert bereits, bitte fordere deinen Login-Link neu an.
-    inscription_form_created_successfully: Deine Einschreibung wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail.
+    inscription_for_email_exists: Ein Anmeldekonto für die E-Mail Adresse %{address} existiert bereits, bitte fordere deinen Login-Link neu an.
+    inscription_form_created_successfully: Dein Anmeldekonto wurde erfolgreich erzeugt, bitte verwende ab jetzt den Link in der Bestätigungs-E-Mail.
   error:
-    may_only_edit_own_inscription: Nur die eigene Einschreibung kann geändert werden!
-    may_only_delete_own_inscription: Nur die eigene Einschreibung kann gelöscht werden!
-    while_transfering_inscription: Fehler beim Übertragen der Einschreibung
+    may_only_edit_own_inscription: Nur das eigene Anmeldekont kann geändert werden!
+    may_only_delete_own_inscription: Nur das eigene Anmeldekonto kann gelöscht werden!
+    while_transfering_inscription: Fehler beim erzeugen des Kontos für den Spieler
     player_already_enrolled: |
       %{player_name} wurde bereits von %{inscription_name} angemeldet! %{pronoun} kann nicht noch einmal angemeldet werden.
     already_enrolled_ignored: ! "%{long_name} ist bereits angemeldet, neue Anmeldung ignoriert."
     no_series_selected: Keine Serie selektiert, nicht gespeichert
-    not_this_tournament: Diese Einschreibung gehört nicht zum aktuellen Turnier.
+    not_this_tournament: Dieses Anmeldekonto gehört nicht zum aktuellen Turnier.
     no_inscriptions_left_max: Für den %{day} sind keine Meldungen mehr frei, maximal %{max} Serien wählen.
-    wrong_inscription_for_sign_off: Falsche Einschreibung, %{long_name} kann nicht abgemeldet werden.
-    wrong_inscription_for_edit: Falsche Einschreibung, %{long_name} kann nicht geändert werden.
+    wrong_inscription_for_sign_off: Falsches Anmeldekonto, %{long_name} kann nicht abgemeldet werden.
+    wrong_inscription_for_edit: Falsches Anmeldekonto, %{long_name} kann nicht geändert werden.
     licence_max: Lizenz darf höchstens %{max} Zeichen lang sein!
     no_series_pointless: Speichern von 0 Serien für die Warteliste am %{day_name} ist sinnlos.
     too_many_series: Am %{day_name} dürfen nicht mehr als %{max} Serien belegt werden.
@@ -425,11 +427,11 @@ de:
     accept_inscription_until: Anmeldungen zur Serie %{series} konnten nur bis am %{time} angenommen werden
     problems_occurred: "Folgende Probleme sind aufgetreten:"
     header:
-      save_inscription: Fehler beim Speichern der Einschreibung
+      save_inscription: Fehler beim Speichern der Kontoinformationen
   notice:
-    inscription_edited_success: Die Einschreibung wurde erfolgreich geändert.
+    inscription_edited_success: Die Kontoinformationen wurden erfolgreich geändert.
     enrollment_edited_success: Die Anmeldung wurde erfolgreich geändert.
-    transfer_successful: Die Einschreibung wurde erfolgreich übertragen und kann jetzt vom Spieler verwaltet werden.
+    transfer_successful: Das Konto für den Spieler wurde erfolgreich erzeugt und kann von ihm jetzt selber verwaltet werden.
     thanks_for_your_visit: Herzlichen Dank für deinen Besuch.
     select_series_to_complete: Bitte Serien auswählen um die Anmeldung abzuschliessen.
     inscription_saved: Deine Anmeldung wurde gespeichert.
@@ -442,7 +444,7 @@ de:
     enroll: Anmelden
     sign_off_own: Leider kann ich nicht ans Turnier kommen, ich möchte mich Abmelden
     add: Hinzufügen
-    transfer_inscription: Einschreibung übertragen und Login-Link zustellen
+    transfer_inscription: Anmeldekonto erzeugten und Login-Link zustellen
   resend_link:
     intro: Um dir den Login-Link erneut zustellen zu können benötigen wir das betroffene Turnier und deine E-Mail Adresse.
     instruction: |
@@ -463,8 +465,8 @@ de:
     series: Serien
   confirm:
     transfer_inscription: Anmeldung an %{long_name} übertragen
-    create_new_inscription: Willst du eine neue Einschreibung für %{long_name} erzeugen und die Anmeldung übertragen?
-    delete_inscription: Ganze Einschreibung löschen?
+    create_new_inscription: Willst du ein neues Anmeldekonto für %{long_name} erstellen und die Anmeldung übertragen?
+    delete_inscription: Konto mit allen Anmeldungen löschen?
     sign_off_own: Möchtest du dich wirklich vom Turnier abmelden?
   series:
     none: keine Teilnahme
@@ -482,20 +484,20 @@ de:
       text: E-Mail
       title: E-Mail ans Turnierteam
     my_inscription:
-      text: Meine Einschreibung
-      title: Zurück zu meiner Einschreibung
+      text: Mein Anmeldekonto
+      title: Zurück zu meinem Konto
     show_inscription:
       text: anzeigen
-      title: Details für Einschreibung anzeigen
+      title: Details für mein Konto anzeigen
     edit_inscription:
       text: ändern
-      title: Diese Einschreibung ändern
+      title: Kontoinformationen ändern
     list_inscriptions:
       text: Liste
-      title: Zur Liste der Einschreibungen
+      title: Zur Liste der Anmeldekonti
     new_inscription:
-      text: Neue Einschreibung
-      title: Eine neue Einschreibung erfassen
+      text: Neues Anmeldekonto
+      title: Ein neues Anmeldekonto erstellen
     show_player:
       text: anzeigen
       title: Spielerdaten anzeigen
@@ -558,7 +560,7 @@ de:
       title: Diese Anmeldung ändern
   mailer:
     confirmation:
-      subject: Bestätigung der Einschreibung
+      subject: Neues Anmeldekonto erstellt
     inscription_player_confirmation:
       subject: Bestätigung der Anmeldung von %{player_name}
     inscription_changed:
@@ -568,7 +570,7 @@ de:
     resend_login:
       subject: Erneute Zustellung des Login-Links
     transfer_inscription:
-      subject: Übertragung deiner Einschreibung
+      subject: Erstellung eines Kontos für einen angemeldeten Spieler
     waiting_list_accept:
       subject: Anmeldung durch Abbau der Warteliste für das %{tournment}
   series:

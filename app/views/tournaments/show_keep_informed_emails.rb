@@ -42,7 +42,7 @@ class Views::Tournaments::ShowKeepInformedEmails < Views::Tournaments::Tournamen
       text "Keine E-Mails vorhanden"
     end
     p do
-      link_to "Einschreibungen herunterladen", tournament_entries_path(:id => @tournament.id, :format => "dbsv")
+      link_to "Anmeldungen herunterladen", tournament_entries_path(:id => @tournament.id, :format => "dbsv")
     end
   end
 end

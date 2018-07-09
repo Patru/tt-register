@@ -51,7 +51,7 @@ describe "Create and inscription for a Twelve Tournament Integration Test" do
       end
     end
     within 'ul.context' do
-      click_link 'Meine Einschreibung'
+      click_link 'Mein Konto'
     end
     within 'form.sers' do
       uncheck "Elo Zwölferserie ab 999"
@@ -62,7 +62,7 @@ describe "Create and inscription for a Twelve Tournament Integration Test" do
     end
     set_browser_language 'en-GB'
     within 'ul.context' do
-      click_link 'Meine Einschreibung'
+      click_link 'Mein Konto'
     end
     within "form.sers table" do
       within  find('tr', text:'Saturday') do

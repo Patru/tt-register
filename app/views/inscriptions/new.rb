@@ -18,6 +18,9 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
       li {link_to t(:lost_login_link), resend_link_path}
       li {link_to t(:privacy), protection_path}
       li {link_to t(:mail_team), email_form_path}
+      if tournament.non_licensed_series? do
+        li {link_to t(:non_licensed_inscription), static_path(:help)}
+      end
     end
   end
 

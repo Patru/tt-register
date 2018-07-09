@@ -28,6 +28,7 @@ class Views::Series::Series < Views::Layouts::SWPage
         form_text_field f, :use_rank
         form_text_field f, :type
         form_text_field f, :max_participants
+        form_text_field f, :non_licensed_start
         form_text_field f, :sys_exp_link_de
         form_text_field f, :sys_exp_link_fr
         form_text_field f, :sys_exp_link_en

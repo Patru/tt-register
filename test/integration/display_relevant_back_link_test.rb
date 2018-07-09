@@ -17,8 +17,8 @@ describe "Display relevant back link Integration Test" do
         page.must_have_content "Anmeldungen für Damen A"
       end
       within "div#menu" do
-        page.must_have_link "Neue Einschreibung"
-        page.wont_have_link "Meine Einschreibung"
+        page.must_have_link "Neues Anmeldekonto"
+        page.wont_have_link "Mein Konto"
       end
     end
   end
@@ -32,8 +32,8 @@ describe "Display relevant back link Integration Test" do
         click_link "Damen A"
       end
       within "div#menu" do
-        page.wont_have_link "Neue Einschreibung"
-        page.must_have_link "Meine Einschreibung"
+        page.wont_have_link "Neues Anmeldekonto"
+        page.must_have_link "Mein Konto"
       end
     end
   end

@@ -19,7 +19,7 @@ class Views::Inscriptions::Protection < Views::Inscriptions::Inscription
       text "Darüber hinaus speichern wir nur so wenige Personendaten wie möglich, nämlich"
     end
     ul do
-      li "Eine E-Mail Adresse zu jeder erstellten Einschreibungen (um die Verantwortlichen kontaktieren zu können)"
+      li "Eine E-Mail Adresse zu jedem erstellten Anmeldekonto (um die Verantwortlichen kontaktieren zu können)"
       li "Alle Emails die von diesem Programm verschickt werden (zur Nachprüfung bei Störungen)"
     end
     p do
@@ -29,7 +29,7 @@ class Views::Inscriptions::Protection < Views::Inscriptions::Inscription
       link_to "Zentralregistratur", "http://www.swisstabletennis.ch/component/option,com_wrapper/Itemid,200/lang,de/"
       text " von "
       link_to "STT", "http://www.sttv.ch"
-      text " sie gelten deshalb als öffentlich. Auf dieser Seite sind sie nur für die Erfasser einer Einschreibung uneingeschränkt sichtbar. "
+      text " sie gelten deshalb als öffentlich. Auf dieser Seite sind sie nur für die Inhaber eines Einschreibekontos uneingeschränkt sichtbar. "
       text "Öffentlich zugänglich ist lediglich die Liste der Teilnehmer aller Serien (über die Links auf der rechten Seite)."
     end
   end
