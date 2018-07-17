@@ -92,7 +92,7 @@ en:
     This site allows you to enroll yourself or other players for the tournament. To do this you must provide an e-mail
     address, but you may also create an inscription account by merely providing a name.
   create_new_inscription: "Create a new inscription account"
-  create_and_confirm: "Confirm e-mail address and reate inscription account"
+  create_and_confirm: "Confirm e-mail address and create inscription account"
   processing: "processing ..."
   licence: licence number
   first_name_name: first name and name
