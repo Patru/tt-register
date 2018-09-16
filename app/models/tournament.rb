@@ -104,4 +104,20 @@ class Tournament < ActiveRecord::Base
   def accept_api_request_for?(key)
     return self.hashed_api_key.eql?(hash_key(key))
   end
+
+  def non_licensed_series?
+    if !definded?(@non_licensed_series)
+      active_tournament_days.each do |day|
+        day.series.each do |ser|
+          if ser.non_licensed?
+            @non_licensed_series = true
+          end
+        end
+      end
+      if !@non_licensed_series
+        @non_licensed_series = false
+      end
+    end
+    return @non_licensed_series
+  end
 end
