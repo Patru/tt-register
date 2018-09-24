@@ -8,8 +8,8 @@ class Series < ActiveRecord::Base
   has_many :waiting_list_series
   validates_numericality_of :min_ranking, :max_ranking
   validate :category_is_valid
-  validates_numericality_of :max_participants
-  validates_numericality_of :non_licensed_start
+  validates_numericality_of :max_participants, allow_nil:true
+  validates_numericality_of :non_licensed_start, allow_nil:true
   attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
                   :category, :sex, :use_rank, :start_time, :min_elo, :max_elo, :sys_exp_link_de,
                   :sys_exp_link_fr, :sys_exp_link_en, :max_participants
