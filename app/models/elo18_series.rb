@@ -7,6 +7,10 @@ class Elo18Series < EloSeries
     @nav_name ||= I18n.t(:elo_18_nav_name)
   end
 
+  def translated_name
+    return I18n.translate :elo_12
+  end
+
   def lister
     :Elo18Lister
   end
