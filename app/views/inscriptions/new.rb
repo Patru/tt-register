@@ -37,7 +37,9 @@ class Views::Inscriptions::New < Views::Inscriptions::Inscription
     p t :dear_chap
     p t :thanks_and_purpose, thanks_for_interest: tournament.thanks_for_interest_localized
     h2 t :create_new_inscription
-    inscription_form t :create_and_confirm
+    unless tournament.prohibit_new_accounts
+      inscription_form t :create_and_confirm
+    end
     help_links
     remark
   end

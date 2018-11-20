@@ -14,6 +14,7 @@ class Views::Tournaments::Tournament < Views::Layouts::SWPage
   @@fields << :layout_parser
   @@fields << :last_inscription_time
   @@fields << :only_show_playable_series
+  @@fields << :prohibit_new_accounts
   @@fields << :thanks_for_interest_de
   @@fields << :thanks_for_interest_fr
   @@fields << :thanks_for_interest_en
