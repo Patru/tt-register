@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180218160942) do
+ActiveRecord::Schema.define(:version => 20181120144328) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20180218160942) do
     t.string   "sex"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tournament_day_id", :default => 1
+    t.integer  "tournament_day_id",  :default => 1
     t.integer  "use_rank"
     t.string   "type"
     t.integer  "min_elo"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20180218160942) do
     t.string   "sys_exp_link_fr"
     t.string   "sys_exp_link_en"
     t.integer  "max_participants"
+    t.integer  "non_licensed_start"
   end
 
   create_table "tournament_days", :force => true do |t|
@@ -146,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20180218160942) do
     t.string   "remark_en",                 :limit => 3500
     t.string   "salt"
     t.string   "hashed_api_key"
+    t.boolean  "prohibit_new_accounts"
   end
 
   create_table "waiting_list_entries", :force => true do |t|

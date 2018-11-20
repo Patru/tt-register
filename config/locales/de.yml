@@ -279,6 +279,7 @@ de:
     canton: Kanton
     rv: RV
     only_show_playable_series: "Nur spielbare Serien anzeigen"
+    prohibit_new_accounts: "Neue Konten anlegen verbieten"
     thanks_for_interest_de: "Danke für dein Interesse ..."
     thanks_for_interest_fr: "Merci pour ton intérêt ..."
     thanks_for_interest_en: "Thanks for your interest ..."
