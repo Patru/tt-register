@@ -592,6 +592,8 @@ de:
   elo_12_max: Elo Zwölferserie bis %{max}
   elo_12_min_max: Elo Zwölferserie von %{min} bis %{max}
   elo_12: Elo Zwölferserie
+  elo_18_max: Elo Achtzehnerserie bis %{max}
+  elo_18: Elo Achtzehnerserie
   players:
     series_name: Serie %{index} (%{count})
   system_explanation: Spielsystem

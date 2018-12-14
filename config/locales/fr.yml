@@ -520,6 +520,8 @@ fr:
   elo_12_max: série Elo à douze jusqu'à %{max}
   elo_12_min_max: série Elo à douze dès %{min} à %{max}
   elo_12: série Elo à douze
+  elo_18_max: série Elo à dix-huit series jusqu'à %{max}
+  elo_18: Elo dix-huit series
   players:
     series_name: Série %{index} (%{count})
   system_explanation: mode des jeux
