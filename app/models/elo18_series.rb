@@ -8,7 +8,11 @@ class Elo18Series < EloSeries
   end
 
   def translated_name
-    return I18n.translate :elo_12
+    if max_elo
+      return I18n.translate :elo_18_max, max:max_elo
+    else
+      return I18n.translate :elo_18
+    end
   end
 
   def lister
