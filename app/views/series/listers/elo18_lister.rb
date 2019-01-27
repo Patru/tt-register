@@ -15,11 +15,13 @@ module Views
 
             tbody do
               sum_categories = 0
-              category_sizes.each.with_index(1) do |size, index|
+              max_series = category_sizes.count
+              category_sizes.each.with_index(0) do |size, index|
+                show_index = max_series - index
                 sum_categories = sum_categories + size
                 end_index = sum_categories-1
                 start_index = end_index - size + 1
-                one_series index, @play_series[start_index..end_index]
+                one_series show_index, @play_series[start_index..end_index]
                 if index < category_sizes.count
                   tr do
                     td class:'small-vspace' do

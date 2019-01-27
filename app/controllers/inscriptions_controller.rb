@@ -172,7 +172,7 @@ class InscriptionsController < ApplicationController
     
     respond_to do |format|
       if @inscription.save
-        create_keep_informed(@inscription) if @inscription.keep_informed
+        create_keep_informed(@inscription) if @inscription.keep_informed == "1"
         Confirmation.confirmation(@inscription, host).deliver
         flash[:notice] = t 'flash.inscription_form_created_successfully'
         format.html { redirect_to(@inscription) }
