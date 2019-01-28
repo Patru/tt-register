@@ -38,6 +38,8 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
       end
       p do
         link_to t('tournament_days.download'), day_entries_path(id:@tournament_day.id, format:'csv')
+        text " | "
+        link_to "Elo-Meldungen herunterladen", elo_entries_path(:id => @tournament_day.id, :format => "csv")
       end
     end
   end

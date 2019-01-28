@@ -32,7 +32,8 @@ TtRegister::Application.routes.draw do
   get 'tournaments/:tour_id/:api_key/all_entries.:format', to: 'tournaments#api_entries'
   get 'tournaments/:id/emails/show.:format', to: 'tournaments#show_keep_informed_emails', as: 'tournament_emails'
   match 'tournaments/entries/:id.:format' => 'tournaments#download_entries', :as => 'tournament_entries'
-  match 'tournaments/emails/:id.:format' => 'tournaments#download_emails', :as => 'tournament_emails'
+  match 'get/emails/:id.:format' => 'tournaments#download_emails', :as => 'download_tournament_emails'
+  match 'get/elo-entries/:id.:format' => 'tournament_days#elo_entries', :as => 'elo_entries'
   match 'tournaments/delete_inscriptions/:id' => 'tournaments#delete_all_inscriptions', :as => 'delete_all_inscriptions'
   post 'tournaments/create_api_key/:id' => 'tournaments#create_api_key', as: 'create_api_key'
 

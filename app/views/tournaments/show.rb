@@ -17,6 +17,7 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
       link_to "Anmeldekonti löschen", delete_all_inscriptions_path(:id => @tournament.id), :confirm => "Alle Ameldekonti löschen?"
       text " | "
       link_to "E-Mail Adressen", tournament_emails_path(id:@tournament.id, format:'html')
+      text " | "
       button_to "API-Key erzeugen", create_api_key_path(id: @tournament.id)
     end
   end

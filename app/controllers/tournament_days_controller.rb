@@ -128,6 +128,26 @@ class TournamentDaysController < ApplicationController
     end
   end
 
+  def elo_entries
+    @tournament_day = TournamentDay.find(params[:id])
+    play_series = PlaySeries.all(
+        include:[:series, {:inscription_player => :player}, {:inscription_player => :inscription}],
+        conditions:{'series.tournament_day_id' => @tournament_day.id})
+    @entries = []
+    @entries << [:licence, :name, :first_name, :club, :elo, :email]
+    play_series.each do |ps|
+      pl = ps.player
+      inscription = ps.inscription_player.inscription
+      @entries << [pl.licence, pl.name, pl.first_name, pl.club, pl.elo, inscription.email]
+    end
+
+    respond_to do |format|
+      format.csv do
+        render_csv "elo_entries-#{Time.now.strftime("%d-%m-%Y_%k:%M")}"
+      end
+    end
+  end
+
   def group_by_player
     all_sers = @tournament_day.series.sort { |s1, s2| s1.series_name <=> s2.series_name }
     player_series = Hash.new{|h, k| h[k]=PlayerSeries.new(all_sers)}
