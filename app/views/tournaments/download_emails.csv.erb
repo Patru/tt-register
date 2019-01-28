@@ -1,0 +1,3 @@
+<% @keep_informeds.each do |keepIn| %>
+  <%=keepIn.to_csv(col_sep:"\t") -%>
+<% end %>

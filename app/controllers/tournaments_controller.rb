@@ -102,6 +102,16 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def download_emails
+    @tournament = Tournament.find(params[:id])
+    @keep_informeds = KeepInformed.where(tournament_id: @tournament.id).all
+    respond_to do |format|
+      format.csv do
+        render_csv "download"
+      end
+    end
+  end
+
   def api_entries
     tour_id = params[:tour_id]
     if tour_id.blank?
