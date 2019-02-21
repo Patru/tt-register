@@ -80,4 +80,16 @@ class Inscription < ActiveRecord::Base
     @password = rand_str(12)
     self.secret = Digest::SHA2.hexdigest(self.salt + @password)
   end
+
+  # checkboxes are strange beasts
+  def keep_informed?
+    return keep_informed == "1"
+  end
+
+  def unlicensed?
+    pl = own_player
+    if not pl.nil?
+      return pl.ranking == 0
+    end
+  end
 end

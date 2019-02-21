@@ -109,7 +109,7 @@ class InscriptionsController < ApplicationController
     @inscription = Inscription.where(tournament_id:tournament.id, email:nlr[:email]).first
     if @inscription.nil?
       @inscription = Inscription.new(name:"#{nlr[:first_name]} #{nlr[:name]}", email:nlr[:email],
-                            tournament_id:tournament.id)
+                            tournament_id:tournament.id, keep_informed:nlr[:keep_informed])
       @inscription.create_secret
       if @inscription.save
         flash[:notice]="Einschreibung für #{@inscription.name} erstellt."
@@ -150,6 +150,7 @@ class InscriptionsController < ApplicationController
     else
       logger.error "Fehler ins: #{@inscription.id} pl: #{@player.id}"
     end
+    create_keep_informed(@inscription) if @inscription.keep_informed?
 
     redirect_to @inscription
   end
@@ -230,7 +231,7 @@ class InscriptionsController < ApplicationController
     
     respond_to do |format|
       if @inscription.save
-        create_keep_informed(@inscription) if @inscription.keep_informed == "1"
+        create_keep_informed(@inscription) if @inscription.keep_informed?
         Confirmation.confirmation(@inscription, host).deliver
         flash[:notice] = t 'flash.inscription_form_created_successfully'
         format.html { redirect_to(@inscription) }
@@ -248,6 +249,7 @@ class InscriptionsController < ApplicationController
     keep_informed = KeepInformed.new
     keep_informed.email = inscription.email
     keep_informed.tournament = inscription.tournament
+    keep_informed.unlicensened = inscription.unlicensed?
     keep_informed.save
   end
 
