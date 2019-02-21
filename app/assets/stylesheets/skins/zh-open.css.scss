@@ -84,7 +84,7 @@ div#navigation {
   }
 }
 
-form#new_inscription {
+form.new_inscription {
   @include radial-fade-background(white, lighten($theme_bg_color, 30%));
   border: {
     color:lighten($theme_bg_color, 20);

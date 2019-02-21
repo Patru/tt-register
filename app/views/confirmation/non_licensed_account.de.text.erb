@@ -1,12 +1,12 @@
 <%=@inscription.anrede%> <%=@inscription.name%>
 
-Herzlichen Dank für die Benutzung der Anmelde-Applikation. Bitte klicke auf den folgenden Link
+Vielen Dank für deine Anmeldung zum Turnier für Nichtlizenzierte am <%=@inscription.tournament.name%>. Wenn du weitere Spieler mit derselben E-Mail Adresse anmeldest werden sie auf deinem Konto gesammelt. Mit einem Klick auf
 
 <%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
-um deine E-Mail Adresse zu bestätigen und deine sowie weitere Anmeldungen zu erfassen.
+kannst du nachschauen wen du angemeldet hast und allenfalls auch weider Leute abmelden.
 
-Bitte behalte diese Email bis zum Turnier, denn damit kannst du rasch zusätzliche An- oder Abmeldungen erfassen, der Link bleibt so lange aktiv.
+Bitte behalte diese Email bis zum Turnier denn der Link dient als Zugang zu deinem Konto. Er bleibt bis zur Austragung gültig.
 <% unless @inscription.tournament.facebook_link.blank? %>
 
 Um dich über den Stand der Anmeldungen auf dem laufenden zu halten betreiben wir auch die Facebook-Seite

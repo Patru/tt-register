@@ -12,6 +12,24 @@ class Confirmation < ActionMailer::Base
          subject: I18n.t('mailer.confirmation.subject'))
   end
 
+  def non_licensed_account(inscription, host)
+    @inscription = inscription
+    @host = host
+    mail(to:      inscription.email,
+        from:    inscription.tournament.sender_email,
+        bcc:     inscription.tournament.bcc_email,
+        subject: I18n.t('mailer.confirmation.non_licensed'))
+  end
+
+  def non_licensed_registration(inscription_player)
+    inscription=inscription_player.inscription
+    @inscription_player = inscription_player
+    mail(to:     inscription.email,
+        from:    inscription.tournament.sender_email,
+        bcc:     inscription.tournament.bcc_email,
+        subject: I18n.t('mailer.inscription_player_confirmation.subject', player_name:inscription_player.player.long_name))
+  end
+
   def inscription_player_confirmation(inscription_player)
     inscription=inscription_player.inscription
     @inscription_player = inscription_player

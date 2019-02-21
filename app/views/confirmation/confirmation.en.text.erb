@@ -2,7 +2,7 @@
 
 Thank you for using our inscription website. Please click the following link
 
-<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+<%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
 to confirm your e-mail address and to enroll yourself and others in the tournament.
 

@@ -198,7 +198,7 @@ div#navigation ul li ul li a:active {
 .open_inscriptions {
     color:#007000
 }
-form#new_inscription {
+form.new_inscription {
   float:left;
   padding:15px 20px 0px 20px;
   @include radial-fade-background(white, $ysz-yellow);

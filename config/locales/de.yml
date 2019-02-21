@@ -241,6 +241,7 @@ de:
     favicon: "Icon für Link"
     first_name: "Vorname"
     nickname: "Login"
+    group: Gruppe
     email: "E-Mail"
     keep_informed: "informiert mich"
     date_of_birth: "Geburtsdatum"
@@ -600,3 +601,19 @@ de:
   series_start: "Beginn: %{series_start}"
   remark: Bemerkung
   replacement_players: Ersatzspieler
+  dear_non_licensed_chap: Liebe Tischtennisspieler ohne Lizenz
+  non_licensed_registration: Anmeldung für Nichtlizenzierte
+  non_licensed_thanks: |
+    %{thanks_for_interest}.
+    Hier kannst du dich und andere Spieler für dass Turnier der Nichtlizenzierten anmelden. Bitte erfasse
+    die Angaben im untenstehenden Formular.
+    Die Liste der angemeldeten Spieler ist im Internet sichtbar. Falls du dies nicht
+    möchtest kannst du dich auch am Turnier direkt anmelden, allerdings dauert dies dann etwas länger und wir
+    sind deshalb dankbar für eine Online-Anmeldung im Vorfeld. Da du die Angaben selber kontrollierst werden sie
+    auch weniger Fehler enthalten.
+  non_licensed_how: |
+    Für die Anmeldung benötigen wir deinen Namen und eine E-Mail Adresse für die Bestätigung. Daneben kannst
+    du auch noch eine Gruppe angeben die wir für die Auslosung benützen. Spieler mit der gleichen Gruppe
+    werden in der ersten Runde nicht miteinder eingeteilt. Ob ihr im anschliessenden k.o.-System gegeneinander
+    kommt hängt dann allerdings davon ab ob ihr beide lange genug gewinnt.
+

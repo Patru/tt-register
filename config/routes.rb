@@ -29,6 +29,8 @@ TtRegister::Application.routes.draw do
   match 'players/filtered' => 'players#filtered'
   match 'players/upload' => 'players#upload', via: :post
   match 'auto.:format' => 'players#auto', as: 'auto'
+  get 'new_non_licensed', to:'inscriptions#new_non_licensed'
+  post 'non_licensed_registration', to:'inscriptions#register_non_licensed'
   get 'tournaments/:tour_id/:api_key/all_entries.:format', to: 'tournaments#api_entries'
   get 'tournaments/:id/emails/show.:format', to: 'tournaments#show_keep_informed_emails', as: 'tournament_emails'
   match 'tournaments/entries/:id.:format' => 'tournaments#download_entries', :as => 'tournament_entries'

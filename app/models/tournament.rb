@@ -106,18 +106,34 @@ class Tournament < ActiveRecord::Base
   end
 
   def non_licensed_series?
-    if !definded?(@non_licensed_series)
+    self.non_licensed_series != nil
+  end
+
+  def non_licensed_series
+    if !defined?(@non_licensed_series)
       active_tournament_days.each do |day|
         day.series.each do |ser|
           if ser.non_licensed?
-            @non_licensed_series = true
+            return @non_licensed_series = ser
           end
         end
       end
-      if !@non_licensed_series
-        @non_licensed_series = false
-      end
+      @non_licensed_series = nil
     end
     return @non_licensed_series
+  end
+
+  def next_non_licensed_number
+    if non_licensed_series?
+      lic_start = non_licensed_series.non_licensed_start
+      lic_end = lic_start+999
+      current = Player.where(licence:lic_start..lic_end).maximum(:licence)
+      if !current.nil? && current >= lic_start
+        return current+1
+      else
+        return lic_start
+      end
+    end
+    return 0
   end
 end

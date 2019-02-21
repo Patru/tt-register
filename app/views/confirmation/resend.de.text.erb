@@ -2,7 +2,7 @@
 
 Dein Link fürs Login ist neu
 
-<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+<%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
 Mit einem Klick kannst du deine Anmeldungen verwalten, Spieler abmelden oder weitere erfassen.
 

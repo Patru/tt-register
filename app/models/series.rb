@@ -12,7 +12,7 @@ class Series < ActiveRecord::Base
   validates_numericality_of :non_licensed_start, allow_nil:true
   attr_accessible :type, :tournament_day_id, :series_name, :long_name, :min_ranking, :max_ranking,
                   :category, :sex, :use_rank, :start_time, :min_elo, :max_elo, :sys_exp_link_de,
-                  :sys_exp_link_fr, :sys_exp_link_en, :max_participants
+                  :sys_exp_link_fr, :sys_exp_link_en, :max_participants, :non_licensed_start
 
   def category_is_valid
     self.errors.add :category, 'Kategorie darf nicht fehlen' if self.category.nil?
@@ -203,6 +203,11 @@ class Series < ActiveRecord::Base
     end
   end
 
+
+  def non_licensed?
+    non_licensed_start && non_licensed_start > 0
+  end
+
   private
   def translate_series_tag(str, tag)
     str.sub! I18n.t(tag, scope: [:series], locale: :de), I18n.t(tag, scope: [:series])
@@ -210,10 +215,6 @@ class Series < ActiveRecord::Base
 
   def init
     @trans_names={}
-  end
-
-  def non_licensed?
-    non_licensed_start && non_licensed_start > 0
   end
 end
 

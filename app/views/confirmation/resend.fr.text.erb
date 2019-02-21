@@ -2,7 +2,7 @@
 
 Ton nouveau lien d'inscription c'est
 
-<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+<%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
 Avec un simple clic tu peux administrer ton inscription en ajoutant ou en effacant des joueurs.
 

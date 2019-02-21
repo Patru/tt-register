@@ -2,7 +2,7 @@
 
 Merci pour utiliser notre programme d'inscription. Appuye sur le lien suivant s'il te plaît
 
-<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+<%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
 pour confirmer ton adresse e-mail et pour inscrire toi même et d'autres joueurs.
 

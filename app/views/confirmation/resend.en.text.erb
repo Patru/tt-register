@@ -2,7 +2,7 @@
 
 Your new login link is now
 
-<%= login_url(:host=>@host, :id => @inscription.id, :token => @inscription.password) %>
+<%= login_url(:protocol => 'https', :host=>@host, :id => @inscription.id, :token => @inscription.password) %>
 
 With just one click you may administer your inscription and add or remove players to/from it.
 

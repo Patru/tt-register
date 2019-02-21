@@ -5,7 +5,7 @@ class InscriptionsController < ApplicationController
   before_filter :login_required,
                 :except => [:new, :create, :show, :login, :resend,
                             :resend_link, :protection, :email_form, :mail_team,
-                            :with_id, :non_licensed_inscription]
+                            :with_id, :new_non_licensed, :register_non_licensed]
   layout nil
   # GET /inscriptions
   # GET /inscriptions.xml
@@ -72,7 +72,6 @@ class InscriptionsController < ApplicationController
     else
       render :action => "email_form"
     end
-
   end
 
   def resend_link
@@ -86,14 +85,73 @@ class InscriptionsController < ApplicationController
     end
   end
 
-  def non_licensed_inscription
-    @tournaments = Tournament.all
-    @inscription = Inscription.new
-    @inscription.tournament = guess_tournament
+  def new_non_licensed
+    @tournaments = Tournament.all  # TODO: scope for all non-licensed tournemnts
+    @registration = NonLicensedRegistration.new
+    @registration.tournament = guess_tournament
+    @registration.tournament_id = @registration.tournament.id
 
     respond_to do |format|
-      format.html # non_licensed_inscription.rb
+      format.html # new_non_licensed.rb
     end
+  end
+
+  def register_non_licensed
+    nlr = params[:non_licensed_registration]
+    tournament_id = nlr[:tournament_id].to_i
+    tournament = Tournament.find(tournament_id)
+    if tournament.nil?
+      flash[:error] = "Ohne Turnier ist keine Anmeldung möglich."
+      render :new_non_licensed
+      return
+    end
+
+    @inscription = Inscription.where(tournament_id:tournament.id, email:nlr[:email]).first
+    if @inscription.nil?
+      @inscription = Inscription.new(name:"#{nlr[:first_name]} #{nlr[:name]}", email:nlr[:email],
+                            tournament_id:tournament.id)
+      @inscription.create_secret
+      if @inscription.save
+        flash[:notice]="Einschreibung für #{@inscription.name} erstellt."
+        Confirmation.non_licensed_account(@inscription, host).deliver
+      end
+    end
+
+    @player = Player.new(name:nlr[:name], first_name:nlr[:first_name], ranking:0, club:nlr[:group])
+    @player.licence = tournament.next_non_licensed_number
+    logger.info "Player mit: #{@player.licence}"
+    @player.save
+    logger.info "Player erstellt: #{@player.id}"
+
+    if (!@inscription.id.nil?) && (!@player.id.nil?)
+      logger.info "erstelle ip"
+      ip = InscriptionPlayer.new(inscription_id:@inscription.id, player_id:@player.id)
+      if ip.save
+        logger.info "ip und ps erstellt"
+        ip.reload
+        if @inscription.licence.nil?
+          @inscription.licence = @player.licence
+          @inscription.save
+        else
+          Confirmation.non_licensed_registration(@inscription, host).deliver
+        end
+        flash[:notice] = "Der Spieler #{@player.long_name} wurde auf dem Konto von #{@inscription.name} angemeldet"
+        logger.info "ip gespeichert, erzeuge ps"
+        ser = tournament.non_licensed_series
+        logger.info "trying to add #{ser.series_name}"
+        ps = ip.play_series.build(series:ser, partner:nil)
+        logger.info "now we have #{ps.series_id}"
+        if ps.save
+          logger.info "ps gespeichert"
+        else
+          logger.info "da ging was schief"
+        end
+      end
+    else
+      logger.error "Fehler ins: #{@inscription.id} pl: #{@player.id}"
+    end
+
+    redirect_to @inscription
   end
 
   def resend
