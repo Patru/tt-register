@@ -48,7 +48,7 @@ class TournamentDay < ActiveRecord::Base
   end
   
   def count_entries
-    TournamentDay.count(:conditions => {:id => id}, :joins => {:series => :play_series})
+    TournamentDay.joins(series: :play_series).where(id: id, series: { non_licensed_start:0 }).count
   end
   
   def entries_remaining?

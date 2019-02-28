@@ -291,6 +291,9 @@ fr:
   processing: traitement au cours ...
   licence: numéro de licence
   first_name_name: prénom nom
+  first_name: Prénom
+  name: Nom
+  group: Groupe
   select: "Choisir"
   error_during_creation_of_inscription: Erreur pendent la création de ton inscription
   the_following_fields_must_be_corrected: "Tu dois corriger les champs suivants:"

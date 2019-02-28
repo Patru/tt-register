@@ -312,6 +312,9 @@ de:
   processing: Verarbeitung läuft ...
   licence: Lizenznummer
   first_name_name: Vorname Name
+  first_name: Vorname
+  name: Name
+  group: Gruppe
   select: "Auswählen"
   error_during_creation_of_inscription: Fehler beim Anlegen des Anmeldekontos
   the_following_fields_must_be_corrected: "Die folgenden Felder müssen korrigiert werden:"

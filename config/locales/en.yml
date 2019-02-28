@@ -96,6 +96,9 @@ en:
   processing: "processing ..."
   licence: licence number
   first_name_name: first name and name
+  first_name: First name
+  name: Name
+  group: Group
   select: Select
   error_during_creation_of_inscription: Error during the creation of your account
   the_following_fields_must_be_corrected: "The following fields must be corrected:"
