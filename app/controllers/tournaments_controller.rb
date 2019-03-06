@@ -170,7 +170,7 @@ class TournamentsController < ApplicationController
     play_series_with_partner = []
     if unlimited_series.count > 0
       unlimited_ids = unlimited_series.map(&:id)
-      play_series_with_partner.concat(PlaySeries.includes({:inscription_player => :player}, :partner)a
+      play_series_with_partner.concat(PlaySeries.includes({:inscription_player => :player}, :partner)
                                       .where(series_id: unlimited_ids).all)
     end
     if limited_series.count > 0
