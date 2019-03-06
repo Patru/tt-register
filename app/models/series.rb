@@ -203,6 +203,9 @@ class Series < ActiveRecord::Base
     end
   end
 
+  def transfer_players
+    inscription_players.map{|ip| ip.player.to_transfer}
+  end
 
   def non_licensed?
     non_licensed_start && non_licensed_start > 0

@@ -97,5 +97,25 @@ class Player < ActiveRecord::Base
       "#{ranking}/#{woman_ranking}"
     end
   end
+
+  def to_transfer
+    TransferPlayer.new(self)
+  end
 end
 
+class TransferPlayer
+  attr_accessor :canton, :category, :club, :elo, :name, :first_name, :licence, :ranking, :woman_ranking, :rv
+
+  def initialize (pl)
+    @licence = pl.licence
+    @name = pl.name
+    @first_name = pl.name
+    @club = pl.club
+    @category = pl.category
+    @elo = pl.elo
+    @ranking = pl.ranking
+    @woman_ranking = pl.woman_ranking
+    @canton = pl.canton
+    @rv = pl.rv
+  end
+end

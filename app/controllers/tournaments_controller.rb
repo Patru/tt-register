@@ -135,9 +135,18 @@ class TournamentsController < ApplicationController
         [tour_id, pls.inscription_player.player.licence, pls.series.series_name, pls.series_rank, partner_licence]
       }
       @entries_list.unshift [:tour_id, :licence, :series_name, :rank_in_series, :partner_licence]
+      entries_list = entries.map { |play_ser| play_ser.to_entry}
+      players_and_series = {entries: entries_list}
+      if tourn.non_licensed_series?
+        players_and_series[:players]=tourn.non_licensed_series.transfer_players
+      end
+
       respond_to do |format|
         format.csv do
           render_csv "entries"
+        end
+        format.json do
+          render :json => players_and_series
         end
       end
     else
@@ -161,7 +170,7 @@ class TournamentsController < ApplicationController
     play_series_with_partner = []
     if unlimited_series.count > 0
       unlimited_ids = unlimited_series.map(&:id)
-      play_series_with_partner.concat(PlaySeries.includes({:inscription_player => :player}, :partner)
+      play_series_with_partner.concat(PlaySeries.includes({:inscription_player => :player}, :partner)a
                                       .where(series_id: unlimited_ids).all)
     end
     if limited_series.count > 0

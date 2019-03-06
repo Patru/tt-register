@@ -85,4 +85,23 @@ class PlaySeries < ActiveRecord::Base
       0
     end
   end
+
+  def to_entry
+    Entry.new(self)
+  end
+end
+
+class Entry
+  attr_accessor :licence, :series, :rank, :partner_licence
+
+  def initialize(play_ser)
+    @licence = play_ser.inscription_player.player.licence
+    @series = play_ser.series.series_name
+    @rank = play_ser.series_rank
+    if play_ser.partner.nil?
+      @partner_licence=nil
+    else
+      @partner_licence=play_ser.partner.licence
+    end
+  end
 end
