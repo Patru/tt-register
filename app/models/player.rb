@@ -109,7 +109,7 @@ class TransferPlayer
   def initialize (pl)
     @licence = pl.licence
     @name = pl.name
-    @first_name = pl.name
+    @first_name = pl.first_name
     @club = pl.club
     @category = pl.category
     @elo = pl.elo
