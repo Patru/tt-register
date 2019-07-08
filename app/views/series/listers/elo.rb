@@ -9,7 +9,7 @@ module Views
         include Views::Basics
         needs :series, :play_series, :open
         def content
-          div class:'series-start' do
+          div :class=>'series-start' do
             text t :series_start, series_start:I18n.localize(@series.day_time, format: :long)
             unless @series.sys_exp_link.nil?
               text "; "
@@ -27,8 +27,8 @@ module Views
                 one_series idx+1, play_sers
                 if play_sers.count == 12
                   tr do
-                    td class:'small-vspace' do
-                      text ""
+                    td :class => 'small-vspace' do
+                      text ''
                     end
                   end
                 end
@@ -65,7 +65,7 @@ module Views
               end
               if idx ==half
                 td class:'series-name' do
-                  text I18n.t('players.series_name', index:ser_index, count:players.count)
+                  text I18n.t('players.series_name', :index=>ser_index, :count=>players.count)
                 end
               else
                 td ' '
@@ -76,11 +76,11 @@ module Views
 
         def line_opts index, half, last
           if index == 0
-            {class:'first'}
+            {:class=>'first'}
           elsif index ==last
-            {class:'last'}
+            {:class=>'last'}
           else
-            {class:'in'}
+            {:class=>'in'}
           end
         end
       end

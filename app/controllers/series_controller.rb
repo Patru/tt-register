@@ -79,6 +79,8 @@ class SeriesController < ApplicationController
         return MixedSeries.name
       elsif /elo18/i.match ser_type
         return Elo18Series.name
+      elsif /elo12plus/i.match ser_type
+        return Elo12PlusSeries.name
       elsif /elo/i.match ser_type
         return EloSeries.name
       elsif /rlq/i.match ser_type

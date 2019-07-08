@@ -8,7 +8,7 @@ module Views
         def content
           series_title
 
-          table class: 'players_list' do
+          table :class => 'players_list' do
             elo_header
             pl_count = @play_series.count.to_f
             category_sizes = sizes_list pl_count
@@ -24,7 +24,7 @@ module Views
                 one_series show_index, @play_series[start_index..end_index]
                 if index < category_sizes.count
                   tr do
-                    td class:'small-vspace' do
+                    td :class => 'small-vspace' do
                       text ""
                     end
                   end
@@ -34,6 +34,7 @@ module Views
           end
         end
 
+        # TODO:remove
         def straight_list(n, parts)
           return [n] if parts <= 1
           larger_size = (n.to_f/parts).ceil
@@ -51,12 +52,12 @@ module Views
           number_of_categories = (n/18.0).ceil
           dist = n
           parts = number_of_categories
-          list = straight_list(dist, parts)
+          list = two_sizes(dist, parts)
           twelves = []
           loop do
             dist = dist - 12
             parts = parts - 1
-            new_list = straight_list(dist, parts)
+            new_list = two_sizes(dist, parts)
             if new_list[0] > 18 || parts <= 1
               return list + twelves
             else
