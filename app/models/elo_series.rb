@@ -44,7 +44,7 @@ class EloSeries < Series
   end
 
   def lister
-    :Elo
+    :Elo12
   end
 
 end
