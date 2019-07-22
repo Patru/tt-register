@@ -2,7 +2,7 @@
 module Views
   module Series
     module Listers
-      class Elo12Plus < Lister
+      class Elo12 < Lister
         def content
           series_title
 
@@ -28,14 +28,6 @@ module Views
                 end
               end
             end
-          end
-        end
-
-        def list_of_sizes(n, max_players_in_series)
-          if n<=16
-            [n]
-          else
-            [16]+super(n-16, max_players_in_series+0)
           end
         end
       end
