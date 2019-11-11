@@ -23,7 +23,7 @@ class Inscription < ActiveRecord::Base
   
   def anrede
     if attribute_present? :licence then
-      if own_player.woman_ranking then
+      if own_player && own_player.woman_ranking then
         return I18n.t 'salutation.her'
       else
         return I18n.t 'salutation.him'
