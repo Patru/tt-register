@@ -204,7 +204,7 @@ class InscriptionsController < ApplicationController
       return
     end
     if @inscription.licence then
-      if Inscription.find_by_licence_and_tournament_id @inscription.licence, @inscription.tournament_id then
+      if Inscription.find_by_licence_and_tournament_id(@inscription.licence, @inscription.tournament_id) then
         flash[:error] = t('flash.inscription_exists', licence: @inscription.licence)
         @tournaments = Tournament.all
         redirect_to :action => "new"
@@ -246,10 +246,26 @@ class InscriptionsController < ApplicationController
   end
 
   def create_keep_informed(inscription)
-    keep_informed = KeepInformed.new
-    keep_informed.email = inscription.email
-    keep_informed.tournament = inscription.tournament
-    keep_informed.unlicensened = inscription.unlicensed?
+    keep_informed = KeepInformed.where(tournament_id:inscription.tournament_id,
+                                               email:inscription.email).first
+    if keep_informed.nil?
+      keep_informed = KeepInformed.new
+      keep_informed.email = inscription.email
+      keep_informed.tournament = inscription.tournament
+      keep_informed.unlicensed = inscription.unlicensed?
+      unless inscription.nil?
+        keep_informed.licence = inscription.licence
+        keep_informed.salutation = "#{inscription.anrede} #{inscription.name}"
+        unless inscription.language.nil?
+          keep_informed.language = inscription.language
+        else
+          keep_informed.language= I18n.locale
+        end
+      end
+    else
+      keep_informed.unlicensed = inscription.unlicensed?
+    end
+
     keep_informed.save
   end
 
@@ -354,7 +370,7 @@ class InscriptionsController < ApplicationController
 
   def logout
     session[:id] = nil
-    redirect_to(new_inscription_url, notice: t('notice.thanks_for_your_visit'))
+    redirect_to(new_inscription_url, notice => t('notice.thanks_for_your_visit'))
   end
   
   def own_inscription

@@ -1,6 +1,7 @@
-$theme_bg_color:rgb(90, 105, 142);
-$header_color:white;
-$link_color:lighten($theme_bg_color, 35);
+$main_bg_color:rgb(35, 100, 165);
+$theme_bg_color:lighten($main_bg_color, 45);
+$header_color:black;
+$link_color:darken($theme_bg_color, 55);
 @mixin linear-gradient-background($orientation, $col1, $col2, $col3) {
   background: $col2;    /* fallback for IE up to 9 */
   background: linear-gradient($orientation, $col1, $col2, $col3);
@@ -25,6 +26,12 @@ div#heading {
   background:inherit;
 }
 
+div#header_logo {
+  background-color: white;
+  padding-right: 10px;
+  padding-bottom: 8px;
+}
+
 h1 {
   background:inherit;
   color:$header_color;
@@ -43,8 +50,8 @@ div#header_text {
 }
 
 $menu_bg_color:lighten($theme_bg_color, 10);
-$menu_color:white;
-$menu_visited_color:#ffffee;
+$menu_color:#222222;
+$menu_visited_color:black;
 $nav_width:185px;
 div#maincontent {
   margin-right:$nav_width+5;
@@ -78,7 +85,7 @@ div#navigation {
 }
 
 form#new_inscription {
-  @include radial-fade-background(white, lighten($theme_bg_color, 30%));
+  @include radial-fade-background(white, darken($theme_bg_color, 20%));
   border: {
     color:lighten($theme_bg_color, 20);
   }

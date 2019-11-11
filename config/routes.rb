@@ -48,6 +48,7 @@ TtRegister::Application.routes.draw do
   match 'inscriptions/:id/:token' => 'inscriptions#login', :as => 'login'
   get 'tournament_days/entries/:id.:format' => 'tournament_days#download_entries', :as => 'day_entries'
   get ':id' => 'inscriptions#with_id', as: 'tour_with_id'
+  resources :keep_informeds, only: [:show, :edit, :new, :create, :update, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

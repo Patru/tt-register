@@ -293,6 +293,9 @@ de:
     remark_fr: Bemerkung Französisch
     remark_en: Bemerkung English
     create_inscription: Konto erzeugen
+    salutation: Anrede
+    unlicensed: Unlizenziert
+    language: Sprache
   dear_chap: "Lieber Tischtennisfreund"
   privacy: Datenschutz
   privacy_long: Datenschutzbestimmungen
@@ -357,6 +360,7 @@ de:
   feedback_form: Mit diesem Formular kannst uns Anregungen, Probleme, Kritiken oder auch einfach Lob zustellen.
   resend_login_link: Sende mir einen neuen Login Link
   change: Ändern
+  show: Anzeigen
   must_be_logged_in: Zur Benutzung dieser Funktion bitte den Anmelde-Link in der E-mail verwenden.
   change_player_data: Spielerdaten ändern
   show_inscription: Konto anzeigen

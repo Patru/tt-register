@@ -8,9 +8,13 @@ class Views::Tournaments::ShowKeepInformedEmails < Views::Tournaments::Tournamen
   def menu_items
   end
 
+  def show_menu(keep_informed)
+    menu_item_emoji keep_informed_path(keep_informed), :show
+  end
+
   def keep_informed_row(keep_informed)
     tr do
-      data_fields(keep_informed, :email, :create_inscription)
+      data_fields(keep_informed, :email, :create_inscription, :salutation, :language)
 #      td do
 #        a(:href => tournament_path(tournament), :title => "Details anzeigen") do
 #          image_tag("show.png", :border=>0)
@@ -20,10 +24,16 @@ class Views::Tournaments::ShowKeepInformedEmails < Views::Tournaments::Tournamen
 #        a(:href => edit_tournament_path(tournament), :title => 'ändern') do
 #          image_tag("stylo.png", :border=>0)
 #        end
-#      end
+#      endF
       td do
-        text "löschen"
-#        link_to('Löschen', tournament, :confirm => 'Wirklich?', :method => :delete)
+        link_to "\u{1F441}", keep_informed_path(keep_informed), :title => t(:show)
+      end
+      td do
+        link_to "\u{1F4DD}", edit_keep_informed_path(keep_informed), :title => t(:change)
+      end
+      td do
+#        text "löschen"
+        link_to(lightning_image, keep_informed, :confirm => 'Wirklich?', :method => :delete)
       end
     end
   end
@@ -32,7 +42,7 @@ class Views::Tournaments::ShowKeepInformedEmails < Views::Tournaments::Tournamen
     if @tournament.keep_informeds.count > 0
       table do
         thead do
-          headers :email, :create_inscription
+          headers :email, :create_inscription, :salutation, :language
         end
         @tournament.keep_informeds.each do |keep_informed|
           keep_informed_row(keep_informed)

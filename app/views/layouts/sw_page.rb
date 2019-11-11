@@ -541,6 +541,14 @@ class Views::Layouts::SWPage < Erector::Widgets::Page
     end
   end
 
+  def menu_item_emoji(url, tag)
+    li do
+      a(href:url, title:t("links.#{tag}.text")) do
+        text "\u{1F441}"
+      end
+    end
+  end
+
   # retrieves a class object from of a list of module names followed by a class name
   def make_class(*args)
     view_class=args.inject(Kernel) {|scope, const_name| scope.const_get(const_name)}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20181120144328) do
+ActiveRecord::Schema.define(:version => 20191110204311) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -41,15 +41,20 @@ ActiveRecord::Schema.define(:version => 20181120144328) do
     t.datetime "updated_at"
     t.string   "salt"
     t.string   "secret"
+    t.string   "language"
   end
 
   create_table "keep_informeds", :force => true do |t|
     t.integer  "tournament_id"
     t.string   "email"
     t.boolean  "create_inscription"
-    t.boolean  "unlicensened"
+    t.boolean  "unlicensed"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "licence"
+    t.string   "salutation"
+    t.string   "verification_token"
+    t.string   "language"
   end
 
   create_table "play_series", :force => true do |t|
