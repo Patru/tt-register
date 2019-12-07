@@ -38,6 +38,7 @@ class Views::TournamentDays::WaitingList < Views::TournamentDays::TournamentDay
   end
 
   def sw_content
+    h3 "Total #{@waiting_list_entries.count} Einträge"
     table do
       header
       @waiting_list_entries.each_with_index do |waiting_list_entry, index|
