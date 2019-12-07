@@ -594,6 +594,7 @@ de:
     girls: Mädchen
   tournament_days:
     download: Alle Anmeldungen dieses Tages als Datei
+    waiting: Warteliste
   elo_nav_name: Elo 12-er
   elo_18_nav_name: Elo 18-er Serie
   elo_12_min: Elo Zwölferserie ab %{min}

@@ -37,6 +37,8 @@ class Views::TournamentDays::Show < Views::TournamentDays::TournamentDay
         input :type => "submit", :value => "Durchführen"
       end
       p do
+        link_to t('tournament_days.waiting'), day_waiting_list_path(id:@tournament_day.id, format:'html')
+        text " | "
         link_to t('tournament_days.download'), day_entries_path(id:@tournament_day.id, format:'csv')
         text " | "
         link_to "Elo-Meldungen herunterladen", elo_entries_path(:id => @tournament_day.id, :format => "csv")

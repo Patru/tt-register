@@ -128,6 +128,18 @@ class TournamentDaysController < ApplicationController
     end
   end
 
+  def waiting_list
+    @tournament_day = TournamentDay.find(params[:id])
+    @tournament_day.series
+    @waiting_list_entries=WaitingListEntry.includes(inscription_player: [:inscription, :player]).
+        where(tournament_day_id:11).
+        order(:created_at)
+
+    respond_to do |format|
+      format.html # waiting_list.rb
+    end
+  end
+
   def elo_entries
     @tournament_day = TournamentDay.find(params[:id])
     play_series = PlaySeries.all(

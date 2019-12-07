@@ -47,6 +47,7 @@ TtRegister::Application.routes.draw do
   post 'inscriptions/transfer_player/:inscription_player_id' => 'inscriptions#transfer_player', as: :transfer_player
   match 'inscriptions/:id/:token' => 'inscriptions#login', :as => 'login'
   get 'tournament_days/entries/:id.:format' => 'tournament_days#download_entries', :as => 'day_entries'
+  get 'tournament_days/waiting/:id.:format' => 'tournament_days#waiting_list', :as => 'day_waiting_list'
   get ':id' => 'inscriptions#with_id', as: 'tour_with_id'
   resources :keep_informeds, only: [:show, :edit, :new, :create, :update, :destroy]
 
