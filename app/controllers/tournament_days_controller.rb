@@ -132,7 +132,7 @@ class TournamentDaysController < ApplicationController
     @tournament_day = TournamentDay.find(params[:id])
     @tournament_day.series
     @waiting_list_entries=WaitingListEntry.includes(inscription_player: [:inscription, :player]).
-        where(tournament_day_id:11).
+        where(tournament_day_id:id).
         order(:created_at)
 
     respond_to do |format|
