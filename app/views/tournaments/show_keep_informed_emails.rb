@@ -14,7 +14,7 @@ class Views::Tournaments::ShowKeepInformedEmails < Views::Tournaments::Tournamen
 
   def keep_informed_row(keep_informed)
     tr do
-      data_fields(keep_informed, :email, :create_inscription, :salutation, :language)
+      data_fields(keep_informed, :email, :create_inscription, :salutation, :language, :licence)
 #      td do
 #        a(:href => tournament_path(tournament), :title => "Details anzeigen") do
 #          image_tag("show.png", :border=>0)
