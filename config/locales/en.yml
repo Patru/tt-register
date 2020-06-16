@@ -286,6 +286,7 @@ en:
   mailer:
     confirmation:
       subject: Confirmation of your account
+      non_licensed: Confirmation of your inscription
     inscription_player_confirmation:
       subject: Confirming the enrollment of %{player_name}
     inscription_changed:

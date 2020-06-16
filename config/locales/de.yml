@@ -570,6 +570,7 @@ de:
   mailer:
     confirmation:
       subject: Neues Anmeldekonto erstellt
+      non_licensed: Bestätigung deiner Anmeldung
     inscription_player_confirmation:
       subject: Bestätigung der Anmeldung von %{player_name}
     inscription_changed:

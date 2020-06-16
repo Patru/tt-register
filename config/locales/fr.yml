@@ -492,7 +492,8 @@ fr:
       title: modifier cette inscription
   mailer:
     confirmation:
-      subject: Confirmation de ton inscription
+      subject: Confirmation de ton compte d'inscription
+      non_licensed: Confirmation de ton inscription
     inscription_player_confirmation:
       subject: Confirmation de l'inscription de %{player_name}
     inscription_changed:
