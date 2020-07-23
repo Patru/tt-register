@@ -141,6 +141,11 @@ class TournamentsController < ApplicationController
         players_and_series[:players]=tourn.non_licensed_series.transfer_players
       end
 
+      waiting_list = tourn.waiting_list_series.map { |wls|
+        wls.to_transfer_data
+      }
+      players_and_series[:waiting_list] = waiting_list
+
       respond_to do |format|
         format.csv do
           render_csv "entries"

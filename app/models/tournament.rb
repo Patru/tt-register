@@ -136,4 +136,9 @@ class Tournament < ActiveRecord::Base
     end
     return 0
   end
+
+  def waiting_list_series
+    WaitingListSeries.joins(waiting_list_entry: :tournament_day)
+        .includes(:series, waiting_list_entry: {inscription_player: :player}).where(tournament_days: {tournament_id: id})
+  end
 end
