@@ -18,7 +18,7 @@ class Views::Tournaments::Show < Views::Tournaments::Tournament
       text " | "
       link_to "E-Mail Adressen", tournament_emails_path(id:@tournament.id, format:'html')
       text " | "
-      link_to "Einschreibung Mails herunterladen", download_inscription_emails(:id => @tournament.id, :format => "csv")
+      link_to "Einschreibung Mails herunterladen", inscription_emails_path(:id => @tournament.id, :format => "csv")
       text " | "
       button_to "API-Key erzeugen", create_api_key_path(id: @tournament.id)
     end

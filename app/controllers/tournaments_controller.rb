@@ -120,7 +120,7 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       format.csv do
-        render_csv "download_inscription_emails"
+        render_csv "inscription_emails"
       end
     end
   end
