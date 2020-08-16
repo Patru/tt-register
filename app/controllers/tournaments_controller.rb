@@ -114,7 +114,7 @@ class TournamentsController < ApplicationController
 
   def download_inscription_emails
     @tournament = Tournament.find(params[:id])
-    inscriptions = Inscription.joins(:inscription_players)
+    @inscriptions = Inscription.joins(:inscription_players)
         .having("count(inscription_players.id) > 0").group("inscriptions.id")
         .where(tournament_id: @tournament.id).all
 
