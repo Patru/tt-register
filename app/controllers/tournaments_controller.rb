@@ -112,6 +112,19 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def download_inscription_emails
+    @tournament = Tournament.find(params[:id])
+    inscriptions = Inscription.joins(:inscription_players)
+        .having("count(inscription_players.id) > 0").group("inscriptions.id")
+        .where(tournament_id: @tournament.id).all
+
+    respond_to do |format|
+      format.csv do
+        render_csv "download_inscription_emails"
+      end
+    end
+  end
+
   def api_entries
     tour_id = params[:tour_id]
     if tour_id.blank?

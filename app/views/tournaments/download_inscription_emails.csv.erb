@@ -1,0 +1,3 @@
+<% @inscripttions.each do |inscription| %>
+<%=  inscription.email_line.to_csv(col_sep:"\t") -%>
+<% end %>

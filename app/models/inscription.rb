@@ -92,4 +92,8 @@ class Inscription < ActiveRecord::Base
       return pl.ranking == 0
     end
   end
+
+  def email_line
+    [anrede, name, email, language]
+  end
 end
