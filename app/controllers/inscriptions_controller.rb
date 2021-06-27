@@ -105,6 +105,13 @@ class InscriptionsController < ApplicationController
       render :new_non_licensed
       return
     end
+    nonLiSer=Series.joins(:tournament_day).where('tournament_days.tournament_id' => tournament).
+        where("non_licensed_start > ?", 0).where("tournament_days.day > ?", Time.now).first
+    if nonLiSer.nil?
+      flash[:error] = "Keine Nichtlizenzierten für #{tournament.name}"
+      render :new_non_licensed
+      return
+    end
 
     @inscription = Inscription.where(tournament_id:tournament.id, email:nlr[:email]).first
     if @inscription.nil?
