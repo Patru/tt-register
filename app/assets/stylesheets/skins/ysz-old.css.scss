@@ -1,5 +1,5 @@
 $link_color:#0000bb;
-$theme_bg_color:#000000;
+$theme_bg_color:#ffff00;
 div#tournament_header {
   background:$theme_bg_color;
   margin: -5px 0px 0px 0px;
@@ -10,7 +10,7 @@ h1 {
 
 div#header_text {
   h1 a {
-    color: rgb(190, 180, 128);
+    color: black;
     font-size: 1.5em;
     font-weight:bold;
     &:hover {
@@ -25,18 +25,17 @@ div#navigation {
   ul {
     li {
       ul {
-        background: rgb(68, 68, 68);
+        background: #ffffa0;
         li {
           a {
             .link {
-              color:#A0A0F0;
+              color:#2020e0;
             }
             &:visited {
               color: #6060ff
             }
             &:hover {
               background:$theme_bg_color;
-              color: rgb(190, 180, 128);
             }
             &:active {
               color: #202000;
